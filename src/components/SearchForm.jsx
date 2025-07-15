@@ -5,24 +5,27 @@ const SearchForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuggesting, setIsSuggesting] = useState(false);
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const searchInputRef = useRef(null);
 
-  // Debounce effect
+  // Debounce effect for input
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 300);
-
+    }, 500);
     return () => clearTimeout(timer);
   }, [query]);
 
-  // Search effect
+  // Suggestion and search effect
   useEffect(() => {
-    if (debouncedQuery.trim()) {
+    if (debouncedQuery.trim() && debouncedQuery.trim().split(/\s+/).length > 2) {
+      fetchSuggestions(debouncedQuery);
       performSearch(debouncedQuery);
     } else {
+      setSuggestions([]);
       setResults([]);
     }
   }, [debouncedQuery]);
@@ -41,14 +44,14 @@ const SearchForm = () => {
         handleClose();
       }
     };
-
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
   }, [isOpen]);
 
-  const performSearch = async (searchQuery) => {
+  // API handler for both search and suggestions
+  const callSearchApi = async (searchQuery, type) => {
     setIsLoading(true);
     try {
       const apiUrl = getSearchApiUrl();
@@ -59,29 +62,39 @@ const SearchForm = () => {
         },
         body: JSON.stringify({
           userInput: {
-            type: "search",
+            type,
             value: searchQuery
           }
         }),
       });
-      
       if (response.ok) {
         const data = await response.json();
-        if (data.data?.response?.widgets) {
-          setResults(data.data.response.widgets);
-        } else {
-          setResults([]);
-        }
+        return data.data?.response?.widgets || [];
       } else {
         console.error('API response error:', response.status, response.statusText);
-        setResults([]);
+        return [];
       }
     } catch (error) {
       console.error('Search error:', error);
-      setResults([]);
+      return [];
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Fetch suggestions (type: 'partial')
+  const fetchSuggestions = async (searchQuery) => {
+    setIsSuggesting(true);
+    const suggestionResults = await callSearchApi(searchQuery, 'partial');
+    setSuggestions(suggestionResults);
+    setIsSuggesting(false);
+  };
+
+  // Perform full search (type: 'search')
+  const performSearch = async (searchQuery) => {
+    setIsSuggesting(false);
+    const searchResults = await callSearchApi(searchQuery, 'search');
+    setResults(searchResults);
   };
 
   const handleToggle = () => {
@@ -89,6 +102,7 @@ const SearchForm = () => {
     if (!isOpen) {
       setQuery('');
       setResults([]);
+      setSuggestions([]);
     }
   };
 
@@ -96,11 +110,29 @@ const SearchForm = () => {
     setIsOpen(false);
     setQuery('');
     setResults([]);
+    setSuggestions([]);
   };
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       handleClose();
+    }
+  };
+
+  // Handle suggestion click
+  const handleSuggestionClick = (suggestion) => {
+    setQuery(suggestion.description || suggestion.value || '');
+    setSuggestions([]);
+    performSearch(suggestion.description || suggestion.value || '');
+  };
+
+  // Handle Enter key for search
+  const handleInputKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      if (query.trim().split(/\s+/).length > 2) {
+        setSuggestions([]);
+        performSearch(query);
+      }
     }
   };
 
@@ -146,28 +178,42 @@ const SearchForm = () => {
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleInputKeyDown}
                   placeholder="Search for products..."
                   className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 />
                 <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                {isLoading && (
+                {(isLoading || isSuggesting) && (
                   <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
                   </div>
+                )}
+                {/* Suggestions Dropdown */}
+                {suggestions.length > 0 && (
+                  <ul className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                    {suggestions.map((suggestion, idx) => (
+                      <li
+                        key={idx}
+                        className="px-4 py-2 cursor-pointer hover:bg-blue-50"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                      >
+                        {suggestion.description || suggestion.value || 'No description'}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
             </div>
 
             {/* Search Results */}
             <div className="px-6 pb-6 max-h-96 overflow-y-auto">
-              {query && !isLoading && results.length === 0 && (
+              {query && !isLoading && !isSuggesting && results.length === 0 && (
                 <div className="text-center py-8 text-gray-500">
                   No results found for "{query}"
                 </div>
               )}
-              
               {results.length > 0 && (
                 <div className="space-y-4">
                   <h3 className="text-sm font-medium text-gray-700 mb-3">
