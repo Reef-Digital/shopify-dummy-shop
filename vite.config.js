@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), cssInjectedByJsPlugin(), tailwindcss(),],
+  base: '/shopify-dummy-shop/',
   define: {
     'process.env.NODE_ENV': JSON.stringify('dev'),
   },
