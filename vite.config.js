@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import tailwindcss from '@tailwindcss/vite'
+// DO NOT import tailwindcss here!
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), cssInjectedByJsPlugin(), tailwindcss(),],
+  plugins: [react(), cssInjectedByJsPlugin()],
   base: '/shopify-dummy-shop/',
   define: {
     'process.env.NODE_ENV': JSON.stringify('dev'),
@@ -15,7 +14,7 @@ export default defineConfig({
       input: './src/main.jsx',
       output: {
         format: 'iife',
-        name: 'MyWidget',       // Optional global name
+        name: 'MyWidget',
         entryFileNames: 'my-widget.iife.js',
       },
     },
