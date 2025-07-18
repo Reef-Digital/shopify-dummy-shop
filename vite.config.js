@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
+
 // DO NOT import tailwindcss here!
 
 export default defineConfig({
@@ -9,15 +10,8 @@ export default defineConfig({
   define: {
     'process.env.NODE_ENV': JSON.stringify('dev'),
   },
+  // No need for rollupOptions for a SPA/site build!
   build: {
-    rollupOptions: {
-      input: './src/main.jsx',
-      output: {
-        format: 'iife',
-        name: 'MyWidget',
-        entryFileNames: 'my-widget.iife.js',
-      },
-    },
-    minify: false,
-  },
+    minify: false  // (optional; can remove if you want minification)
+  }
 })
