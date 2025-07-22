@@ -2,7 +2,8 @@ import React from "react";
 
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
+
 
 export default function App() {
   return (

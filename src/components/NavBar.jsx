@@ -21,5 +21,6 @@ export default function NavBar() {
         <span>Wish List</span>
       </div>
     </nav>
+    
   );
 }
