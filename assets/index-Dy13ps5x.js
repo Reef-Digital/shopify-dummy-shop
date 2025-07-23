@@ -3,7 +3,7 @@
   try {
     if (typeof document != "undefined") {
       var elementStyle = document.createElement("style");
-      elementStyle.appendChild(document.createTextNode("*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.fixed {\n  position: fixed;\n}\n.absolute {\n  position: absolute;\n}\n.relative {\n  position: relative;\n}\n.inset-0 {\n  inset: 0px;\n}\n.bottom-6 {\n  bottom: 1.5rem;\n}\n.left-0 {\n  left: 0px;\n}\n.left-4 {\n  left: 1rem;\n}\n.left-6 {\n  left: 1.5rem;\n}\n.right-0 {\n  right: 0px;\n}\n.right-4 {\n  right: 1rem;\n}\n.top-1\\/2 {\n  top: 50%;\n}\n.z-10 {\n  z-index: 10;\n}\n.z-40 {\n  z-index: 40;\n}\n.z-50 {\n  z-index: 50;\n}\n.mx-auto {\n  margin-left: auto;\n  margin-right: auto;\n}\n.mb-1 {\n  margin-bottom: 0.25rem;\n}\n.mb-10 {\n  margin-bottom: 2.5rem;\n}\n.mb-2 {\n  margin-bottom: 0.5rem;\n}\n.mb-3 {\n  margin-bottom: 0.75rem;\n}\n.mb-8 {\n  margin-bottom: 2rem;\n}\n.ml-2 {\n  margin-left: 0.5rem;\n}\n.ml-4 {\n  margin-left: 1rem;\n}\n.mt-2 {\n  margin-top: 0.5rem;\n}\n.mt-4 {\n  margin-top: 1rem;\n}\n.flex {\n  display: flex;\n}\n.h-10 {\n  height: 2.5rem;\n}\n.h-20 {\n  height: 5rem;\n}\n.h-5 {\n  height: 1.25rem;\n}\n.h-6 {\n  height: 1.5rem;\n}\n.h-\\[60vh\\] {\n  height: 60vh;\n}\n.max-h-60 {\n  max-height: 15rem;\n}\n.max-h-96 {\n  max-height: 24rem;\n}\n.min-h-screen {\n  min-height: 100vh;\n}\n.w-10 {\n  width: 2.5rem;\n}\n.w-20 {\n  width: 5rem;\n}\n.w-5 {\n  width: 1.25rem;\n}\n.w-6 {\n  width: 1.5rem;\n}\n.w-60 {\n  width: 15rem;\n}\n.w-full {\n  width: 100%;\n}\n.max-w-2xl {\n  max-width: 42rem;\n}\n.flex-1 {\n  flex: 1 1 0%;\n}\n.-translate-y-1\\/2 {\n  --tw-translate-y: -50%;\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n.transform {\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n@keyframes spin {\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n.animate-spin {\n  animation: spin 1s linear infinite;\n}\n.cursor-pointer {\n  cursor: pointer;\n}\n.flex-col {\n  flex-direction: column;\n}\n.items-start {\n  align-items: flex-start;\n}\n.items-center {\n  align-items: center;\n}\n.justify-center {\n  justify-content: center;\n}\n.justify-between {\n  justify-content: space-between;\n}\n.gap-4 {\n  gap: 1rem;\n}\n.space-x-6 > :not([hidden]) ~ :not([hidden]) {\n  --tw-space-x-reverse: 0;\n  margin-right: calc(1.5rem * var(--tw-space-x-reverse));\n  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));\n}\n.space-x-8 > :not([hidden]) ~ :not([hidden]) {\n  --tw-space-x-reverse: 0;\n  margin-right: calc(2rem * var(--tw-space-x-reverse));\n  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));\n}\n.space-y-4 > :not([hidden]) ~ :not([hidden]) {\n  --tw-space-y-reverse: 0;\n  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1rem * var(--tw-space-y-reverse));\n}\n.overflow-y-auto {\n  overflow-y: auto;\n}\n.rounded {\n  border-radius: 0.25rem;\n}\n.rounded-full {\n  border-radius: 9999px;\n}\n.rounded-lg {\n  border-radius: 0.5rem;\n}\n.rounded-md {\n  border-radius: 0.375rem;\n}\n.rounded-xl {\n  border-radius: 0.75rem;\n}\n.border {\n  border-width: 1px;\n}\n.border-b {\n  border-bottom-width: 1px;\n}\n.border-b-2 {\n  border-bottom-width: 2px;\n}\n.border-t {\n  border-top-width: 1px;\n}\n.border-blue-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));\n}\n.border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));\n}\n.border-gray-300 {\n  --tw-border-opacity: 1;\n  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));\n}\n.bg-black {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));\n}\n.bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));\n}\n.bg-neutral-900 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(23 23 23 / var(--tw-bg-opacity, 1));\n}\n.bg-slate-50 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));\n}\n.bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.bg-opacity-50 {\n  --tw-bg-opacity: 0.5;\n}\n.bg-gradient-to-r {\n  background-image: linear-gradient(to right, var(--tw-gradient-stops));\n}\n.from-blue-100 {\n  --tw-gradient-from: #dbeafe var(--tw-gradient-from-position);\n  --tw-gradient-to: rgb(219 234 254 / 0) var(--tw-gradient-to-position);\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);\n}\n.to-blue-50 {\n  --tw-gradient-to: #eff6ff var(--tw-gradient-to-position);\n}\n.p-2 {\n  padding: 0.5rem;\n}\n.p-3 {\n  padding: 0.75rem;\n}\n.p-4 {\n  padding: 1rem;\n}\n.p-6 {\n  padding: 1.5rem;\n}\n.px-2 {\n  padding-left: 0.5rem;\n  padding-right: 0.5rem;\n}\n.px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.px-6 {\n  padding-left: 1.5rem;\n  padding-right: 1.5rem;\n}\n.px-8 {\n  padding-left: 2rem;\n  padding-right: 2rem;\n}\n.py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.py-3 {\n  padding-top: 0.75rem;\n  padding-bottom: 0.75rem;\n}\n.py-4 {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n}\n.py-6 {\n  padding-top: 1.5rem;\n  padding-bottom: 1.5rem;\n}\n.py-8 {\n  padding-top: 2rem;\n  padding-bottom: 2rem;\n}\n.pb-6 {\n  padding-bottom: 1.5rem;\n}\n.pl-12 {\n  padding-left: 3rem;\n}\n.text-center {\n  text-align: center;\n}\n.text-2xl {\n  font-size: 1.5rem;\n  line-height: 2rem;\n}\n.text-4xl {\n  font-size: 2.25rem;\n  line-height: 2.5rem;\n}\n.text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.text-lg {\n  font-size: 1.125rem;\n  line-height: 1.75rem;\n}\n.text-sm {\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n.text-xl {\n  font-size: 1.25rem;\n  line-height: 1.75rem;\n}\n.text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-medium {\n  font-weight: 500;\n}\n.font-semibold {\n  font-weight: 600;\n}\n.tracking-tight {\n  letter-spacing: -0.025em;\n}\n.text-blue-600 {\n  --tw-text-opacity: 1;\n  color: rgb(37 99 235 / var(--tw-text-opacity, 1));\n}\n.text-blue-800 {\n  --tw-text-opacity: 1;\n  color: rgb(30 64 175 / var(--tw-text-opacity, 1));\n}\n.text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(156 163 175 / var(--tw-text-opacity, 1));\n}\n.text-gray-500 {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n.text-gray-600 {\n  --tw-text-opacity: 1;\n  color: rgb(75 85 99 / var(--tw-text-opacity, 1));\n}\n.text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.text-gray-800 {\n  --tw-text-opacity: 1;\n  color: rgb(31 41 55 / var(--tw-text-opacity, 1));\n}\n.text-gray-900 {\n  --tw-text-opacity: 1;\n  color: rgb(17 24 39 / var(--tw-text-opacity, 1));\n}\n.text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.shadow {\n  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.shadow-2xl {\n  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);\n  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.outline-none {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);\n}\n.transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.transition-colors {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.duration-300 {\n  transition-duration: 300ms;\n}\n.hover\\:scale-110:hover {\n  --tw-scale-x: 1.1;\n  --tw-scale-y: 1.1;\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n.hover\\:bg-blue-50:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-blue-700:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-gray-100:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-gray-50:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));\n}\n.focus\\:border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.focus\\:ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ring-blue-400:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(96 165 250 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ring-blue-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));\n}"));
+      elementStyle.appendChild(document.createTextNode("*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.fixed {\n  position: fixed;\n}\n.absolute {\n  position: absolute;\n}\n.relative {\n  position: relative;\n}\n.inset-0 {\n  inset: 0px;\n}\n.bottom-10 {\n  bottom: 2.5rem;\n}\n.bottom-6 {\n  bottom: 1.5rem;\n}\n.left-0 {\n  left: 0px;\n}\n.left-4 {\n  left: 1rem;\n}\n.left-6 {\n  left: 1.5rem;\n}\n.right-0 {\n  right: 0px;\n}\n.right-4 {\n  right: 1rem;\n}\n.top-1\\/2 {\n  top: 50%;\n}\n.z-10 {\n  z-index: 10;\n}\n.z-40 {\n  z-index: 40;\n}\n.z-50 {\n  z-index: 50;\n}\n.mx-6 {\n  margin-left: 1.5rem;\n  margin-right: 1.5rem;\n}\n.mx-auto {\n  margin-left: auto;\n  margin-right: auto;\n}\n.mb-1 {\n  margin-bottom: 0.25rem;\n}\n.mb-2 {\n  margin-bottom: 0.5rem;\n}\n.mb-3 {\n  margin-bottom: 0.75rem;\n}\n.mb-4 {\n  margin-bottom: 1rem;\n}\n.mb-6 {\n  margin-bottom: 1.5rem;\n}\n.ml-4 {\n  margin-left: 1rem;\n}\n.mr-2 {\n  margin-right: 0.5rem;\n}\n.mt-1 {\n  margin-top: 0.25rem;\n}\n.mt-2 {\n  margin-top: 0.5rem;\n}\n.flex {\n  display: flex;\n}\n.grid {\n  display: grid;\n}\n.hidden {\n  display: none;\n}\n.h-5 {\n  height: 1.25rem;\n}\n.h-6 {\n  height: 1.5rem;\n}\n.h-8 {\n  height: 2rem;\n}\n.h-\\[60vh\\] {\n  height: 60vh;\n}\n.h-auto {\n  height: auto;\n}\n.h-screen {\n  height: 100vh;\n}\n.max-h-60 {\n  max-height: 15rem;\n}\n.max-h-96 {\n  max-height: 24rem;\n}\n.min-h-screen {\n  min-height: 100vh;\n}\n.w-5 {\n  width: 1.25rem;\n}\n.w-6 {\n  width: 1.5rem;\n}\n.w-8 {\n  width: 2rem;\n}\n.w-full {\n  width: 100%;\n}\n.max-w-2xl {\n  max-width: 42rem;\n}\n.max-w-7xl {\n  max-width: 80rem;\n}\n.max-w-md {\n  max-width: 28rem;\n}\n.max-w-xl {\n  max-width: 36rem;\n}\n.max-w-xs {\n  max-width: 20rem;\n}\n.flex-1 {\n  flex: 1 1 0%;\n}\n.flex-grow {\n  flex-grow: 1;\n}\n.-translate-y-1\\/2 {\n  --tw-translate-y: -50%;\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n.transform {\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n@keyframes spin {\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n.animate-spin {\n  animation: spin 1s linear infinite;\n}\n.cursor-pointer {\n  cursor: pointer;\n}\n.grid-cols-1 {\n  grid-template-columns: repeat(1, minmax(0, 1fr));\n}\n.flex-col {\n  flex-direction: column;\n}\n.flex-wrap {\n  flex-wrap: wrap;\n}\n.items-start {\n  align-items: flex-start;\n}\n.items-center {\n  align-items: center;\n}\n.justify-center {\n  justify-content: center;\n}\n.justify-between {\n  justify-content: space-between;\n}\n.gap-2 {\n  gap: 0.5rem;\n}\n.gap-3 {\n  gap: 0.75rem;\n}\n.gap-4 {\n  gap: 1rem;\n}\n.gap-8 {\n  gap: 2rem;\n}\n.space-y-2 > :not([hidden]) ~ :not([hidden]) {\n  --tw-space-y-reverse: 0;\n  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));\n}\n.space-y-4 > :not([hidden]) ~ :not([hidden]) {\n  --tw-space-y-reverse: 0;\n  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1rem * var(--tw-space-y-reverse));\n}\n.overflow-y-auto {\n  overflow-y: auto;\n}\n.rounded {\n  border-radius: 0.25rem;\n}\n.rounded-full {\n  border-radius: 9999px;\n}\n.rounded-lg {\n  border-radius: 0.5rem;\n}\n.rounded-xl {\n  border-radius: 0.75rem;\n}\n.border {\n  border-width: 1px;\n}\n.border-b {\n  border-bottom-width: 1px;\n}\n.border-b-2 {\n  border-bottom-width: 2px;\n}\n.border-t {\n  border-top-width: 1px;\n}\n.border-blue-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));\n}\n.border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));\n}\n.border-gray-300 {\n  --tw-border-opacity: 1;\n  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));\n}\n.bg-black {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));\n}\n.bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));\n}\n.bg-slate-50 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));\n}\n.bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.bg-opacity-50 {\n  --tw-bg-opacity: 0.5;\n}\n.bg-cover {\n  background-size: cover;\n}\n.bg-center {\n  background-position: center;\n}\n.object-contain {\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.object-cover {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.p-2 {\n  padding: 0.5rem;\n}\n.p-3 {\n  padding: 0.75rem;\n}\n.p-4 {\n  padding: 1rem;\n}\n.p-6 {\n  padding: 1.5rem;\n}\n.px-2 {\n  padding-left: 0.5rem;\n  padding-right: 0.5rem;\n}\n.px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.px-6 {\n  padding-left: 1.5rem;\n  padding-right: 1.5rem;\n}\n.py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.py-10 {\n  padding-top: 2.5rem;\n  padding-bottom: 2.5rem;\n}\n.py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.py-3 {\n  padding-top: 0.75rem;\n  padding-bottom: 0.75rem;\n}\n.py-8 {\n  padding-top: 2rem;\n  padding-bottom: 2rem;\n}\n.pb-6 {\n  padding-bottom: 1.5rem;\n}\n.pl-12 {\n  padding-left: 3rem;\n}\n.text-left {\n  text-align: left;\n}\n.text-center {\n  text-align: center;\n}\n.text-2xl {\n  font-size: 1.5rem;\n  line-height: 2rem;\n}\n.text-3xl {\n  font-size: 1.875rem;\n  line-height: 2.25rem;\n}\n.text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.text-lg {\n  font-size: 1.125rem;\n  line-height: 1.75rem;\n}\n.text-sm {\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n.text-xl {\n  font-size: 1.25rem;\n  line-height: 1.75rem;\n}\n.text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-medium {\n  font-weight: 500;\n}\n.font-semibold {\n  font-weight: 600;\n}\n.tracking-wider {\n  letter-spacing: 0.05em;\n}\n.text-black {\n  --tw-text-opacity: 1;\n  color: rgb(0 0 0 / var(--tw-text-opacity, 1));\n}\n.text-blue-800 {\n  --tw-text-opacity: 1;\n  color: rgb(30 64 175 / var(--tw-text-opacity, 1));\n}\n.text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(156 163 175 / var(--tw-text-opacity, 1));\n}\n.text-gray-500 {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n.text-gray-600 {\n  --tw-text-opacity: 1;\n  color: rgb(75 85 99 / var(--tw-text-opacity, 1));\n}\n.text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.text-gray-800 {\n  --tw-text-opacity: 1;\n  color: rgb(31 41 55 / var(--tw-text-opacity, 1));\n}\n.text-gray-900 {\n  --tw-text-opacity: 1;\n  color: rgb(17 24 39 / var(--tw-text-opacity, 1));\n}\n.text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.underline {\n  text-decoration-line: underline;\n}\n.line-through {\n  text-decoration-line: line-through;\n}\n.shadow {\n  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.shadow-2xl {\n  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);\n  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.shadow-sm {\n  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.outline-none {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);\n}\n.transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.transition-colors {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.duration-300 {\n  transition-duration: 300ms;\n}\n.hover\\:scale-110:hover {\n  --tw-scale-x: 1.1;\n  --tw-scale-y: 1.1;\n  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n.hover\\:bg-blue-50:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-blue-700:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-gray-100:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-gray-50:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));\n}\n.hover\\:bg-gray-800:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));\n}\n.hover\\:underline:hover {\n  text-decoration-line: underline;\n}\n.focus\\:border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ring-blue-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));\n}\n@media (min-width: 640px) {\n\n  .sm\\:inline {\n    display: inline;\n  }\n\n  .sm\\:grid-cols-2 {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n\n  .sm\\:px-10 {\n    padding-left: 2.5rem;\n    padding-right: 2.5rem;\n  }\n\n  .sm\\:text-4xl {\n    font-size: 2.25rem;\n    line-height: 2.5rem;\n  }\n\n  .sm\\:text-lg {\n    font-size: 1.125rem;\n    line-height: 1.75rem;\n  }\n}\n@media (min-width: 768px) {\n\n  .md\\:mx-0 {\n    margin-left: 0px;\n    margin-right: 0px;\n  }\n\n  .md\\:block {\n    display: block;\n  }\n\n  .md\\:flex {\n    display: flex;\n  }\n\n  .md\\:hidden {\n    display: none;\n  }\n\n  .md\\:grid-cols-3 {\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n  }\n\n  .md\\:text-left {\n    text-align: left;\n  }\n\n  .md\\:text-3xl {\n    font-size: 1.875rem;\n    line-height: 2.25rem;\n  }\n\n  .md\\:text-5xl {\n    font-size: 3rem;\n    line-height: 1;\n  }\n\n  .md\\:text-xl {\n    font-size: 1.25rem;\n    line-height: 1.75rem;\n  }\n}\n@media (min-width: 1024px) {\n\n  .lg\\:grid-cols-4 {\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n  }\n}"));
       document.head.appendChild(elementStyle);
     }
   } catch (e) {
@@ -47,6 +47,9 @@
     fetch(link.href, fetchOpts);
   }
 })();
+function getDefaultExportFromCjs(x) {
+  return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
+}
 var jsxRuntime = { exports: {} };
 var reactJsxRuntime_development = {};
 var react = { exports: {} };
@@ -1232,19 +1235,19 @@ function requireReactJsxRuntime_development() {
     function validateChildKeys(node) {
       "object" === typeof node && null !== node && node.$$typeof === REACT_ELEMENT_TYPE && node._store && (node._store.validated = 1);
     }
-    var React = requireReact(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
-    var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+    var React2 = requireReact(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+    var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
       return null;
     };
-    React = {
+    React2 = {
       "react-stack-bottom-frame": function(callStackForError) {
         return callStackForError();
       }
     };
     var specialPropKeyWarningShown;
     var didWarnAboutElementRef = {};
-    var unknownOwnerDebugStack = React["react-stack-bottom-frame"].bind(
-      React,
+    var unknownOwnerDebugStack = React2["react-stack-bottom-frame"].bind(
+      React2,
       UnknownOwner
     )();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -1631,7 +1634,7 @@ function requireReactDom_development() {
       return dispatcher;
     }
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-    var React = requireReact(), Internals = {
+    var React2 = requireReact(), Internals = {
       d: {
         f: noop,
         r: function() {
@@ -1649,7 +1652,7 @@ function requireReactDom_development() {
       },
       p: 0,
       findDOMNode: null
-    }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+    }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
     "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
       "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
     );
@@ -3195,7 +3198,7 @@ function requireReactDomClient_development() {
       "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
     }
     function validateOptionProps(element, props) {
-      null == props.value && ("object" === typeof props.children && null !== props.children ? React.Children.forEach(props.children, function(child) {
+      null == props.value && ("object" === typeof props.children && null !== props.children ? React2.Children.forEach(props.children, function(child) {
         null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
           "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
         ));
@@ -16776,10 +16779,10 @@ function requireReactDomClient_development() {
       ));
     }
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-    var Scheduler = requireScheduler(), React = requireReact(), ReactDOM = requireReactDom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+    var Scheduler = requireScheduler(), React2 = requireReact(), ReactDOM = requireReactDom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
     var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
     var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
-    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
       pending: false,
       data: null,
       method: null,
@@ -19493,7 +19496,7 @@ function requireReactDomClient_development() {
       }
     };
     (function() {
-      var isomorphicReactPackageVersion = React.version;
+      var isomorphicReactPackageVersion = React2.version;
       if ("19.1.0" !== isomorphicReactPackageVersion)
         throw Error(
           'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.0\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -19630,133 +19633,2391 @@ function requireClient() {
 }
 var clientExports = requireClient();
 var reactExports = requireReact();
-const DUMMY_SUGGESTIONS = [
-  "longboard",
-  "surf skate",
-  "wheels",
-  "bearings",
-  "accessories",
-  "decks"
+const React = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+/**
+ * react-router v7.7.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
+var PopStateEventType = "popstate";
+function createBrowserHistory(options = {}) {
+  function createBrowserLocation(window2, globalHistory) {
+    let { pathname, search, hash } = window2.location;
+    return createLocation(
+      "",
+      { pathname, search, hash },
+      // state defaults to `null` because `window.history.state` does
+      globalHistory.state && globalHistory.state.usr || null,
+      globalHistory.state && globalHistory.state.key || "default"
+    );
+  }
+  function createBrowserHref(window2, to) {
+    return typeof to === "string" ? to : createPath(to);
+  }
+  return getUrlBasedHistory(
+    createBrowserLocation,
+    createBrowserHref,
+    null,
+    options
+  );
+}
+function invariant(value, message) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message);
+  }
+}
+function warning(cond, message) {
+  if (!cond) {
+    if (typeof console !== "undefined") console.warn(message);
+    try {
+      throw new Error(message);
+    } catch (e) {
+    }
+  }
+}
+function createKey() {
+  return Math.random().toString(36).substring(2, 10);
+}
+function getHistoryState(location, index) {
+  return {
+    usr: location.state,
+    key: location.key,
+    idx: index
+  };
+}
+function createLocation(current, to, state = null, key) {
+  let location = {
+    pathname: typeof current === "string" ? current : current.pathname,
+    search: "",
+    hash: "",
+    ...typeof to === "string" ? parsePath(to) : to,
+    state,
+    // TODO: This could be cleaned up.  push/replace should probably just take
+    // full Locations now and avoid the need to run through this flow at all
+    // But that's a pretty big refactor to the current test suite so going to
+    // keep as is for the time being and just let any incoming keys take precedence
+    key: to && to.key || key || createKey()
+  };
+  return location;
+}
+function createPath({
+  pathname = "/",
+  search = "",
+  hash = ""
+}) {
+  if (search && search !== "?")
+    pathname += search.charAt(0) === "?" ? search : "?" + search;
+  if (hash && hash !== "#")
+    pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
+  return pathname;
+}
+function parsePath(path) {
+  let parsedPath = {};
+  if (path) {
+    let hashIndex = path.indexOf("#");
+    if (hashIndex >= 0) {
+      parsedPath.hash = path.substring(hashIndex);
+      path = path.substring(0, hashIndex);
+    }
+    let searchIndex = path.indexOf("?");
+    if (searchIndex >= 0) {
+      parsedPath.search = path.substring(searchIndex);
+      path = path.substring(0, searchIndex);
+    }
+    if (path) {
+      parsedPath.pathname = path;
+    }
+  }
+  return parsedPath;
+}
+function getUrlBasedHistory(getLocation, createHref2, validateLocation, options = {}) {
+  let { window: window2 = document.defaultView, v5Compat = false } = options;
+  let globalHistory = window2.history;
+  let action = "POP";
+  let listener = null;
+  let index = getIndex();
+  if (index == null) {
+    index = 0;
+    globalHistory.replaceState({ ...globalHistory.state, idx: index }, "");
+  }
+  function getIndex() {
+    let state = globalHistory.state || { idx: null };
+    return state.idx;
+  }
+  function handlePop() {
+    action = "POP";
+    let nextIndex = getIndex();
+    let delta = nextIndex == null ? null : nextIndex - index;
+    index = nextIndex;
+    if (listener) {
+      listener({ action, location: history.location, delta });
+    }
+  }
+  function push(to, state) {
+    action = "PUSH";
+    let location = createLocation(history.location, to, state);
+    index = getIndex() + 1;
+    let historyState = getHistoryState(location, index);
+    let url = history.createHref(location);
+    try {
+      globalHistory.pushState(historyState, "", url);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "DataCloneError") {
+        throw error;
+      }
+      window2.location.assign(url);
+    }
+    if (v5Compat && listener) {
+      listener({ action, location: history.location, delta: 1 });
+    }
+  }
+  function replace2(to, state) {
+    action = "REPLACE";
+    let location = createLocation(history.location, to, state);
+    index = getIndex();
+    let historyState = getHistoryState(location, index);
+    let url = history.createHref(location);
+    globalHistory.replaceState(historyState, "", url);
+    if (v5Compat && listener) {
+      listener({ action, location: history.location, delta: 0 });
+    }
+  }
+  function createURL(to) {
+    return createBrowserURLImpl(to);
+  }
+  let history = {
+    get action() {
+      return action;
+    },
+    get location() {
+      return getLocation(window2, globalHistory);
+    },
+    listen(fn) {
+      if (listener) {
+        throw new Error("A history only accepts one active listener");
+      }
+      window2.addEventListener(PopStateEventType, handlePop);
+      listener = fn;
+      return () => {
+        window2.removeEventListener(PopStateEventType, handlePop);
+        listener = null;
+      };
+    },
+    createHref(to) {
+      return createHref2(window2, to);
+    },
+    createURL,
+    encodeLocation(to) {
+      let url = createURL(to);
+      return {
+        pathname: url.pathname,
+        search: url.search,
+        hash: url.hash
+      };
+    },
+    push,
+    replace: replace2,
+    go(n) {
+      return globalHistory.go(n);
+    }
+  };
+  return history;
+}
+function createBrowserURLImpl(to, isAbsolute = false) {
+  let base = "http://localhost";
+  if (typeof window !== "undefined") {
+    base = window.location.origin !== "null" ? window.location.origin : window.location.href;
+  }
+  invariant(base, "No window.location.(origin|href) available to create URL");
+  let href = typeof to === "string" ? to : createPath(to);
+  href = href.replace(/ $/, "%20");
+  if (!isAbsolute && href.startsWith("//")) {
+    href = base + href;
+  }
+  return new URL(href, base);
+}
+function matchRoutes(routes, locationArg, basename = "/") {
+  return matchRoutesImpl(routes, locationArg, basename, false);
+}
+function matchRoutesImpl(routes, locationArg, basename, allowPartial) {
+  let location = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
+  let pathname = stripBasename(location.pathname || "/", basename);
+  if (pathname == null) {
+    return null;
+  }
+  let branches = flattenRoutes(routes);
+  rankRouteBranches(branches);
+  let matches = null;
+  for (let i = 0; matches == null && i < branches.length; ++i) {
+    let decoded = decodePath(pathname);
+    matches = matchRouteBranch(
+      branches[i],
+      decoded,
+      allowPartial
+    );
+  }
+  return matches;
+}
+function flattenRoutes(routes, branches = [], parentsMeta = [], parentPath = "") {
+  let flattenRoute = (route, index, relativePath) => {
+    let meta = {
+      relativePath: relativePath === void 0 ? route.path || "" : relativePath,
+      caseSensitive: route.caseSensitive === true,
+      childrenIndex: index,
+      route
+    };
+    if (meta.relativePath.startsWith("/")) {
+      invariant(
+        meta.relativePath.startsWith(parentPath),
+        `Absolute route path "${meta.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`
+      );
+      meta.relativePath = meta.relativePath.slice(parentPath.length);
+    }
+    let path = joinPaths([parentPath, meta.relativePath]);
+    let routesMeta = parentsMeta.concat(meta);
+    if (route.children && route.children.length > 0) {
+      invariant(
+        // Our types know better, but runtime JS may not!
+        // @ts-expect-error
+        route.index !== true,
+        `Index routes must not have child routes. Please remove all child routes from route path "${path}".`
+      );
+      flattenRoutes(route.children, branches, routesMeta, path);
+    }
+    if (route.path == null && !route.index) {
+      return;
+    }
+    branches.push({
+      path,
+      score: computeScore(path, route.index),
+      routesMeta
+    });
+  };
+  routes.forEach((route, index) => {
+    var _a;
+    if (route.path === "" || !((_a = route.path) == null ? void 0 : _a.includes("?"))) {
+      flattenRoute(route, index);
+    } else {
+      for (let exploded of explodeOptionalSegments(route.path)) {
+        flattenRoute(route, index, exploded);
+      }
+    }
+  });
+  return branches;
+}
+function explodeOptionalSegments(path) {
+  let segments = path.split("/");
+  if (segments.length === 0) return [];
+  let [first, ...rest] = segments;
+  let isOptional = first.endsWith("?");
+  let required = first.replace(/\?$/, "");
+  if (rest.length === 0) {
+    return isOptional ? [required, ""] : [required];
+  }
+  let restExploded = explodeOptionalSegments(rest.join("/"));
+  let result = [];
+  result.push(
+    ...restExploded.map(
+      (subpath) => subpath === "" ? required : [required, subpath].join("/")
+    )
+  );
+  if (isOptional) {
+    result.push(...restExploded);
+  }
+  return result.map(
+    (exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded
+  );
+}
+function rankRouteBranches(branches) {
+  branches.sort(
+    (a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(
+      a.routesMeta.map((meta) => meta.childrenIndex),
+      b.routesMeta.map((meta) => meta.childrenIndex)
+    )
+  );
+}
+var paramRe = /^:[\w-]+$/;
+var dynamicSegmentValue = 3;
+var indexRouteValue = 2;
+var emptySegmentValue = 1;
+var staticSegmentValue = 10;
+var splatPenalty = -2;
+var isSplat = (s) => s === "*";
+function computeScore(path, index) {
+  let segments = path.split("/");
+  let initialScore = segments.length;
+  if (segments.some(isSplat)) {
+    initialScore += splatPenalty;
+  }
+  if (index) {
+    initialScore += indexRouteValue;
+  }
+  return segments.filter((s) => !isSplat(s)).reduce(
+    (score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue),
+    initialScore
+  );
+}
+function compareIndexes(a, b) {
+  let siblings = a.length === b.length && a.slice(0, -1).every((n, i) => n === b[i]);
+  return siblings ? (
+    // If two routes are siblings, we should try to match the earlier sibling
+    // first. This allows people to have fine-grained control over the matching
+    // behavior by simply putting routes with identical paths in the order they
+    // want them tried.
+    a[a.length - 1] - b[b.length - 1]
+  ) : (
+    // Otherwise, it doesn't really make sense to rank non-siblings by index,
+    // so they sort equally.
+    0
+  );
+}
+function matchRouteBranch(branch, pathname, allowPartial = false) {
+  let { routesMeta } = branch;
+  let matchedParams = {};
+  let matchedPathname = "/";
+  let matches = [];
+  for (let i = 0; i < routesMeta.length; ++i) {
+    let meta = routesMeta[i];
+    let end = i === routesMeta.length - 1;
+    let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
+    let match = matchPath(
+      { path: meta.relativePath, caseSensitive: meta.caseSensitive, end },
+      remainingPathname
+    );
+    let route = meta.route;
+    if (!match && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) {
+      match = matchPath(
+        {
+          path: meta.relativePath,
+          caseSensitive: meta.caseSensitive,
+          end: false
+        },
+        remainingPathname
+      );
+    }
+    if (!match) {
+      return null;
+    }
+    Object.assign(matchedParams, match.params);
+    matches.push({
+      // TODO: Can this as be avoided?
+      params: matchedParams,
+      pathname: joinPaths([matchedPathname, match.pathname]),
+      pathnameBase: normalizePathname(
+        joinPaths([matchedPathname, match.pathnameBase])
+      ),
+      route
+    });
+    if (match.pathnameBase !== "/") {
+      matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
+    }
+  }
+  return matches;
+}
+function matchPath(pattern, pathname) {
+  if (typeof pattern === "string") {
+    pattern = { path: pattern, caseSensitive: false, end: true };
+  }
+  let [matcher, compiledParams] = compilePath(
+    pattern.path,
+    pattern.caseSensitive,
+    pattern.end
+  );
+  let match = pathname.match(matcher);
+  if (!match) return null;
+  let matchedPathname = match[0];
+  let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
+  let captureGroups = match.slice(1);
+  let params = compiledParams.reduce(
+    (memo2, { paramName, isOptional }, index) => {
+      if (paramName === "*") {
+        let splatValue = captureGroups[index] || "";
+        pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
+      }
+      const value = captureGroups[index];
+      if (isOptional && !value) {
+        memo2[paramName] = void 0;
+      } else {
+        memo2[paramName] = (value || "").replace(/%2F/g, "/");
+      }
+      return memo2;
+    },
+    {}
+  );
+  return {
+    params,
+    pathname: matchedPathname,
+    pathnameBase,
+    pattern
+  };
+}
+function compilePath(path, caseSensitive = false, end = true) {
+  warning(
+    path === "*" || !path.endsWith("*") || path.endsWith("/*"),
+    `Route path "${path}" will be treated as if it were "${path.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${path.replace(/\*$/, "/*")}".`
+  );
+  let params = [];
+  let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(
+    /\/:([\w-]+)(\?)?/g,
+    (_, paramName, isOptional) => {
+      params.push({ paramName, isOptional: isOptional != null });
+      return isOptional ? "/?([^\\/]+)?" : "/([^\\/]+)";
+    }
+  );
+  if (path.endsWith("*")) {
+    params.push({ paramName: "*" });
+    regexpSource += path === "*" || path === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$";
+  } else if (end) {
+    regexpSource += "\\/*$";
+  } else if (path !== "" && path !== "/") {
+    regexpSource += "(?:(?=\\/|$))";
+  } else ;
+  let matcher = new RegExp(regexpSource, caseSensitive ? void 0 : "i");
+  return [matcher, params];
+}
+function decodePath(value) {
+  try {
+    return value.split("/").map((v) => decodeURIComponent(v).replace(/\//g, "%2F")).join("/");
+  } catch (error) {
+    warning(
+      false,
+      `The URL path "${value}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${error}).`
+    );
+    return value;
+  }
+}
+function stripBasename(pathname, basename) {
+  if (basename === "/") return pathname;
+  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
+    return null;
+  }
+  let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
+  let nextChar = pathname.charAt(startIndex);
+  if (nextChar && nextChar !== "/") {
+    return null;
+  }
+  return pathname.slice(startIndex) || "/";
+}
+function resolvePath(to, fromPathname = "/") {
+  let {
+    pathname: toPathname,
+    search = "",
+    hash = ""
+  } = typeof to === "string" ? parsePath(to) : to;
+  let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
+  return {
+    pathname,
+    search: normalizeSearch(search),
+    hash: normalizeHash(hash)
+  };
+}
+function resolvePathname(relativePath, fromPathname) {
+  let segments = fromPathname.replace(/\/+$/, "").split("/");
+  let relativeSegments = relativePath.split("/");
+  relativeSegments.forEach((segment) => {
+    if (segment === "..") {
+      if (segments.length > 1) segments.pop();
+    } else if (segment !== ".") {
+      segments.push(segment);
+    }
+  });
+  return segments.length > 1 ? segments.join("/") : "/";
+}
+function getInvalidPathError(char, field, dest, path) {
+  return `Cannot include a '${char}' character in a manually specified \`to.${field}\` field [${JSON.stringify(
+    path
+  )}].  Please separate it out to the \`to.${dest}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`;
+}
+function getPathContributingMatches(matches) {
+  return matches.filter(
+    (match, index) => index === 0 || match.route.path && match.route.path.length > 0
+  );
+}
+function getResolveToMatches(matches) {
+  let pathMatches = getPathContributingMatches(matches);
+  return pathMatches.map(
+    (match, idx) => idx === pathMatches.length - 1 ? match.pathname : match.pathnameBase
+  );
+}
+function resolveTo(toArg, routePathnames, locationPathname, isPathRelative = false) {
+  let to;
+  if (typeof toArg === "string") {
+    to = parsePath(toArg);
+  } else {
+    to = { ...toArg };
+    invariant(
+      !to.pathname || !to.pathname.includes("?"),
+      getInvalidPathError("?", "pathname", "search", to)
+    );
+    invariant(
+      !to.pathname || !to.pathname.includes("#"),
+      getInvalidPathError("#", "pathname", "hash", to)
+    );
+    invariant(
+      !to.search || !to.search.includes("#"),
+      getInvalidPathError("#", "search", "hash", to)
+    );
+  }
+  let isEmptyPath = toArg === "" || to.pathname === "";
+  let toPathname = isEmptyPath ? "/" : to.pathname;
+  let from;
+  if (toPathname == null) {
+    from = locationPathname;
+  } else {
+    let routePathnameIndex = routePathnames.length - 1;
+    if (!isPathRelative && toPathname.startsWith("..")) {
+      let toSegments = toPathname.split("/");
+      while (toSegments[0] === "..") {
+        toSegments.shift();
+        routePathnameIndex -= 1;
+      }
+      to.pathname = toSegments.join("/");
+    }
+    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+  }
+  let path = resolvePath(to, from);
+  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
+  let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
+  if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
+    path.pathname += "/";
+  }
+  return path;
+}
+var joinPaths = (paths) => paths.join("/").replace(/\/\/+/g, "/");
+var normalizePathname = (pathname) => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
+var normalizeSearch = (search) => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
+var normalizeHash = (hash) => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
+function isRouteErrorResponse(error) {
+  return error != null && typeof error.status === "number" && typeof error.statusText === "string" && typeof error.internal === "boolean" && "data" in error;
+}
+var validMutationMethodsArr = [
+  "POST",
+  "PUT",
+  "PATCH",
+  "DELETE"
 ];
-function SearchBar() {
+new Set(
+  validMutationMethodsArr
+);
+var validRequestMethodsArr = [
+  "GET",
+  ...validMutationMethodsArr
+];
+new Set(validRequestMethodsArr);
+var DataRouterContext = reactExports.createContext(null);
+DataRouterContext.displayName = "DataRouter";
+var DataRouterStateContext = reactExports.createContext(null);
+DataRouterStateContext.displayName = "DataRouterState";
+reactExports.createContext(false);
+var ViewTransitionContext = reactExports.createContext({
+  isTransitioning: false
+});
+ViewTransitionContext.displayName = "ViewTransition";
+var FetchersContext = reactExports.createContext(
+  /* @__PURE__ */ new Map()
+);
+FetchersContext.displayName = "Fetchers";
+var AwaitContext = reactExports.createContext(null);
+AwaitContext.displayName = "Await";
+var NavigationContext = reactExports.createContext(
+  null
+);
+NavigationContext.displayName = "Navigation";
+var LocationContext = reactExports.createContext(
+  null
+);
+LocationContext.displayName = "Location";
+var RouteContext = reactExports.createContext({
+  outlet: null,
+  matches: [],
+  isDataRoute: false
+});
+RouteContext.displayName = "Route";
+var RouteErrorContext = reactExports.createContext(null);
+RouteErrorContext.displayName = "RouteError";
+function useHref(to, { relative } = {}) {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useHref() may be used only in the context of a <Router> component.`
+  );
+  let { basename, navigator: navigator2 } = reactExports.useContext(NavigationContext);
+  let { hash, pathname, search } = useResolvedPath(to, { relative });
+  let joinedPathname = pathname;
+  if (basename !== "/") {
+    joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
+  }
+  return navigator2.createHref({ pathname: joinedPathname, search, hash });
+}
+function useInRouterContext() {
+  return reactExports.useContext(LocationContext) != null;
+}
+function useLocation() {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useLocation() may be used only in the context of a <Router> component.`
+  );
+  return reactExports.useContext(LocationContext).location;
+}
+var navigateEffectWarning = `You should call navigate() in a React.useEffect(), not when your component is first rendered.`;
+function useIsomorphicLayoutEffect(cb) {
+  let isStatic = reactExports.useContext(NavigationContext).static;
+  if (!isStatic) {
+    reactExports.useLayoutEffect(cb);
+  }
+}
+function useNavigate() {
+  let { isDataRoute } = reactExports.useContext(RouteContext);
+  return isDataRoute ? useNavigateStable() : useNavigateUnstable();
+}
+function useNavigateUnstable() {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useNavigate() may be used only in the context of a <Router> component.`
+  );
+  let dataRouterContext = reactExports.useContext(DataRouterContext);
+  let { basename, navigator: navigator2 } = reactExports.useContext(NavigationContext);
+  let { matches } = reactExports.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
+  let activeRef = reactExports.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+  let navigate = reactExports.useCallback(
+    (to, options = {}) => {
+      warning(activeRef.current, navigateEffectWarning);
+      if (!activeRef.current) return;
+      if (typeof to === "number") {
+        navigator2.go(to);
+        return;
+      }
+      let path = resolveTo(
+        to,
+        JSON.parse(routePathnamesJson),
+        locationPathname,
+        options.relative === "path"
+      );
+      if (dataRouterContext == null && basename !== "/") {
+        path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
+      }
+      (!!options.replace ? navigator2.replace : navigator2.push)(
+        path,
+        options.state,
+        options
+      );
+    },
+    [
+      basename,
+      navigator2,
+      routePathnamesJson,
+      locationPathname,
+      dataRouterContext
+    ]
+  );
+  return navigate;
+}
+reactExports.createContext(null);
+function useResolvedPath(to, { relative } = {}) {
+  let { matches } = reactExports.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
+  return reactExports.useMemo(
+    () => resolveTo(
+      to,
+      JSON.parse(routePathnamesJson),
+      locationPathname,
+      relative === "path"
+    ),
+    [to, routePathnamesJson, locationPathname, relative]
+  );
+}
+function useRoutes(routes, locationArg) {
+  return useRoutesImpl(routes, locationArg);
+}
+function useRoutesImpl(routes, locationArg, dataRouterState, future) {
+  var _a;
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useRoutes() may be used only in the context of a <Router> component.`
+  );
+  let { navigator: navigator2 } = reactExports.useContext(NavigationContext);
+  let { matches: parentMatches } = reactExports.useContext(RouteContext);
+  let routeMatch = parentMatches[parentMatches.length - 1];
+  let parentParams = routeMatch ? routeMatch.params : {};
+  let parentPathname = routeMatch ? routeMatch.pathname : "/";
+  let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
+  let parentRoute = routeMatch && routeMatch.route;
+  {
+    let parentPath = parentRoute && parentRoute.path || "";
+    warningOnce(
+      parentPathname,
+      !parentRoute || parentPath.endsWith("*") || parentPath.endsWith("*?"),
+      `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${parentPathname}" (under <Route path="${parentPath}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+
+Please change the parent <Route path="${parentPath}"> to <Route path="${parentPath === "/" ? "*" : `${parentPath}/*`}">.`
+    );
+  }
+  let locationFromContext = useLocation();
+  let location;
+  if (locationArg) {
+    let parsedLocationArg = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
+    invariant(
+      parentPathnameBase === "/" || ((_a = parsedLocationArg.pathname) == null ? void 0 : _a.startsWith(parentPathnameBase)),
+      `When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${parentPathnameBase}" but pathname "${parsedLocationArg.pathname}" was given in the \`location\` prop.`
+    );
+    location = parsedLocationArg;
+  } else {
+    location = locationFromContext;
+  }
+  let pathname = location.pathname || "/";
+  let remainingPathname = pathname;
+  if (parentPathnameBase !== "/") {
+    let parentSegments = parentPathnameBase.replace(/^\//, "").split("/");
+    let segments = pathname.replace(/^\//, "").split("/");
+    remainingPathname = "/" + segments.slice(parentSegments.length).join("/");
+  }
+  let matches = matchRoutes(routes, { pathname: remainingPathname });
+  {
+    warning(
+      parentRoute || matches != null,
+      `No routes matched location "${location.pathname}${location.search}${location.hash}" `
+    );
+    warning(
+      matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0,
+      `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`
+    );
+  }
+  let renderedMatches = _renderMatches(
+    matches && matches.map(
+      (match) => Object.assign({}, match, {
+        params: Object.assign({}, parentParams, match.params),
+        pathname: joinPaths([
+          parentPathnameBase,
+          // Re-encode pathnames that were decoded inside matchRoutes
+          navigator2.encodeLocation ? navigator2.encodeLocation(match.pathname).pathname : match.pathname
+        ]),
+        pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([
+          parentPathnameBase,
+          // Re-encode pathnames that were decoded inside matchRoutes
+          navigator2.encodeLocation ? navigator2.encodeLocation(match.pathnameBase).pathname : match.pathnameBase
+        ])
+      })
+    ),
+    parentMatches,
+    dataRouterState,
+    future
+  );
+  if (locationArg && renderedMatches) {
+    return /* @__PURE__ */ reactExports.createElement(
+      LocationContext.Provider,
+      {
+        value: {
+          location: {
+            pathname: "/",
+            search: "",
+            hash: "",
+            state: null,
+            key: "default",
+            ...location
+          },
+          navigationType: "POP"
+          /* Pop */
+        }
+      },
+      renderedMatches
+    );
+  }
+  return renderedMatches;
+}
+function DefaultErrorComponent() {
+  let error = useRouteError();
+  let message = isRouteErrorResponse(error) ? `${error.status} ${error.statusText}` : error instanceof Error ? error.message : JSON.stringify(error);
+  let stack = error instanceof Error ? error.stack : null;
+  let lightgrey = "rgba(200,200,200, 0.5)";
+  let preStyles = { padding: "0.5rem", backgroundColor: lightgrey };
+  let codeStyles = { padding: "2px 4px", backgroundColor: lightgrey };
+  let devInfo = null;
+  {
+    console.error(
+      "Error handled by React Router default ErrorBoundary:",
+      error
+    );
+    devInfo = /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, /* @__PURE__ */ reactExports.createElement("p", null, "💿 Hey developer 👋"), /* @__PURE__ */ reactExports.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ reactExports.createElement("code", { style: codeStyles }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ reactExports.createElement("code", { style: codeStyles }, "errorElement"), " prop on your route."));
+  }
+  return /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, /* @__PURE__ */ reactExports.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ reactExports.createElement("h3", { style: { fontStyle: "italic" } }, message), stack ? /* @__PURE__ */ reactExports.createElement("pre", { style: preStyles }, stack) : null, devInfo);
+}
+var defaultErrorElement = /* @__PURE__ */ reactExports.createElement(DefaultErrorComponent, null);
+var RenderErrorBoundary = class extends reactExports.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: props.location,
+      revalidation: props.revalidation,
+      error: props.error
+    };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  static getDerivedStateFromProps(props, state) {
+    if (state.location !== props.location || state.revalidation !== "idle" && props.revalidation === "idle") {
+      return {
+        error: props.error,
+        location: props.location,
+        revalidation: props.revalidation
+      };
+    }
+    return {
+      error: props.error !== void 0 ? props.error : state.error,
+      location: state.location,
+      revalidation: props.revalidation || state.revalidation
+    };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error(
+      "React Router caught the following error during render",
+      error,
+      errorInfo
+    );
+  }
+  render() {
+    return this.state.error !== void 0 ? /* @__PURE__ */ reactExports.createElement(RouteContext.Provider, { value: this.props.routeContext }, /* @__PURE__ */ reactExports.createElement(
+      RouteErrorContext.Provider,
+      {
+        value: this.state.error,
+        children: this.props.component
+      }
+    )) : this.props.children;
+  }
+};
+function RenderedRoute({ routeContext, match, children }) {
+  let dataRouterContext = reactExports.useContext(DataRouterContext);
+  if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match.route.errorElement || match.route.ErrorBoundary)) {
+    dataRouterContext.staticContext._deepestRenderedBoundaryId = match.route.id;
+  }
+  return /* @__PURE__ */ reactExports.createElement(RouteContext.Provider, { value: routeContext }, children);
+}
+function _renderMatches(matches, parentMatches = [], dataRouterState = null, future = null) {
+  if (matches == null) {
+    if (!dataRouterState) {
+      return null;
+    }
+    if (dataRouterState.errors) {
+      matches = dataRouterState.matches;
+    } else if (parentMatches.length === 0 && !dataRouterState.initialized && dataRouterState.matches.length > 0) {
+      matches = dataRouterState.matches;
+    } else {
+      return null;
+    }
+  }
+  let renderedMatches = matches;
+  let errors = dataRouterState == null ? void 0 : dataRouterState.errors;
+  if (errors != null) {
+    let errorIndex = renderedMatches.findIndex(
+      (m) => m.route.id && (errors == null ? void 0 : errors[m.route.id]) !== void 0
+    );
+    invariant(
+      errorIndex >= 0,
+      `Could not find a matching route for errors on route IDs: ${Object.keys(
+        errors
+      ).join(",")}`
+    );
+    renderedMatches = renderedMatches.slice(
+      0,
+      Math.min(renderedMatches.length, errorIndex + 1)
+    );
+  }
+  let renderFallback = false;
+  let fallbackIndex = -1;
+  if (dataRouterState) {
+    for (let i = 0; i < renderedMatches.length; i++) {
+      let match = renderedMatches[i];
+      if (match.route.HydrateFallback || match.route.hydrateFallbackElement) {
+        fallbackIndex = i;
+      }
+      if (match.route.id) {
+        let { loaderData, errors: errors2 } = dataRouterState;
+        let needsToRunLoader = match.route.loader && !loaderData.hasOwnProperty(match.route.id) && (!errors2 || errors2[match.route.id] === void 0);
+        if (match.route.lazy || needsToRunLoader) {
+          renderFallback = true;
+          if (fallbackIndex >= 0) {
+            renderedMatches = renderedMatches.slice(0, fallbackIndex + 1);
+          } else {
+            renderedMatches = [renderedMatches[0]];
+          }
+          break;
+        }
+      }
+    }
+  }
+  return renderedMatches.reduceRight((outlet, match, index) => {
+    let error;
+    let shouldRenderHydrateFallback = false;
+    let errorElement = null;
+    let hydrateFallbackElement = null;
+    if (dataRouterState) {
+      error = errors && match.route.id ? errors[match.route.id] : void 0;
+      errorElement = match.route.errorElement || defaultErrorElement;
+      if (renderFallback) {
+        if (fallbackIndex < 0 && index === 0) {
+          warningOnce(
+            "route-fallback",
+            false,
+            "No `HydrateFallback` element provided to render during initial hydration"
+          );
+          shouldRenderHydrateFallback = true;
+          hydrateFallbackElement = null;
+        } else if (fallbackIndex === index) {
+          shouldRenderHydrateFallback = true;
+          hydrateFallbackElement = match.route.hydrateFallbackElement || null;
+        }
+      }
+    }
+    let matches2 = parentMatches.concat(renderedMatches.slice(0, index + 1));
+    let getChildren = () => {
+      let children;
+      if (error) {
+        children = errorElement;
+      } else if (shouldRenderHydrateFallback) {
+        children = hydrateFallbackElement;
+      } else if (match.route.Component) {
+        children = /* @__PURE__ */ reactExports.createElement(match.route.Component, null);
+      } else if (match.route.element) {
+        children = match.route.element;
+      } else {
+        children = outlet;
+      }
+      return /* @__PURE__ */ reactExports.createElement(
+        RenderedRoute,
+        {
+          match,
+          routeContext: {
+            outlet,
+            matches: matches2,
+            isDataRoute: dataRouterState != null
+          },
+          children
+        }
+      );
+    };
+    return dataRouterState && (match.route.ErrorBoundary || match.route.errorElement || index === 0) ? /* @__PURE__ */ reactExports.createElement(
+      RenderErrorBoundary,
+      {
+        location: dataRouterState.location,
+        revalidation: dataRouterState.revalidation,
+        component: errorElement,
+        error,
+        children: getChildren(),
+        routeContext: { outlet: null, matches: matches2, isDataRoute: true }
+      }
+    ) : getChildren();
+  }, null);
+}
+function getDataRouterConsoleError(hookName) {
+  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+}
+function useDataRouterContext(hookName) {
+  let ctx = reactExports.useContext(DataRouterContext);
+  invariant(ctx, getDataRouterConsoleError(hookName));
+  return ctx;
+}
+function useDataRouterState(hookName) {
+  let state = reactExports.useContext(DataRouterStateContext);
+  invariant(state, getDataRouterConsoleError(hookName));
+  return state;
+}
+function useRouteContext(hookName) {
+  let route = reactExports.useContext(RouteContext);
+  invariant(route, getDataRouterConsoleError(hookName));
+  return route;
+}
+function useCurrentRouteId(hookName) {
+  let route = useRouteContext(hookName);
+  let thisRoute = route.matches[route.matches.length - 1];
+  invariant(
+    thisRoute.route.id,
+    `${hookName} can only be used on routes that contain a unique "id"`
+  );
+  return thisRoute.route.id;
+}
+function useRouteId() {
+  return useCurrentRouteId(
+    "useRouteId"
+    /* UseRouteId */
+  );
+}
+function useRouteError() {
+  var _a;
+  let error = reactExports.useContext(RouteErrorContext);
+  let state = useDataRouterState(
+    "useRouteError"
+    /* UseRouteError */
+  );
+  let routeId = useCurrentRouteId(
+    "useRouteError"
+    /* UseRouteError */
+  );
+  if (error !== void 0) {
+    return error;
+  }
+  return (_a = state.errors) == null ? void 0 : _a[routeId];
+}
+function useNavigateStable() {
+  let { router } = useDataRouterContext(
+    "useNavigate"
+    /* UseNavigateStable */
+  );
+  let id = useCurrentRouteId(
+    "useNavigate"
+    /* UseNavigateStable */
+  );
+  let activeRef = reactExports.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+  let navigate = reactExports.useCallback(
+    async (to, options = {}) => {
+      warning(activeRef.current, navigateEffectWarning);
+      if (!activeRef.current) return;
+      if (typeof to === "number") {
+        router.navigate(to);
+      } else {
+        await router.navigate(to, { fromRouteId: id, ...options });
+      }
+    },
+    [router, id]
+  );
+  return navigate;
+}
+var alreadyWarned = {};
+function warningOnce(key, cond, message) {
+  if (!cond && !alreadyWarned[key]) {
+    alreadyWarned[key] = true;
+    warning(false, message);
+  }
+}
+reactExports.memo(DataRoutes);
+function DataRoutes({
+  routes,
+  future,
+  state
+}) {
+  return useRoutesImpl(routes, void 0, state, future);
+}
+function Route(_props) {
+  invariant(
+    false,
+    `A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`
+  );
+}
+function Router({
+  basename: basenameProp = "/",
+  children = null,
+  location: locationProp,
+  navigationType = "POP",
+  navigator: navigator2,
+  static: staticProp = false
+}) {
+  invariant(
+    !useInRouterContext(),
+    `You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`
+  );
+  let basename = basenameProp.replace(/^\/*/, "/");
+  let navigationContext = reactExports.useMemo(
+    () => ({
+      basename,
+      navigator: navigator2,
+      static: staticProp,
+      future: {}
+    }),
+    [basename, navigator2, staticProp]
+  );
+  if (typeof locationProp === "string") {
+    locationProp = parsePath(locationProp);
+  }
+  let {
+    pathname = "/",
+    search = "",
+    hash = "",
+    state = null,
+    key = "default"
+  } = locationProp;
+  let locationContext = reactExports.useMemo(() => {
+    let trailingPathname = stripBasename(pathname, basename);
+    if (trailingPathname == null) {
+      return null;
+    }
+    return {
+      location: {
+        pathname: trailingPathname,
+        search,
+        hash,
+        state,
+        key
+      },
+      navigationType
+    };
+  }, [basename, pathname, search, hash, state, key, navigationType]);
+  warning(
+    locationContext != null,
+    `<Router basename="${basename}"> is not able to match the URL "${pathname}${search}${hash}" because it does not start with the basename, so the <Router> won't render anything.`
+  );
+  if (locationContext == null) {
+    return null;
+  }
+  return /* @__PURE__ */ reactExports.createElement(NavigationContext.Provider, { value: navigationContext }, /* @__PURE__ */ reactExports.createElement(LocationContext.Provider, { children, value: locationContext }));
+}
+function Routes({
+  children,
+  location
+}) {
+  return useRoutes(createRoutesFromChildren(children), location);
+}
+function createRoutesFromChildren(children, parentPath = []) {
+  let routes = [];
+  reactExports.Children.forEach(children, (element, index) => {
+    if (!reactExports.isValidElement(element)) {
+      return;
+    }
+    let treePath = [...parentPath, index];
+    if (element.type === reactExports.Fragment) {
+      routes.push.apply(
+        routes,
+        createRoutesFromChildren(element.props.children, treePath)
+      );
+      return;
+    }
+    invariant(
+      element.type === Route,
+      `[${typeof element.type === "string" ? element.type : element.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`
+    );
+    invariant(
+      !element.props.index || !element.props.children,
+      "An index route cannot have child routes."
+    );
+    let route = {
+      id: element.props.id || treePath.join("-"),
+      caseSensitive: element.props.caseSensitive,
+      element: element.props.element,
+      Component: element.props.Component,
+      index: element.props.index,
+      path: element.props.path,
+      loader: element.props.loader,
+      action: element.props.action,
+      hydrateFallbackElement: element.props.hydrateFallbackElement,
+      HydrateFallback: element.props.HydrateFallback,
+      errorElement: element.props.errorElement,
+      ErrorBoundary: element.props.ErrorBoundary,
+      hasErrorBoundary: element.props.hasErrorBoundary === true || element.props.ErrorBoundary != null || element.props.errorElement != null,
+      shouldRevalidate: element.props.shouldRevalidate,
+      handle: element.props.handle,
+      lazy: element.props.lazy
+    };
+    if (element.props.children) {
+      route.children = createRoutesFromChildren(
+        element.props.children,
+        treePath
+      );
+    }
+    routes.push(route);
+  });
+  return routes;
+}
+var defaultMethod = "get";
+var defaultEncType = "application/x-www-form-urlencoded";
+function isHtmlElement(object) {
+  return object != null && typeof object.tagName === "string";
+}
+function isButtonElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
+}
+function isFormElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
+}
+function isInputElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
+}
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+function shouldProcessLinkClick(event, target) {
+  return event.button === 0 && // Ignore everything but left clicks
+  (!target || target === "_self") && // Let browser handle "target=_blank" etc.
+  !isModifiedEvent(event);
+}
+var _formDataSupportsSubmitter = null;
+function isFormDataSubmitterSupported() {
+  if (_formDataSupportsSubmitter === null) {
+    try {
+      new FormData(
+        document.createElement("form"),
+        // @ts-expect-error if FormData supports the submitter parameter, this will throw
+        0
+      );
+      _formDataSupportsSubmitter = false;
+    } catch (e) {
+      _formDataSupportsSubmitter = true;
+    }
+  }
+  return _formDataSupportsSubmitter;
+}
+var supportedFormEncTypes = /* @__PURE__ */ new Set([
+  "application/x-www-form-urlencoded",
+  "multipart/form-data",
+  "text/plain"
+]);
+function getFormEncType(encType) {
+  if (encType != null && !supportedFormEncTypes.has(encType)) {
+    warning(
+      false,
+      `"${encType}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${defaultEncType}"`
+    );
+    return null;
+  }
+  return encType;
+}
+function getFormSubmissionInfo(target, basename) {
+  let method;
+  let action;
+  let encType;
+  let formData;
+  let body;
+  if (isFormElement(target)) {
+    let attr = target.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
+    formData = new FormData(target);
+  } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
+    let form = target.form;
+    if (form == null) {
+      throw new Error(
+        `Cannot submit a <button> or <input type="submit"> without a <form>`
+      );
+    }
+    let attr = target.getAttribute("formaction") || form.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
+    formData = new FormData(form, target);
+    if (!isFormDataSubmitterSupported()) {
+      let { name, type, value } = target;
+      if (type === "image") {
+        let prefix = name ? `${name}.` : "";
+        formData.append(`${prefix}x`, "0");
+        formData.append(`${prefix}y`, "0");
+      } else if (name) {
+        formData.append(name, value);
+      }
+    }
+  } else if (isHtmlElement(target)) {
+    throw new Error(
+      `Cannot submit element that is not <form>, <button>, or <input type="submit|image">`
+    );
+  } else {
+    method = defaultMethod;
+    action = null;
+    encType = defaultEncType;
+    body = target;
+  }
+  if (formData && encType === "text/plain") {
+    body = formData;
+    formData = void 0;
+  }
+  return { action, method: method.toLowerCase(), encType, formData, body };
+}
+Object.getOwnPropertyNames(Object.prototype).sort().join("\0");
+function invariant2(value, message) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message);
+  }
+}
+function singleFetchUrl(reqUrl, basename, extension) {
+  let url = typeof reqUrl === "string" ? new URL(
+    reqUrl,
+    // This can be called during the SSR flow via PrefetchPageLinksImpl so
+    // don't assume window is available
+    typeof window === "undefined" ? "server://singlefetch/" : window.location.origin
+  ) : reqUrl;
+  if (url.pathname === "/") {
+    url.pathname = `_root.${extension}`;
+  } else if (basename && stripBasename(url.pathname, basename) === "/") {
+    url.pathname = `${basename.replace(/\/$/, "")}/_root.${extension}`;
+  } else {
+    url.pathname = `${url.pathname.replace(/\/$/, "")}.${extension}`;
+  }
+  return url;
+}
+async function loadRouteModule(route, routeModulesCache) {
+  if (route.id in routeModulesCache) {
+    return routeModulesCache[route.id];
+  }
+  try {
+    let routeModule = await import(
+      /* @vite-ignore */
+      /* webpackIgnore: true */
+      route.module
+    );
+    routeModulesCache[route.id] = routeModule;
+    return routeModule;
+  } catch (error) {
+    console.error(
+      `Error loading route module \`${route.module}\`, reloading page...`
+    );
+    console.error(error);
+    if (window.__reactRouterContext && window.__reactRouterContext.isSpaMode && // @ts-expect-error
+    void 0) ;
+    window.location.reload();
+    return new Promise(() => {
+    });
+  }
+}
+function isHtmlLinkDescriptor(object) {
+  if (object == null) {
+    return false;
+  }
+  if (object.href == null) {
+    return object.rel === "preload" && typeof object.imageSrcSet === "string" && typeof object.imageSizes === "string";
+  }
+  return typeof object.rel === "string" && typeof object.href === "string";
+}
+async function getKeyedPrefetchLinks(matches, manifest, routeModules) {
+  let links = await Promise.all(
+    matches.map(async (match) => {
+      let route = manifest.routes[match.route.id];
+      if (route) {
+        let mod = await loadRouteModule(route, routeModules);
+        return mod.links ? mod.links() : [];
+      }
+      return [];
+    })
+  );
+  return dedupeLinkDescriptors(
+    links.flat(1).filter(isHtmlLinkDescriptor).filter((link) => link.rel === "stylesheet" || link.rel === "preload").map(
+      (link) => link.rel === "stylesheet" ? { ...link, rel: "prefetch", as: "style" } : { ...link, rel: "prefetch" }
+    )
+  );
+}
+function getNewMatchesForLinks(page, nextMatches, currentMatches, manifest, location, mode) {
+  let isNew = (match, index) => {
+    if (!currentMatches[index]) return true;
+    return match.route.id !== currentMatches[index].route.id;
+  };
+  let matchPathChanged = (match, index) => {
+    var _a;
+    return (
+      // param change, /users/123 -> /users/456
+      currentMatches[index].pathname !== match.pathname || // splat param changed, which is not present in match.path
+      // e.g. /files/images/avatar.jpg -> files/finances.xls
+      ((_a = currentMatches[index].route.path) == null ? void 0 : _a.endsWith("*")) && currentMatches[index].params["*"] !== match.params["*"]
+    );
+  };
+  if (mode === "assets") {
+    return nextMatches.filter(
+      (match, index) => isNew(match, index) || matchPathChanged(match, index)
+    );
+  }
+  if (mode === "data") {
+    return nextMatches.filter((match, index) => {
+      var _a;
+      let manifestRoute = manifest.routes[match.route.id];
+      if (!manifestRoute || !manifestRoute.hasLoader) {
+        return false;
+      }
+      if (isNew(match, index) || matchPathChanged(match, index)) {
+        return true;
+      }
+      if (match.route.shouldRevalidate) {
+        let routeChoice = match.route.shouldRevalidate({
+          currentUrl: new URL(
+            location.pathname + location.search + location.hash,
+            window.origin
+          ),
+          currentParams: ((_a = currentMatches[0]) == null ? void 0 : _a.params) || {},
+          nextUrl: new URL(page, window.origin),
+          nextParams: match.params,
+          defaultShouldRevalidate: true
+        });
+        if (typeof routeChoice === "boolean") {
+          return routeChoice;
+        }
+      }
+      return true;
+    });
+  }
+  return [];
+}
+function getModuleLinkHrefs(matches, manifest, { includeHydrateFallback } = {}) {
+  return dedupeHrefs(
+    matches.map((match) => {
+      let route = manifest.routes[match.route.id];
+      if (!route) return [];
+      let hrefs = [route.module];
+      if (route.clientActionModule) {
+        hrefs = hrefs.concat(route.clientActionModule);
+      }
+      if (route.clientLoaderModule) {
+        hrefs = hrefs.concat(route.clientLoaderModule);
+      }
+      if (includeHydrateFallback && route.hydrateFallbackModule) {
+        hrefs = hrefs.concat(route.hydrateFallbackModule);
+      }
+      if (route.imports) {
+        hrefs = hrefs.concat(route.imports);
+      }
+      return hrefs;
+    }).flat(1)
+  );
+}
+function dedupeHrefs(hrefs) {
+  return [...new Set(hrefs)];
+}
+function sortKeys(obj) {
+  let sorted = {};
+  let keys = Object.keys(obj).sort();
+  for (let key of keys) {
+    sorted[key] = obj[key];
+  }
+  return sorted;
+}
+function dedupeLinkDescriptors(descriptors, preloads) {
+  let set = /* @__PURE__ */ new Set();
+  new Set(preloads);
+  return descriptors.reduce((deduped, descriptor) => {
+    let key = JSON.stringify(sortKeys(descriptor));
+    if (!set.has(key)) {
+      set.add(key);
+      deduped.push({ key, link: descriptor });
+    }
+    return deduped;
+  }, []);
+}
+function useDataRouterContext2() {
+  let context = reactExports.useContext(DataRouterContext);
+  invariant2(
+    context,
+    "You must render this element inside a <DataRouterContext.Provider> element"
+  );
+  return context;
+}
+function useDataRouterStateContext() {
+  let context = reactExports.useContext(DataRouterStateContext);
+  invariant2(
+    context,
+    "You must render this element inside a <DataRouterStateContext.Provider> element"
+  );
+  return context;
+}
+var FrameworkContext = reactExports.createContext(void 0);
+FrameworkContext.displayName = "FrameworkContext";
+function useFrameworkContext() {
+  let context = reactExports.useContext(FrameworkContext);
+  invariant2(
+    context,
+    "You must render this element inside a <HydratedRouter> element"
+  );
+  return context;
+}
+function usePrefetchBehavior(prefetch, theirElementProps) {
+  let frameworkContext = reactExports.useContext(FrameworkContext);
+  let [maybePrefetch, setMaybePrefetch] = reactExports.useState(false);
+  let [shouldPrefetch, setShouldPrefetch] = reactExports.useState(false);
+  let { onFocus, onBlur, onMouseEnter, onMouseLeave, onTouchStart } = theirElementProps;
+  let ref = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    if (prefetch === "render") {
+      setShouldPrefetch(true);
+    }
+    if (prefetch === "viewport") {
+      let callback = (entries) => {
+        entries.forEach((entry) => {
+          setShouldPrefetch(entry.isIntersecting);
+        });
+      };
+      let observer = new IntersectionObserver(callback, { threshold: 0.5 });
+      if (ref.current) observer.observe(ref.current);
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [prefetch]);
+  reactExports.useEffect(() => {
+    if (maybePrefetch) {
+      let id = setTimeout(() => {
+        setShouldPrefetch(true);
+      }, 100);
+      return () => {
+        clearTimeout(id);
+      };
+    }
+  }, [maybePrefetch]);
+  let setIntent = () => {
+    setMaybePrefetch(true);
+  };
+  let cancelIntent = () => {
+    setMaybePrefetch(false);
+    setShouldPrefetch(false);
+  };
+  if (!frameworkContext) {
+    return [false, ref, {}];
+  }
+  if (prefetch !== "intent") {
+    return [shouldPrefetch, ref, {}];
+  }
+  return [
+    shouldPrefetch,
+    ref,
+    {
+      onFocus: composeEventHandlers(onFocus, setIntent),
+      onBlur: composeEventHandlers(onBlur, cancelIntent),
+      onMouseEnter: composeEventHandlers(onMouseEnter, setIntent),
+      onMouseLeave: composeEventHandlers(onMouseLeave, cancelIntent),
+      onTouchStart: composeEventHandlers(onTouchStart, setIntent)
+    }
+  ];
+}
+function composeEventHandlers(theirHandler, ourHandler) {
+  return (event) => {
+    theirHandler && theirHandler(event);
+    if (!event.defaultPrevented) {
+      ourHandler(event);
+    }
+  };
+}
+function PrefetchPageLinks({
+  page,
+  ...dataLinkProps
+}) {
+  let { router } = useDataRouterContext2();
+  let matches = reactExports.useMemo(
+    () => matchRoutes(router.routes, page, router.basename),
+    [router.routes, page, router.basename]
+  );
+  if (!matches) {
+    return null;
+  }
+  return /* @__PURE__ */ reactExports.createElement(PrefetchPageLinksImpl, { page, matches, ...dataLinkProps });
+}
+function useKeyedPrefetchLinks(matches) {
+  let { manifest, routeModules } = useFrameworkContext();
+  let [keyedPrefetchLinks, setKeyedPrefetchLinks] = reactExports.useState([]);
+  reactExports.useEffect(() => {
+    let interrupted = false;
+    void getKeyedPrefetchLinks(matches, manifest, routeModules).then(
+      (links) => {
+        if (!interrupted) {
+          setKeyedPrefetchLinks(links);
+        }
+      }
+    );
+    return () => {
+      interrupted = true;
+    };
+  }, [matches, manifest, routeModules]);
+  return keyedPrefetchLinks;
+}
+function PrefetchPageLinksImpl({
+  page,
+  matches: nextMatches,
+  ...linkProps
+}) {
+  let location = useLocation();
+  let { manifest, routeModules } = useFrameworkContext();
+  let { basename } = useDataRouterContext2();
+  let { loaderData, matches } = useDataRouterStateContext();
+  let newMatchesForData = reactExports.useMemo(
+    () => getNewMatchesForLinks(
+      page,
+      nextMatches,
+      matches,
+      manifest,
+      location,
+      "data"
+    ),
+    [page, nextMatches, matches, manifest, location]
+  );
+  let newMatchesForAssets = reactExports.useMemo(
+    () => getNewMatchesForLinks(
+      page,
+      nextMatches,
+      matches,
+      manifest,
+      location,
+      "assets"
+    ),
+    [page, nextMatches, matches, manifest, location]
+  );
+  let dataHrefs = reactExports.useMemo(() => {
+    if (page === location.pathname + location.search + location.hash) {
+      return [];
+    }
+    let routesParams = /* @__PURE__ */ new Set();
+    let foundOptOutRoute = false;
+    nextMatches.forEach((m) => {
+      var _a;
+      let manifestRoute = manifest.routes[m.route.id];
+      if (!manifestRoute || !manifestRoute.hasLoader) {
+        return;
+      }
+      if (!newMatchesForData.some((m2) => m2.route.id === m.route.id) && m.route.id in loaderData && ((_a = routeModules[m.route.id]) == null ? void 0 : _a.shouldRevalidate)) {
+        foundOptOutRoute = true;
+      } else if (manifestRoute.hasClientLoader) {
+        foundOptOutRoute = true;
+      } else {
+        routesParams.add(m.route.id);
+      }
+    });
+    if (routesParams.size === 0) {
+      return [];
+    }
+    let url = singleFetchUrl(page, basename, "data");
+    if (foundOptOutRoute && routesParams.size > 0) {
+      url.searchParams.set(
+        "_routes",
+        nextMatches.filter((m) => routesParams.has(m.route.id)).map((m) => m.route.id).join(",")
+      );
+    }
+    return [url.pathname + url.search];
+  }, [
+    basename,
+    loaderData,
+    location,
+    manifest,
+    newMatchesForData,
+    nextMatches,
+    page,
+    routeModules
+  ]);
+  let moduleHrefs = reactExports.useMemo(
+    () => getModuleLinkHrefs(newMatchesForAssets, manifest),
+    [newMatchesForAssets, manifest]
+  );
+  let keyedPrefetchLinks = useKeyedPrefetchLinks(newMatchesForAssets);
+  return /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, dataHrefs.map((href) => /* @__PURE__ */ reactExports.createElement("link", { key: href, rel: "prefetch", as: "fetch", href, ...linkProps })), moduleHrefs.map((href) => /* @__PURE__ */ reactExports.createElement("link", { key: href, rel: "modulepreload", href, ...linkProps })), keyedPrefetchLinks.map(({ key, link }) => (
+    // these don't spread `linkProps` because they are full link descriptors
+    // already with their own props
+    /* @__PURE__ */ reactExports.createElement("link", { key, ...link })
+  )));
+}
+function mergeRefs(...refs) {
+  return (value) => {
+    refs.forEach((ref) => {
+      if (typeof ref === "function") {
+        ref(value);
+      } else if (ref != null) {
+        ref.current = value;
+      }
+    });
+  };
+}
+var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+try {
+  if (isBrowser) {
+    window.__reactRouterVersion = // @ts-expect-error
+    "7.7.0";
+  }
+} catch (e) {
+}
+function BrowserRouter({
+  basename,
+  children,
+  window: window2
+}) {
+  let historyRef = reactExports.useRef();
+  if (historyRef.current == null) {
+    historyRef.current = createBrowserHistory({ window: window2, v5Compat: true });
+  }
+  let history = historyRef.current;
+  let [state, setStateImpl] = reactExports.useState({
+    action: history.action,
+    location: history.location
+  });
+  let setState = reactExports.useCallback(
+    (newState) => {
+      reactExports.startTransition(() => setStateImpl(newState));
+    },
+    [setStateImpl]
+  );
+  reactExports.useLayoutEffect(() => history.listen(setState), [history, setState]);
+  return /* @__PURE__ */ reactExports.createElement(
+    Router,
+    {
+      basename,
+      children,
+      location: state.location,
+      navigationType: state.action,
+      navigator: history
+    }
+  );
+}
+var ABSOLUTE_URL_REGEX2 = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+var Link = reactExports.forwardRef(
+  function LinkWithRef({
+    onClick,
+    discover = "render",
+    prefetch = "none",
+    relative,
+    reloadDocument,
+    replace: replace2,
+    state,
+    target,
+    to,
+    preventScrollReset,
+    viewTransition,
+    ...rest
+  }, forwardedRef) {
+    let { basename } = reactExports.useContext(NavigationContext);
+    let isAbsolute = typeof to === "string" && ABSOLUTE_URL_REGEX2.test(to);
+    let absoluteHref;
+    let isExternal = false;
+    if (typeof to === "string" && isAbsolute) {
+      absoluteHref = to;
+      if (isBrowser) {
+        try {
+          let currentUrl = new URL(window.location.href);
+          let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
+          let path = stripBasename(targetUrl.pathname, basename);
+          if (targetUrl.origin === currentUrl.origin && path != null) {
+            to = path + targetUrl.search + targetUrl.hash;
+          } else {
+            isExternal = true;
+          }
+        } catch (e) {
+          warning(
+            false,
+            `<Link to="${to}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`
+          );
+        }
+      }
+    }
+    let href = useHref(to, { relative });
+    let [shouldPrefetch, prefetchRef, prefetchHandlers] = usePrefetchBehavior(
+      prefetch,
+      rest
+    );
+    let internalOnClick = useLinkClickHandler(to, {
+      replace: replace2,
+      state,
+      target,
+      preventScrollReset,
+      relative,
+      viewTransition
+    });
+    function handleClick(event) {
+      if (onClick) onClick(event);
+      if (!event.defaultPrevented) {
+        internalOnClick(event);
+      }
+    }
+    let link = (
+      // eslint-disable-next-line jsx-a11y/anchor-has-content
+      /* @__PURE__ */ reactExports.createElement(
+        "a",
+        {
+          ...rest,
+          ...prefetchHandlers,
+          href: absoluteHref || href,
+          onClick: isExternal || reloadDocument ? onClick : handleClick,
+          ref: mergeRefs(forwardedRef, prefetchRef),
+          target,
+          "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+        }
+      )
+    );
+    return shouldPrefetch && !isAbsolute ? /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, link, /* @__PURE__ */ reactExports.createElement(PrefetchPageLinks, { page: href })) : link;
+  }
+);
+Link.displayName = "Link";
+var NavLink = reactExports.forwardRef(
+  function NavLinkWithRef({
+    "aria-current": ariaCurrentProp = "page",
+    caseSensitive = false,
+    className: classNameProp = "",
+    end = false,
+    style: styleProp,
+    to,
+    viewTransition,
+    children,
+    ...rest
+  }, ref) {
+    let path = useResolvedPath(to, { relative: rest.relative });
+    let location = useLocation();
+    let routerState = reactExports.useContext(DataRouterStateContext);
+    let { navigator: navigator2, basename } = reactExports.useContext(NavigationContext);
+    let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useViewTransitionState(path) && viewTransition === true;
+    let toPathname = navigator2.encodeLocation ? navigator2.encodeLocation(path).pathname : path.pathname;
+    let locationPathname = location.pathname;
+    let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
+    if (!caseSensitive) {
+      locationPathname = locationPathname.toLowerCase();
+      nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
+      toPathname = toPathname.toLowerCase();
+    }
+    if (nextLocationPathname && basename) {
+      nextLocationPathname = stripBasename(nextLocationPathname, basename) || nextLocationPathname;
+    }
+    const endSlashPosition = toPathname !== "/" && toPathname.endsWith("/") ? toPathname.length - 1 : toPathname.length;
+    let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(endSlashPosition) === "/";
+    let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
+    let renderProps = {
+      isActive,
+      isPending,
+      isTransitioning
+    };
+    let ariaCurrent = isActive ? ariaCurrentProp : void 0;
+    let className;
+    if (typeof classNameProp === "function") {
+      className = classNameProp(renderProps);
+    } else {
+      className = [
+        classNameProp,
+        isActive ? "active" : null,
+        isPending ? "pending" : null,
+        isTransitioning ? "transitioning" : null
+      ].filter(Boolean).join(" ");
+    }
+    let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
+    return /* @__PURE__ */ reactExports.createElement(
+      Link,
+      {
+        ...rest,
+        "aria-current": ariaCurrent,
+        className,
+        ref,
+        style,
+        to,
+        viewTransition
+      },
+      typeof children === "function" ? children(renderProps) : children
+    );
+  }
+);
+NavLink.displayName = "NavLink";
+var Form = reactExports.forwardRef(
+  ({
+    discover = "render",
+    fetcherKey,
+    navigate,
+    reloadDocument,
+    replace: replace2,
+    state,
+    method = defaultMethod,
+    action,
+    onSubmit,
+    relative,
+    preventScrollReset,
+    viewTransition,
+    ...props
+  }, forwardedRef) => {
+    let submit = useSubmit();
+    let formAction = useFormAction(action, { relative });
+    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
+    let isAbsolute = typeof action === "string" && ABSOLUTE_URL_REGEX2.test(action);
+    let submitHandler = (event) => {
+      onSubmit && onSubmit(event);
+      if (event.defaultPrevented) return;
+      event.preventDefault();
+      let submitter = event.nativeEvent.submitter;
+      let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
+      submit(submitter || event.currentTarget, {
+        fetcherKey,
+        method: submitMethod,
+        navigate,
+        replace: replace2,
+        state,
+        relative,
+        preventScrollReset,
+        viewTransition
+      });
+    };
+    return /* @__PURE__ */ reactExports.createElement(
+      "form",
+      {
+        ref: forwardedRef,
+        method: formMethod,
+        action: formAction,
+        onSubmit: reloadDocument ? onSubmit : submitHandler,
+        ...props,
+        "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+      }
+    );
+  }
+);
+Form.displayName = "Form";
+function getDataRouterConsoleError2(hookName) {
+  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+}
+function useDataRouterContext3(hookName) {
+  let ctx = reactExports.useContext(DataRouterContext);
+  invariant(ctx, getDataRouterConsoleError2(hookName));
+  return ctx;
+}
+function useLinkClickHandler(to, {
+  target,
+  replace: replaceProp,
+  state,
+  preventScrollReset,
+  relative,
+  viewTransition
+} = {}) {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let path = useResolvedPath(to, { relative });
+  return reactExports.useCallback(
+    (event) => {
+      if (shouldProcessLinkClick(event, target)) {
+        event.preventDefault();
+        let replace2 = replaceProp !== void 0 ? replaceProp : createPath(location) === createPath(path);
+        navigate(to, {
+          replace: replace2,
+          state,
+          preventScrollReset,
+          relative,
+          viewTransition
+        });
+      }
+    },
+    [
+      location,
+      navigate,
+      path,
+      replaceProp,
+      state,
+      target,
+      to,
+      preventScrollReset,
+      relative,
+      viewTransition
+    ]
+  );
+}
+var fetcherId = 0;
+var getUniqueFetcherId = () => `__${String(++fetcherId)}__`;
+function useSubmit() {
+  let { router } = useDataRouterContext3(
+    "useSubmit"
+    /* UseSubmit */
+  );
+  let { basename } = reactExports.useContext(NavigationContext);
+  let currentRouteId = useRouteId();
+  return reactExports.useCallback(
+    async (target, options = {}) => {
+      let { action, method, encType, formData, body } = getFormSubmissionInfo(
+        target,
+        basename
+      );
+      if (options.navigate === false) {
+        let key = options.fetcherKey || getUniqueFetcherId();
+        await router.fetch(key, currentRouteId, options.action || action, {
+          preventScrollReset: options.preventScrollReset,
+          formData,
+          body,
+          formMethod: options.method || method,
+          formEncType: options.encType || encType,
+          flushSync: options.flushSync
+        });
+      } else {
+        await router.navigate(options.action || action, {
+          preventScrollReset: options.preventScrollReset,
+          formData,
+          body,
+          formMethod: options.method || method,
+          formEncType: options.encType || encType,
+          replace: options.replace,
+          state: options.state,
+          fromRouteId: currentRouteId,
+          flushSync: options.flushSync,
+          viewTransition: options.viewTransition
+        });
+      }
+    },
+    [router, basename, currentRouteId]
+  );
+}
+function useFormAction(action, { relative } = {}) {
+  let { basename } = reactExports.useContext(NavigationContext);
+  let routeContext = reactExports.useContext(RouteContext);
+  invariant(routeContext, "useFormAction must be used inside a RouteContext");
+  let [match] = routeContext.matches.slice(-1);
+  let path = { ...useResolvedPath(action ? action : ".", { relative }) };
+  let location = useLocation();
+  if (action == null) {
+    path.search = location.search;
+    let params = new URLSearchParams(path.search);
+    let indexValues = params.getAll("index");
+    let hasNakedIndexParam = indexValues.some((v) => v === "");
+    if (hasNakedIndexParam) {
+      params.delete("index");
+      indexValues.filter((v) => v).forEach((v) => params.append("index", v));
+      let qs = params.toString();
+      path.search = qs ? `?${qs}` : "";
+    }
+  }
+  if ((!action || action === ".") && match.route.index) {
+    path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
+  }
+  if (basename !== "/") {
+    path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
+  }
+  return createPath(path);
+}
+function useViewTransitionState(to, opts = {}) {
+  let vtContext = reactExports.useContext(ViewTransitionContext);
+  invariant(
+    vtContext != null,
+    "`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?"
+  );
+  let { basename } = useDataRouterContext3(
+    "useViewTransitionState"
+    /* useViewTransitionState */
+  );
+  let path = useResolvedPath(to, { relative: opts.relative });
+  if (!vtContext.isTransitioning) {
+    return false;
+  }
+  let currentPath = stripBasename(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
+  let nextPath = stripBasename(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
+  return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
+}
+const IconUser = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='currentColor'%20viewBox='0%200%2024%2024'%3e%3cpath%20d='M12%2012c2.7%200%204.8-2.1%204.8-4.8S14.7%202.4%2012%202.4%207.2%204.5%207.2%207.2%209.3%2012%2012%2012Zm0%202.4c-3.2%200-9.6%201.6-9.6%204.8v2.4h19.2V19.2c0-3.2-6.4-4.8-9.6-4.8Z'%20/%3e%3c/svg%3e";
+const IconCart = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='currentColor'%20viewBox='0%200%2024%2024'%3e%3cpath%20d='M7%2018c-1.1%200-2%20.9-2%202s.9%202%202%202%202-.9%202-2-.9-2-2-2Zm10%200c-1.1%200-2%20.9-2%202s.9%202%202%202%202-.9%202-2-.9-2-2-2ZM7.2%2014h9.9c.75%200%201.4-.41%201.74-1.03l3.3-6.24a1%201%200%200%200-.88-1.47H6.21L5.27%202.65A1%201%200%200%200%204.3%202H1v2h2.3l3.6%209.59c-.58.49-.9%201.2-.9%201.94%200%201.43%201.17%202.6%202.6%202.6h10v-2H7.2a.6.6%200%201%201%200-1.2Z'/%3e%3c/svg%3e";
+const mockData$1 = [
+  { title: "surfboard" },
+  { title: "surfboards" },
+  { title: "Surfboard bag" },
+  {
+    title: "NSP Elements Longboard surfboard 8ft 0 Package - Navy",
+    image: "/images/board-navy.webp"
+  },
+  {
+    title: "NSP Elements Longboard surfboard 8ft 0 Package - White",
+    image: "/images/board-white.webp"
+  },
+  {
+    title: "NSP Elements Longboard Surfboard 8ft 6 Package - Red",
+    image: "/images/board-red.webp"
+  },
+  {
+    title: "NSP Elements Funboard surfboard 6ft 8 Package - White",
+    image: "/images/board-fun-white.webp"
+  },
+  { title: "DB Journey" },
+  { title: "Surfboard Bags" },
+  { title: "Multi Travel Bags" }
+];
+const SearchBar = () => {
+  const navigate = useNavigate();
   const [query, setQuery] = reactExports.useState("");
   const [showDropdown, setShowDropdown] = reactExports.useState(false);
-  const filtered = query.length === 0 ? [] : DUMMY_SUGGESTIONS.filter(
-    (item) => item.toLowerCase().includes(query.toLowerCase())
+  const filtered = mockData$1.filter(
+    (item) => item.title.toLowerCase().includes(query.toLowerCase())
   );
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full max-w-2xl", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "input",
-      {
-        className: "w-full border rounded-full px-6 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 shadow",
-        placeholder: "Search for products...",
-        value: query,
-        onChange: (e) => {
-          setQuery(e.target.value);
-          setShowDropdown(true);
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && query.trim()) {
+      navigate(
+        `/shopify-dummy-shop/search/?q=${encodeURIComponent(query.trim())}`
+      );
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-xl w-full mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center border rounded px-4 py-2 shadow-sm", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gray-500 mr-2", children: "🔍" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "text",
+          className: "flex-grow outline-none",
+          placeholder: "Search",
+          value: query,
+          onChange: (e) => {
+            setQuery(e.target.value);
+            setShowDropdown(true);
+          },
+          onKeyDown: handleKeyDown
+        }
+      ),
+      query && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          onClick: () => {
+            setQuery("");
+            setShowDropdown(false);
+          },
+          className: "text-xl text-gray-500",
+          "aria-label": "Clear",
+          children: "×"
+        }
+      )
+    ] }),
+    showDropdown && query && /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "absolute z-10 w-full bg-white shadow-lg max-h-96 overflow-y-auto border rounded mt-1", children: [
+      filtered.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "li",
+        {
+          className: "flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer",
+          onClick: () => {
+            setQuery(item.title);
+            setShowDropdown(false);
+          },
+          children: [
+            item.image && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "img",
+              {
+                src: item.image,
+                alt: item.title,
+                className: "w-8 h-8 object-contain"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.title })
+          ]
         },
-        onFocus: () => setShowDropdown(true),
-        onBlur: () => setTimeout(() => setShowDropdown(false), 100)
+        idx
+      )),
+      filtered.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "px-4 py-2 text-gray-500", children: "No results found" })
+    ] })
+  ] });
+};
+const navLinks = [
+  "Brands",
+  "New",
+  "Surfboards",
+  "Surf Accessories",
+  "Wetsuits",
+  "Bodyboard",
+  "Custom Board Builder",
+  "Bestsellers",
+  "Gift Vouchers",
+  "Sale"
+];
+const NavBar = () => {
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = reactExports.useState(false);
+  const goToHome = () => {
+    navigate("/shopify-dummy-shop");
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full bg-white shadow", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-4 py-3 flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "flex items-center gap-2 cursor-pointer",
+          onClick: goToHome,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-bold text-lg tracking-wider", children: "🟫🟫🟫" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-xl", children: "DUMMY SHOPIFY" })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:block flex-grow mx-6 max-w-md", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SearchBar, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 text-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "USD ($)" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { "aria-label": "Account", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: IconUser, alt: "User", className: "w-6 h-6" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { "aria-label": "Cart", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: IconCart, alt: "User", className: "w-6 h-6" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: "md:hidden text-2xl font-bold",
+            onClick: () => setMenuOpen(!menuOpen),
+            "aria-label": "Toggle Menu",
+            children: menuOpen ? "×" : "☰"
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:flex border-t", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 py-2 flex flex-wrap gap-8 text-sm font-bold", children: navLinks.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "hover:underline", children: item }, item)) }) }),
+    menuOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:hidden border-t bg-white px-4 py-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col space-y-2 text-sm font-medium", children: navLinks.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-left hover:underline", children: item }, item)) }) })
+  ] });
+};
+const NavBar$1 = React.memo(NavBar);
+const heroImg = "/shopify-dummy-shop/assets/boardshop-DmcjQ-Jh.webp";
+const HeroSection = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      className: "relative w-full h-screen bg-cover bg-center",
+      style: { backgroundImage: `url(${heroImg})` },
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-10 left-0 w-full px-6 sm:px-10 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-white max-w-2xl mx-auto md:mx-0 text-center md:text-left", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl sm:text-4xl md:text-5xl font-bold mb-4", children: "Huge Surfboard Range" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-6 text-base sm:text-lg md:text-xl", children: "An unbeatable range of premium surfboards from high performance short boards to grovelers and all the other essentials you need #RideWithUs" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "bg-white text-black px-6 py-2 rounded hover:bg-gray-100 font-medium", children: "Shop Now" })
+      ] }) })
+    }
+  );
+};
+const HeroSection$1 = React.memo(HeroSection);
+const imgSurfboards = "/shopify-dummy-shop/assets/surfboards-xhW_5lKr.jpg";
+const imgWetsuits = "/shopify-dummy-shop/assets/wetsuits-CTDtoXqa.jpg";
+const imgSurfAccessories = "/shopify-dummy-shop/assets/surf-accessories-CNiLFTm0.jpg";
+const CategoryCard = ({
+  image,
+  title,
+  subtitle,
+  links
+}) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center text-center gap-3 px-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: image, alt: title, className: "w-full h-auto object-cover" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-gray-600", children: subtitle }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-bold", children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "bg-black text-white px-4 py-2 rounded font-medium hover:bg-gray-800", children: "Shop now" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap justify-center gap-4 text-sm mt-2", children: links.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "a",
+      {
+        href: link.href,
+        className: "text-black underline font-semibold",
+        children: link.label
+      },
+      link.label
+    )) })
+  ] });
+};
+const CategorySection = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-10 bg-white border-t", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CategoryCard,
+      {
+        image: imgSurfboards,
+        title: "Surfboards",
+        subtitle: "Unbeatable range of premium surfboards",
+        links: [
+          { label: "Shortboards", href: "#" },
+          { label: "Mid-Length", href: "#" },
+          { label: "Longboards", href: "#" }
+        ]
       }
     ),
-    showDropdown && query && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 right-0 mt-2 bg-white shadow-lg rounded-md z-10", children: filtered.length ? filtered.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CategoryCard,
       {
-        className: "px-4 py-2 hover:bg-blue-50 cursor-pointer",
-        onMouseDown: () => {
-          setQuery(s);
-          setShowDropdown(false);
-        },
-        children: s
-      },
-      idx
-    )) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-4 py-2 text-gray-400", children: "No suggestions" }) })
-  ] });
-}
-function Body() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col items-center bg-gradient-to-r from-blue-100 to-blue-50 py-8", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full flex justify-center mb-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "img",
-      {
-        src: "https://placehold.co/900x220?text=Big+Hero+Promo+Banner",
-        alt: "Promo Banner",
-        className: "rounded-lg shadow",
-        style: { maxWidth: 900, width: "100%" }
+        image: imgWetsuits,
+        title: "Wetsuits",
+        subtitle: "UK’s largest online wetsuit retailer",
+        links: [
+          { label: "Mens", href: "#" },
+          { label: "Womens", href: "#" },
+          { label: "Wetsuit accessories", href: "#" }
+        ]
       }
-    ) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full flex justify-center mt-2 mb-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SearchBar, {}) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex space-x-8 mt-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white rounded-lg shadow p-6 text-center w-60", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            src: "https://placehold.co/128x128?text=Boards",
-            alt: "Boards",
-            className: "mx-auto mb-3 rounded"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl mb-2 font-semibold", children: "Boards" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-400 text-sm", children: "NEW" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white rounded-lg shadow p-6 text-center w-60", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            src: "https://placehold.co/128x128?text=Fins",
-            alt: "Fins",
-            className: "mx-auto mb-3 rounded"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl mb-2 font-semibold", children: "Fins" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-400 text-sm", children: "NEW" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white rounded-lg shadow p-6 text-center w-60", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            src: "https://placehold.co/128x128?text=Leashes",
-            alt: "Leashes",
-            className: "mx-auto mb-3 rounded"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl mb-2 font-semibold", children: "Leashes" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-400 text-sm", children: "NEW" })
-      ] })
-    ] })
-  ] });
-}
-function Footer() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-white border-t py-6 text-center text-gray-400 text-sm", children: [
-    "© ",
-    (/* @__PURE__ */ new Date()).getFullYear(),
-    " FakeVapeShop. Demo shop for plugin showcase only."
-  ] });
-}
-function NavBar() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "bg-neutral-900 text-white shadow flex items-center justify-between px-8 py-4", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center space-x-6 text-lg font-bold" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-8 text-base font-medium", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "New" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Brands" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Deals" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Disposables" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Accessories" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Rewards" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Blog" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-6 text-base", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Sign In" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Cart" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Wish List" })
-    ] })
-  ] });
-}
-function App() {
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CategoryCard,
+      {
+        image: imgSurfAccessories,
+        title: "Surf Accessories",
+        subtitle: "All your surf essentials",
+        links: [
+          { label: "Fins", href: "#" },
+          { label: "Leashes", href: "#" },
+          { label: "Surfboard Bags", href: "#" }
+        ]
+      }
+    )
+  ] }) });
+};
+const Home = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-slate-50", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(NavBar, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Body, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    /* @__PURE__ */ jsxRuntimeExports.jsx(NavBar$1, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSection$1, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CategorySection, {})
   ] });
+};
+const ProductCard = ({
+  image,
+  name,
+  oldPrice,
+  newPrice,
+  discountPercent
+}) => {
+  const amountSaved = (oldPrice - newPrice).toFixed(2);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-sm", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: image, alt: name, className: "mx-auto mb-4 w-full max-w-xs" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold", children: name }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-1", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "line-through text-gray-500 mr-2", children: [
+        "£",
+        oldPrice.toFixed(2)
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-semibold text-black", children: [
+        "£",
+        newPrice.toFixed(2)
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-600 text-sm mt-1 font-medium", children: [
+      "You save: £",
+      amountSaved,
+      " (",
+      discountPercent,
+      "%)"
+    ] })
+  ] });
+};
+const ProductCard$1 = React.memo(ProductCard);
+const imageSearch1 = "/shopify-dummy-shop/assets/search-image-1-88xJHQ4Z.jpg";
+const imageSearch2 = "/shopify-dummy-shop/assets/search-image-2-CX65AVE3.jpg";
+const imageSearch3 = "/shopify-dummy-shop/assets/search-image-1-88xJHQ4Z.jpg";
+const mockData = [
+  {
+    name: "Cortez Fugitive Surfboard 7ft 4 Futures Package - Grey",
+    image: imageSearch1,
+    oldPrice: 552.5,
+    newPrice: 524.88,
+    discountPercent: 5
+  },
+  {
+    name: "Cortez Fugitive Surfboard 7ft 6 Futures Package - White",
+    image: imageSearch2,
+    oldPrice: 552.5,
+    newPrice: 524.88,
+    discountPercent: 5
+  },
+  {
+    name: "Cortez Fugitive Surfboard 8ft 0 Futures Package - Grey",
+    image: imageSearch3,
+    oldPrice: 552.5,
+    newPrice: 524.88,
+    discountPercent: 5
+  }
+];
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+const SearchResults = () => {
+  const query = useQuery().get("q");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-slate-50", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(NavBar$1, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-10 max-w-7xl mx-auto", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-gray-600 mb-2", children: [
+        "Home / Search results for: '",
+        query,
+        "'"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-2xl md:text-3xl font-bold mb-2", children: [
+        "Search results for: '",
+        query,
+        "'"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8", children: mockData.map((product, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(ProductCard$1, { ...product }, idx)) })
+    ] })
+  ] });
+};
+function App() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/shopify-dummy-shop", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Home, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/shopify-dummy-shop/search", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SearchResults, {}) })
+  ] }) });
 }
 function autoRender() {
   let el = document.getElementById("root");
@@ -19766,9 +22027,7 @@ function autoRender() {
     document.body.appendChild(el);
   }
   const root = clientExports.createRoot(el);
-  root.render(
-    /* @__PURE__ */ jsxRuntimeExports.jsx(App, {})
-  );
+  root.render(/* @__PURE__ */ jsxRuntimeExports.jsx(App, {}));
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", autoRender);
