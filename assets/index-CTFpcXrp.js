@@ -21792,16 +21792,13 @@ const SearchBar = () => {
   ] });
 };
 const navLinks = [
-  "Brands",
   "New",
-  "Surfboards",
-  "Surf Accessories",
-  "Wetsuits",
-  "Bodyboard",
-  "Custom Board Builder",
-  "Bestsellers",
-  "Gift Vouchers",
-  "Sale"
+  "Brands",
+  "Deals",
+  "Disposables",
+  "Accessories",
+  "Rewards",
+  "Blog"
 ];
 const NavBar = () => {
   const navigate = useNavigate();
@@ -21843,7 +21840,7 @@ const NavBar = () => {
   ] });
 };
 const NavBar$1 = React.memo(NavBar);
-const heroImg = "/shopify-dummy-shop/assets/boardshop-DmcjQ-Jh.webp";
+const heroImg = "/shopify-dummy-shop/assets/boardshop-DOYxE_Nx.webp";
 const HeroSection = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
@@ -21851,7 +21848,7 @@ const HeroSection = () => {
       className: "relative w-full h-screen bg-cover bg-center",
       style: { backgroundImage: `url(${heroImg})` },
       children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-10 left-0 w-full px-6 sm:px-10 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-white max-w-2xl mx-auto md:mx-0 text-center md:text-left", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl sm:text-4xl md:text-5xl font-bold mb-4", children: "Huge Surfboard Range" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl sm:text-4xl md:text-5xl font-bold mb-4", children: "Shopify Dummy Shop" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-6 text-base sm:text-lg md:text-xl", children: "An unbeatable range of premium surfboards from high performance short boards to grovelers and all the other essentials you need #RideWithUs" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "bg-white text-black px-6 py-2 rounded hover:bg-gray-100 font-medium", children: "Shop Now" })
       ] }) })
@@ -21890,7 +21887,7 @@ const CategorySection = () => {
       CategoryCard,
       {
         image: imgSurfboards,
-        title: "Surfboards",
+        title: "Boards",
         subtitle: "Unbeatable range of premium surfboards",
         links: [
           { label: "Shortboards", href: "#" },
@@ -21903,7 +21900,7 @@ const CategorySection = () => {
       CategoryCard,
       {
         image: imgWetsuits,
-        title: "Wetsuits",
+        title: "Fins",
         subtitle: "UK’s largest online wetsuit retailer",
         links: [
           { label: "Mens", href: "#" },
@@ -21916,7 +21913,7 @@ const CategorySection = () => {
       CategoryCard,
       {
         image: imgSurfAccessories,
-        title: "Surf Accessories",
+        title: "Leashes",
         subtitle: "All your surf essentials",
         links: [
           { label: "Fins", href: "#" },
