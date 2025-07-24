@@ -42,11 +42,11 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 
 const CategorySection: React.FC = () => {
   return (
-    <section className="py-10 bg-white border-t">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <CategoryCard
           image={imgSurfboards}
-          title="Surfboards"
+          title="Boards"
           subtitle="Unbeatable range of premium surfboards"
           links={[
             { label: "Shortboards", href: "#" },
@@ -56,7 +56,7 @@ const CategorySection: React.FC = () => {
         />
         <CategoryCard
           image={imgWetsuits}
-          title="Wetsuits"
+          title="Fins"
           subtitle="UK’s largest online wetsuit retailer"
           links={[
             { label: "Mens", href: "#" },
@@ -66,7 +66,7 @@ const CategorySection: React.FC = () => {
         />
         <CategoryCard
           image={imgSurfAccessories}
-          title="Surf Accessories"
+          title="Leashes"
           subtitle="All your surf essentials"
           links={[
             { label: "Fins", href: "#" },

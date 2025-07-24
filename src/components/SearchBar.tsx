@@ -33,7 +33,6 @@ const mockData: SearchItem[] = [
 
 const SearchBar: React.FC = () => {
   const navigate = useNavigate();
-
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -46,64 +45,70 @@ const SearchBar: React.FC = () => {
       navigate(
         `/shopify-dummy-shop/search/?q=${encodeURIComponent(query.trim())}`
       );
+      setShowDropdown(false);
     }
   };
 
   return (
-    <div className="relative max-w-xl w-full mx-auto">
-      <div className="flex items-center border rounded px-4 py-2 shadow-sm">
-        <span className="text-gray-500 mr-2">🔍</span>
-        <input
-          type="text"
-          className="flex-grow outline-none"
-          placeholder="Search"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setShowDropdown(true);
-          }}
-          onKeyDown={handleKeyDown}
-        />
-        {query && (
-          <button
-            onClick={() => {
-              setQuery("");
-              setShowDropdown(false);
+    <div className="w-full flex justify-center mt-6 relative">
+      <div className="w-[90%] max-w-xl relative">
+        <div className="flex items-center border border-gray-300 rounded-full px-4 py-3 shadow-sm bg-white">
+          <span className="text-gray-500 mr-3 text-lg">🔍</span>
+          <input
+            type="text"
+            className="flex-grow outline-none text-base placeholder-gray-400"
+            placeholder="Search"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setShowDropdown(true);
             }}
-            className="text-xl text-gray-500"
-            aria-label="Clear"
-          >
-            ×
-          </button>
-        )}
-      </div>
-
-      {showDropdown && query && (
-        <ul className="absolute z-10 w-full bg-white shadow-lg max-h-96 overflow-y-auto border rounded mt-1">
-          {filtered.map((item, idx) => (
-            <li
-              key={idx}
-              className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            onKeyDown={handleKeyDown}
+          />
+          {query && (
+            <button
               onClick={() => {
-                setQuery(item.title);
+                setQuery("");
                 setShowDropdown(false);
               }}
+              className="text-xl text-gray-500"
+              aria-label="Clear"
             >
-              {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-8 h-8 object-contain"
-                />
-              )}
-              <span>{item.title}</span>
-            </li>
-          ))}
-          {filtered.length === 0 && (
-            <li className="px-4 py-2 text-gray-500">No results found</li>
+              ×
+            </button>
           )}
-        </ul>
-      )}
+        </div>
+
+        {showDropdown && query && (
+          <ul className="absolute z-10 w-full bg-white shadow-lg max-h-96 overflow-y-auto border border-t-0 rounded-b-xl">
+            {filtered.length > 0 ? (
+              filtered.map((item, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setQuery(item.title);
+                    setShowDropdown(false);
+                  }}
+                >
+                  {item.image && (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-9 h-9 object-contain"
+                    />
+                  )}
+                  <span className="text-sm">{item.title}</span>
+                </li>
+              ))
+            ) : (
+              <li className="px-4 py-3 text-gray-500 text-sm">
+                No results found
+              </li>
+            )}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

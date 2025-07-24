@@ -5,16 +5,13 @@ import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 
 const navLinks = [
-  "Brands",
   "New",
-  "Surfboards",
-  "Surf Accessories",
-  "Wetsuits",
-  "Bodyboard",
-  "Custom Board Builder",
-  "Bestsellers",
-  "Gift Vouchers",
-  "Sale",
+  "Brands",
+  "Deals",
+  "Disposables",
+  "Accessories",
+  "Rewards",
+  "Blog",
 ];
 
 const NavBar: React.FC = () => {
