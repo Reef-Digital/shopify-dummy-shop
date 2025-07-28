@@ -4,7 +4,8 @@ import App from './App.jsx'
 
 
 function autoRender() {
-  let el = document.getElementById("root");
+  let el = document.getElementById("my-react-widget");
+  console.log(el) 
   if (!el) {
     el = document.createElement("div");
     el.id = "my-react-widget";
