@@ -1,23 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
+
+/// <reference types="vite/client" />
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), cssInjectedByJsPlugin(), tailwindcss(),],
+  plugins: [react(), cssInjectedByJsPlugin(), tailwindcss()],
   define: {
-    'process.env.NODE_ENV': JSON.stringify('dev'),
+    "process.env.NODE_ENV": JSON.stringify("dev"),
   },
   build: {
     rollupOptions: {
-      input: './src/main.jsx',
+      input: "./src/main.jsx",
       output: {
-        format: 'iife',
-        name: 'MyWidget',       // Optional global name
-        entryFileNames: 'my-widget.iife.js',
+        format: "iife",
+        name: "MyWidget", // Optional global name
+        entryFileNames: "my-widget.iife.js",
       },
     },
     minify: false,
   },
-})
+});

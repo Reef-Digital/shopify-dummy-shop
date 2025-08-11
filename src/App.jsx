@@ -1,10 +1,13 @@
 import "./App.css";
-import SearchForm from "./components/SearchForm";
+import NavBar from "./components/NavBar";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <SearchForm />
+    <div className="min-h-screen bg-white">
+      <NavBar />
+
+      <Homepage />
     </div>
   );
 }

@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+html {
+  color: #111928;
+  font-size: 14px;
+  font-weight: 400;
+}
