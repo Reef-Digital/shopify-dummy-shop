@@ -3,27 +3,40 @@ import bgImage from "../../../assets/images/background.png";
 import iconSearch from "../../../assets/icons/icon_search.svg";
 import { getSearchApiUrl } from "../../../config/api";
 
+type Product = {
+  title: string;
+  score: number;
+  reason: string;
+};
+
 const HeroSection: React.FC = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Product[]>([]);
   const [debouncedQuery, setDebouncedQuery] = useState("");
-
-  console.log("Search results:", results);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedQuery(query);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [query]);
+  const [showResults, setShowResults] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (debouncedQuery.trim()) {
-      performSearch(debouncedQuery);
-    } else {
+    setShowResults(!!query.trim());
+
+    if (!query) {
       setResults([]);
     }
-  }, [debouncedQuery]);
+    // const timer = setTimeout(() => {
+    //   if (query.trim().split(/\s+/).length > 2) {
+    //     setDebouncedQuery(query);
+    //   }
+    // }, 500);
+    // return () => clearTimeout(timer);
+  }, [query]);
+
+  // useEffect(() => {
+  //   if (debouncedQuery.trim()) {
+  //     performSearch(debouncedQuery);
+  //   } else {
+  //     setResults([]);
+  //   }
+  // }, [debouncedQuery]);
 
   const callSearchApi = async (searchQuery: string) => {
     try {
@@ -42,7 +55,6 @@ const HeroSection: React.FC = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("API response data:", data);
         return data || [];
       } else {
         console.error(
@@ -67,11 +79,32 @@ const HeroSection: React.FC = () => {
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (query.trim().split(/\s+/).length > 2) {
+      if (query.trim().split(/\s+/).length > 1) {
         performSearch(query);
       }
     }
   };
+
+  const handleOnFocus = () => {
+    if (results.length > 0) {
+      setShowResults(true);
+    }
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setShowResults(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div
@@ -94,16 +127,51 @@ const HeroSection: React.FC = () => {
             Try our AI powered search — faster, smarter, and spot-on every time!
           </div>
 
-          <div className="flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-[400px] px-4 py-3.5 gap-2.5">
-            <img src={iconSearch} alt="Logo" className="w-4 h-4" />
+          <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-[400px] px-4 py-3.5 gap-2.5">
+            <img src={iconSearch} alt="search" className="w-4 h-4" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleInputKeyDown}
+              onFocus={handleOnFocus}
               placeholder="Search"
               className="w-full h-6 outline-none transition-all text-lg"
             />
+
+            {showResults && (
+              <div
+                ref={wrapperRef}
+                className="absolute overflow-y-auto top-14 right-0 left-0 h-80 z-10 bg-white shadow-2xl rounded-lg"
+              >
+                {results.length > 0 ? (
+                  results.map((result, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-row items-center gap-8 p-4 border-b border-gray-200"
+                    >
+                      <img
+                        src="https://placehold.co/60?text=Placeholder&font=roboto"
+                        alt="product image"
+                        className="rounded"
+                      />
+
+                      <div>
+                        <p className="font-semibold text-sky-600">{`${result.title} (${result.score})`}</p>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center">Loading</div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
