@@ -43,7 +43,7 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: |
-        npm ci
+        yarn install --frozen-lockfile
     - name: Build the static web with variable holder
       env:
         CI: ''        
