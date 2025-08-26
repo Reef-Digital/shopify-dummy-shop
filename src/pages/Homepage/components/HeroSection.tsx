@@ -12,6 +12,7 @@ type Product = {
 const HeroSection: React.FC = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ const HeroSection: React.FC = () => {
       console.error("Search error:", error);
       return [];
     } finally {
-      //
+      setLoading(false);
     }
   };
 
@@ -127,12 +128,15 @@ const HeroSection: React.FC = () => {
             Try our AI powered search — faster, smarter, and spot-on every time!
           </div>
 
-          <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-[400px] px-4 py-3.5 gap-2.5">
+          <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-[500px] px-4 py-3.5 gap-2.5">
             <img src={iconSearch} alt="search" className="w-4 h-4" />
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setLoading(true);
+                setQuery(e.target.value);
+              }}
               onKeyDown={handleInputKeyDown}
               onFocus={handleOnFocus}
               placeholder="Search"
@@ -144,7 +148,11 @@ const HeroSection: React.FC = () => {
                 ref={wrapperRef}
                 className="absolute overflow-y-auto top-14 right-0 left-0 h-80 z-10 bg-white shadow-2xl rounded-lg"
               >
-                {results.length > 0 ? (
+                {loading ? (
+                  <div className="w-full flex justify-center mt-4">
+                    <div className="spinner" />
+                  </div>
+                ) : results.length > 0 ? (
                   results.map((result, index) => (
                     <div
                       key={index}
@@ -157,18 +165,18 @@ const HeroSection: React.FC = () => {
                       />
 
                       <div>
-                        <p className="font-semibold text-sky-600">{`${result.title} (${result.score})`}</p>
+                        <p className="font-semibold text-sky-600 text-sm">{`${result.title} (${result.score})`}</p>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua
-                        </p>
+                        <p className="text-sm">{result.reason}</p>
                       </div>
                     </div>
                   ))
                 ) : (
-                  <div className="text-center">Loading</div>
+                  <div className="w-full flex justify-center mt-4">
+                    <div className="flex justify-center mt-4">
+                      No data found
+                    </div>
+                  </div>
                 )}
               </div>
             )}
