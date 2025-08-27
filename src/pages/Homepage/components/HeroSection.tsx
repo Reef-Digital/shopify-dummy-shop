@@ -23,21 +23,21 @@ const HeroSection: React.FC = () => {
     if (!query) {
       setResults([]);
     }
-    // const timer = setTimeout(() => {
-    //   if (query.trim().split(/\s+/).length > 2) {
-    //     setDebouncedQuery(query);
-    //   }
-    // }, 500);
-    // return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      if (query.trim().split(/\s+/).length > 1) {
+        setDebouncedQuery(query);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
   }, [query]);
 
-  // useEffect(() => {
-  //   if (debouncedQuery.trim()) {
-  //     performSearch(debouncedQuery);
-  //   } else {
-  //     setResults([]);
-  //   }
-  // }, [debouncedQuery]);
+  useEffect(() => {
+    if (debouncedQuery.trim()) {
+      performSearch(debouncedQuery);
+    } else {
+      setResults([]);
+    }
+  }, [debouncedQuery]);
 
   const callSearchApi = async (searchQuery: string) => {
     try {
@@ -118,17 +118,17 @@ const HeroSection: React.FC = () => {
           background: `linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)`,
         }}
       ></div>
-      <div className="relative">
+      <div className="relative px-20">
         <div className="flex flex-col items-center">
-          <div className="text-6xl font-extrabold text-[#1D4C73] mt-6">
+          <h1 className="text-6xl font-extrabold text-[#1D4C73] mt-6 text-center">
             Shopify Dummy Shop
-          </div>
+          </h1>
 
-          <div className="text-xl font-normal my-6 text-[#1B5A8E]">
+          <p className="text-xl font-normal my-6 text-[#1B5A8E] text-center">
             Try our AI powered search — faster, smarter, and spot-on every time!
-          </div>
+          </p>
 
-          <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-[500px] px-4 py-3.5 gap-2.5">
+          <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] max-w-[500px] w-full px-4 py-3.5 gap-2.5">
             <img src={iconSearch} alt="search" className="w-4 h-4" />
             <input
               type="text"

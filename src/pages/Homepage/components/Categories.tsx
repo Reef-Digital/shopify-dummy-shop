@@ -80,46 +80,48 @@ const categories = [
 
 const Categories: React.FC = () => {
   return (
-    <div className="relative bg-white rounded-2xl border border-[#E5E7EB] p-10 h-[520px] -mt-[260px] mx-[142px] mb-10">
-      <div className="flex flex-row items-center justify-between">
-        <div className="text-2xl font-semibold text-[#0F3253]">
-          Featured Categories
+    <div className="flex justify-center px-20">
+      <div className="relative bg-white max-w-[1080px] w-full rounded-2xl border border-[#E5E7EB] p-10 -mt-[260px] mb-10">
+        <div className="flex flex-row items-center justify-between">
+          <p className="text-2xl font-semibold text-[#0F3253]">
+            Featured Categories
+          </p>
+
+          <p className="font-medium underline cursor-pointer text-[#1B5A8E]">
+            See all
+          </p>
         </div>
 
-        <div className="font-medium underline cursor-pointer text-[#1B5A8E]">
-          See all
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        {categories.map((cat) => (
-          <div
-            key={cat.name}
-            className="border border-[#A9CEE9] rounded-lg p-4 flex flex-col"
-          >
-            <h3 className="font-bold mb-4">{cat.name}</h3>
-
-            <div className="grid grid-cols-2 gap-4 flex-grow">
-              {cat.items.map((item) => (
-                <div key={item.name} className="flex flex-col items-start">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-24 object-contain rounded"
-                  />
-                  <p className="mt-2 text-sm">{item.name}</p>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={cat.link}
-              className="mt-4 text-sky-600 font-medium flex items-center gap-1 hover:underline"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {categories.map((cat) => (
+            <div
+              key={cat.name}
+              className="border border-[#A9CEE9] rounded-lg p-4 flex flex-col"
             >
-              Shop now →
-            </a>
-          </div>
-        ))}
+              <h3 className="font-bold mb-4">{cat.name}</h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
+                {cat.items.map((item) => (
+                  <div key={item.name} className="flex flex-col items-start">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-24 object-contain rounded"
+                    />
+                    <p className="mt-2 text-sm">{item.name}</p>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={cat.link}
+                className="mt-4 text-sky-600 font-medium flex items-center gap-1 hover:underline"
+              >
+                Shop now →
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
