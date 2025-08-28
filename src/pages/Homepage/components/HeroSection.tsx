@@ -7,6 +7,8 @@ type Product = {
   title: string;
   score: number;
   reason: string;
+  type: "product" | "text";
+  value: string;
 };
 
 const HeroSection: React.FC = () => {
@@ -146,7 +148,7 @@ const HeroSection: React.FC = () => {
             {showResults && (
               <div
                 ref={wrapperRef}
-                className="absolute overflow-y-auto top-14 right-0 left-0 h-80 z-10 bg-white shadow-2xl rounded-lg"
+                className="absolute overflow-y-auto top-14 right-0 left-0 h-96 z-10 bg-white shadow-2xl rounded-lg"
               >
                 {loading ? (
                   <div className="w-full flex justify-center mt-4">
@@ -154,21 +156,36 @@ const HeroSection: React.FC = () => {
                   </div>
                 ) : results.length > 0 ? (
                   results.map((result, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-row items-center gap-8 p-4 border-b border-gray-200"
-                    >
-                      <img
-                        src="https://placehold.co/60?text=Placeholder&font=roboto"
-                        alt="product image"
-                        className="rounded"
-                      />
+                    <div key={index}>
+                      {result.type === "product" ? (
+                        <div className="flex flex-row items-center gap-8 p-4 border-b border-gray-200">
+                          <img
+                            src="https://placehold.co/60?text=Placeholder&font=roboto"
+                            alt="product image"
+                            className="rounded"
+                          />
 
-                      <div>
-                        <p className="font-semibold text-sky-600 text-sm">{`${result.title} (${result.score})`}</p>
+                          <div>
+                            <p className="font-semibold text-sky-600 text-sm">{`${
+                              result.title
+                            } (${(result.score * 100).toFixed(2)}%)`}</p>
 
-                        <p className="text-sm">{result.reason}</p>
-                      </div>
+                            <p className="text-xs font-medium mt-1 text-gray-400">
+                              Reason
+                            </p>
+                            <p className="text-sm">{result.reason}</p>
+
+                            <p className="font-semibold text-sm mt-1">$15.46</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="p-4">
+                          <p className="text-xs font-medium text-sky-500">
+                            Summary
+                          </p>
+                          <p className="text-xs">{result.value}</p>
+                        </div>
+                      )}
                     </div>
                   ))
                 ) : (
