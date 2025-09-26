@@ -39,21 +39,14 @@ jobs:
       with:
         node-version: 20
         cache: 'npm'
-    - name: Load .env (optional)
-      run: |
-        if [ -n "${{ vars.ENV_FILE_URL }}" ]; then
-          if [[ "${{ vars.ENV_FILE_URL }}" == s3://* ]]; then
-            aws s3 cp "${{ vars.ENV_FILE_URL }}" .env
-          else
-            curl -fsSL "${{ vars.ENV_FILE_URL }}" -o .env
-          fi
-        fi
     - name: Install dependencies
-      run: npm ci
+      run: yarn install --frozen-lockfile
     - name: Build static web (Vite)
       env:
         CI: ''
-      run: npm run build
+      run: |
+        mv .env.example .env
+        bash tenant/build.sh
     - name: Store the build in s3
       run:  |
         aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy/build/${{ github.sha }}
@@ -82,7 +75,9 @@ jobs:
       run: |
         mkdir build
         aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy/build/${{ github.sha }} ./build
-
+        aws s3 cp ${{ vars.ENV_FILE_URL }} .env
+        export $(grep -v '^#' .env | xargs)
+        bash tenant/inject.sh build
     - name: Deploy
       uses: reggionick/s3-deploy@v4
       with:
