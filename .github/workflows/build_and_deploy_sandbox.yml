@@ -2,10 +2,8 @@ name: Build and Deploy to QA
 
 on:
   push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - '.github/workflows/*'        
+    branches: [ 'main' ]
+    tags: [ 'v*' ]
   workflow_dispatch:
     inputs:      
       environment:
@@ -30,30 +28,36 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Configure AWS Credentials
+    - name: Configure AWS Credentials (build)
       id: configure-aws-credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-region: ${{ vars.AWS_REGION }}
+        aws-region: eu-central-1
         role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
 
     - uses: actions/setup-node@v4
       with:
         node-version: 20
         cache: 'npm'
-    - name: Install dependencies
+    - name: Load .env (optional)
       run: |
-        yarn install --frozen-lockfile
-    - name: Build the static web with variable holder
+        if [ -n "${{ vars.ENV_FILE_URL }}" ]; then
+          if [[ "${{ vars.ENV_FILE_URL }}" == s3://* ]]; then
+            aws s3 cp "${{ vars.ENV_FILE_URL }}" .env
+          else
+            curl -fsSL "${{ vars.ENV_FILE_URL }}" -o .env
+          fi
+        fi
+    - name: Install dependencies
+      run: npm ci
+    - name: Build static web (Vite)
       env:
-        CI: ''        
-      run:  |
-        mv .env.example .env
-        bash tenant/build.sh
+        CI: ''
+      run: npm run build
     - name: Store the build in s3
       run:  |
-        aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ github.sha }}
-        aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/sandbox         
+        aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy/build/${{ github.sha }}
+        aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy/build/sandbox         
   deploy:
     runs-on: ubuntu-latest
     # if: startsWith(github.ref, 'refs/heads/releases/')
@@ -65,22 +69,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Configure AWS Credentials
+    - name: Configure AWS Credentials (deploy)
       id: configure-aws-credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-region: ${{ vars.AWS_REGION }}
+        aws-region: eu-central-1
         role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
 
-    - name: Download the build 
+    - name: Download the build
       env:
-        CI: '' 
-      run:  |
+        CI: ''
+      run: |
         mkdir build
-        aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ github.sha }} ./build 
-        aws s3 cp ${{ vars.ENV_FILE_URL }} .env
-        export $(grep -v '^#' .env | xargs)
-        bash tenant/inject.sh build
+        aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy/build/${{ github.sha }} ./build
 
     - name: Deploy
       uses: reggionick/s3-deploy@v4

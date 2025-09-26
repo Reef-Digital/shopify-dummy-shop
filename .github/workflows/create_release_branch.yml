@@ -1,0 +1,28 @@
+name: Create Release Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version for the release branch (e.g., 1.0)'
+        required: true
+permissions:
+  contents: write   
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]@liventy.cloud"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create release branch
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+        run: |
+          git checkout -b release/${VERSION}
+          git push origin release/${VERSION}
