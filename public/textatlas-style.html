@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TextAtlas-Style Widget Embed Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .example-section {
+        background: white;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      pre {
+        background: #f8f8f8;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+      }
+      code {
+        background: #f0f0f0;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+      .textatlas-embed {
+        border: 2px dashed #e0e0e0;
+        border-radius: 8px;
+        min-height: 100px;
+        margin: 20px 0;
+      }
+      .note {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 4px;
+        margin: 15px 0;
+        border-left: 4px solid #2196f3;
+      }
+      h1 {
+        color: #333;
+      }
+      h2 {
+        color: #666;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 TextAtlas-Style Widget Embedding</h1>
+
+      <div class="example-section">
+        <h2>Overview</h2>
+        <p>
+          This page demonstrates how to embed the search widget using a simple
+          HTML snippet, similar to TextAtlas or other modern widget platforms.
+        </p>
+
+        <div class="note">
+          <strong>💡 Key Benefits:</strong>
+          <ul>
+            <li>Simple copy-paste integration</li>
+            <li>Automatic initialization</li>
+            <li>No manual JavaScript required</li>
+            <li>Async loading for better performance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example-section">
+        <h2>Method 1: Basic Embed</h2>
+        <p>Simply add this HTML snippet to your page:</p>
+
+        <pre>
+&lt;!-- Search Widget --&gt;
+&lt;div class="textatlas-embed"
+     data-widget="search"
+     data-id="7db0acbd-e821-41c7-a312-7badb527631e"
+     data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"&gt;&lt;/div&gt;
+
+&lt;script src="./lib/platform.js" async&gt;&lt;/script&gt;</pre
+        >
+
+        <p><strong>Live Example:</strong></p>
+        <div
+          class="textatlas-embed"
+          data-widget="search"
+          data-id="7db0acbd-e821-41c7-a312-7badb527631e"
+          data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+        ></div>
+      </div>
+
+      <div class="example-section">
+        <h2>Method 2: With Custom Styling</h2>
+        <p>You can add custom CSS classes and other attributes:</p>
+
+        <pre>
+&lt;!-- Search Widget with Custom Styling --&gt;
+&lt;div class="textatlas-embed my-custom-class"
+     data-widget="search"
+     data-id="custom-widget-123"
+     data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+     data-widget-class="custom-search-style"
+     data-widget-max-width="600px"&gt;&lt;/div&gt;</pre
+        >
+
+        <p><strong>Live Example:</strong></p>
+        <div
+          class="textatlas-embed"
+          data-widget="search"
+          data-id="custom-widget-123"
+          data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+          data-widget-max-width="800px"
+        ></div>
+      </div>
+
+      <div class="example-section">
+        <h2>Method 3: Multiple Widgets</h2>
+        <p>You can embed multiple widgets on the same page:</p>
+
+        <pre>
+&lt;!-- First Widget --&gt;
+&lt;div data-widget="search" 
+     data-id="widget-1"
+     data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"&gt;&lt;/div&gt;
+
+&lt;!-- Second Widget --&gt;
+&lt;div data-widget="search" 
+     data-id="widget-2"
+     data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"&gt;&lt;/div&gt;
+
+&lt;!-- Load the script once --&gt;
+&lt;script src="./lib/platform.js" async&gt;&lt;/script&gt;</pre
+        >
+
+        <p><strong>Live Example - Widget 1:</strong></p>
+        <div
+          class="textatlas-embed"
+          data-widget="search"
+          data-id="widget-1"
+          data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+        ></div>
+
+        <p><strong>Live Example - Widget 2:</strong></p>
+        <div
+          class="textatlas-embed"
+          data-widget="search"
+          data-id="widget-2"
+          data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+        ></div>
+      </div>
+
+      <div class="example-section">
+        <h2>Attributes Reference</h2>
+        <table style="width: 100%; border-collapse: collapse">
+          <thead>
+            <tr style="background: #f5f5f5">
+              <th
+                style="padding: 10px; text-align: left; border: 1px solid #ddd"
+              >
+                Attribute
+              </th>
+              <th
+                style="padding: 10px; text-align: left; border: 1px solid #ddd"
+              >
+                Required
+              </th>
+              <th
+                style="padding: 10px; text-align: left; border: 1px solid #ddd"
+              >
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-widget</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">✅ Yes</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                Must be "search" to identify the widget type
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-search-key</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">✅ Yes</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                API key for authentication (sent as x-search-key header)
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-id</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">⚪ Optional</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                Unique identifier for the widget instance
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-api-url</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">⚪ Optional</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                Custom API endpoint URL (if not using default)
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-widget-class</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">⚪ Optional</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                Custom CSS class to apply to the widget
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                <code>data-widget-max-width</code>
+              </td>
+              <td style="padding: 10px; border: 1px solid #ddd">⚪ Optional</td>
+              <td style="padding: 10px; border: 1px solid #ddd">
+                Maximum width for the widget (e.g., "600px")
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="example-section">
+        <h2>Production Usage</h2>
+        <p>
+          For production, you would typically host the widget files on your CDN:
+        </p>
+
+        <pre>
+&lt;!-- Production Example --&gt;
+&lt;div class="textatlas-embed"
+     data-widget="search"
+     data-id="7db0acbd-e821-41c7-a312-7badb527631e"
+     data-search-key="Z-ubBW69rL7fibuWAbce4MZ7RM8juZjUYQ-_vqXr"
+     data-api-url="https://api.yoursite.com"&gt;&lt;/div&gt;
+
+&lt;script src="https://cdn.yoursite.com/widget/172f8164-23a3-4463-aed6-e2e1eb61b765/platform.js" async&gt;&lt;/script&gt;</pre
+        >
+
+        <div class="note">
+          <strong>📝 Note:</strong> The widget uses WebSocket for real-time
+          streaming:
+          <ul>
+            <li>
+              Connects to API using <code>data-search-key</code> for
+              authentication
+            </li>
+            <li>Streams results in real-time via WebSocket</li>
+            <li>Sends API key as <code>x-search-key</code> header</li>
+            <li>Handles connection errors gracefully</li>
+            <li>Auto-reconnects on connection loss</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example-section">
+        <h2>Advanced Usage: JavaScript API</h2>
+        <p>If you need programmatic control, you can use the JavaScript API:</p>
+
+        <pre>
+&lt;div id="my-search-widget"&gt;&lt;/div&gt;
+
+&lt;script src="./lib/platform.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  // Wait for platform to load
+  window.addEventListener('load', () => {
+    // Mount a widget programmatically
+    const widget = SearchWidgetPlatform.mount('#my-search-widget', {
+      widgetId: 'my-custom-id',
+      className: 'my-custom-class',
+      maxWidth: '500px'
+    });
+
+    // Reload/remount all widgets
+    SearchWidgetPlatform.reload();
+  });
+&lt;/script&gt;</pre
+        >
+      </div>
+    </div>
+
+    <!-- Load the Search Widget Platform -->
+    <script src="../lib/platform.js" async></script>
+  </body>
+</html>

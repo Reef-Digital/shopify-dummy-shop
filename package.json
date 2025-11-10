@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "vite",
     "build:app": "vite build",
-    "build:lib": "vite build --mode library",
+    "build:lib": "vite build --mode library && vite build --mode platform",
     "build:lib:external": "vite build --mode library-external",
     "build:lib:all": "npm run build:lib && npm run build:lib:external",
     "build": "npm run build:app && npm run build:lib:all",
@@ -51,7 +51,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

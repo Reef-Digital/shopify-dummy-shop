@@ -1,15 +1,37 @@
 import { useState, useEffect, useRef } from "react";
 import { getSearchApiUrl } from "../config/api";
+import io from "socket.io-client";
 
-const SearchForm = () => {
+const SearchForm = ({
+  placeholder = "Search",
+  maxWidth = "500px",
+  searchKey = "",
+  apiUrl = "",
+}) => {
+  // Debug: Log props immediately on component mount
+  console.log("SearchForm: Component rendered with props:", {
+    placeholder,
+    maxWidth,
+    searchKey: searchKey ? `"${searchKey}"` : "EMPTY/UNDEFINED",
+    apiUrl,
+  });
+  console.log("SearchForm: searchKey length:", searchKey?.length || 0);
+
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedQuery, setDebouncedQuery] = useState("");
-  const searchInputRef = useRef(null);
+  const [showResults, setShowResults] = useState(false);
+  const wrapperRef = useRef(null);
 
   // Debounce effect for input
   useEffect(() => {
+    setShowResults(!!query.trim());
+
+    if (!query) {
+      setResults([]);
+    }
+
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
     }, 500);
@@ -28,23 +50,49 @@ const SearchForm = () => {
     }
   }, [debouncedQuery]);
 
-  // Focus input on mount
+  // Click outside handler
   useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setShowResults(false);
+      }
     }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-  // API handler for search
+  // API handler for search with WebSocket streaming
   const callSearchApi = async (searchQuery) => {
     setIsLoading(true);
     try {
-      const apiUrl = getSearchApiUrl();
-      const response = await fetch(apiUrl, {
+      const baseUrl = apiUrl || getSearchApiUrl();
+
+      console.log(
+        "SearchForm: API call with searchKey:",
+        searchKey ? "***" + searchKey.slice(-4) : "MISSING"
+      );
+      console.log("SearchForm: searchKey type:", typeof searchKey);
+      console.log("SearchForm: searchKey value (raw):", searchKey);
+      console.log("SearchForm: searchKey empty?:", searchKey === "");
+      console.log("SearchForm: API URL:", baseUrl);
+
+      // Step 1: Execute flow to get sessionId
+      const headers = {
+        "Content-Type": "application/json",
+        "x-search-key": searchKey,
+      };
+
+      console.log("SearchForm: Headers object:", headers);
+      console.log(
+        "SearchForm: x-search-key in headers:",
+        headers["x-search-key"]
+      );
+
+      const response = await fetch(`${baseUrl}/shop/flow/execute`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: headers,
         body: JSON.stringify({
           userInput: {
             type: "search",
@@ -52,10 +100,8 @@ const SearchForm = () => {
           },
         }),
       });
-      if (response.ok) {
-        const data = await response.json();
-        return data || [];
-      } else {
+
+      if (!response.ok) {
         console.error(
           "API response error:",
           response.status,
@@ -63,6 +109,74 @@ const SearchForm = () => {
         );
         return [];
       }
+
+      const data = await response.json();
+      const sessionId = data.sessionId;
+
+      if (!sessionId) {
+        console.error("No sessionId returned from API");
+        return [];
+      }
+
+      // Step 2: Connect to WebSocket and stream results
+      return new Promise((resolve, reject) => {
+        console.log(
+          "SearchForm: Connecting to WebSocket...",
+          `${baseUrl}?searchKey=${searchKey}`
+        );
+        const socket = io(`${baseUrl}?searchKey=${searchKey}`, {
+          transports: ["websocket"],
+        });
+        console.log("SearchForm: Socket object created:", socket);
+
+        const allData = [];
+
+        socket.on("connect", () => {
+          console.log("SearchForm: WebSocket connected successfully!");
+          console.log("SearchForm: Subscribing to session:", sessionId);
+          socket.emit("subscribe-session", { sessionId });
+
+          socket.on(`session-${sessionId}`, (streamData) => {
+            console.log(
+              "SearchForm: *** RECEIVED DATA FROM SOCKET ***",
+              streamData
+            );
+
+            if (
+              streamData.event === "products" ||
+              streamData.event === "summary-result"
+            ) {
+              const widgets =
+                streamData.data?.response?.widgets ||
+                streamData.response?.widgets ||
+                [];
+              allData.push(...widgets);
+            }
+
+            if (streamData.event === "flow-end") {
+              console.log("Flow ended, collected widgets:", allData);
+              socket.disconnect();
+              resolve(allData);
+            } else if (streamData.event === "flow-error") {
+              console.error("Flow error:", streamData);
+              socket.disconnect();
+              reject(new Error("Flow error"));
+            }
+          });
+        });
+
+        socket.on("connect_error", (err) => {
+          console.error("Socket error:", err);
+          socket.disconnect();
+          reject(err);
+        });
+
+        // Timeout after 30 seconds
+        setTimeout(() => {
+          socket.disconnect();
+          reject(new Error("Search timeout"));
+        }, 30000);
+      });
     } catch (error) {
       console.error("Search error:", error);
       return [];
@@ -86,245 +200,87 @@ const SearchForm = () => {
     }
   };
 
+  const handleOnFocus = () => {
+    if (results.length > 0) {
+      setShowResults(true);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Search Products
-          </h1>
-          <p className="text-gray-600">Find the products you're looking for</p>
-        </div>
+    <div className="w-full" style={{ maxWidth }}>
+      <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-full px-4 py-3.5 gap-2.5">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => {
+            setIsLoading(true);
+            setQuery(e.target.value);
+          }}
+          onKeyDown={handleInputKeyDown}
+          onFocus={handleOnFocus}
+          placeholder={placeholder}
+          className="w-full h-6 outline-none border-none transition-all text-lg"
+        />
 
-        {/* Disclaimer */}
-        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <div className="flex items-start">
-            <div className="flex-shrink-0">
-              <svg
-                className="w-5 h-5 text-blue-600 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div className="ml-3">
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">
-                Disclaimer
-              </h3>
-              <p className="text-sm text-blue-700 mb-2">
-                This demo shop contains a limited selection of products for
-                testing only. Search results are restricted to this sample
-                inventory.
-              </p>
-              <p className="text-sm text-blue-700">
-                <span className="inline-block mr-1">👉</span> To explore, try
-                searching for categories like Surfboards, Wetsuits, Accessories,
-                or Lifestyle items, or look up products by name such as
-                Longboard, Wetsuit, Wax, Hoodie, or Flip Flops.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Search Input Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <div className="relative">
-            <input
-              ref={searchInputRef}
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={handleInputKeyDown}
-              placeholder="Search for products..."
-              className="w-full px-4 py-4 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-lg"
-            />
-            <svg
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-            {isLoading && (
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+        {showResults && (
+          <div
+            ref={wrapperRef}
+            className="absolute overflow-y-auto top-14 right-0 left-0 h-96 z-10 bg-white shadow-2xl rounded-lg"
+          >
+            {isLoading ? (
+              <div className="w-full flex justify-center mt-4">
+                <div className="spinner" />
+              </div>
+            ) : results.length > 0 ? (
+              results.map((result, index) => (
+                <div key={index}>
+                  {result.type === "product" ? (
+                    <div className="flex flex-row items-center gap-8 p-4 border-b border-gray-200">
+                      <img
+                        src={
+                          result.metadata?.imageUrl ||
+                          "https://placehold.co/60?text=Product&font=roboto"
+                        }
+                        alt="product"
+                        className="rounded w-[60px] h-[60px] object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold text-sky-600 text-sm">
+                          {result.title} ({(result.score * 100).toFixed(2)}%)
+                        </p>
+                        <p className="text-xs font-medium mt-1 text-gray-400">
+                          Reason
+                        </p>
+                        <p className="text-sm">{result.reason}</p>
+                        {result.metadata?.productUrl && (
+                          <a
+                            href={result.metadata.productUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:text-blue-800 mt-1 inline-block"
+                          >
+                            View Product →
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="p-4">
+                      <p className="text-xs font-medium text-sky-500">
+                        Summary
+                      </p>
+                      <p className="text-xs">{result.value}</p>
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="w-full flex justify-center mt-4">
+                <div className="flex justify-center mt-4">No data found</div>
               </div>
             )}
           </div>
-        </div>
-
-        {/* Search Results Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          {!query && (
-            <div className="text-center py-12 text-gray-500">
-              <svg
-                className="w-16 h-16 mx-auto mb-4 text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-              <p className="text-lg">Start typing to search for products</p>
-              <p className="text-sm mt-2">
-                Enter at least 3 words to get results
-              </p>
-            </div>
-          )}
-
-          {query && !isLoading && results.length === 0 && (
-            <div className="text-center py-12 text-gray-500">
-              <svg
-                className="w-16 h-16 mx-auto mb-4 text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6"
-                />
-              </svg>
-              <p className="text-lg">No results found for "{query}"</p>
-              <p className="text-sm mt-2">
-                Try different keywords or check your spelling
-              </p>
-            </div>
-          )}
-
-          {results.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6">
-                Found {results.length} result{results.length !== 1 ? "s" : ""}{" "}
-                for "{query}"
-              </h3>
-              <div className="space-y-4">
-                {results.map((result, index) => {
-                  if (result.type === "text") {
-                    return (
-                      <div
-                        key={index}
-                        className="p-6 bg-blue-50 border border-blue-200 rounded-lg"
-                      >
-                        <div className="flex items-start">
-                          <div className="flex-shrink-0">
-                            <svg
-                              className="w-6 h-6 text-blue-600"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
-                          </div>
-                          <div className="ml-3 flex-1">
-                            <h4 className="text-sm font-medium text-blue-800 mb-1">
-                              Recommendation
-                            </h4>
-                            <p className="text-blue-700 leading-relaxed">
-                              {result.value}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <div
-                      key={index}
-                      className={`p-6 border border-gray-200 rounded-lg transition-colors ${
-                        result.product?.productUrl
-                          ? "hover:bg-gray-50 cursor-pointer"
-                          : "opacity-50 cursor-not-allowed"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900 mb-2 text-lg">
-                            {result.title}
-                          </h4>
-                          <p className="text-gray-600 mb-3 leading-relaxed">
-                            {result.reason}
-                          </p>
-                          <div className="flex items-center gap-4">
-                            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                              Product ID: {result.productId}
-                            </span>
-                            <span className="text-sm text-gray-500">
-                              Score: {(result.score * 100).toFixed(1)}%
-                            </span>
-                            {!result.product?.productUrl && (
-                              <span className="text-xs bg-red-100 text-red-600 px-3 py-1 rounded-full font-medium">
-                                Unavailable
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                        <div className="ml-6">
-                          <span className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">
-                            {result.type}
-                          </span>
-                        </div>
-                      </div>
-                      {result.product?.productUrl && (
-                        <div className="mt-4 pt-4 border-t border-gray-100">
-                          <a
-                            href={result.product.productUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium"
-                          >
-                            View Product
-                            <svg
-                              className="ml-1 w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              />
-                            </svg>
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

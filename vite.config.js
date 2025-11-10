@@ -7,40 +7,69 @@ import { resolve } from "path";
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
-  const isLibraryBuild = mode === 'library';
-  const isLibraryExternal = mode === 'library-external';
-  
+  const isLibraryBuild = mode === "library";
+  const isLibraryExternal = mode === "library-external";
+  const isPlatformBuild = mode === "platform";
+
   if (isLibraryBuild) {
     // Library build configuration - React bundled (standalone version)
     return {
       plugins: [react()],
       build: {
         lib: {
-          entry: resolve(__dirname, 'src/lib/index.js'),
-          name: 'SearchWidget',
-          fileName: (format) => `search-widget.standalone.${format}.js`,
-          formats: ['es', 'umd', 'cjs']
+          entry: resolve(__dirname, "src/lib/index.js"),
+          name: "SearchWidget",
+          fileName: () => "search-widget.standalone.umd.js",
+          formats: ["umd"],
         },
         rollupOptions: {
           // Bundle React inside the library
           output: {
             // No globals needed since we're bundling everything
-          }
+          },
         },
-        outDir: 'dist/lib',
+        outDir: "dist/lib",
         emptyOutDir: false, // Don't clear the dist folder
         sourcemap: true,
-        minify: 'terser',
+        minify: "terser",
         terserOptions: {
           compress: {
-            drop_console: true,
-            drop_debugger: true
-          }
-        }
+            drop_console: false, // Keep console logs for debugging
+            drop_debugger: true,
+          },
+        },
       },
       define: {
-        'process.env.NODE_ENV': JSON.stringify('production')
-      }
+        "process.env.NODE_ENV": JSON.stringify("production"),
+      },
+    };
+  }
+
+  if (isPlatformBuild) {
+    // Platform loader build configuration
+    return {
+      plugins: [],
+      build: {
+        lib: {
+          entry: resolve(__dirname, "src/lib/platform.js"),
+          name: "SearchWidgetPlatform",
+          fileName: () => "platform.js",
+          formats: ["umd"],
+        },
+        outDir: "dist/lib",
+        emptyOutDir: false, // Don't clear the dist folder
+        sourcemap: true,
+        minify: "terser",
+        terserOptions: {
+          compress: {
+            drop_console: false, // Keep console logs for debugging
+            drop_debugger: true,
+          },
+        },
+      },
+      define: {
+        "process.env.NODE_ENV": JSON.stringify("production"),
+      },
     };
   }
 
@@ -50,34 +79,34 @@ export default defineConfig(({ command, mode }) => {
       plugins: [react()],
       build: {
         lib: {
-          entry: resolve(__dirname, 'src/lib/index.js'),
-          name: 'SearchWidget',
+          entry: resolve(__dirname, "src/lib/index.js"),
+          name: "SearchWidget",
           fileName: (format) => `search-widget.external.${format}.js`,
-          formats: ['es', 'umd', 'cjs']
+          formats: ["es", "umd", "cjs"],
         },
         rollupOptions: {
-          external: ['react', 'react-dom'],
+          external: ["react", "react-dom"],
           output: {
             globals: {
-              react: 'React',
-              'react-dom': 'ReactDOM'
-            }
-          }
+              react: "React",
+              "react-dom": "ReactDOM",
+            },
+          },
         },
-        outDir: 'dist/lib',
+        outDir: "dist/lib",
         emptyOutDir: false, // Don't clear the dist folder
         sourcemap: true,
-        minify: 'terser',
+        minify: "terser",
         terserOptions: {
           compress: {
             drop_console: true,
-            drop_debugger: true
-          }
-        }
+            drop_debugger: true,
+          },
+        },
       },
       define: {
-        'process.env.NODE_ENV': JSON.stringify('production')
-      }
+        "process.env.NODE_ENV": JSON.stringify("production"),
+      },
     };
   }
 
@@ -85,7 +114,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react(), tailwindcss()],
     build: {
-      outDir: 'dist'
-    }
+      outDir: "dist",
+    },
   };
 });

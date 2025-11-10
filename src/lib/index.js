@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SearchForm from '../components/SearchForm.jsx';
-import SearchInput from '../components/SearchInput.tsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import SearchForm from "../components/SearchForm.jsx";
+import SearchInput from "../components/SearchInput.tsx";
 
 // CSS injection function
 const injectCSS = () => {
-  if (document.getElementById('search-widget-styles')) {
+  if (document.getElementById("search-widget-styles")) {
     return; // Styles already injected
   }
 
-  const style = document.createElement('style');
-  style.id = 'search-widget-styles';
+  const style = document.createElement("style");
+  style.id = "search-widget-styles";
   style.textContent = `
     /* Tailwind CSS Reset and Base Styles for Search Widget */
     .search-widget-container * {
@@ -206,7 +206,7 @@ const injectCSS = () => {
       animation: spin 1s linear infinite;
     }
   `;
-  
+
   document.head.appendChild(style);
 };
 
@@ -218,9 +218,10 @@ class SearchWidget {
 
   mount(selector, options = {}) {
     // Find the target element
-    const targetElement = typeof selector === 'string' 
-      ? document.querySelector(selector) 
-      : selector;
+    const targetElement =
+      typeof selector === "string"
+        ? document.querySelector(selector)
+        : selector;
 
     if (!targetElement) {
       throw new Error(`Element not found: ${selector}`);
@@ -230,24 +231,46 @@ class SearchWidget {
     injectCSS();
 
     // Create container with widget-specific class
-    this.container = document.createElement('div');
-    this.container.className = 'search-widget-container';
-    
+    this.container = document.createElement("div");
+    this.container.className = "search-widget-container";
+
     // Apply any custom styles from options
     if (options.className) {
       this.container.className += ` ${options.className}`;
     }
-    
+
     if (options.style) {
       Object.assign(this.container.style, options.style);
     }
 
     // Clear target element and append our container
-    targetElement.innerHTML = '';
+    targetElement.innerHTML = "";
     targetElement.appendChild(this.container);
 
-    // Render SearchForm using React 18 compatible API
-    ReactDOM.render(React.createElement(SearchForm), this.container);
+    // Prepare props for SearchForm
+    const componentProps = {
+      searchKey: options.searchKey || "",
+      apiUrl: options.apiUrl || "",
+      placeholder: options.placeholder || "Search",
+      maxWidth: options.maxWidth || "500px",
+    };
+
+    console.log(
+      "SearchWidget.mount: Rendering SearchForm with props:",
+      JSON.stringify(componentProps, null, 2)
+    );
+    console.log(
+      "SearchWidget.mount: searchKey value:",
+      componentProps.searchKey
+        ? `"${componentProps.searchKey}"`
+        : "EMPTY STRING"
+    );
+
+    // Render SearchForm using React 18 compatible API with props
+    ReactDOM.render(
+      React.createElement(SearchForm, componentProps),
+      this.container
+    );
 
     return this;
   }
@@ -255,7 +278,7 @@ class SearchWidget {
   unmount() {
     if (this.container) {
       ReactDOM.unmountComponentAtNode(this.container);
-      
+
       if (this.container.parentNode) {
         this.container.parentNode.removeChild(this.container);
       }
@@ -279,9 +302,8 @@ const createSearchWidget = () => new SearchWidget();
 // Generic component mounting function
 const mountComponent = (componentName, selector, props = {}) => {
   // Find the target element
-  const targetElement = typeof selector === 'string' 
-    ? document.querySelector(selector) 
-    : selector;
+  const targetElement =
+    typeof selector === "string" ? document.querySelector(selector) : selector;
 
   if (!targetElement) {
     throw new Error(`Element not found: ${selector}`);
@@ -291,20 +313,22 @@ const mountComponent = (componentName, selector, props = {}) => {
   injectCSS();
 
   // Create container with widget-specific class
-  const container = document.createElement('div');
-  container.className = 'search-widget-container';
-  container.style.width = '100%';
-  container.style.height = '100%';
-  container.style.display = 'flex';
-  container.style.alignItems = 'center';
-  container.style.justifyContent = 'center';
-  
+  const container = document.createElement("div");
+  container.className = "search-widget-container";
+  container.style.width = "100%";
+  container.style.height = "100%";
+  container.style.display = "flex";
+  container.style.alignItems = "center";
+  container.style.justifyContent = "center";
+
   // Clear target element and append our container
-  targetElement.innerHTML = '';
+  targetElement.innerHTML = "";
   targetElement.appendChild(container);
 
   // Get the component from SearchWidget
-  const Component = window.SearchWidget ? window.SearchWidget[componentName] : null;
+  const Component = window.SearchWidget
+    ? window.SearchWidget[componentName]
+    : null;
   if (!Component) {
     throw new Error(`Component '${componentName}' not found in SearchWidget`);
   }
@@ -322,43 +346,96 @@ const mountComponent = (componentName, selector, props = {}) => {
     },
     update: (newProps) => {
       ReactDOM.render(React.createElement(Component, newProps), container);
-    }
+    },
   };
 };
 
 // Auto-mount functionality for script tag usage
 const autoMount = () => {
-  // Look for elements with data-search-widget attribute
-  const autoMountElements = document.querySelectorAll('[data-search-widget]');
-  
-  autoMountElements.forEach(element => {
+  // Look for elements with data-widget="search" attribute
+  const embedElements = document.querySelectorAll('[data-widget="search"]');
+
+  embedElements.forEach((element) => {
     const widget = createSearchWidget();
     const options = {};
-    
-    // Parse options from data attributes
-    if (element.dataset.searchWidgetClass) {
-      options.className = element.dataset.searchWidgetClass;
+
+    // Debug: Log all data attributes
+    console.log("SearchWidget: Element:", element);
+    console.log("SearchWidget: All data attributes:", element.dataset);
+
+    // Parse data-id attribute
+    const widgetId = element.getAttribute("data-id");
+    if (widgetId) {
+      options.widgetId = widgetId;
     }
-    
+
+    // Parse data-search-key attribute (required for API authentication)
+    // Use getAttribute to be explicit
+    const searchKey = element.getAttribute("data-search-key");
+    console.log("SearchWidget: getAttribute('data-search-key'):", searchKey);
+    console.log(
+      "SearchWidget: element.dataset.searchKey:",
+      element.dataset.searchKey
+    );
+
+    if (searchKey) {
+      options.searchKey = searchKey;
+      console.log("SearchWidget: searchKey added to options:", searchKey);
+    } else {
+      console.error(
+        "SearchWidget: data-search-key attribute is MISSING or EMPTY!"
+      );
+      console.error("SearchWidget: Element outerHTML:", element.outerHTML);
+    }
+
+    // Parse data-api-url attribute (optional, for custom API endpoints)
+    const apiUrl = element.getAttribute("data-api-url");
+    if (apiUrl) {
+      options.apiUrl = apiUrl;
+    }
+
+    // Parse other data attributes for configuration
+    if (element.dataset.widgetClass) {
+      options.className = element.dataset.widgetClass;
+    }
+
+    if (element.dataset.widgetMaxWidth) {
+      options.maxWidth = element.dataset.widgetMaxWidth;
+    }
+
+    console.log(
+      "SearchWidget: Final options object:",
+      JSON.stringify(options, null, 2)
+    );
+    console.log(
+      "SearchWidget: Calling mount with searchKey:",
+      options.searchKey ? "EXISTS" : "MISSING"
+    );
     widget.mount(element, options);
-    
+
     // Store widget instance on element for later access
     element.searchWidget = widget;
   });
 };
 
 // Auto-mount when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', autoMount);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", autoMount);
 } else {
   autoMount();
 }
 
 // Export for different module systems
-export { SearchWidget, createSearchWidget, SearchForm, SearchInput, mountComponent };
+export {
+  SearchWidget,
+  createSearchWidget,
+  SearchForm,
+  SearchInput,
+  mountComponent,
+};
 
 // UMD export for script tag usage
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   window.SearchWidget = {
     SearchWidget,
     createSearchWidget,
@@ -368,6 +445,6 @@ if (typeof window !== 'undefined') {
     mountComponent,
     _React: React,
     _ReactDOM: ReactDOM,
-    _injectCSS: injectCSS
+    _injectCSS: injectCSS,
   };
 }

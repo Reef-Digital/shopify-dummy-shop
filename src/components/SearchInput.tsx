@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import iconSearch from "../assets/icons/icon_search.svg";
 import { getSearchApiUrl } from "../config/api";
+import io from "socket.io-client";
 
 type Product = {
   title: string;
@@ -8,6 +8,8 @@ type Product = {
   reason: string;
   type: "product" | "text";
   value: string;
+  productId?: string;
+  product?: any;
 };
 
 interface SearchInputProps {
@@ -17,6 +19,8 @@ interface SearchInputProps {
   onLoadingChange?: (loading: boolean) => void;
   maxWidth?: string;
   debounceMs?: number;
+  searchKey?: string;
+  apiUrl?: string;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
@@ -26,6 +30,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
   onLoadingChange,
   maxWidth = "500px",
   debounceMs = 1000,
+  searchKey = "",
+  apiUrl = "",
 }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Product[]>([]);
@@ -57,6 +63,21 @@ const SearchInput: React.FC<SearchInputProps> = ({
   }, [debouncedQuery]);
 
   useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setShowResults(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     if (onLoadingChange) {
       onLoadingChange(loading);
     }
@@ -68,13 +89,23 @@ const SearchInput: React.FC<SearchInputProps> = ({
     }
   }, [results, onSearch]);
 
-  const callSearchApi = async (searchQuery: string) => {
+  const callSearchApi = async (searchQuery: string): Promise<Product[]> => {
+    setLoading(true);
     try {
-      const apiUrl = getSearchApiUrl();
-      const response = await fetch(apiUrl, {
+      const baseUrl = apiUrl || getSearchApiUrl();
+
+      console.log(
+        "SearchInput: API call with searchKey:",
+        searchKey ? "***" + searchKey.slice(-4) : "MISSING"
+      );
+      console.log("SearchInput: API URL:", baseUrl);
+
+      // Step 1: Execute flow to get sessionId
+      const response = await fetch(`${baseUrl}/shop/flow/execute`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-search-key": searchKey,
         },
         body: JSON.stringify({
           userInput: {
@@ -83,10 +114,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
           },
         }),
       });
-      if (response.ok) {
-        const data = await response.json();
-        return data || [];
-      } else {
+
+      if (!response.ok) {
         console.error(
           "API response error:",
           response.status,
@@ -94,6 +123,74 @@ const SearchInput: React.FC<SearchInputProps> = ({
         );
         return [];
       }
+
+      const data = await response.json();
+      const sessionId = data.sessionId;
+
+      if (!sessionId) {
+        console.error("No sessionId returned from API");
+        return [];
+      }
+
+      // Step 2: Connect to WebSocket and stream results
+      return new Promise((resolve, reject) => {
+        console.log(
+          "SearchInput: Connecting to WebSocket...",
+          `${baseUrl}?token=${searchKey}`
+        );
+        const socket = io(`${baseUrl}?token=${searchKey}`, {
+          transports: ["websocket"],
+        });
+        console.log("SearchInput: Socket object created:", socket);
+
+        const allData: Product[] = [];
+
+        socket.on("connect", () => {
+          console.log("SearchInput: WebSocket connected successfully!");
+          console.log("SearchInput: Subscribing to session:", sessionId);
+          socket.emit("subscribe-session", { sessionId });
+
+          socket.on(`session-${sessionId}`, (streamData: any) => {
+            console.log(
+              "SearchInput: *** RECEIVED DATA FROM SOCKET ***",
+              streamData
+            );
+
+            if (
+              streamData.event === "products" ||
+              streamData.event === "summary-result"
+            ) {
+              const widgets =
+                streamData.data?.response?.widgets ||
+                streamData.response?.widgets ||
+                [];
+              allData.push(...widgets);
+            }
+
+            if (streamData.event === "flow-end") {
+              console.log("Flow ended, collected widgets:", allData);
+              socket.disconnect();
+              resolve(allData);
+            } else if (streamData.event === "flow-error") {
+              console.error("Flow error:", streamData);
+              socket.disconnect();
+              reject(new Error("Flow error"));
+            }
+          });
+        });
+
+        socket.on("connect_error", (err: Error) => {
+          console.error("Socket error:", err);
+          socket.disconnect();
+          reject(err);
+        });
+
+        // Timeout after 30 seconds
+        setTimeout(() => {
+          socket.disconnect();
+          reject(new Error("Search timeout"));
+        }, 30000);
+      });
     } catch (error) {
       console.error("Search error:", error);
       return [];
@@ -121,63 +218,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
     }
   };
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(event.target as Node)
-      ) {
-        setShowResults(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   return (
     <div className={`w-full ${className}`} style={{ maxWidth }}>
-      {/* Disclaimer */}
-      <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <div className="flex items-start">
-          <div className="flex-shrink-0">
-            <svg
-              className="w-5 h-5 text-blue-600 mt-0.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <div className="ml-3">
-            <h3 className="text-sm font-semibold text-blue-800 mb-2">
-              Disclaimer
-            </h3>
-            <p className="text-sm text-blue-700 mb-2">
-              This demo shop contains a limited selection of products for
-              testing only. Search results are restricted to this sample
-              inventory.
-            </p>
-            <p className="text-sm text-blue-700">
-              <span className="inline-block mr-1">👉</span> To explore, try
-              searching for categories like Surfboards, Wetsuits, Accessories,
-              or Lifestyle items, or look up products by name such as Longboard,
-              Wetsuit, Wax, Hoodie, or Flip Flops.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Search Input */}
       <div className="relative flex flex-row items-center bg-white rounded-lg shadow-lg border-2 border-[#6BD7FF] w-full px-4 py-3.5 gap-2.5">
-        <img src={iconSearch} alt="search" className="w-4 h-4" />
         <input
           type="text"
           value={query}
@@ -206,22 +249,28 @@ const SearchInput: React.FC<SearchInputProps> = ({
                   {result.type === "product" ? (
                     <div className="flex flex-row items-center gap-8 p-4 border-b border-gray-200">
                       <img
-                        src="https://placehold.co/60?text=Placeholder&font=roboto"
-                        alt="product image"
+                        src="https://placehold.co/60?text=Product&font=roboto"
+                        alt="product"
                         className="rounded"
                       />
-
                       <div>
-                        <p className="font-semibold text-sky-600 text-sm">{`${
-                          result.title
-                        } (${(result.score * 100).toFixed(2)}%)`}</p>
-
+                        <p className="font-semibold text-sky-600 text-sm">
+                          {result.title} ({(result.score * 100).toFixed(2)}%)
+                        </p>
                         <p className="text-xs font-medium mt-1 text-gray-400">
                           Reason
                         </p>
                         <p className="text-sm">{result.reason}</p>
-
-                        <p className="font-semibold text-sm mt-1">$15.46</p>
+                        {result.product?.productUrl && (
+                          <a
+                            href={result.product.productUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:text-blue-800 mt-1 inline-block"
+                          >
+                            View Product →
+                          </a>
+                        )}
                       </div>
                     </div>
                   ) : (
