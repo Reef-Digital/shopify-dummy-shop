@@ -67,6 +67,10 @@ if [ -f .env ]; then
     log "Setting variable $var" "INFO"
     export $var="TENANT_INJECT_$var"
   done
+  
+  # Remove .env file so Vite doesn't read it directly (we've exported the placeholders)
+  log "Removing .env file so Vite uses exported environment variables" "INFO"
+  rm .env
 else
   log "The .env file does not exist." "WARN"
 fi
