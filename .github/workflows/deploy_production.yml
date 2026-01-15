@@ -117,6 +117,9 @@ jobs:
           private: true
           files-to-include: '{.*/**,**}'
 
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
       - name: Configure CloudFront Domain Alias
         run: |
           DIST_ID="${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}"
@@ -125,47 +128,68 @@ jobs:
           echo "Checking CloudFront distribution: $DIST_ID"
           
           # Get current distribution config
-          aws cloudfront get-distribution-config --id "$DIST_ID" > /tmp/dist-config.json
+          aws cloudfront get-distribution-config --id "$DIST_ID" > /tmp/dist-config.json || {
+            echo "Error: Failed to get CloudFront distribution config. Check DIST_ID and permissions."
+            exit 1
+          }
           
           # Extract ETag and config
           ETAG=$(jq -r '.ETag' /tmp/dist-config.json)
           CONFIG=$(jq -r '.DistributionConfig' /tmp/dist-config.json)
           
-          # Check if domain already exists in aliases
-          ALIASES=$(echo "$CONFIG" | jq -r '.Aliases.Items // []')
-          DOMAIN_EXISTS=$(echo "$ALIASES" | jq -r "any(. == \"$DOMAIN\")")
+          # Get current aliases (handle both Items array and empty/null)
+          CURRENT_ALIASES=$(echo "$CONFIG" | jq -r '.Aliases.Items // [] | join(",")')
+          echo "Current aliases: ${CURRENT_ALIASES:-none}"
           
-          if [ "$DOMAIN_EXISTS" != "true" ]; then
+          # Check if domain already exists in aliases
+          DOMAIN_EXISTS=$(echo "$CONFIG" | jq -r ".Aliases.Items // [] | any(. == \"$DOMAIN\")")
+          
+          if [ "$DOMAIN_EXISTS" = "true" ]; then
+            echo "✓ Domain alias already configured: $DOMAIN"
+          else
             echo "Adding domain alias: $DOMAIN"
             
+            # Get existing aliases or initialize empty array
+            EXISTING_ALIASES=$(echo "$CONFIG" | jq -r '.Aliases.Items // []')
+            
             # Add domain to aliases
-            UPDATED_CONFIG=$(echo "$CONFIG" | jq ".Aliases.Items += [\"$DOMAIN\"] | .Aliases.Quantity = (.Aliases.Items | length)")
+            UPDATED_CONFIG=$(echo "$CONFIG" | jq --arg domain "$DOMAIN" \
+              '.Aliases.Items = (.Aliases.Items // []) + [$domain] | .Aliases.Quantity = (.Aliases.Items | length)')
             
             # Update distribution
             echo "$UPDATED_CONFIG" > /tmp/updated-config.json
             aws cloudfront update-distribution \
               --id "$DIST_ID" \
               --if-match "$ETAG" \
-              --distribution-config file:///tmp/updated-config.json
+              --distribution-config file:///tmp/updated-config.json || {
+              echo "Warning: Failed to update CloudFront distribution. You may need to add the domain alias manually."
+            }
             
             echo "✓ Domain alias added. Note: Distribution update takes ~15 minutes to propagate."
-          else
-            echo "✓ Domain alias already configured: $DOMAIN"
           fi
           
           # Verify SSL certificate exists for domain
+          echo ""
           echo "Checking SSL certificate status..."
-          aws acm list-certificates --region us-east-1 --query "CertificateSummaryList[?DomainName=='$DOMAIN' || DomainName=='*.inops.io'].{Domain:DomainName,Status:Status}" --output table || echo "Note: Check SSL certificate in ACM (us-east-1 region)"
+          CERT_CHECK=$(aws acm list-certificates --region us-east-1 --query "CertificateSummaryList[?DomainName=='$DOMAIN' || DomainName=='*.inops.io'].{Domain:DomainName,Status:Status}" --output table 2>&1)
+          if [ $? -eq 0 ]; then
+            echo "$CERT_CHECK"
+          else
+            echo "Note: Could not check ACM certificates. Ensure SSL certificate for $DOMAIN exists in us-east-1 region."
+          fi
           
           # Get CloudFront domain name
           CF_DOMAIN=$(echo "$CONFIG" | jq -r '.DomainName')
           echo ""
-          echo "=== DNS Configuration Required ==="
-          echo "Create a CNAME record:"
+          echo "=========================================="
+          echo "DNS Configuration Required"
+          echo "=========================================="
+          echo "Create a CNAME record in your DNS provider:"
           echo "  Name: shopify-dummy"
           echo "  Value: $CF_DOMAIN"
-          echo "  Or use Route53 A record (alias) pointing to CloudFront distribution"
           echo ""
+          echo "Or use Route53 A record (alias) pointing to CloudFront distribution: $DIST_ID"
+          echo "=========================================="
 
       - name: "Notify Slack: Deployment succeeded"
         if: success()
