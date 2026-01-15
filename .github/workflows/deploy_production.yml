@@ -104,8 +104,39 @@ jobs:
         run: |
           mkdir build
           aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
-          aws s3 cp ${{ vars.ENV_FILE_URL }} .env
-          export $(grep -v '^#' .env | xargs)
+          
+          echo "Downloading environment file from: ${{ vars.ENV_FILE_URL }}"
+          aws s3 cp "${{ vars.ENV_FILE_URL }}" .env || {
+            echo "Error: Failed to download .env file from S3"
+            echo "Expected location: ${{ vars.ENV_FILE_URL }}"
+            exit 1
+          }
+          
+          echo "Environment file downloaded. Contents:"
+          cat .env | grep -v -E '^[[:space:]]*#' | grep -v '^[[:space:]]*$' || echo "(empty or no variables)"
+          
+          # Load env vars from .env file
+          set -a
+          source .env
+          set +a
+          
+          # Create TENANT_INJECT_* variables from all variables in .env for inject.sh
+          echo "Creating TENANT_INJECT_* variables for tenant injection..."
+          while IFS='=' read -r var_name var_value || [ -n "$var_name" ]; do
+            # Skip comments and empty lines
+            [[ "$var_name" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "$var_name" ]] && continue
+            
+            # Remove whitespace
+            var_name=$(echo "$var_name" | xargs)
+            
+            # Create TENANT_INJECT_ version if variable is set
+            if [ -n "${!var_name:-}" ]; then
+              export "TENANT_INJECT_${var_name}=${!var_name}"
+              echo "✓ Created TENANT_INJECT_${var_name}"
+            fi
+          done < <(grep -v '^[[:space:]]*#' .env | grep '=')
+          
           bash tenant/inject.sh build
       - name: Deploy
         uses: reggionick/s3-deploy@v4
