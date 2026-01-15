@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 import { useState, useEffect, useRef } from "react";
 import { getSearchApiUrl } from "../config/api";
 import io from "socket.io-client";
+=======
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { INOPS_CONFIG } from '../config/api';
+>>>>>>> Stashed changes
 
 const SearchForm = ({
   placeholder = "Search",
@@ -38,6 +43,7 @@ const SearchForm = ({
     return () => clearTimeout(timer);
   }, [query]);
 
+<<<<<<< Updated upstream
   // Search effect
   useEffect(() => {
     if (
@@ -51,6 +57,9 @@ const SearchForm = ({
   }, [debouncedQuery]);
 
   // Click outside handler
+=======
+  // Focus input when opened and handle keyboard events
+>>>>>>> Stashed changes
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -63,6 +72,7 @@ const SearchForm = ({
     };
   }, []);
 
+<<<<<<< Updated upstream
   // API handler for search with WebSocket streaming
   const callSearchApi = async (searchQuery) => {
     setIsLoading(true);
@@ -93,7 +103,23 @@ const SearchForm = ({
       const response = await fetch(`${baseUrl}/shop/flow/execute`, {
         method: "POST",
         headers: headers,
+=======
+  // API handler for both search and suggestions
+  const callSearchApi = useCallback(async (searchQuery, type) => {
+    setIsLoading(true);
+    try {
+      const baseUrl = String(INOPS_CONFIG.apiBaseUrl || 'http://127.0.0.1:3000').replace(/\/$/, '');
+      const searchKey = String(INOPS_CONFIG.searchKey || '').trim();
+      const url = `${baseUrl}/shop/flow/execute?searchKey=${encodeURIComponent(searchKey)}`;
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(searchKey ? { 'X-Search-Key': searchKey, Authorization: `SearchKey ${searchKey}` } : {}),
+        },
+>>>>>>> Stashed changes
         body: JSON.stringify({
+          language: 'en',
           userInput: {
             type: "search",
             value: searchQuery,
@@ -183,13 +209,39 @@ const SearchForm = ({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
+<<<<<<< Updated upstream
   // Perform full search
   const performSearch = async (searchQuery) => {
     const searchResults = await callSearchApi(searchQuery);
+=======
+  // Fetch suggestions (type: 'partial')
+  const fetchSuggestions = useCallback(async (searchQuery) => {
+    setIsSuggesting(true);
+    const suggestionResults = await callSearchApi(searchQuery, 'partial');
+    setSuggestions(suggestionResults);
+    setIsSuggesting(false);
+  }, [callSearchApi]);
+
+  // Perform full search (type: 'search')
+  const performSearch = useCallback(async (searchQuery) => {
+    setIsSuggesting(false);
+    const searchResults = await callSearchApi(searchQuery, 'search');
+>>>>>>> Stashed changes
     setResults(searchResults);
-  };
+  }, [callSearchApi]);
+
+  // Suggestion and search effect
+  useEffect(() => {
+    if (debouncedQuery.trim() && debouncedQuery.trim().split(/\s+/).length > 2) {
+      fetchSuggestions(debouncedQuery);
+      performSearch(debouncedQuery);
+    } else {
+      setSuggestions([]);
+      setResults([]);
+    }
+  }, [debouncedQuery, fetchSuggestions, performSearch]);
 
   // Handle Enter key for search
   const handleInputKeyDown = (e) => {

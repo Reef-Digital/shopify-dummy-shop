@@ -1,18 +1,31 @@
-# Search Form with Debounce
+# Shopify dummy shop (Inops storefront demo)
 
-A React application featuring a search form with debounce functionality that sits at the bottom left of the screen as an icon and expands to the center when clicked.
+This is a **fake Shopify storefront landing page** used to showcase Inops functionality end-to-end against a **local backend**:
 
-## Features
+- **Campaign landing** via `userInput.type="campaignId"` → featured products
+- **Search** via `userInput.type="search"` → summary + vertical product list (auto-runs at 3+ words)
+- **Similar products** via `userInput.type="similar_products"` → product modal (right column)
 
-- **Floating Search Icon**: Always visible at the bottom left corner
-- **Modal Search Interface**: Expands to center screen when clicked
-- **Debounced Search**: 300ms delay to prevent excessive API calls
-- **Real-time Results**: Displays search results as you type
-- **Keyboard Support**: Press Escape to close the modal
-- **Click Outside**: Click outside the modal to close
-- **Loading States**: Shows loading spinner during search
-- **Responsive Design**: Works on all screen sizes
-- **Tailwind CSS**: Modern, clean UI design
+## Local dev setup
+
+1) Create a `.env` file from `env.example` (kept out of git):
+
+```bash
+cp env.example .env
+```
+
+2) Fill in:
+
+- `VITE_INOPS_API_BASE_URL` (local backend, e.g. `http://127.0.0.1:3000`)
+- `VITE_INOPS_SEARCH_KEY` (must belong to the same shopConfig as the campaign)
+- `VITE_INOPS_CAMPAIGN_ID` (case-sensitive campaign `referenceId`)
+
+3) Run:
+
+```bash
+npm install
+npm run dev
+```
 
 ## API Response Structure
 
@@ -120,8 +133,9 @@ See `example.html` for more detailed API usage examples.
    - Pressing Escape key
    - Clicking outside the modal
 
-## API Configuration
+## Notes
 
+<<<<<<< Updated upstream
 The search form uses environment variables for API configuration. The API endpoint can be configured via the `VITE_API_URL` environment variable.
 
 ### Default Configuration
@@ -173,6 +187,12 @@ export const API_CONFIG = {
     import.meta.env.VITE_API_URL || "https://your-new-api-endpoint.com/search",
 };
 ```
+=======
+- This app uses the backend’s `/shop/flow/execute` + SSE session stream (`/sse/session/:id`) with a **SearchKey**.
+- If `campaignId` returns empty, it’s usually because:
+  - the campaign does not exist for the shopConfig behind the SearchKey, or
+  - the campaign `referenceId` casing doesn’t match.
+>>>>>>> Stashed changes
 
 ### Adjusting Debounce Delay
 
