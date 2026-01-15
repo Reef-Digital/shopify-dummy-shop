@@ -52,14 +52,23 @@ jobs:
         id: pkg
         run: node -e "require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'version=' + require('./package.json').version + '\n')"
 
+      - name: Load .env from S3
+        run: |
+          if [ -n "${{ vars.ENV_FILE_URL }}" ]; then
+            if [[ "${{ vars.ENV_FILE_URL }}" == s3://* ]]; then
+              aws s3 cp "${{ vars.ENV_FILE_URL }}" .env
+            else
+              curl -fsSL "${{ vars.ENV_FILE_URL }}" -o .env
+            fi
+          fi
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
       - name: Build static web (Vite)
         env:
           CI: ''
-        run: |
-          mv .env.example .env
-          bash tenant/build.sh
+        run: npm run build
 
       - name: Resolve target SHA
         id: rev
@@ -102,166 +111,8 @@ jobs:
         env:
           CI: ''
         run: |
-          echo "🚀 STEP STARTED: Download the build - Environment Injection"
-          echo "🚀 STEP STARTED: Download the build - Environment Injection"
-          echo "🚀 STEP STARTED: Download the build - Environment Injection"
-          
-          set -e  # Exit on error
-          set -x  # Print commands
-          
-          echo ""
-          echo "═══════════════════════════════════════════════════════════"
-          echo "🔧 DEPLOY STEP: Starting environment injection process"
-          echo "═══════════════════════════════════════════════════════════"
-          echo ""
-          
-          mkdir -p build
-          echo "📦 Step 1/4: Downloading build from S3..."
-          echo "   Build SHA: ${{ needs.build.outputs.target_sha }}"
+          mkdir build
           aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
-          echo "   ✓ Build downloaded successfully"
-          
-          echo ""
-          echo "📥 Step 2/4: Downloading environment file from S3..."
-          echo "   URL: ${{ vars.ENV_FILE_URL }}"
-          aws s3 cp "${{ vars.ENV_FILE_URL }}" .env || {
-            echo "❌ ERROR: Failed to download .env file from S3"
-            echo "   Expected location: ${{ vars.ENV_FILE_URL }}"
-            exit 1
-          }
-          echo "   ✓ Environment file downloaded"
-          
-          echo ""
-          echo "═══════════════════════════════════════════════════════════"
-          echo "📋 Environment file contents:"
-          echo "═══════════════════════════════════════════════════════════"
-          cat .env | grep -v -E '^[[:space:]]*#' | grep -v '^[[:space:]]*$' || echo "(empty or no variables)"
-          echo "═══════════════════════════════════════════════════════════"
-          echo ""
-          
-          echo "🔑 Step 3/4: Creating TENANT_INJECT_* variables for injection..."
-          while IFS= read -r line || [ -n "$line" ]; do
-            # Skip comments and empty lines
-            [[ "$line" =~ ^[[:space:]]*# ]] && continue
-            [[ -z "$line" ]] && continue
-            [[ ! "$line" =~ = ]] && continue
-            
-            # Split on first '=' to handle values with '=' in them
-            var_name="${line%%=*}"
-            var_value="${line#*=}"
-            
-            # Remove leading/trailing whitespace from variable name
-            var_name=$(echo "$var_name" | xargs)
-            
-            # Remove quotes from value if present, but preserve spaces
-            var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
-            
-            # Export the original variable
-            export "${var_name}=${var_value}"
-            
-            # Create TENANT_INJECT_ version for inject.sh
-            export "TENANT_INJECT_${var_name}=${var_value}"
-            echo "✓ Created TENANT_INJECT_${var_name}=${var_value:0:20}..." # Show first 20 chars for verification
-          done < .env
-          
-          echo ""
-          echo "═══════════════════════════════════════════════════════════"
-          echo "✓ Verification: TENANT_INJECT_ variables created:"
-          echo "═══════════════════════════════════════════════════════════"
-          env | grep "^TENANT_INJECT_VITE_" || echo "❌ WARNING: No TENANT_INJECT_VITE_* variables found!"
-          echo "═══════════════════════════════════════════════════════════"
-          echo ""
-          
-          echo "💉 Running tenant injection script (tenant/inject.sh)..."
-          bash tenant/inject.sh build
-          echo "   ✓ Injection script completed"
-          
-          echo ""
-          echo "═══════════════════════════════════════════════════════════"
-          echo "📊 SUMMARY: All Injected Environment Variables"
-          echo "═══════════════════════════════════════════════════════════"
-          while IFS= read -r line || [ -n "$line" ]; do
-            [[ "$line" =~ ^[[:space:]]*# ]] && continue
-            [[ -z "$line" ]] && continue
-            [[ ! "$line" =~ = ]] && continue
-            
-            var_name="${line%%=*}"
-            var_name=$(echo "$var_name" | xargs)
-            [[ ! "$var_name" =~ ^VITE_ ]] && continue
-            
-            var_value="${line#*=}"
-            var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
-            
-            echo "  $var_name=$var_value"
-          done < .env
-          echo "═══════════════════════════════════════════════════════════"
-          echo ""
-          echo "✅ Step 4/4: Environment injection complete!"
-          echo ""
-          
-          # Verify injection worked by checking a built file
-          echo ""
-          echo "=========================================="
-          echo "Verifying injection results in built files"
-          echo "=========================================="
-          built_file=$(find build -name "index-*.js" -type f | head -1)
-          if [ -z "$built_file" ]; then
-            echo "⚠️  Could not find built JS file to verify injection"
-          else
-            echo "Checking file: $built_file"
-            echo ""
-            
-            # Check each variable that should have been injected
-            echo "Checking injected values:"
-            while IFS= read -r line || [ -n "$line" ]; do
-              [[ "$line" =~ ^[[:space:]]*# ]] && continue
-              [[ -z "$line" ]] && continue
-              [[ ! "$line" =~ = ]] && continue
-              
-              var_name="${line%%=*}"
-              var_name=$(echo "$var_name" | xargs)
-              
-              # Skip if not a VITE_ variable
-              [[ ! "$var_name" =~ ^VITE_ ]] && continue
-              
-              placeholder="TENANT_INJECT_${var_name}"
-              var_value="${line#*=}"
-              var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
-              
-              echo ""
-              echo "  Variable: $var_name"
-              echo "    Placeholder: $placeholder"
-              echo "    Expected value: $var_value"
-              
-              # Check if placeholder exists in file
-              placeholder_count=$(grep -o "$placeholder" "$built_file" | wc -l || echo "0")
-              if [ "$placeholder_count" -gt 0 ]; then
-                echo "    ❌ Status: Placeholder found $placeholder_count time(s) - INJECTION FAILED"
-                echo "    Sample context:"
-                grep -o ".{0,50}$placeholder.{0,50}" "$built_file" | head -1 || echo "      (no context found)"
-              else
-                # Check if actual value is present
-                value_count=$(grep -o "$var_value" "$built_file" | wc -l || echo "0")
-                if [ "$value_count" -gt 0 ]; then
-                  echo "    ✓ Status: Injected successfully (found $value_count time(s))"
-                  echo "    Sample context:"
-                  grep -o ".{0,50}$var_value.{0,50}" "$built_file" | head -1 || echo "      (no context found)"
-                else
-                  echo "    ⚠️  Status: Placeholder removed but value not found"
-                  echo "    Checking for similar values..."
-                  grep -i "${var_name:5}" "$built_file" | head -1 | cut -c1-100 || echo "      (no similar values found)"
-                fi
-              fi
-            done < .env
-            
-            echo ""
-            echo "=========================================="
-          fi
-          
-          echo ""
-          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
-          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
-          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
       - name: Deploy
         uses: reggionick/s3-deploy@v4
         with:
