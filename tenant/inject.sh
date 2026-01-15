@@ -138,6 +138,24 @@ log "Starting script" "INFO"
 check_empty _FE_INJECTOR_TARGET_DIR _FE_INJECTOR_CASE_SENSITIVE
 if [[ "$_DEBUG_MODE" == "true" ]]; then print_args _FE_INJECTOR_TARGET_DIR _FE_INJECTOR_CASE_SENSITIVE; fi
 load_env
+
+# Log available TENANT_INJECT_* variables for debugging
+log "Available TENANT_INJECT_* variables:" "INFO"
+env | grep "^${_FE_INJECTOR_PATTERN_PREFIX}" | cut -d'=' -f1 | while read -r var; do
+  value="${!var}"
+  # Mask sensitive values (show first 10 chars only)
+  if [[ "$var" =~ (SEARCH_KEY|API_KEY|SECRET|PASSWORD|TOKEN) ]]; then
+    masked_value="${value:0:10}...${#value} chars"
+    log "  $var=$masked_value" "INFO"
+  else
+    log "  $var=${value:0:50}${value:+...}" "INFO"
+  fi
+done
+
+# Count variables
+var_count=$(env | grep -c "^${_FE_INJECTOR_PATTERN_PREFIX}" || echo "0")
+log "Found $var_count ${_FE_INJECTOR_PATTERN_PREFIX}* variables to inject" "INFO"
+
 replace_in_files "$_FE_INJECTOR_TARGET_DIR" "TENANT_INJECT_"
 
 ###########################
