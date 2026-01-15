@@ -62,20 +62,24 @@ if [ -f .env ]; then
   # Sort and remove duplicates with 'sort -u'
   variable_names=$(grep -o '^[A-Za-z_][A-Za-z_0-9]*=' .env | cut -d '=' -f 1 | sort -u)
 
-  # Loop through the variable names and print them
-  for var in $variable_names; do
-    log "Setting variable $var" "INFO"
-    export $var="TENANT_INJECT_$var"
-  done
-  
-  # Remove .env file so Vite doesn't read it directly (we've exported the placeholders)
+  # Remove .env file FIRST so Vite doesn't read it
   log "Removing .env file so Vite uses exported environment variables" "INFO"
   rm .env
+
+  # Loop through the variable names and export them as placeholders
+  for var in $variable_names; do
+    log "Setting variable $var=TENANT_INJECT_$var" "INFO"
+    export $var="TENANT_INJECT_$var"
+  done
 else
   log "The .env file does not exist." "WARN"
 fi
 
 export VITE_SKIP_AUTH="true"
+
+# Verify exports before building
+log "Verifying exported placeholders:" "INFO"
+env | grep "^VITE_INOPS" | head -5 || log "No VITE_INOPS variables found!" "WARN"
 
 npm run build
 
