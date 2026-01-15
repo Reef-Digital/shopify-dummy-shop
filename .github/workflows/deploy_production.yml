@@ -76,8 +76,8 @@ jobs:
 
       - name: Store the build in s3
         run: |
-          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/${{ steps.rev.outputs.sha }}
-          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/production
+          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ steps.rev.outputs.sha }}
+          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/production
 
   deploy:
     runs-on: ubuntu-latest
@@ -100,7 +100,7 @@ jobs:
           CI: ''
         run: |
           mkdir build
-          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/${{ needs.build.outputs.target_sha }} ./build
+          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
           aws s3 cp ${{ vars.ENV_FILE_URL }} .env
           export $(grep -v '^#' .env | xargs)
           bash tenant/inject.sh build
