@@ -107,13 +107,23 @@ function replace_in_files() {
         for _var in $_variables; do
             local _value="${!_var}"
             local _search_string="${_var}"
+            
+            # Escape special characters for sed
+            local _escaped_search=$(printf '%s\n' "${_search_string}" | sed 's/[[\.*^$()+?{|]/\\&/g')
+            local _escaped_value=$(printf '%s\n' "${_value}" | sed 's/[[\.*^$()+?{|]/\\&/g')
 
-            # Check if the file contains the search string
-            if grep -q "${_search_string}" "$_file"; then
+            # Check if the file contains the search string (with or without quotes)
+            # Try both with and without quotes because Vite may embed it as a string literal
+            if grep -q "${_search_string}" "$_file" || grep -q "\"${_search_string}\"" "$_file" || grep -q "'${_search_string}'" "$_file"; then
                 _changes_made=true
+                log "Found placeholder ${_search_string} in ${_file}" "INFO"
                 log "Replacing ${_search_string} with ${_value} in ${_file}" "INFO"
-                # Use the ASCII bell character as a delimiter
-                sed -i "s|${_search_string}|${_value}|g" "$_file"
+                # Replace unquoted placeholder
+                sed -i "s|${_escaped_search}|${_escaped_value}|g" "$_file"
+                # Replace double-quoted placeholder
+                sed -i "s|\"${_escaped_search}\"|\"${_escaped_value}\"|g" "$_file"
+                # Replace single-quoted placeholder
+                sed -i "s|'${_escaped_search}'|'${_escaped_value}'|g" "$_file"
             fi
         done
 
