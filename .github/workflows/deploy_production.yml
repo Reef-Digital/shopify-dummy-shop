@@ -102,6 +102,10 @@ jobs:
         env:
           CI: ''
         run: |
+          echo "🚀 STEP STARTED: Download the build - Environment Injection"
+          echo "🚀 STEP STARTED: Download the build - Environment Injection"
+          echo "🚀 STEP STARTED: Download the build - Environment Injection"
+          
           set -e  # Exit on error
           set -x  # Print commands
           
@@ -253,6 +257,11 @@ jobs:
             echo ""
             echo "=========================================="
           fi
+          
+          echo ""
+          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
+          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
+          echo "✅ STEP COMPLETED: Download the build - Environment Injection"
       - name: Deploy
         uses: reggionick/s3-deploy@v4
         with:
