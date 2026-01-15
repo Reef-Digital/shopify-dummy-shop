@@ -115,27 +115,32 @@ jobs:
           echo "Environment file downloaded. Contents:"
           cat .env | grep -v -E '^[[:space:]]*#' | grep -v '^[[:space:]]*$' || echo "(empty or no variables)"
           
-          # Load env vars from .env file
-          set -a
-          source .env
-          set +a
-          
           # Create TENANT_INJECT_* variables from all variables in .env for inject.sh
+          # Use a safer method that handles values with spaces
           echo "Creating TENANT_INJECT_* variables for tenant injection..."
-          while IFS='=' read -r var_name var_value || [ -n "$var_name" ]; do
+          while IFS= read -r line || [ -n "$line" ]; do
             # Skip comments and empty lines
-            [[ "$var_name" =~ ^[[:space:]]*# ]] && continue
-            [[ -z "$var_name" ]] && continue
+            [[ "$line" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "$line" ]] && continue
+            [[ ! "$line" =~ = ]] && continue
             
-            # Remove whitespace
+            # Split on first '=' to handle values with '=' in them
+            var_name="${line%%=*}"
+            var_value="${line#*=}"
+            
+            # Remove leading/trailing whitespace from variable name
             var_name=$(echo "$var_name" | xargs)
             
-            # Create TENANT_INJECT_ version if variable is set
-            if [ -n "${!var_name:-}" ]; then
-              export "TENANT_INJECT_${var_name}=${!var_name}"
-              echo "✓ Created TENANT_INJECT_${var_name}"
-            fi
-          done < <(grep -v '^[[:space:]]*#' .env | grep '=')
+            # Remove quotes from value if present, but preserve spaces
+            var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
+            
+            # Export the original variable
+            export "${var_name}=${var_value}"
+            
+            # Create TENANT_INJECT_ version for inject.sh
+            export "TENANT_INJECT_${var_name}=${var_value}"
+            echo "✓ Created TENANT_INJECT_${var_name}"
+          done < .env
           
           bash tenant/inject.sh build
       - name: Deploy
