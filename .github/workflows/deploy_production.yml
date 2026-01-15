@@ -102,33 +102,40 @@ jobs:
         env:
           CI: ''
         run: |
-          echo "=========================================="
-          echo "DEPLOY STEP: Starting environment injection"
-          echo "=========================================="
-          
-          mkdir build
-          echo "Downloading build from S3..."
-          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
+          set -e  # Exit on error
+          set -x  # Print commands
           
           echo ""
-          echo "Downloading environment file from: ${{ vars.ENV_FILE_URL }}"
+          echo "═══════════════════════════════════════════════════════════"
+          echo "🔧 DEPLOY STEP: Starting environment injection process"
+          echo "═══════════════════════════════════════════════════════════"
+          echo ""
+          
+          mkdir -p build
+          echo "📦 Step 1/4: Downloading build from S3..."
+          echo "   Build SHA: ${{ needs.build.outputs.target_sha }}"
+          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
+          echo "   ✓ Build downloaded successfully"
+          
+          echo ""
+          echo "📥 Step 2/4: Downloading environment file from S3..."
+          echo "   URL: ${{ vars.ENV_FILE_URL }}"
           aws s3 cp "${{ vars.ENV_FILE_URL }}" .env || {
-            echo "Error: Failed to download .env file from S3"
-            echo "Expected location: ${{ vars.ENV_FILE_URL }}"
+            echo "❌ ERROR: Failed to download .env file from S3"
+            echo "   Expected location: ${{ vars.ENV_FILE_URL }}"
             exit 1
           }
+          echo "   ✓ Environment file downloaded"
           
           echo ""
-          echo "=========================================="
-          echo "Environment file downloaded. Contents:"
-          echo "=========================================="
+          echo "═══════════════════════════════════════════════════════════"
+          echo "📋 Environment file contents:"
+          echo "═══════════════════════════════════════════════════════════"
           cat .env | grep -v -E '^[[:space:]]*#' | grep -v '^[[:space:]]*$' || echo "(empty or no variables)"
-          echo "=========================================="
+          echo "═══════════════════════════════════════════════════════════"
           echo ""
           
-          # Create TENANT_INJECT_* variables from all variables in .env for inject.sh
-          # Use a safer method that handles values with spaces
-          echo "Creating TENANT_INJECT_* variables for tenant injection..."
+          echo "🔑 Step 3/4: Creating TENANT_INJECT_* variables for injection..."
           while IFS= read -r line || [ -n "$line" ]; do
             # Skip comments and empty lines
             [[ "$line" =~ ^[[:space:]]*# ]] && continue
@@ -153,23 +160,22 @@ jobs:
             echo "✓ Created TENANT_INJECT_${var_name}=${var_value:0:20}..." # Show first 20 chars for verification
           done < .env
           
-          # Verify key variables were created
           echo ""
-          echo "=========================================="
-          echo "Verifying TENANT_INJECT_ variables created:"
-          echo "=========================================="
-          env | grep "^TENANT_INJECT_VITE_" || echo "❌ No TENANT_INJECT_VITE_* variables found!"
+          echo "═══════════════════════════════════════════════════════════"
+          echo "✓ Verification: TENANT_INJECT_ variables created:"
+          echo "═══════════════════════════════════════════════════════════"
+          env | grep "^TENANT_INJECT_VITE_" || echo "❌ WARNING: No TENANT_INJECT_VITE_* variables found!"
+          echo "═══════════════════════════════════════════════════════════"
           echo ""
           
-          echo ""
-          echo "Running tenant injection script..."
+          echo "💉 Running tenant injection script (tenant/inject.sh)..."
           bash tenant/inject.sh build
+          echo "   ✓ Injection script completed"
           
-          # Show summary of all injected variables
           echo ""
-          echo "=========================================="
-          echo "SUMMARY: Injected Environment Variables"
-          echo "=========================================="
+          echo "═══════════════════════════════════════════════════════════"
+          echo "📊 SUMMARY: All Injected Environment Variables"
+          echo "═══════════════════════════════════════════════════════════"
           while IFS= read -r line || [ -n "$line" ]; do
             [[ "$line" =~ ^[[:space:]]*# ]] && continue
             [[ -z "$line" ]] && continue
@@ -182,9 +188,11 @@ jobs:
             var_value="${line#*=}"
             var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
             
-            echo "$var_name=$var_value"
+            echo "  $var_name=$var_value"
           done < .env
-          echo "=========================================="
+          echo "═══════════════════════════════════════════════════════════"
+          echo ""
+          echo "✅ Step 4/4: Environment injection complete!"
           echo ""
           
           # Verify injection worked by checking a built file
