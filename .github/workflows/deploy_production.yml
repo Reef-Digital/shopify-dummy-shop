@@ -154,6 +154,28 @@ jobs:
           echo "Running tenant injection script..."
           bash tenant/inject.sh build
           
+          # Show summary of all injected variables
+          echo ""
+          echo "=========================================="
+          echo "SUMMARY: Injected Environment Variables"
+          echo "=========================================="
+          while IFS= read -r line || [ -n "$line" ]; do
+            [[ "$line" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "$line" ]] && continue
+            [[ ! "$line" =~ = ]] && continue
+            
+            var_name="${line%%=*}"
+            var_name=$(echo "$var_name" | xargs)
+            [[ ! "$var_name" =~ ^VITE_ ]] && continue
+            
+            var_value="${line#*=}"
+            var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
+            
+            echo "$var_name=$var_value"
+          done < .env
+          echo "=========================================="
+          echo ""
+          
           # Verify injection worked by checking a built file
           echo ""
           echo "=========================================="
