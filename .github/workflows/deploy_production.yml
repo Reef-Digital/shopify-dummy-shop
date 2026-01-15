@@ -144,8 +144,11 @@ jobs:
           
           # Verify key variables were created
           echo ""
-          echo "Verifying TENANT_INJECT_ variables:"
-          env | grep "^TENANT_INJECT_VITE_" | sed 's/=.*/=***/' || echo "No TENANT_INJECT_VITE_* variables found!"
+          echo "=========================================="
+          echo "Verifying TENANT_INJECT_ variables created:"
+          echo "=========================================="
+          env | grep "^TENANT_INJECT_VITE_" || echo "❌ No TENANT_INJECT_VITE_* variables found!"
+          echo ""
           
           echo ""
           echo "Running tenant injection script..."
@@ -164,7 +167,7 @@ jobs:
             echo ""
             
             # Check each variable that should have been injected
-            echo "Checking injected values (masked for security):"
+            echo "Checking injected values:"
             while IFS= read -r line || [ -n "$line" ]; do
               [[ "$line" =~ ^[[:space:]]*# ]] && continue
               [[ -z "$line" ]] && continue
@@ -177,32 +180,31 @@ jobs:
               [[ ! "$var_name" =~ ^VITE_ ]] && continue
               
               placeholder="TENANT_INJECT_${var_name}"
+              var_value="${line#*=}"
+              var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
               
-              # Check if placeholder still exists (injection failed)
-              if grep -q "$placeholder" "$built_file"; then
-                echo "  ❌ $var_name: Placeholder '$placeholder' still found - INJECTION FAILED"
+              echo ""
+              echo "  Variable: $var_name"
+              echo "    Placeholder: $placeholder"
+              echo "    Expected value: $var_value"
+              
+              # Check if placeholder exists in file
+              placeholder_count=$(grep -o "$placeholder" "$built_file" | wc -l || echo "0")
+              if [ "$placeholder_count" -gt 0 ]; then
+                echo "    ❌ Status: Placeholder found $placeholder_count time(s) - INJECTION FAILED"
+                echo "    Sample context:"
+                grep -o ".{0,50}$placeholder.{0,50}" "$built_file" | head -1 || echo "      (no context found)"
               else
                 # Check if actual value is present
-                var_value="${line#*=}"
-                var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
-                
-                # Mask sensitive values
-                if [[ "$var_name" =~ (SEARCH_KEY|API_KEY|SECRET|PASSWORD|TOKEN) ]]; then
-                  masked_value="${var_value:0:8}...${var_value: -4} (${#var_value} chars)"
-                  if grep -q "$var_value" "$built_file" 2>/dev/null; then
-                    echo "  ✓ $var_name: Injected successfully [masked: $masked_value]"
-                  else
-                    echo "  ⚠️  $var_name: Placeholder replaced but value not found in file"
-                  fi
+                value_count=$(grep -o "$var_value" "$built_file" | wc -l || echo "0")
+                if [ "$value_count" -gt 0 ]; then
+                  echo "    ✓ Status: Injected successfully (found $value_count time(s))"
+                  echo "    Sample context:"
+                  grep -o ".{0,50}$var_value.{0,50}" "$built_file" | head -1 || echo "      (no context found)"
                 else
-                  # For non-sensitive values, show truncated version
-                  display_value="${var_value:0:50}"
-                  [ ${#var_value} -gt 50 ] && display_value="${display_value}..."
-                  if grep -q "$var_value" "$built_file" 2>/dev/null; then
-                    echo "  ✓ $var_name: Injected successfully [$display_value]"
-                  else
-                    echo "  ⚠️  $var_name: Placeholder replaced but value not found in file"
-                  fi
+                  echo "    ⚠️  Status: Placeholder removed but value not found"
+                  echo "    Checking for similar values..."
+                  grep -i "${var_name:5}" "$built_file" | head -1 | cut -c1-100 || echo "      (no similar values found)"
                 fi
               fi
             done < .env

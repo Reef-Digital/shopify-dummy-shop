@@ -141,15 +141,10 @@ load_env
 
 # Log available TENANT_INJECT_* variables for debugging
 log "Available TENANT_INJECT_* variables:" "INFO"
-env | grep "^${_FE_INJECTOR_PATTERN_PREFIX}" | cut -d'=' -f1 | while read -r var; do
-  value="${!var}"
-  # Mask sensitive values (show first 10 chars only)
-  if [[ "$var" =~ (SEARCH_KEY|API_KEY|SECRET|PASSWORD|TOKEN) ]]; then
-    masked_value="${value:0:10}...${#value} chars"
-    log "  $var=$masked_value" "INFO"
-  else
-    log "  $var=${value:0:50}${value:+...}" "INFO"
-  fi
+env | grep "^${_FE_INJECTOR_PATTERN_PREFIX}" | while IFS='=' read -r var_line; do
+  var_name="${var_line%%=*}"
+  var_value="${var_line#*=}"
+  log "  $var_name=$var_value" "INFO"
 done
 
 # Count variables
