@@ -62,16 +62,18 @@ if [ -f .env ]; then
   # Sort and remove duplicates with 'sort -u'
   variable_names=$(grep -o '^[A-Za-z_][A-Za-z_0-9]*=' .env | cut -d '=' -f 1 | sort -u)
 
-  # Remove .env file FIRST so Vite doesn't read it
-  log "Removing .env file so Vite uses exported environment variables" "INFO"
-  rm .env
-
-  # Loop through the variable names and export them as placeholders
+  # Create a new .env file with placeholders (Vite reads .env files)
+  log "Creating .env file with TENANT_INJECT_ placeholders for Vite" "INFO"
+  > .env.new
   for var in $variable_names; do
     placeholder_value="TENANT_INJECT_$var"
-    log "Setting variable $var=$placeholder_value" "INFO"
+    echo "$var=$placeholder_value" >> .env.new
+    log "  $var=$placeholder_value" "INFO"
+    # Also export for environment variable access
     export $var="$placeholder_value"
   done
+  mv .env.new .env
+  log "Replaced .env with placeholder values" "INFO"
 else
   log "The .env file does not exist." "WARN"
 fi
