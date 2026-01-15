@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { INOPS_CONFIG } from "../config/api";
-import { createInopsClient } from "@inops/web-sdk";
 import ProductModal from "./ProductModal";
 import bgImage from "../assets/images/background.png";
 
@@ -10,14 +9,62 @@ export default function Body() {
   const campaignId = INOPS_CONFIG.campaignId;
   const hasKey = Boolean(INOPS_CONFIG.searchKey);
 
+  const [sdkReady, setSdkReady] = useState(false);
+  const [sdkError, setSdkError] = useState('');
+
+  // Wait for SDK to load from CDN
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Check if already loaded
+    if (window.Inops && window.Inops.createInopsClient) {
+      console.log('[Body] Inops SDK already loaded:', Object.keys(window.Inops));
+      setSdkReady(true);
+      return;
+    }
+
+    // Check if script tag exists
+    const scriptTag = document.querySelector('script[src*="inops-web-sdk"]');
+    if (!scriptTag) {
+      setSdkError('SDK script tag not found in HTML. Please ensure the CDN script is included.');
+      console.error('[Body] SDK script tag not found');
+      return;
+    }
+
+    console.log('[Body] Waiting for Inops SDK to load from CDN...');
+
+    // Poll for SDK availability (max 5 seconds)
+    let attempts = 0;
+    const maxAttempts = 50;
+    const interval = setInterval(() => {
+      attempts++;
+      if (window.Inops && window.Inops.createInopsClient) {
+        console.log('[Body] Inops SDK loaded successfully:', Object.keys(window.Inops));
+        setSdkReady(true);
+        clearInterval(interval);
+      } else if (attempts >= maxAttempts) {
+        const errorMsg = 'Inops SDK failed to load from CDN after 5 seconds. Check network and CDN URL: https://cdn.inops.io/inops-web-sdk@1.1.0/index.global.js';
+        console.error(`[Body] ${errorMsg}`);
+        setSdkError(errorMsg);
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const inopsClient = useMemo(() => {
-    if (!hasKey) return null;
-    return createInopsClient({
-      searchKey: INOPS_CONFIG.searchKey,
-      apiUrl: INOPS_CONFIG.apiBaseUrl,
-      language: "en",
-    });
-  }, [hasKey]);
+    if (!hasKey || !sdkReady) return null;
+    // Use CDN version: window.Inops.createInopsClient
+    if (typeof window !== 'undefined' && window.Inops && window.Inops.createInopsClient) {
+      return window.Inops.createInopsClient({
+        searchKey: INOPS_CONFIG.searchKey,
+        apiUrl: INOPS_CONFIG.apiBaseUrl,
+        language: "en",
+      });
+    }
+    return null;
+  }, [hasKey, sdkReady]);
 
   const [campaignLoading, setCampaignLoading] = useState(false);
   const [campaignError, setCampaignError] = useState("");
@@ -98,12 +145,21 @@ export default function Body() {
     setCampaignLoading(true);
     setCampaignError("");
     try {
+      const actualSearchKey = INOPS_CONFIG.searchKey;
       console.log("[Body] Loading campaign:", { 
         campaignId, 
-        searchKey: INOPS_CONFIG.searchKey, 
-        searchKeyLength: INOPS_CONFIG.searchKey?.length || 0,
-        apiUrl: INOPS_CONFIG.apiBaseUrl 
+        searchKey: actualSearchKey ? `${actualSearchKey.slice(0, 4)}...${actualSearchKey.slice(-4)}` : 'MISSING',
+        searchKeyLength: actualSearchKey?.length || 0,
+        apiUrl: INOPS_CONFIG.apiBaseUrl,
+        inopsClientPresent: !!inopsClient,
+        clientType: typeof inopsClient,
       });
+      
+      // Verify searchKey is being passed to client
+      if (!actualSearchKey || actualSearchKey.length < 10) {
+        throw new Error(`Invalid searchKey: length=${actualSearchKey?.length || 0}`);
+      }
+      
       const res = await inopsClient.runCampaignAndCollect(campaignId, { timeoutMs: 20_000 });
       console.log("[Body] Campaign response:", {
         sessionId: res?.sessionId,
@@ -428,6 +484,25 @@ export default function Body() {
       if (debounceId.current) clearTimeout(debounceId.current);
     };
   }, [query, wordCount, hasKey, runSearchNow]);
+
+  // Show error if SDK failed to load
+  if (sdkError) {
+    return (
+      <div className="flex-1 flex flex-col min-h-screen bg-white items-center justify-center p-8">
+        <div className="max-w-2xl w-full bg-red-50 border border-red-200 rounded-lg p-6">
+          <h2 className="text-xl font-semibold text-red-800 mb-2">SDK Load Error</h2>
+          <p className="text-red-700 mb-4">{sdkError}</p>
+          <p className="text-sm text-red-600">
+            Please check the browser console for more details. Ensure the CDN script is loaded:
+            <br />
+            <code className="bg-red-100 px-2 py-1 rounded mt-2 inline-block">
+              https://cdn.inops.io/inops-web-sdk@1.1.0/index.global.js
+            </code>
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex-1 flex flex-col min-h-screen bg-white">
