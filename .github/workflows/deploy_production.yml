@@ -153,20 +153,62 @@ jobs:
           
           # Verify injection worked by checking a built file
           echo ""
-          echo "Verifying injection results in built files:"
-          if [ -f "build/assets/index-*.js" ]; then
-            built_file=$(ls build/assets/index-*.js | head -1)
-            if grep -q "TENANT_INJECT_VITE_INOPS_SEARCH_KEY" "$built_file"; then
-              echo "⚠️  WARNING: Placeholders still found in $built_file - injection may have failed"
-            else
-              echo "✓ Placeholders replaced in built files"
-              # Check if actual values are present (masked for security)
-              if grep -q "_4a2VpKF0ljmqLTKmyUuzvgq6ya3Q41VNbO9UkhH" "$built_file"; then
-                echo "✓ SearchKey value found in built file"
-              fi
-            fi
+          echo "=========================================="
+          echo "Verifying injection results in built files"
+          echo "=========================================="
+          built_file=$(find build -name "index-*.js" -type f | head -1)
+          if [ -z "$built_file" ]; then
+            echo "⚠️  Could not find built JS file to verify injection"
           else
-            echo "Could not find built JS file to verify injection"
+            echo "Checking file: $built_file"
+            echo ""
+            
+            # Check each variable that should have been injected
+            echo "Checking injected values (masked for security):"
+            while IFS= read -r line || [ -n "$line" ]; do
+              [[ "$line" =~ ^[[:space:]]*# ]] && continue
+              [[ -z "$line" ]] && continue
+              [[ ! "$line" =~ = ]] && continue
+              
+              var_name="${line%%=*}"
+              var_name=$(echo "$var_name" | xargs)
+              
+              # Skip if not a VITE_ variable
+              [[ ! "$var_name" =~ ^VITE_ ]] && continue
+              
+              placeholder="TENANT_INJECT_${var_name}"
+              
+              # Check if placeholder still exists (injection failed)
+              if grep -q "$placeholder" "$built_file"; then
+                echo "  ❌ $var_name: Placeholder '$placeholder' still found - INJECTION FAILED"
+              else
+                # Check if actual value is present
+                var_value="${line#*=}"
+                var_value=$(echo "$var_value" | sed -e 's/^["'\'']//' -e 's/["'\'']$//')
+                
+                # Mask sensitive values
+                if [[ "$var_name" =~ (SEARCH_KEY|API_KEY|SECRET|PASSWORD|TOKEN) ]]; then
+                  masked_value="${var_value:0:8}...${var_value: -4} (${#var_value} chars)"
+                  if grep -q "$var_value" "$built_file" 2>/dev/null; then
+                    echo "  ✓ $var_name: Injected successfully [masked: $masked_value]"
+                  else
+                    echo "  ⚠️  $var_name: Placeholder replaced but value not found in file"
+                  fi
+                else
+                  # For non-sensitive values, show truncated version
+                  display_value="${var_value:0:50}"
+                  [ ${#var_value} -gt 50 ] && display_value="${display_value}..."
+                  if grep -q "$var_value" "$built_file" 2>/dev/null; then
+                    echo "  ✓ $var_name: Injected successfully [$display_value]"
+                  else
+                    echo "  ⚠️  $var_name: Placeholder replaced but value not found in file"
+                  fi
+                fi
+              fi
+            done < .env
+            
+            echo ""
+            echo "=========================================="
           fi
       - name: Deploy
         uses: reggionick/s3-deploy@v4
