@@ -17,10 +17,13 @@ jobs:
     steps:
       - name: Validate branch pattern
         run: |
-          if [[ "${{ github.ref_name }}" != release/* ]]; then
-            echo "Only release/* branches are allowed for production deployments"
+          BRANCH="${{ github.ref_name }}"
+          if [[ "$BRANCH" != "main" && "$BRANCH" != release/* ]]; then
+            echo "Only 'main' or 'release/*' branches are allowed for production deployments"
+            echo "Current branch: $BRANCH"
             exit 1
           fi
+          echo "✓ Branch validation passed: $BRANCH"
 
   build:
     runs-on: ubuntu-latest
