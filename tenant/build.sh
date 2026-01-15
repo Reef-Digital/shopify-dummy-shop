@@ -68,8 +68,9 @@ if [ -f .env ]; then
 
   # Loop through the variable names and export them as placeholders
   for var in $variable_names; do
-    log "Setting variable $var=TENANT_INJECT_$var" "INFO"
-    export $var="TENANT_INJECT_$var"
+    placeholder_value="TENANT_INJECT_$var"
+    log "Setting variable $var=$placeholder_value" "INFO"
+    export $var="$placeholder_value"
   done
 else
   log "The .env file does not exist." "WARN"
@@ -79,8 +80,20 @@ export VITE_SKIP_AUTH="true"
 
 # Verify exports before building
 log "Verifying exported placeholders:" "INFO"
-env | grep "^VITE_INOPS" | head -5 || log "No VITE_INOPS variables found!" "WARN"
+env | grep "^VITE_INOPS" | head -10 || log "No VITE_INOPS variables found!" "WARN"
 
+# Double-check critical variables
+log "Checking critical exports:" "INFO"
+for var in VITE_INOPS_API_BASE_URL VITE_INOPS_SEARCH_KEY VITE_INOPS_CAMPAIGN_ID VITE_INOPS_HOMEPAGE_URL VITE_DUMMY_SHOP_NAME; do
+  if [ -n "${!var}" ]; then
+    log "  ✓ $var=${!var}" "INFO"
+  else
+    log "  ✗ $var is NOT SET" "WARN"
+  fi
+done
+
+# Run build with explicit env var passing
+log "Starting Vite build..." "INFO"
 npm run build
 
 ###########################
