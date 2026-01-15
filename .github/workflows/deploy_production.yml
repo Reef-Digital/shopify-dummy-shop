@@ -139,10 +139,35 @@ jobs:
             
             # Create TENANT_INJECT_ version for inject.sh
             export "TENANT_INJECT_${var_name}=${var_value}"
-            echo "✓ Created TENANT_INJECT_${var_name}"
+            echo "✓ Created TENANT_INJECT_${var_name}=${var_value:0:20}..." # Show first 20 chars for verification
           done < .env
           
+          # Verify key variables were created
+          echo ""
+          echo "Verifying TENANT_INJECT_ variables:"
+          env | grep "^TENANT_INJECT_VITE_" | sed 's/=.*/=***/' || echo "No TENANT_INJECT_VITE_* variables found!"
+          
+          echo ""
+          echo "Running tenant injection script..."
           bash tenant/inject.sh build
+          
+          # Verify injection worked by checking a built file
+          echo ""
+          echo "Verifying injection results in built files:"
+          if [ -f "build/assets/index-*.js" ]; then
+            built_file=$(ls build/assets/index-*.js | head -1)
+            if grep -q "TENANT_INJECT_VITE_INOPS_SEARCH_KEY" "$built_file"; then
+              echo "⚠️  WARNING: Placeholders still found in $built_file - injection may have failed"
+            else
+              echo "✓ Placeholders replaced in built files"
+              # Check if actual values are present (masked for security)
+              if grep -q "_4a2VpKF0ljmqLTKmyUuzvgq6ya3Q41VNbO9UkhH" "$built_file"; then
+                echo "✓ SearchKey value found in built file"
+              fi
+            fi
+          else
+            echo "Could not find built JS file to verify injection"
+          fi
       - name: Deploy
         uses: reggionick/s3-deploy@v4
         with:
