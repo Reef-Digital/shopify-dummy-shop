@@ -102,9 +102,15 @@ jobs:
         env:
           CI: ''
         run: |
+          echo "=========================================="
+          echo "DEPLOY STEP: Starting environment injection"
+          echo "=========================================="
+          
           mkdir build
+          echo "Downloading build from S3..."
           aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
           
+          echo ""
           echo "Downloading environment file from: ${{ vars.ENV_FILE_URL }}"
           aws s3 cp "${{ vars.ENV_FILE_URL }}" .env || {
             echo "Error: Failed to download .env file from S3"
@@ -112,8 +118,13 @@ jobs:
             exit 1
           }
           
+          echo ""
+          echo "=========================================="
           echo "Environment file downloaded. Contents:"
+          echo "=========================================="
           cat .env | grep -v -E '^[[:space:]]*#' | grep -v '^[[:space:]]*$' || echo "(empty or no variables)"
+          echo "=========================================="
+          echo ""
           
           # Create TENANT_INJECT_* variables from all variables in .env for inject.sh
           # Use a safer method that handles values with spaces
