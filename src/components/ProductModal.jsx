@@ -7,7 +7,10 @@ function brand(p) {
   return String(p?.brand || p?.vendor || "").trim();
 }
 function desc(p) {
-  return String(p?.description || p?.reason || "").trim();
+  return String(p?.description || "").trim();
+}
+function reason(p) {
+  return String(p?.reason || "").trim();
 }
 function img(p) {
   const raw =
@@ -101,6 +104,12 @@ export default function ProductModal({
               ) : null}
               {desc(product) ? (
                 <div className="text-sm text-gray-600 mt-3 leading-6">{desc(product)}</div>
+              ) : null}
+              {reason(product) ? (
+                <div className="mt-3 p-3 bg-blue-50 border-l-4 border-blue-400 rounded">
+                  <div className="text-xs font-semibold text-blue-900 uppercase tracking-wide mb-1">Why this product</div>
+                  <div className="text-sm text-blue-800 leading-6">{reason(product)}</div>
+                </div>
               ) : null}
             </div>
           </div>

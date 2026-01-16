@@ -96,7 +96,8 @@ export default function Body() {
   const title = (p) => String(p?.title || p?.name || p?.productId || p?.id || "").trim() || "Product";
   const brand = (p) => String(p?.brand || p?.vendor || "").trim();
   const category = (p) => String(p?.category || p?.metadata?.category || "").trim();
-  const description = (p) => String(p?.description || p?.reason || "").trim();
+  const description = (p) => String(p?.description || "").trim();
+  const reason = (p) => String(p?.reason || "").trim();
   const img = (p) => {
     const raw =
       p?.image ||
@@ -669,8 +670,8 @@ export default function Body() {
                                   <span className="text-gray-500 ml-1">({score(p)})</span>
                                 ) : null}
                               </div>
-                              {brand(p) ? (
-                                <div className="text-xs text-gray-500 truncate">Brand: {brand(p)}</div>
+                              {reason(p) ? (
+                                <div className="text-xs text-gray-500 truncate">reason: {reason(p)}</div>
                               ) : null}
                             </div>
                           </button>
