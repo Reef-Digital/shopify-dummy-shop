@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { INOPS_CONFIG } from "../config/api";
 import ProductModal from "./ProductModal";
 import bgImage from "../assets/images/background.png";
+import inventoryProducts from "../data/products.json";
 
 export default function Body() {
   const homepageUrl = INOPS_CONFIG.homepageUrl;
@@ -88,11 +89,14 @@ export default function Body() {
   const similarUnsubscribeRef = useRef(null);
 
   const debounceId = useRef(null);
+  const campaignLoadedRef = useRef(false);
 
   const wordCount = useMemo(() => String(query || "").trim().split(/\s+/).filter(Boolean).length, [query]);
 
   const title = (p) => String(p?.title || p?.name || p?.productId || p?.id || "").trim() || "Product";
   const brand = (p) => String(p?.brand || p?.vendor || "").trim();
+  const category = (p) => String(p?.category || p?.metadata?.category || "").trim();
+  const description = (p) => String(p?.description || p?.reason || "").trim();
   const img = (p) => {
     const raw =
       p?.image ||
@@ -132,6 +136,12 @@ export default function Body() {
   };
 
   const loadCampaign = useCallback(async () => {
+    // Prevent multiple loads
+    if (campaignLoadedRef.current) {
+      console.log("[Body] Campaign already loaded, skipping");
+      return;
+    }
+    
     if (!hasKey || !inopsClient) {
       setCampaignError("Missing VITE_INOPS_SEARCH_KEY");
       console.warn("[Body] Missing searchKey:", { hasKey, searchKey: INOPS_CONFIG.searchKey });
@@ -142,6 +152,8 @@ export default function Body() {
       console.warn("[Body] Missing campaignId:", { campaignId });
       return;
     }
+    
+    campaignLoadedRef.current = true;
     setCampaignLoading(true);
     setCampaignError("");
     try {
@@ -217,8 +229,8 @@ export default function Body() {
       setSearchError("Missing VITE_INOPS_SEARCH_KEY");
       return;
     }
-    if (q.split(/\s+/).filter(Boolean).length < 3) {
-      setSearchError("Please type at least 3 words to search");
+    if (q.split(/\s+/).filter(Boolean).length < 2) {
+      setSearchError("Please type at least 2 words to search");
       return;
     }
     
@@ -443,8 +455,12 @@ export default function Body() {
       apiBaseUrl: INOPS_CONFIG.apiBaseUrl,
       hasKey: Boolean(INOPS_CONFIG.searchKey),
     });
-    void loadCampaign();
-  }, [loadCampaign]);
+    
+    // Only load campaign once when inopsClient becomes available
+    if (hasKey && inopsClient && campaignId && !campaignLoadedRef.current) {
+      void loadCampaign();
+    }
+  }, [hasKey, inopsClient, campaignId, loadCampaign]);
 
   // Cleanup subscriptions on unmount
   useEffect(() => {
@@ -471,7 +487,7 @@ export default function Body() {
   useEffect(() => {
     if (debounceId.current) clearTimeout(debounceId.current);
     if (!hasKey || isSearchingRef.current) return; // Don't trigger if already loading
-    if (wordCount < 3) {
+    if (wordCount < 2) {
       setSearchSummary("");
       setSearchProducts([]);
       setSearchError("");
@@ -562,7 +578,17 @@ export default function Body() {
                   onClick={() => openProduct(p)}
                 >
                   <div className="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden rounded mb-3" style={{ maxHeight: '96px' }}>
-                    {img(p) ? <img src={img(p)} alt={title(p)} className="w-full h-full object-cover" /> : (
+                    {img(p) ? (
+                      <img 
+                        src={img(p)} 
+                        alt={title(p)} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = `https://placehold.co/96x96/E5E7EB/6B7280?text=${encodeURIComponent(title(p).substring(0, 10))}`;
+                        }}
+                      />
+                    ) : (
                       <div className="text-xs text-gray-400">No image</div>
                     )}
                   </div>
@@ -584,13 +610,13 @@ export default function Body() {
         <div className="max-w-[1080px] mx-auto px-20">
           <div className="mb-4">
             <h2 className="text-2xl font-semibold text-[#0F3253] mb-2">Search Products</h2>
-            <p className="text-sm text-gray-600">Type 3 or more words to search automatically</p>
+            <p className="text-sm text-gray-600">Type 2 or more words to search automatically</p>
           </div>
           <div className="relative" ref={searchFormRef}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (wordCount >= 3) {
+                if (wordCount >= 2) {
                   void runSearchNow(query);
                 }
               }}
@@ -605,7 +631,7 @@ export default function Body() {
                   className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
                 />
                 {/* Collapsible Results Dropdown - matches search field width */}
-                {wordCount >= 3 && (searchSummary || searchProducts.length > 0 || searchLoading) ? (
+                {wordCount >= 2 && (searchSummary || searchProducts.length > 0 || searchLoading) ? (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
                     {/* Products list - vertical, scrollable */}
                     <div className="overflow-auto divide-y max-h-72">
@@ -622,7 +648,15 @@ export default function Body() {
                             {/* Image first */}
                             <div className="flex-shrink-0 w-12 h-12 rounded border bg-gray-50 overflow-hidden">
                               {img(p) ? (
-                                <img src={img(p)} alt={title(p)} className="w-full h-full object-cover" />
+                                <img 
+                                  src={img(p)} 
+                                  alt={title(p)} 
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.src = `https://placehold.co/48x48/E5E7EB/6B7280?text=${encodeURIComponent(title(p).substring(0, 8))}`;
+                                  }}
+                                />
                               ) : (
                                 <div className="w-full h-full flex items-center justify-center text-xs text-gray-400">No img</div>
                               )}
@@ -658,7 +692,7 @@ export default function Body() {
               <button
                 type="submit"
                 className="h-14 px-8 rounded-lg bg-[#1B5A8E] text-white text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#1D4C73] transition shadow-lg"
-                disabled={!hasKey || searchLoading || wordCount < 3}
+                disabled={!hasKey || searchLoading || wordCount < 2}
               >
                 {searchLoading ? "Searching…" : "Search"}
               </button>
@@ -670,6 +704,54 @@ export default function Body() {
               </div>
             ) : null}
           </div>
+        </div>
+      </div>
+
+      {/* Inventory Section - Below Search Form */}
+      <div className="w-full bg-gray-50 py-12 border-t-2 border-gray-300">
+        <div className="max-w-[1080px] mx-auto px-20">
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold text-[#0F3253] mb-2">Shop Inventory</h2>
+            <p className="text-sm text-gray-600">Browse all available products in our catalog</p>
+          </div>
+
+          {Array.isArray(inventoryProducts) && inventoryProducts.length > 0 ? (
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-gray-100 border-b border-gray-200">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Title</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Brand</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Category</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Description</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {inventoryProducts.map((p) => (
+                    <tr
+                      key={String(p?.id || p?.productId || "")}
+                      className="hover:bg-gray-50 transition"
+                    >
+                      <td className="px-4 py-3 text-sm font-medium text-[#0F3253]">
+                        {title(p)}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-600">
+                        {brand(p) || <span className="text-gray-400">—</span>}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-600">
+                        {category(p) || <span className="text-gray-400">—</span>}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-600">
+                        {description(p) || <span className="text-gray-400">—</span>}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="text-center py-8 text-gray-500 text-sm">No products found in inventory.</div>
+          )}
         </div>
       </div>
 

@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "product_1",
+    "title": "Soft-Top Longboard 1",
+    "description": "Ideal for beginner surfers, this soft-top board provides superior stability and control.",
+    "category": "Surfboards",
+    "price": 228.19,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_1",
+      "imageUrl": "https://example.com/images/product_1.jpg"
+    }
+  },
+  {
+    "id": "product_2",
+    "title": "Performance Shortboard 2",
+    "description": "A high-performance shortboard designed for fast, aggressive surfing.",
+    "category": "Surfboards",
+    "price": 350.54,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_2",
+      "imageUrl": "https://example.com/images/product_2.jpg"
+    }
+  },
+  {
+    "id": "product_3",
+    "title": "Mini Malibu 3",
+    "description": "Combines the maneuverability of a shortboard with paddle power of a longboard.",
+    "category": "Surfboards",
+    "price": 128.59,
+    "brand": "BoardMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_3",
+      "imageUrl": "https://example.com/images/product_3.jpg"
+    }
+  },
+  {
+    "id": "product_4",
+    "title": "Fish Surfboard 4",
+    "description": "Wide and flat, perfect for catching small to medium waves with speed.",
+    "category": "Surfboards",
+    "price": 125.69,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_4",
+      "imageUrl": "https://example.com/images/product_4.jpg"
+    }
+  },
+  {
+    "id": "product_5",
+    "title": "Single-Fin Classic 5",
+    "description": "Retro-style longboard for smooth noserides and stylish cutbacks.",
+    "category": "Surfboards",
+    "price": 186.35,
+    "brand": "RetroWave",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_5",
+      "imageUrl": "https://example.com/images/product_5.jpg"
+    }
+  },
+  {
+    "id": "product_6",
+    "title": "3/2mm Full Wetsuit - Men's 6",
+    "description": "Flexible neoprene wetsuit offering warmth and mobility.",
+    "category": "Wetsuits",
+    "price": 310.96,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_6",
+      "imageUrl": "https://example.com/images/product_6.jpg"
+    }
+  },
+  {
+    "id": "product_7",
+    "title": "3/2mm Full Wetsuit - Women's 7",
+    "description": "Ergonomic fit and superior stretch for comfort in cool waters.",
+    "category": "Wetsuits",
+    "price": 46.86,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_7",
+      "imageUrl": "https://example.com/images/product_7.jpg"
+    }
+  },
+  {
+    "id": "product_8",
+    "title": "2mm Shorty Wetsuit 8",
+    "description": "Lightweight wetsuit ideal for summer surfing.",
+    "category": "Wetsuits",
+    "price": 250.49,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_8",
+      "imageUrl": "https://example.com/images/product_8.jpg"
+    }
+  },
+  {
+    "id": "product_9",
+    "title": "Thermal Lined Wetsuit 9",
+    "description": "Extra insulation for colder sessions without sacrificing flexibility.",
+    "category": "Wetsuits",
+    "price": 141.49,
+    "brand": "ThermoGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_9",
+      "imageUrl": "https://example.com/images/product_9.jpg"
+    }
+  },
+  {
+    "id": "product_10",
+    "title": "Kids' Surf Wetsuit 10",
+    "description": "Durable and warm, designed specifically for young surfers.",
+    "category": "Wetsuits",
+    "price": 172.35,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_10",
+      "imageUrl": "https://example.com/images/product_10.jpg"
+    }
+  },
+  {
+    "id": "product_11",
+    "title": "Surfboard Wax - Tropical 11",
+    "description": "High-temp formula for warm climates, enhances grip.",
+    "category": "Accessories",
+    "price": 442.99,
+    "brand": "GripMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_11",
+      "imageUrl": "https://example.com/images/product_11.jpg"
+    }
+  },
+  {
+    "id": "product_12",
+    "title": "Leash 6ft - Comp Series 12",
+    "description": "Tangle-free and durable leash ideal for everyday surf.",
+    "category": "Accessories",
+    "price": 288.68,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_12",
+      "imageUrl": "https://example.com/images/product_12.jpg"
+    }
+  },
+  {
+    "id": "product_13",
+    "title": "Day Use Board Bag 13",
+    "description": "Padded protection for your board, great for local transport.",
+    "category": "Accessories",
+    "price": 128.29,
+    "brand": "SurfSafe",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_13",
+      "imageUrl": "https://example.com/images/product_13.jpg"
+    }
+  },
+  {
+    "id": "product_14",
+    "title": "Surfboard Repair Kit 14",
+    "description": "Quick-fix solution for minor dings and cracks.",
+    "category": "Accessories",
+    "price": 231.84,
+    "brand": "FixIt",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_14",
+      "imageUrl": "https://example.com/images/product_14.jpg"
+    }
+  },
+  {
+    "id": "product_15",
+    "title": "Soft Roof Racks 15",
+    "description": "Universal surfboard transport solution, fits most vehicles.",
+    "category": "Accessories",
+    "price": 56.53,
+    "brand": "CarGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_15",
+      "imageUrl": "https://example.com/images/product_15.jpg"
+    }
+  },
+  {
+    "id": "product_16",
+    "title": "Surf Club Hoodie 16",
+    "description": "Cozy fleece hoodie with surf-inspired design.",
+    "category": "Lifestyle",
+    "price": 272.64,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_16",
+      "imageUrl": "https://example.com/images/product_16.jpg"
+    }
+  },
+  {
+    "id": "product_17",
+    "title": "Organic Cotton Tee 17",
+    "description": "Soft and breathable T-shirt featuring local surf prints.",
+    "category": "Lifestyle",
+    "price": 424.43,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_17",
+      "imageUrl": "https://example.com/images/product_17.jpg"
+    }
+  },
+  {
+    "id": "product_18",
+    "title": "Canvas Board Shorts 18",
+    "description": "Quick-drying and durable.",
+    "category": "Lifestyle",
+    "price": 257.41,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_18",
+      "imageUrl": "https://example.com/images/product_18.jpg"
+    }
+  },
+  {
+    "id": "product_19",
+    "title": "Beach Tote Bag 19",
+    "description": "Spacious and stylish bag for all your beach essentials.",
+    "category": "Lifestyle",
+    "price": 395.97,
+    "brand": "BeachBuddy",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_19",
+      "imageUrl": "https://example.com/images/product_19.jpg"
+    }
+  },
+  {
+    "id": "product_20",
+    "title": "Recycled Flip Flops 20",
+    "description": "Eco-friendly footwear made from upcycled materials.",
+    "category": "Lifestyle",
+    "price": 272.13,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_20",
+      "imageUrl": "https://example.com/images/product_20.jpg"
+    }
+  },
+  {
+    "id": "product_21",
+    "title": "Soft-Top Longboard 21",
+    "description": "Ideal for beginner surfers, soft-top board provides stability.",
+    "category": "Surfboards",
+    "price": 403.91,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_21",
+      "imageUrl": "https://example.com/images/product_21.jpg"
+    }
+  },
+  {
+    "id": "product_22",
+    "title": "Performance Shortboard 22",
+    "description": "High-performance shortboard for aggressive surfing.",
+    "category": "Surfboards",
+    "price": 112.96,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_22",
+      "imageUrl": "https://example.com/images/product_22.jpg"
+    }
+  },
+  {
+    "id": "product_23",
+    "title": "Mini Malibu 23",
+    "description": "Shortboard maneuverability with longboard paddle power.",
+    "category": "Surfboards",
+    "price": 160.51,
+    "brand": "BoardMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_23",
+      "imageUrl": "https://example.com/images/product_23.jpg"
+    }
+  },
+  {
+    "id": "product_24",
+    "title": "Fish Surfboard 24",
+    "description": "Wide and flat, perfect for small to medium waves.",
+    "category": "Surfboards",
+    "price": 235.09,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_24",
+      "imageUrl": "https://example.com/images/product_24.jpg"
+    }
+  },
+  {
+    "id": "product_25",
+    "title": "Single-Fin Classic 25",
+    "description": "Retro longboard for smooth noserides.",
+    "category": "Surfboards",
+    "price": 50.24,
+    "brand": "RetroWave",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_25",
+      "imageUrl": "https://example.com/images/product_25.jpg"
+    }
+  },
+  {
+    "id": "product_26",
+    "title": "3/2mm Full Wetsuit - Men's 26",
+    "description": "Flexible neoprene wetsuit.",
+    "category": "Wetsuits",
+    "price": 210.58,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_26",
+      "imageUrl": "https://example.com/images/product_26.jpg"
+    }
+  },
+  {
+    "id": "product_27",
+    "title": "3/2mm Full Wetsuit - Women's 27",
+    "description": "Superior stretch for comfort in cool waters.",
+    "category": "Wetsuits",
+    "price": 102.46,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_27",
+      "imageUrl": "https://example.com/images/product_27.jpg"
+    }
+  },
+  {
+    "id": "product_28",
+    "title": "2mm Shorty Wetsuit 28",
+    "description": "Ideal for summer surfing.",
+    "category": "Wetsuits",
+    "price": 283.76,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_28",
+      "imageUrl": "https://example.com/images/product_28.jpg"
+    }
+  },
+  {
+    "id": "product_29",
+    "title": "Thermal Lined Wetsuit 29",
+    "description": "Extra insulation for cold sessions.",
+    "category": "Wetsuits",
+    "price": 206.35,
+    "brand": "ThermoGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_29",
+      "imageUrl": "https://example.com/images/product_29.jpg"
+    }
+  },
+  {
+    "id": "product_30",
+    "title": "Kids' Surf Wetsuit 30",
+    "description": "Designed specifically for young surfers.",
+    "category": "Wetsuits",
+    "price": 184.55,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_30",
+      "imageUrl": "https://example.com/images/product_30.jpg"
+    }
+  },
+  {
+    "id": "product_31",
+    "title": "Surfboard Wax - Tropical 31",
+    "description": "High-temp wax for tropical waters.",
+    "category": "Accessories",
+    "price": 128.48,
+    "brand": "GripMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_31",
+      "imageUrl": "https://example.com/images/product_31.jpg"
+    }
+  },
+  {
+    "id": "product_32",
+    "title": "Leash 6ft - Comp Series 32",
+    "description": "Durable leash for everyday surf.",
+    "category": "Accessories",
+    "price": 117.68,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_32",
+      "imageUrl": "https://example.com/images/product_32.jpg"
+    }
+  },
+  {
+    "id": "product_33",
+    "title": "Day Use Board Bag 33",
+    "description": "Board protection for local trips.",
+    "category": "Accessories",
+    "price": 118.15,
+    "brand": "SurfSafe",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_33",
+      "imageUrl": "https://example.com/images/product_33.jpg"
+    }
+  },
+  {
+    "id": "product_34",
+    "title": "Surfboard Repair Kit 34",
+    "description": "Quick repairs for dings and cracks.",
+    "category": "Accessories",
+    "price": 221.67,
+    "brand": "FixIt",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_34",
+      "imageUrl": "https://example.com/images/product_34.jpg"
+    }
+  },
+  {
+    "id": "product_35",
+    "title": "Soft Roof Racks 35",
+    "description": "Universal soft roof racks.",
+    "category": "Accessories",
+    "price": 279.83,
+    "brand": "CarGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_35",
+      "imageUrl": "https://example.com/images/product_35.jpg"
+    }
+  },
+  {
+    "id": "product_36",
+    "title": "Surf Club Hoodie 36",
+    "description": "Warm fleece hoodie for surf lifestyle.",
+    "category": "Lifestyle",
+    "price": 279.32,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_36",
+      "imageUrl": "https://example.com/images/product_36.jpg"
+    }
+  },
+  {
+    "id": "product_37",
+    "title": "Organic Cotton Tee 37",
+    "description": "Breathable surf-themed T-shirt.",
+    "category": "Lifestyle",
+    "price": 153.87,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_37",
+      "imageUrl": "https://example.com/images/product_37.jpg"
+    }
+  },
+  {
+    "id": "product_38",
+    "title": "Canvas Board Shorts 38",
+    "description": "Durable shorts for water and beach.",
+    "category": "Lifestyle",
+    "price": 441.76,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_38",
+      "imageUrl": "https://example.com/images/product_38.jpg"
+    }
+  },
+  {
+    "id": "product_39",
+    "title": "Beach Tote Bag 39",
+    "description": "Stylish tote for the beach.",
+    "category": "Lifestyle",
+    "price": 137.31,
+    "brand": "BeachBuddy",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_39",
+      "imageUrl": "https://example.com/images/product_39.jpg"
+    }
+  },
+  {
+    "id": "product_40",
+    "title": "Recycled Flip Flops 40",
+    "description": "Eco-friendly flip flops.",
+    "category": "Lifestyle",
+    "price": 236.96,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_40",
+      "imageUrl": "https://example.com/images/product_40.jpg"
+    }
+  },
+  {
+    "id": "product_41",
+    "title": "Soft-Top Longboard 41",
+    "description": "Stable longboard for beginners.",
+    "category": "Surfboards",
+    "price": 423.54,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_41",
+      "imageUrl": "https://example.com/images/product_41.jpg"
+    }
+  },
+  {
+    "id": "product_42",
+    "title": "Performance Shortboard 42",
+    "description": "Aggressive performance shortboard.",
+    "category": "Surfboards",
+    "price": 296.93,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_42",
+      "imageUrl": "https://example.com/images/product_42.jpg"
+    }
+  },
+  {
+    "id": "product_43",
+    "title": "Mini Malibu 43",
+    "description": "Versatile Malibu board.",
+    "category": "Surfboards",
+    "price": 75.23,
+    "brand": "BoardMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_43",
+      "imageUrl": "https://example.com/images/product_43.jpg"
+    }
+  },
+  {
+    "id": "product_44",
+    "title": "Fish Surfboard 44",
+    "description": "Flat and fast fish board.",
+    "category": "Surfboards",
+    "price": 322.9,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_44",
+      "imageUrl": "https://example.com/images/product_44.jpg"
+    }
+  },
+  {
+    "id": "product_45",
+    "title": "Single-Fin Classic 45",
+    "description": "Classic single-fin design.",
+    "category": "Surfboards",
+    "price": 175.78,
+    "brand": "RetroWave",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_45",
+      "imageUrl": "https://example.com/images/product_45.jpg"
+    }
+  },
+  {
+    "id": "product_46",
+    "title": "3/2mm Full Wetsuit - Men's 46",
+    "description": "Warm wetsuit for men.",
+    "category": "Wetsuits",
+    "price": 112.71,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_46",
+      "imageUrl": "https://example.com/images/product_46.jpg"
+    }
+  },
+  {
+    "id": "product_47",
+    "title": "3/2mm Full Wetsuit - Women's 47",
+    "description": "Comfortable women's wetsuit.",
+    "category": "Wetsuits",
+    "price": 122.61,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_47",
+      "imageUrl": "https://example.com/images/product_47.jpg"
+    }
+  },
+  {
+    "id": "product_48",
+    "title": "2mm Shorty Wetsuit 48",
+    "description": "Summer wetsuit shorty.",
+    "category": "Wetsuits",
+    "price": 424.6,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_48",
+      "imageUrl": "https://example.com/images/product_48.jpg"
+    }
+  },
+  {
+    "id": "product_49",
+    "title": "Thermal Lined Wetsuit 49",
+    "description": "Thermal protection wetsuit.",
+    "category": "Wetsuits",
+    "price": 422.28,
+    "brand": "ThermoGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_49",
+      "imageUrl": "https://example.com/images/product_49.jpg"
+    }
+  },
+  {
+    "id": "product_50",
+    "title": "Kids' Surf Wetsuit 50",
+    "description": "Warm kids' surf wetsuit.",
+    "category": "Wetsuits",
+    "price": 186.59,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_50",
+      "imageUrl": "https://example.com/images/product_50.jpg"
+    }
+  },
+  {
+    "id": "product_51",
+    "title": "Surfboard Wax - Tropical 51",
+    "description": "High-temp wax for tropical waters.",
+    "category": "Accessories",
+    "price": 339.1,
+    "brand": "GripMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_51",
+      "imageUrl": "https://example.com/images/product_51.jpg"
+    }
+  },
+  {
+    "id": "product_52",
+    "title": "Leash 6ft - Comp Series 52",
+    "description": "Durable leash for everyday surf.",
+    "category": "Accessories",
+    "price": 287.04,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_52",
+      "imageUrl": "https://example.com/images/product_52.jpg"
+    }
+  },
+  {
+    "id": "product_53",
+    "title": "Day Use Board Bag 53",
+    "description": "Board protection for local trips.",
+    "category": "Accessories",
+    "price": 175.74,
+    "brand": "SurfSafe",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_53",
+      "imageUrl": "https://example.com/images/product_53.jpg"
+    }
+  },
+  {
+    "id": "product_54",
+    "title": "Surfboard Repair Kit 54",
+    "description": "Quick repairs for dings and cracks.",
+    "category": "Accessories",
+    "price": 30.24,
+    "brand": "FixIt",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_54",
+      "imageUrl": "https://example.com/images/product_54.jpg"
+    }
+  },
+  {
+    "id": "product_55",
+    "title": "Soft Roof Racks 55",
+    "description": "Universal soft roof racks.",
+    "category": "Accessories",
+    "price": 429.49,
+    "brand": "CarGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_55",
+      "imageUrl": "https://example.com/images/product_55.jpg"
+    }
+  },
+  {
+    "id": "product_56",
+    "title": "Surf Club Hoodie 56",
+    "description": "Warm fleece hoodie for surf lifestyle.",
+    "category": "Lifestyle",
+    "price": 335.54,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_56",
+      "imageUrl": "https://example.com/images/product_56.jpg"
+    }
+  },
+  {
+    "id": "product_57",
+    "title": "Organic Cotton Tee 57",
+    "description": "Breathable surf-themed T-shirt.",
+    "category": "Lifestyle",
+    "price": 403.55,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_57",
+      "imageUrl": "https://example.com/images/product_57.jpg"
+    }
+  },
+  {
+    "id": "product_58",
+    "title": "Canvas Board Shorts 58",
+    "description": "Durable shorts for water and beach.",
+    "category": "Lifestyle",
+    "price": 233.39,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_58",
+      "imageUrl": "https://example.com/images/product_58.jpg"
+    }
+  },
+  {
+    "id": "product_59",
+    "title": "Beach Tote Bag 59",
+    "description": "Stylish tote for the beach.",
+    "category": "Lifestyle",
+    "price": 36.67,
+    "brand": "BeachBuddy",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_59",
+      "imageUrl": "https://example.com/images/product_59.jpg"
+    }
+  },
+  {
+    "id": "product_60",
+    "title": "Recycled Flip Flops 60",
+    "description": "Eco-friendly flip flops.",
+    "category": "Lifestyle",
+    "price": 232.71,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_60",
+      "imageUrl": "https://example.com/images/product_60.jpg"
+    }
+  },
+  {
+    "id": "product_61",
+    "title": "Soft-Top Longboard 61",
+    "description": "Stable longboard for beginners.",
+    "category": "Surfboards",
+    "price": 299.1,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_61",
+      "imageUrl": "https://example.com/images/product_61.jpg"
+    }
+  },
+  {
+    "id": "product_62",
+    "title": "Performance Shortboard 62",
+    "description": "Aggressive performance shortboard.",
+    "category": "Surfboards",
+    "price": 117.35,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_62",
+      "imageUrl": "https://example.com/images/product_62.jpg"
+    }
+  },
+  {
+    "id": "product_63",
+    "title": "Mini Malibu 63",
+    "description": "Versatile Malibu board.",
+    "category": "Surfboards",
+    "price": 203.12,
+    "brand": "BoardMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_63",
+      "imageUrl": "https://example.com/images/product_63.jpg"
+    }
+  },
+  {
+    "id": "product_64",
+    "title": "Fish Surfboard 64",
+    "description": "Flat and fast fish board.",
+    "category": "Surfboards",
+    "price": 423.44,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_64",
+      "imageUrl": "https://example.com/images/product_64.jpg"
+    }
+  },
+  {
+    "id": "product_65",
+    "title": "Single-Fin Classic 65",
+    "description": "Classic single-fin design.",
+    "category": "Surfboards",
+    "price": 65.58,
+    "brand": "RetroWave",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_65",
+      "imageUrl": "https://example.com/images/product_65.jpg"
+    }
+  },
+  {
+    "id": "product_66",
+    "title": "3/2mm Full Wetsuit - Men's 66",
+    "description": "Warm wetsuit for men.",
+    "category": "Wetsuits",
+    "price": 437.16,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_66",
+      "imageUrl": "https://example.com/images/product_66.jpg"
+    }
+  },
+  {
+    "id": "product_67",
+    "title": "3/2mm Full Wetsuit - Women's 67",
+    "description": "Comfortable women's wetsuit.",
+    "category": "Wetsuits",
+    "price": 195.76,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_67",
+      "imageUrl": "https://example.com/images/product_67.jpg"
+    }
+  },
+  {
+    "id": "product_68",
+    "title": "2mm Shorty Wetsuit 68",
+    "description": "Summer wetsuit shorty.",
+    "category": "Wetsuits",
+    "price": 403.82,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_68",
+      "imageUrl": "https://example.com/images/product_68.jpg"
+    }
+  },
+  {
+    "id": "product_69",
+    "title": "Thermal Lined Wetsuit 69",
+    "description": "Thermal protection wetsuit.",
+    "category": "Wetsuits",
+    "price": 216.17,
+    "brand": "ThermoGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_69",
+      "imageUrl": "https://example.com/images/product_69.jpg"
+    }
+  },
+  {
+    "id": "product_70",
+    "title": "Kids' Surf Wetsuit 70",
+    "description": "Warm kids' surf wetsuit.",
+    "category": "Wetsuits",
+    "price": 202.07,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_70",
+      "imageUrl": "https://example.com/images/product_70.jpg"
+    }
+  },
+  {
+    "id": "product_71",
+    "title": "Surfboard Wax - Tropical 71",
+    "description": "High-temp wax for tropical waters.",
+    "category": "Accessories",
+    "price": 180.95,
+    "brand": "GripMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_71",
+      "imageUrl": "https://example.com/images/product_71.jpg"
+    }
+  },
+  {
+    "id": "product_72",
+    "title": "Leash 6ft - Comp Series 72",
+    "description": "Durable leash for everyday surf.",
+    "category": "Accessories",
+    "price": 376.86,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_72",
+      "imageUrl": "https://example.com/images/product_72.jpg"
+    }
+  },
+  {
+    "id": "product_73",
+    "title": "Day Use Board Bag 73",
+    "description": "Board protection for local trips.",
+    "category": "Accessories",
+    "price": 409.88,
+    "brand": "SurfSafe",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_73",
+      "imageUrl": "https://example.com/images/product_73.jpg"
+    }
+  },
+  {
+    "id": "product_74",
+    "title": "Surfboard Repair Kit 74",
+    "description": "Quick repairs for dings and cracks.",
+    "category": "Accessories",
+    "price": 168.72,
+    "brand": "FixIt",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_74",
+      "imageUrl": "https://example.com/images/product_74.jpg"
+    }
+  },
+  {
+    "id": "product_75",
+    "title": "Soft Roof Racks 75",
+    "description": "Universal soft roof racks.",
+    "category": "Accessories",
+    "price": 133.1,
+    "brand": "CarGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_75",
+      "imageUrl": "https://example.com/images/product_75.jpg"
+    }
+  },
+  {
+    "id": "product_76",
+    "title": "Surf Club Hoodie 76",
+    "description": "Warm fleece hoodie for surf lifestyle.",
+    "category": "Lifestyle",
+    "price": 260.4,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_76",
+      "imageUrl": "https://example.com/images/product_76.jpg"
+    }
+  },
+  {
+    "id": "product_77",
+    "title": "Organic Cotton Tee 77",
+    "description": "Breathable surf-themed T-shirt.",
+    "category": "Lifestyle",
+    "price": 218.95,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_77",
+      "imageUrl": "https://example.com/images/product_77.jpg"
+    }
+  },
+  {
+    "id": "product_78",
+    "title": "Canvas Board Shorts 78",
+    "description": "Durable shorts for water and beach.",
+    "category": "Lifestyle",
+    "price": 364.62,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_78",
+      "imageUrl": "https://example.com/images/product_78.jpg"
+    }
+  },
+  {
+    "id": "product_79",
+    "title": "Beach Tote Bag 79",
+    "description": "Stylish tote for the beach.",
+    "category": "Lifestyle",
+    "price": 39.29,
+    "brand": "BeachBuddy",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_79",
+      "imageUrl": "https://example.com/images/product_79.jpg"
+    }
+  },
+  {
+    "id": "product_80",
+    "title": "Recycled Flip Flops 80",
+    "description": "Eco-friendly flip flops.",
+    "category": "Lifestyle",
+    "price": 120.22,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_80",
+      "imageUrl": "https://example.com/images/product_80.jpg"
+    }
+  },
+  {
+    "id": "product_81",
+    "title": "Soft-Top Longboard 81",
+    "description": "Stable longboard for beginners.",
+    "category": "Surfboards",
+    "price": 167.94,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_81",
+      "imageUrl": "https://example.com/images/product_81.jpg"
+    }
+  },
+  {
+    "id": "product_82",
+    "title": "Performance Shortboard 82",
+    "description": "Aggressive performance shortboard.",
+    "category": "Surfboards",
+    "price": 181.11,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_82",
+      "imageUrl": "https://example.com/images/product_82.jpg"
+    }
+  },
+  {
+    "id": "product_83",
+    "title": "Mini Malibu 83",
+    "description": "Versatile Malibu board.",
+    "category": "Surfboards",
+    "price": 371.9,
+    "brand": "BoardMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_83",
+      "imageUrl": "https://example.com/images/product_83.jpg"
+    }
+  },
+  {
+    "id": "product_84",
+    "title": "Fish Surfboard 84",
+    "description": "Flat and fast fish board.",
+    "category": "Surfboards",
+    "price": 296.1,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_84",
+      "imageUrl": "https://example.com/images/product_84.jpg"
+    }
+  },
+  {
+    "id": "product_85",
+    "title": "Single-Fin Classic 85",
+    "description": "Classic single-fin design.",
+    "category": "Surfboards",
+    "price": 365.77,
+    "brand": "RetroWave",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_85",
+      "imageUrl": "https://example.com/images/product_85.jpg"
+    }
+  },
+  {
+    "id": "product_86",
+    "title": "3/2mm Full Wetsuit - Men's 86",
+    "description": "Warm wetsuit for men.",
+    "category": "Wetsuits",
+    "price": 101.03,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_86",
+      "imageUrl": "https://example.com/images/product_86.jpg"
+    }
+  },
+  {
+    "id": "product_87",
+    "title": "3/2mm Full Wetsuit - Women's 87",
+    "description": "Comfortable women's wetsuit.",
+    "category": "Wetsuits",
+    "price": 143.8,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_87",
+      "imageUrl": "https://example.com/images/product_87.jpg"
+    }
+  },
+  {
+    "id": "product_88",
+    "title": "2mm Shorty Wetsuit 88",
+    "description": "Summer wetsuit shorty.",
+    "category": "Wetsuits",
+    "price": 241.52,
+    "brand": "SurfX",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_88",
+      "imageUrl": "https://example.com/images/product_88.jpg"
+    }
+  },
+  {
+    "id": "product_89",
+    "title": "Thermal Lined Wetsuit 89",
+    "description": "Thermal protection wetsuit.",
+    "category": "Wetsuits",
+    "price": 216.61,
+    "brand": "ThermoGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_89",
+      "imageUrl": "https://example.com/images/product_89.jpg"
+    }
+  },
+  {
+    "id": "product_90",
+    "title": "Kids' Surf Wetsuit 90",
+    "description": "Warm kids' surf wetsuit.",
+    "category": "Wetsuits",
+    "price": 391.03,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_90",
+      "imageUrl": "https://example.com/images/product_90.jpg"
+    }
+  },
+  {
+    "id": "product_91",
+    "title": "Surfboard Wax - Tropical 91",
+    "description": "High-temp wax for tropical waters.",
+    "category": "Accessories",
+    "price": 347.0,
+    "brand": "GripMaster",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_91",
+      "imageUrl": "https://example.com/images/product_91.jpg"
+    }
+  },
+  {
+    "id": "product_92",
+    "title": "Leash 6ft - Comp Series 92",
+    "description": "Durable leash for everyday surf.",
+    "category": "Accessories",
+    "price": 257.94,
+    "brand": "WavePro",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_92",
+      "imageUrl": "https://example.com/images/product_92.jpg"
+    }
+  },
+  {
+    "id": "product_93",
+    "title": "Day Use Board Bag 93",
+    "description": "Board protection for local trips.",
+    "category": "Accessories",
+    "price": 112.26,
+    "brand": "SurfSafe",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_93",
+      "imageUrl": "https://example.com/images/product_93.jpg"
+    }
+  },
+  {
+    "id": "product_94",
+    "title": "Surfboard Repair Kit 94",
+    "description": "Quick repairs for dings and cracks.",
+    "category": "Accessories",
+    "price": 138.38,
+    "brand": "FixIt",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_94",
+      "imageUrl": "https://example.com/images/product_94.jpg"
+    }
+  },
+  {
+    "id": "product_95",
+    "title": "Soft Roof Racks 95",
+    "description": "Universal soft roof racks.",
+    "category": "Accessories",
+    "price": 31.83,
+    "brand": "CarGear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_95",
+      "imageUrl": "https://example.com/images/product_95.jpg"
+    }
+  },
+  {
+    "id": "product_96",
+    "title": "Surf Club Hoodie 96",
+    "description": "Warm fleece hoodie for surf lifestyle.",
+    "category": "Lifestyle",
+    "price": 445.76,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_96",
+      "imageUrl": "https://example.com/images/product_96.jpg"
+    }
+  },
+  {
+    "id": "product_97",
+    "title": "Organic Cotton Tee 97",
+    "description": "Breathable surf-themed T-shirt.",
+    "category": "Lifestyle",
+    "price": 59.19,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_97",
+      "imageUrl": "https://example.com/images/product_97.jpg"
+    }
+  },
+  {
+    "id": "product_98",
+    "title": "Canvas Board Shorts 98",
+    "description": "Durable shorts for water and beach.",
+    "category": "Lifestyle",
+    "price": 154.75,
+    "brand": "WaveWear",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_98",
+      "imageUrl": "https://example.com/images/product_98.jpg"
+    }
+  },
+  {
+    "id": "product_99",
+    "title": "Beach Tote Bag 99",
+    "description": "Stylish tote for the beach.",
+    "category": "Lifestyle",
+    "price": 132.42,
+    "brand": "BeachBuddy",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_99",
+      "imageUrl": "https://example.com/images/product_99.jpg"
+    }
+  },
+  {
+    "id": "product_100",
+    "title": "Recycled Flip Flops 100",
+    "description": "Eco-friendly flip flops.",
+    "category": "Lifestyle",
+    "price": 132.01,
+    "brand": "EcoSurf",
+    "metadata": {
+      "productUrl": "https://example.com/products/product_100",
+      "imageUrl": "https://example.com/images/product_100.jpg"
+    }
+  }
+]
