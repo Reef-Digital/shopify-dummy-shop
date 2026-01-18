@@ -17,10 +17,21 @@ function img(p) {
     p?.image ||
     p?.imageUrl ||
     p?.metadata?.imageUrl ||
+    (p?.metadata && typeof p.metadata === 'object' ? p.metadata.imageUrl : null) ||
     (Array.isArray(p?.imagePaths) ? p.imagePaths[0] : null) ||
     (Array.isArray(p?.images) ? p.images[0] : null) ||
     null;
-  return raw ? String(raw) : "";
+  const imgUrl = raw ? String(raw).trim() : "";
+  // Debug: log if image URL is found
+  if (imgUrl && typeof window !== 'undefined') {
+    console.log('[ProductModal] Image URL found:', { 
+      productId: p?.productId || p?.id, 
+      title: p?.title || p?.name,
+      imgUrl,
+      source: p?.image ? 'image' : p?.imageUrl ? 'imageUrl' : p?.metadata?.imageUrl ? 'metadata.imageUrl' : 'other'
+    });
+  }
+  return imgUrl;
 }
 function score(p) {
   const s = p?.score ?? p?.relevance ?? null;
