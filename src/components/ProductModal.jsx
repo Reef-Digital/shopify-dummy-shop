@@ -88,7 +88,15 @@ export default function ProductModal({
           <div className="p-5 md:border-r border-gray-200">
             <div className="aspect-[4/3] rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden flex items-center justify-center">
               {mainImg ? (
-                <img src={mainImg} alt="" className="w-full h-full object-cover" />
+                <img 
+                  src={mainImg} 
+                  alt={title(product)} 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = `https://placehold.co/400x300/E5E7EB/6B7280?text=${encodeURIComponent(title(product).substring(0, 15))}`;
+                  }}
+                />
               ) : (
                 <div className="text-sm text-gray-400">No image</div>
               )}
@@ -134,7 +142,17 @@ export default function ProductModal({
                 >
                   <div className="flex items-center gap-3">
                     <div className="h-14 w-14 rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden flex items-center justify-center">
-                      {img(p) ? <img src={img(p)} alt="" className="w-full h-full object-cover" /> : null}
+                      {img(p) ? (
+                        <img 
+                          src={img(p)} 
+                          alt={title(p)} 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = `https://placehold.co/56x56/E5E7EB/6B7280?text=${encodeURIComponent(title(p).substring(0, 8))}`;
+                          }}
+                        />
+                      ) : null}
                     </div>
                     <div className="min-w-0">
                       <div className="font-semibold text-sm text-gray-900 truncate">
