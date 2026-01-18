@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+// SDK loaded from CDN (see index.html)
 import { INOPS_CONFIG } from "../config/api";
 import ProductModal from "./ProductModal";
 import bgImage from "../assets/images/background.png";
@@ -10,61 +11,51 @@ export default function Body() {
   const campaignId = INOPS_CONFIG.campaignId;
   const hasKey = Boolean(INOPS_CONFIG.searchKey);
 
-  const [sdkReady, setSdkReady] = useState(false);
-  const [sdkError, setSdkError] = useState('');
-
   // Wait for SDK to load from CDN
+  const [sdkReady, setSdkReady] = useState(false);
+  const [sdkError, setSdkError] = useState("");
+
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (!hasKey) return;
     
-    // Check if already loaded
-    if (window.Inops && window.Inops.createInopsClient) {
-      console.log('[Body] Inops SDK already loaded:', Object.keys(window.Inops));
+    // Check if SDK is already loaded
+    if (typeof window !== 'undefined' && window.Inops && window.Inops.createInopsClient) {
       setSdkReady(true);
       return;
     }
 
-    // Check if script tag exists
-    const scriptTag = document.querySelector('script[src*="inops-web-sdk"]');
-    if (!scriptTag) {
-      setSdkError('SDK script tag not found in HTML. Please ensure the CDN script is included.');
-      console.error('[Body] SDK script tag not found');
-      return;
-    }
-
-    console.log('[Body] Waiting for Inops SDK to load from CDN...');
-
-    // Poll for SDK availability (max 5 seconds)
+    // Poll for SDK to be available (CDN script loading)
     let attempts = 0;
-    const maxAttempts = 50;
-    const interval = setInterval(() => {
+    const maxAttempts = 50; // 5 seconds max wait
+    const checkInterval = setInterval(() => {
       attempts++;
-      if (window.Inops && window.Inops.createInopsClient) {
-        console.log('[Body] Inops SDK loaded successfully:', Object.keys(window.Inops));
+      if (typeof window !== 'undefined' && window.Inops && window.Inops.createInopsClient) {
         setSdkReady(true);
-        clearInterval(interval);
+        clearInterval(checkInterval);
       } else if (attempts >= maxAttempts) {
-        const errorMsg = 'Inops SDK failed to load from CDN after 5 seconds. Check network and CDN URL: https://cdn.inops.io/inops-web-sdk@1.1.0/index.global.js';
-        console.error(`[Body] ${errorMsg}`);
-        setSdkError(errorMsg);
-        clearInterval(interval);
+        setSdkError('SDK failed to load from CDN');
+        clearInterval(checkInterval);
       }
     }, 100);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(checkInterval);
+  }, [hasKey]);
 
+  // Create Inops client once SDK is ready
   const inopsClient = useMemo(() => {
     if (!hasKey || !sdkReady) return null;
-    // Use CDN version: window.Inops.createInopsClient
-    if (typeof window !== 'undefined' && window.Inops && window.Inops.createInopsClient) {
-      return window.Inops.createInopsClient({
+    try {
+      const Inops = window.Inops;
+      if (!Inops || !Inops.createInopsClient) return null;
+      return Inops.createInopsClient({
         searchKey: INOPS_CONFIG.searchKey,
         apiUrl: INOPS_CONFIG.apiBaseUrl,
         language: "en",
       });
+    } catch (err) {
+      console.error('[Body] Failed to create Inops client:', err);
+      return null;
     }
-    return null;
   }, [hasKey, sdkReady]);
 
   const [campaignLoading, setCampaignLoading] = useState(false);
@@ -92,6 +83,7 @@ export default function Body() {
   const campaignLoadedRef = useRef(false);
 
   const wordCount = useMemo(() => String(query || "").trim().split(/\s+/).filter(Boolean).length, [query]);
+  const charCount = useMemo(() => String(query || "").trim().length, [query]);
 
   const title = (p) => String(p?.title || p?.name || p?.productId || p?.id || "").trim() || "Product";
   const brand = (p) => String(p?.brand || p?.vendor || "").trim();
@@ -230,8 +222,8 @@ export default function Body() {
       setSearchError("Missing VITE_INOPS_SEARCH_KEY");
       return;
     }
-    if (q.split(/\s+/).filter(Boolean).length < 2) {
-      setSearchError("Please type at least 2 words to search");
+    if (q.split(/\s+/).filter(Boolean).length < 1) {
+      setSearchError("Please enter a search query");
       return;
     }
     
@@ -457,11 +449,11 @@ export default function Body() {
       hasKey: Boolean(INOPS_CONFIG.searchKey),
     });
     
-    // Only load campaign once when inopsClient becomes available
-    if (hasKey && inopsClient && campaignId && !campaignLoadedRef.current) {
+    // Only load campaign once when SDK is ready and inopsClient is available
+    if (hasKey && sdkReady && inopsClient && campaignId && !campaignLoadedRef.current) {
       void loadCampaign();
     }
-  }, [hasKey, inopsClient, campaignId, loadCampaign]);
+  }, [hasKey, sdkReady, inopsClient, campaignId, loadCampaign]);
 
   // Cleanup subscriptions on unmount
   useEffect(() => {
@@ -488,7 +480,7 @@ export default function Body() {
   useEffect(() => {
     if (debounceId.current) clearTimeout(debounceId.current);
     if (!hasKey || isSearchingRef.current) return; // Don't trigger if already loading
-    if (wordCount < 2) {
+    if (charCount < 3) {
       setSearchSummary("");
       setSearchProducts([]);
       setSearchError("");
@@ -500,26 +492,7 @@ export default function Body() {
     return () => {
       if (debounceId.current) clearTimeout(debounceId.current);
     };
-  }, [query, wordCount, hasKey, runSearchNow]);
-
-  // Show error if SDK failed to load
-  if (sdkError) {
-    return (
-      <div className="flex-1 flex flex-col min-h-screen bg-white items-center justify-center p-8">
-        <div className="max-w-2xl w-full bg-red-50 border border-red-200 rounded-lg p-6">
-          <h2 className="text-xl font-semibold text-red-800 mb-2">SDK Load Error</h2>
-          <p className="text-red-700 mb-4">{sdkError}</p>
-          <p className="text-sm text-red-600">
-            Please check the browser console for more details. Ensure the CDN script is loaded:
-            <br />
-            <code className="bg-red-100 px-2 py-1 rounded mt-2 inline-block">
-              https://cdn.inops.io/inops-web-sdk@1.1.0/index.global.js
-            </code>
-          </p>
-        </div>
-      </div>
-    );
-  }
+  }, [query, charCount, hasKey, runSearchNow]);
 
   return (
     <div className="flex-1 flex flex-col min-h-screen bg-white">
@@ -610,14 +583,25 @@ export default function Body() {
       <div className="w-full bg-white py-10 border-t border-gray-200">
         <div className="max-w-[1080px] mx-auto px-20">
           <div className="mb-4">
-            <h2 className="text-2xl font-semibold text-[#0F3253] mb-2">Search Products</h2>
-            <p className="text-sm text-gray-600">Type 2 or more words to search automatically</p>
+            <div className="flex items-center gap-3 mb-2">
+              <h2 className="text-2xl font-semibold text-[#0F3253]">Search Products</h2>
+              {charCount >= 3 && (
+                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
+                  wordCount === 1 
+                    ? 'bg-blue-100 text-blue-800' 
+                    : 'bg-purple-100 text-purple-800'
+                }`}>
+                  {wordCount === 1 ? '🔍 Direct' : '🧠 Intent'}
+                </span>
+              )}
+            </div>
+            <p className="text-sm text-gray-600">Type 3+ characters to search automatically</p>
           </div>
           <div className="relative" ref={searchFormRef}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (wordCount >= 2) {
+                if (charCount >= 3) {
                   void runSearchNow(query);
                 }
               }}
@@ -628,11 +612,11 @@ export default function Body() {
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="e.g. kid longboard beginner"
+                  placeholder="e.g. lon or kid longboard"
                   className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
                 />
                 {/* Collapsible Results Dropdown - matches search field width */}
-                {wordCount >= 2 && (searchSummary || searchProducts.length > 0 || searchLoading) ? (
+                {charCount >= 3 && (searchSummary || searchProducts.length > 0 || searchLoading) ? (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
                     {/* Products list - vertical, scrollable */}
                     <div className="overflow-auto divide-y max-h-72">
@@ -693,7 +677,7 @@ export default function Body() {
               <button
                 type="submit"
                 className="h-14 px-8 rounded-lg bg-[#1B5A8E] text-white text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#1D4C73] transition shadow-lg"
-                disabled={!hasKey || searchLoading || wordCount < 2}
+                    disabled={!hasKey || searchLoading || charCount < 3}
               >
                 {searchLoading ? "Searching…" : "Search"}
               </button>
