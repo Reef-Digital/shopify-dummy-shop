@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "main": "./dist/lib/search-widget.external.cjs.js",
   "module": "./dist/lib/search-widget.external.es.js",
@@ -49,7 +49,6 @@
     }
   },
   "dependencies": {
-    "@inops/web-sdk": "file:../inops-web-sdk",
     "@tailwindcss/vite": "^4.1.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
