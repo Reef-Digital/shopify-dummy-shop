@@ -1,5 +1,11 @@
+<<<<<<< Updated upstream
+import { useState, useEffect, useRef } from "react";
+import { getSearchApiUrl } from "../config/api";
+import io from "socket.io-client";
+=======
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { INOPS_CONFIG } from '../config/api';
+>>>>>>> Stashed changes
 
 const SearchForm = ({
   placeholder = "Search",
@@ -37,7 +43,23 @@ const SearchForm = ({
     return () => clearTimeout(timer);
   }, [query]);
 
+<<<<<<< Updated upstream
+  // Search effect
+  useEffect(() => {
+    if (
+      debouncedQuery.trim() &&
+      debouncedQuery.trim().split(/\s+/).length > 2
+    ) {
+      performSearch(debouncedQuery);
+    } else {
+      setResults([]);
+    }
+  }, [debouncedQuery]);
+
+  // Click outside handler
+=======
   // Focus input when opened and handle keyboard events
+>>>>>>> Stashed changes
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -50,6 +72,38 @@ const SearchForm = ({
     };
   }, []);
 
+<<<<<<< Updated upstream
+  // API handler for search with WebSocket streaming
+  const callSearchApi = async (searchQuery) => {
+    setIsLoading(true);
+    try {
+      const baseUrl = apiUrl || getSearchApiUrl();
+
+      console.log(
+        "SearchForm: API call with searchKey:",
+        searchKey ? "***" + searchKey.slice(-4) : "MISSING"
+      );
+      console.log("SearchForm: searchKey type:", typeof searchKey);
+      console.log("SearchForm: searchKey value (raw):", searchKey);
+      console.log("SearchForm: searchKey empty?:", searchKey === "");
+      console.log("SearchForm: API URL:", baseUrl);
+
+      // Step 1: Execute flow to get sessionId
+      const headers = {
+        "Content-Type": "application/json",
+        "x-search-key": searchKey,
+      };
+
+      console.log("SearchForm: Headers object:", headers);
+      console.log(
+        "SearchForm: x-search-key in headers:",
+        headers["x-search-key"]
+      );
+
+      const response = await fetch(`${baseUrl}/shop/flow/execute`, {
+        method: "POST",
+        headers: headers,
+=======
   // API handler for both search and suggestions
   const callSearchApi = useCallback(async (searchQuery, type) => {
     setIsLoading(true);
@@ -63,6 +117,7 @@ const SearchForm = ({
           'Content-Type': 'application/json',
           ...(searchKey ? { 'X-Search-Key': searchKey, Authorization: `SearchKey ${searchKey}` } : {}),
         },
+>>>>>>> Stashed changes
         body: JSON.stringify({
           language: 'en',
           userInput: {
@@ -89,8 +144,65 @@ const SearchForm = ({
         return [];
       }
 
-      // Return empty for now - full SSE implementation can be added later
-      return [];
+      // Step 2: Connect to WebSocket and stream results
+      return new Promise((resolve, reject) => {
+        console.log(
+          "SearchForm: Connecting to WebSocket...",
+          `${baseUrl}?searchKey=${searchKey}`
+        );
+        const socket = io(`${baseUrl}?searchKey=${searchKey}`, {
+          transports: ["websocket"],
+        });
+        console.log("SearchForm: Socket object created:", socket);
+
+        const allData = [];
+
+        socket.on("connect", () => {
+          console.log("SearchForm: WebSocket connected successfully!");
+          console.log("SearchForm: Subscribing to session:", sessionId);
+          socket.emit("subscribe-session", { sessionId });
+
+          socket.on(`session-${sessionId}`, (streamData) => {
+            console.log(
+              "SearchForm: *** RECEIVED DATA FROM SOCKET ***",
+              streamData
+            );
+
+            if (
+              streamData.event === "products" ||
+              streamData.event === "summary-result"
+            ) {
+              const widgets =
+                streamData.data?.response?.widgets ||
+                streamData.response?.widgets ||
+                [];
+              allData.push(...widgets);
+            }
+
+            if (streamData.event === "flow-end") {
+              console.log("Flow ended, collected widgets:", allData);
+              socket.disconnect();
+              resolve(allData);
+            } else if (streamData.event === "flow-error") {
+              console.error("Flow error:", streamData);
+              socket.disconnect();
+              reject(new Error("Flow error"));
+            }
+          });
+        });
+
+        socket.on("connect_error", (err) => {
+          console.error("Socket error:", err);
+          socket.disconnect();
+          reject(err);
+        });
+
+        // Timeout after 30 seconds
+        setTimeout(() => {
+          socket.disconnect();
+          reject(new Error("Search timeout"));
+        }, 30000);
+      });
     } catch (error) {
       console.error("Search error:", error);
       return [];
@@ -99,20 +211,37 @@ const SearchForm = ({
     }
   }, []);
 
+<<<<<<< Updated upstream
+  // Perform full search
+  const performSearch = async (searchQuery) => {
+    const searchResults = await callSearchApi(searchQuery);
+=======
+  // Fetch suggestions (type: 'partial')
+  const fetchSuggestions = useCallback(async (searchQuery) => {
+    setIsSuggesting(true);
+    const suggestionResults = await callSearchApi(searchQuery, 'partial');
+    setSuggestions(suggestionResults);
+    setIsSuggesting(false);
+  }, [callSearchApi]);
+
   // Perform full search (type: 'search')
   const performSearch = useCallback(async (searchQuery) => {
+    setIsSuggesting(false);
     const searchResults = await callSearchApi(searchQuery, 'search');
+>>>>>>> Stashed changes
     setResults(searchResults);
   }, [callSearchApi]);
 
   // Suggestion and search effect
   useEffect(() => {
     if (debouncedQuery.trim() && debouncedQuery.trim().split(/\s+/).length > 2) {
+      fetchSuggestions(debouncedQuery);
       performSearch(debouncedQuery);
     } else {
+      setSuggestions([]);
       setResults([]);
     }
-  }, [debouncedQuery, performSearch]);
+  }, [debouncedQuery, fetchSuggestions, performSearch]);
 
   // Handle Enter key for search
   const handleInputKeyDown = (e) => {

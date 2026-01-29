@@ -17,13 +17,10 @@ jobs:
     steps:
       - name: Validate branch pattern
         run: |
-          BRANCH="${{ github.ref_name }}"
-          if [[ "$BRANCH" != "main" && "$BRANCH" != release/* ]]; then
-            echo "Only 'main' or 'release/*' branches are allowed for production deployments"
-            echo "Current branch: $BRANCH"
+          if [[ "${{ github.ref_name }}" != release/* ]]; then
+            echo "Only release/* branches are allowed for production deployments"
             exit 1
           fi
-          echo "✓ Branch validation passed: $BRANCH"
 
   build:
     runs-on: ubuntu-latest
@@ -52,23 +49,14 @@ jobs:
         id: pkg
         run: node -e "require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'version=' + require('./package.json').version + '\n')"
 
-      - name: Load .env from S3
-        run: |
-          if [ -n "${{ vars.ENV_FILE_URL }}" ]; then
-            if [[ "${{ vars.ENV_FILE_URL }}" == s3://* ]]; then
-              aws s3 cp "${{ vars.ENV_FILE_URL }}" .env
-            else
-              curl -fsSL "${{ vars.ENV_FILE_URL }}" -o .env
-            fi
-          fi
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
       - name: Build static web (Vite)
         env:
           CI: ''
-        run: npm run build
+        run: |
+          mv .env.example .env
+          bash tenant/build.sh
 
       - name: Resolve target SHA
         id: rev
@@ -88,8 +76,8 @@ jobs:
 
       - name: Store the build in s3
         run: |
-          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ steps.rev.outputs.sha }}
-          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/production
+          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/${{ steps.rev.outputs.sha }}
+          aws s3 sync --delete ./dist s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/production
 
   deploy:
     runs-on: ubuntu-latest
@@ -112,7 +100,10 @@ jobs:
           CI: ''
         run: |
           mkdir build
-          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shopify-dummy-shop/build/${{ needs.build.outputs.target_sha }} ./build
+          aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/${{ needs.build.outputs.target_sha }} ./build
+          aws s3 cp ${{ vars.ENV_FILE_URL }} .env
+          export $(grep -v '^#' .env | xargs)
+          bash tenant/inject.sh build
       - name: Deploy
         uses: reggionick/s3-deploy@v4
         with:
@@ -125,80 +116,6 @@ jobs:
           no-cache: true
           private: true
           files-to-include: '{.*/**,**}'
-
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      - name: Configure CloudFront Domain Alias
-        run: |
-          DIST_ID="${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}"
-          DOMAIN="shopify-dummy.inops.io"
-          
-          echo "Checking CloudFront distribution: $DIST_ID"
-          
-          # Get current distribution config
-          aws cloudfront get-distribution-config --id "$DIST_ID" > /tmp/dist-config.json || {
-            echo "Error: Failed to get CloudFront distribution config. Check DIST_ID and permissions."
-            exit 1
-          }
-          
-          # Extract ETag and config
-          ETAG=$(jq -r '.ETag' /tmp/dist-config.json)
-          CONFIG=$(jq -r '.DistributionConfig' /tmp/dist-config.json)
-          
-          # Get current aliases (handle both Items array and empty/null)
-          CURRENT_ALIASES=$(echo "$CONFIG" | jq -r '.Aliases.Items // [] | join(",")')
-          echo "Current aliases: ${CURRENT_ALIASES:-none}"
-          
-          # Check if domain already exists in aliases
-          DOMAIN_EXISTS=$(echo "$CONFIG" | jq -r ".Aliases.Items // [] | any(. == \"$DOMAIN\")")
-          
-          if [ "$DOMAIN_EXISTS" = "true" ]; then
-            echo "✓ Domain alias already configured: $DOMAIN"
-          else
-            echo "Adding domain alias: $DOMAIN"
-            
-            # Get existing aliases or initialize empty array
-            EXISTING_ALIASES=$(echo "$CONFIG" | jq -r '.Aliases.Items // []')
-            
-            # Add domain to aliases
-            UPDATED_CONFIG=$(echo "$CONFIG" | jq --arg domain "$DOMAIN" \
-              '.Aliases.Items = (.Aliases.Items // []) + [$domain] | .Aliases.Quantity = (.Aliases.Items | length)')
-            
-            # Update distribution
-            echo "$UPDATED_CONFIG" > /tmp/updated-config.json
-            aws cloudfront update-distribution \
-              --id "$DIST_ID" \
-              --if-match "$ETAG" \
-              --distribution-config file:///tmp/updated-config.json || {
-              echo "Warning: Failed to update CloudFront distribution. You may need to add the domain alias manually."
-            }
-            
-            echo "✓ Domain alias added. Note: Distribution update takes ~15 minutes to propagate."
-          fi
-          
-          # Verify SSL certificate exists for domain
-          echo ""
-          echo "Checking SSL certificate status..."
-          CERT_CHECK=$(aws acm list-certificates --region us-east-1 --query "CertificateSummaryList[?DomainName=='$DOMAIN' || DomainName=='*.inops.io'].{Domain:DomainName,Status:Status}" --output table 2>&1)
-          if [ $? -eq 0 ]; then
-            echo "$CERT_CHECK"
-          else
-            echo "Note: Could not check ACM certificates. Ensure SSL certificate for $DOMAIN exists in us-east-1 region."
-          fi
-          
-          # Get CloudFront domain name
-          CF_DOMAIN=$(echo "$CONFIG" | jq -r '.DomainName')
-          echo ""
-          echo "=========================================="
-          echo "DNS Configuration Required"
-          echo "=========================================="
-          echo "Create a CNAME record in your DNS provider:"
-          echo "  Name: shopify-dummy"
-          echo "  Value: $CF_DOMAIN"
-          echo ""
-          echo "Or use Route53 A record (alias) pointing to CloudFront distribution: $DIST_ID"
-          echo "=========================================="
 
       - name: "Notify Slack: Deployment succeeded"
         if: success()

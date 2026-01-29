@@ -62,40 +62,17 @@ if [ -f .env ]; then
   # Sort and remove duplicates with 'sort -u'
   variable_names=$(grep -o '^[A-Za-z_][A-Za-z_0-9]*=' .env | cut -d '=' -f 1 | sort -u)
 
-  # Create a new .env file with placeholders (Vite reads .env files)
-  log "Creating .env file with TENANT_INJECT_ placeholders for Vite" "INFO"
-  > .env.new
+  # Loop through the variable names and print them
   for var in $variable_names; do
-    placeholder_value="TENANT_INJECT_$var"
-    echo "$var=$placeholder_value" >> .env.new
-    log "  $var=$placeholder_value" "INFO"
-    # Also export for environment variable access
-    export $var="$placeholder_value"
+    log "Setting variable $var" "INFO"
+    export $var="TENANT_INJECT_$var"
   done
-  mv .env.new .env
-  log "Replaced .env with placeholder values" "INFO"
 else
   log "The .env file does not exist." "WARN"
 fi
 
 export VITE_SKIP_AUTH="true"
 
-# Verify exports before building
-log "Verifying exported placeholders:" "INFO"
-env | grep "^VITE_INOPS" | head -10 || log "No VITE_INOPS variables found!" "WARN"
-
-# Double-check critical variables
-log "Checking critical exports:" "INFO"
-for var in VITE_INOPS_API_BASE_URL VITE_INOPS_SEARCH_KEY VITE_INOPS_CAMPAIGN_ID VITE_INOPS_HOMEPAGE_URL VITE_DUMMY_SHOP_NAME; do
-  if [ -n "${!var}" ]; then
-    log "  ✓ $var=${!var}" "INFO"
-  else
-    log "  ✗ $var is NOT SET" "WARN"
-  fi
-done
-
-# Run build with explicit env var passing
-log "Starting Vite build..." "INFO"
 npm run build
 
 ###########################

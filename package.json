@@ -1,8 +1,35 @@
 {
   "name": "my-app",
   "private": true,
-  "version": "0.2.3",
+<<<<<<< Updated upstream
+  "version": "0.0.0",
+=======
+  "version": "0.2.0",
+>>>>>>> Stashed changes
   "type": "module",
+  "main": "./dist/lib/search-widget.external.cjs.js",
+  "module": "./dist/lib/search-widget.external.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lib/search-widget.external.es.js",
+      "require": "./dist/lib/search-widget.external.cjs.js"
+    },
+    "./standalone": {
+      "import": "./dist/lib/search-widget.standalone.es.js",
+      "require": "./dist/lib/search-widget.standalone.cjs.js"
+    }
+  },
+  "files": [
+    "dist/lib"
+  ],
+  "keywords": [
+    "search",
+    "widget",
+    "react",
+    "component",
+    "library",
+    "embed"
+  ],
   "scripts": {
     "dev": "vite",
     "build:app": "vite build",
@@ -26,12 +53,19 @@
     }
   },
   "dependencies": {
+<<<<<<< Updated upstream
+    "@tailwindcss/vite": "^4.1.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io-client": "^4.7.2"
+=======
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "@inops/web-sdk": "file:../inops-web-sdk"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.4.1",

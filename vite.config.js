@@ -5,28 +5,12 @@ import { resolve } from "path";
 
 /// <reference types="vite/client" />
 
+<<<<<<< Updated upstream
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
   const isLibraryBuild = mode === "library";
   const isLibraryExternal = mode === "library-external";
   const isPlatformBuild = mode === "platform";
-
-  // Regular web app build configuration (for shopify-dummy-shop)
-  if (!isLibraryBuild && !isLibraryExternal && !isPlatformBuild) {
-    return {
-      plugins: [react(), tailwindcss()],
-      base: '/',
-      server: {
-        port: 5177,
-      },
-      define: {
-        'process.env.NODE_ENV': JSON.stringify('dev'),
-      },
-      build: {
-        minify: false
-      },
-    };
-  }
 
   if (isLibraryBuild) {
     // Library build configuration - React bundled (standalone version)
@@ -60,6 +44,20 @@ export default defineConfig(({ command, mode }) => {
         "process.env.NODE_ENV": JSON.stringify("production"),
       },
     };
+=======
+export default defineConfig({
+  plugins: [react(), cssInjectedByJsPlugin()],
+  base: '/',
+  server: {
+    port: 5177,
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('dev'),
+  },
+  // No need for rollupOptions for a SPA/site build!
+  build: {
+    minify: false  // (optional; can remove if you want minification)
+>>>>>>> Stashed changes
   }
 
   if (isPlatformBuild) {

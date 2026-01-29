@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { INOPS_CONFIG } from "../config/api";
-// Note: socket.io-client removed - using SSE instead via @inops/web-sdk
+import { getSearchApiUrl } from "../config/api";
+import io from "socket.io-client";
 
 type Product = {
   title: string;
@@ -92,7 +92,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const callSearchApi = async (searchQuery: string): Promise<Product[]> => {
     setLoading(true);
     try {
-      const baseUrl = apiUrl || INOPS_CONFIG.apiBaseUrl;
+      const baseUrl = apiUrl || getSearchApiUrl();
 
       console.log(
         "SearchInput: API call with searchKey:",
@@ -132,11 +132,65 @@ const SearchInput: React.FC<SearchInputProps> = ({
         return [];
       }
 
-      // Step 2: Return empty results for now
-      // TODO: Replace socket.io with SSE via @inops/web-sdk
-      // Note: This component is not actively used in the main app (Body.jsx handles search)
-      console.warn("SearchInput: Socket.io removed - returning empty results. Use @inops/web-sdk for SSE.");
-      return Promise.resolve([]);
+      // Step 2: Connect to WebSocket and stream results
+      return new Promise((resolve, reject) => {
+        console.log(
+          "SearchInput: Connecting to WebSocket...",
+          `${baseUrl}?token=${searchKey}`
+        );
+        const socket = io(`${baseUrl}?token=${searchKey}`, {
+          transports: ["websocket"],
+        });
+        console.log("SearchInput: Socket object created:", socket);
+
+        const allData: Product[] = [];
+
+        socket.on("connect", () => {
+          console.log("SearchInput: WebSocket connected successfully!");
+          console.log("SearchInput: Subscribing to session:", sessionId);
+          socket.emit("subscribe-session", { sessionId });
+
+          socket.on(`session-${sessionId}`, (streamData: any) => {
+            console.log(
+              "SearchInput: *** RECEIVED DATA FROM SOCKET ***",
+              streamData
+            );
+
+            if (
+              streamData.event === "products" ||
+              streamData.event === "summary-result"
+            ) {
+              const widgets =
+                streamData.data?.response?.widgets ||
+                streamData.response?.widgets ||
+                [];
+              allData.push(...widgets);
+            }
+
+            if (streamData.event === "flow-end") {
+              console.log("Flow ended, collected widgets:", allData);
+              socket.disconnect();
+              resolve(allData);
+            } else if (streamData.event === "flow-error") {
+              console.error("Flow error:", streamData);
+              socket.disconnect();
+              reject(new Error("Flow error"));
+            }
+          });
+        });
+
+        socket.on("connect_error", (err: Error) => {
+          console.error("Socket error:", err);
+          socket.disconnect();
+          reject(err);
+        });
+
+        // Timeout after 30 seconds
+        setTimeout(() => {
+          socket.disconnect();
+          reject(new Error("Search timeout"));
+        }, 30000);
+      });
     } catch (error) {
       console.error("Search error:", error);
       return [];
