@@ -103,6 +103,12 @@ jobs:
           aws s3 sync s3://${{ vars.BUILD_BUCKET }}/shop-organisation-fe/build/${{ needs.build.outputs.target_sha }} ./build
           aws s3 cp ${{ vars.ENV_FILE_URL }} .env
           export $(grep -v '^#' .env | xargs)
+          # inject.sh replaces TENANT_INJECT_* placeholders using env vars of that name.
+          # Prod .env uses VITE_*; export matching TENANT_INJECT_VITE_* for inject.
+          for var in $(grep -v '^#' .env | grep -oE '^VITE_[A-Za-z0-9_]+' | sort -u); do
+            val="${!var}"
+            [ -n "$val" ] && export "TENANT_INJECT_${var}=$val"
+          done
           bash tenant/inject.sh build
       - name: Deploy
         uses: reggionick/s3-deploy@v4
