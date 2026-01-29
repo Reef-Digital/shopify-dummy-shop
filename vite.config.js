@@ -5,7 +5,6 @@ import { resolve } from "path";
 
 /// <reference types="vite/client" />
 
-<<<<<<< Updated upstream
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
   const isLibraryBuild = mode === "library";
@@ -44,20 +43,6 @@ export default defineConfig(({ command, mode }) => {
         "process.env.NODE_ENV": JSON.stringify("production"),
       },
     };
-=======
-export default defineConfig({
-  plugins: [react(), cssInjectedByJsPlugin()],
-  base: '/',
-  server: {
-    port: 5177,
-  },
-  define: {
-    'process.env.NODE_ENV': JSON.stringify('dev'),
-  },
-  // No need for rollupOptions for a SPA/site build!
-  build: {
-    minify: false  // (optional; can remove if you want minification)
->>>>>>> Stashed changes
   }
 
   if (isPlatformBuild) {
@@ -128,6 +113,9 @@ export default defineConfig({
   // Regular web app build configuration
   return {
     plugins: [react(), tailwindcss()],
+    server: {
+      port: 5177,
+    },
     build: {
       outDir: "dist",
     },

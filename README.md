@@ -135,64 +135,10 @@ See `example.html` for more detailed API usage examples.
 
 ## Notes
 
-<<<<<<< Updated upstream
-The search form uses environment variables for API configuration. The API endpoint can be configured via the `VITE_API_URL` environment variable.
-
-### Default Configuration
-
-- **URL**: `https://danish-ways-contamination-today.trycloudflare.com/ai/search`
-- **Method**: POST
-- **Content-Type**: application/json
-- **Body**:
-
-```json
-{
-  "userInput": {
-    "type": "search",
-    "value": "search term"
-  }
-}
-```
-
-### Environment Variables
-
-Create a `.env` file in the project root to configure the API URL:
-
-```bash
-# .env
-VITE_API_URL=https://danish-ways-contamination-today.trycloudflare.com/ai/search
-```
-
-**Note**: The `.env` file is already added to `.gitignore` to keep sensitive information out of version control.
-
-### Changing the API Endpoint
-
-To use a different API endpoint, you have two options:
-
-#### Option 1: Environment Variable (Recommended)
-
-Create or update your `.env` file:
-
-```bash
-VITE_API_URL=https://your-new-api-endpoint.com/search
-```
-
-#### Option 2: Update Configuration File
-
-Edit `src/config/api.js` and change the default URL:
-
-```javascript
-export const API_CONFIG = {
-  SEARCH_URL:
-    import.meta.env.VITE_API_URL || "https://your-new-api-endpoint.com/search",
-};
-```
-=======
-- This app uses the backend’s `/shop/flow/execute` + SSE session stream (`/sse/session/:id`) with a **SearchKey**.
-- If `campaignId` returns empty, it’s usually because:
+- This app uses the backend's `/shop/flow/execute` + SSE session stream (`/sse/session/:id`) with a **SearchKey**.
+- If `campaignId` returns empty, it's usually because:
   - the campaign does not exist for the shopConfig behind the SearchKey, or
-  - the campaign `referenceId` casing doesn’t match.
->>>>>>> Stashed changes
+  - the campaign `referenceId` casing doesn't match.
 
 ### Adjusting Debounce Delay
 

@@ -13,3 +13,7 @@ export function requireSearchKey() {
   }
   return INOPS_CONFIG.searchKey
 }
+
+export function getSearchApiUrl() {
+  return INOPS_CONFIG.apiBaseUrl
+}

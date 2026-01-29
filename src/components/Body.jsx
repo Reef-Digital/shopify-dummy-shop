@@ -67,6 +67,7 @@ export default function Body() {
   const [searchError, setSearchError] = useState("");
   const [searchSummary, setSearchSummary] = useState("");
   const [searchProducts, setSearchProducts] = useState([]);
+  const [searchCompleted, setSearchCompleted] = useState(false);
   const searchUnsubscribeRef = useRef(null);
   const isSearchingRef = useRef(false);
   const searchProductIdsRef = useRef(new Set());
@@ -197,29 +198,36 @@ export default function Body() {
       if (!products.length) {
         const summaryText = res?.summary || "";
         const isExpiredOrEmpty = summaryText.includes("No relevant results") || summaryText.includes("expired");
-        const errorMsg = isExpiredOrEmpty 
+        const errorMsg = isExpiredOrEmpty
           ? `Campaign issue: ${summaryText || "Campaign may be expired or have an empty searchTerm"}`
-          : `Campaign loaded but no products found. Summary: "${summaryText.substring(0, 100)}"`;
+          : "Campaign loaded but no products found. Check indexed products and campaign search term, or retry.";
         setCampaignError(errorMsg);
-        console.warn("[Body] Campaign validation failed:", {
-          summary: summaryText,
-        });
+        campaignLoadedRef.current = false;
+        console.warn("[Body] Campaign validation failed:", { summary: summaryText });
       }
     } catch (e) {
       console.error("[Body] Campaign error:", e);
       setCampaignError(String(e?.message || "Failed to load campaign"));
       setCampaignProducts([]);
+      campaignLoadedRef.current = false;
     } finally {
       setCampaignLoading(false);
     }
   }, [campaignId, hasKey, inopsClient]);
+
+  const retryCampaign = useCallback(() => {
+    campaignLoadedRef.current = false;
+    setCampaignError("");
+    setCampaignProducts([]);
+    void loadCampaign();
+  }, [loadCampaign]);
 
   const searchTimeoutRef = useRef(null);
 
   const runSearchNow = useCallback(async (val) => {
     const q = String(val ?? query).trim();
     if (!hasKey || !inopsClient) {
-      setSearchError("Missing VITE_INOPS_SEARCH_KEY");
+      setSearchError("Search not ready (missing key or SDK).");
       return;
     }
     if (q.split(/\s+/).filter(Boolean).length < 1) {
@@ -244,18 +252,35 @@ export default function Body() {
     }
 
     isSearchingRef.current = true;
-    searchProductIdsRef.current.clear(); // Reset product IDs for new search
+    searchProductIdsRef.current.clear();
     setSearchLoading(true);
     setSearchError("");
     setSearchSummary("");
-    setSearchProducts([]); // Reset products - new search
+    setSearchProducts([]);
+    setSearchCompleted(false);
 
     try {
       console.log("[Body] Running search:", q);
-      const { sessionId } = await inopsClient.search(q);
-      if (!sessionId) {
-        throw new Error("No sessionId returned from search");
+      // Use fetch for search (same pattern as similar_products) so we control exact body. SDK can differ from backend expectations.
+      const url = `${INOPS_CONFIG.apiBaseUrl}/shop/flow/execute?searchKey=${encodeURIComponent(INOPS_CONFIG.searchKey)}`;
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Search-Key': INOPS_CONFIG.searchKey,
+          Authorization: `SearchKey ${INOPS_CONFIG.searchKey}`,
+        },
+        body: JSON.stringify({
+          language: 'en',
+          userInput: { type: 'search', value: q },
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(String(json?.message ?? json?.code ?? json?.error ?? `HTTP ${res.status}`));
       }
+      const sessionId = String(json?.sessionId ?? '').trim();
+      if (!sessionId) throw new Error("No sessionId returned from search");
 
       let isActive = true;
 
@@ -266,7 +291,6 @@ export default function Body() {
         const ev = String(evt?.event || evt?.data?.event || '').trim();
         const status = String(evt?.status || evt?.data?.status || '').trim();
         
-        // Handle error events
         if (ev === 'flow-error' || ev === 'flows-error') {
           const errorMsg =
             String(
@@ -280,6 +304,7 @@ export default function Body() {
           isSearchingRef.current = false;
           setSearchError(errorMsg || 'Search failed');
           setSearchLoading(false);
+          setSearchCompleted(true);
           if (searchUnsubscribeRef.current) {
             searchUnsubscribeRef.current();
             searchUnsubscribeRef.current = null;
@@ -315,18 +340,17 @@ export default function Body() {
           });
         }
 
-        // Check for flow-end (also check status for done)
         const isEnd =
           status === 'done' ||
           ev === 'end' ||
           ev === 'flow-end' ||
           ev === 'flow-error' ||
           ev === 'flows-error';
-          
         if (isEnd) {
           isActive = false;
           isSearchingRef.current = false;
           setSearchLoading(false);
+          setSearchCompleted(true);
           if (searchUnsubscribeRef.current) {
             searchUnsubscribeRef.current();
             searchUnsubscribeRef.current = null;
@@ -338,12 +362,12 @@ export default function Body() {
         }
       });
 
-      // Timeout fallback
       searchTimeoutRef.current = setTimeout(() => {
         if (isActive) {
           isActive = false;
           isSearchingRef.current = false;
           setSearchLoading(false);
+          setSearchCompleted(true);
           if (searchUnsubscribeRef.current) {
             searchUnsubscribeRef.current();
             searchUnsubscribeRef.current = null;
@@ -358,6 +382,7 @@ export default function Body() {
       setSearchSummary("");
       setSearchProducts([]);
       setSearchLoading(false);
+      setSearchCompleted(true);
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
         searchTimeoutRef.current = null;
@@ -479,11 +504,12 @@ export default function Body() {
 
   useEffect(() => {
     if (debounceId.current) clearTimeout(debounceId.current);
-    if (!hasKey || isSearchingRef.current) return; // Don't trigger if already loading
+    if (!hasKey || !inopsClient || isSearchingRef.current) return;
     if (charCount < 3) {
       setSearchSummary("");
       setSearchProducts([]);
       setSearchError("");
+      setSearchCompleted(false);
       return;
     }
     debounceId.current = setTimeout(() => {
@@ -492,7 +518,7 @@ export default function Body() {
     return () => {
       if (debounceId.current) clearTimeout(debounceId.current);
     };
-  }, [query, charCount, hasKey, runSearchNow]);
+  }, [query, charCount, hasKey, inopsClient, runSearchNow]);
 
   return (
     <div className="flex-1 flex flex-col min-h-screen bg-white">
@@ -534,10 +560,22 @@ export default function Body() {
             <h2 className="text-2xl font-semibold text-[#0F3253]">Stored campaign products</h2>
           </div>
           {campaignError ? (
-            <div className="text-sm text-red-600 mb-4 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-              <strong>Campaign Error:</strong> {campaignError}
-              {!hasKey && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_SEARCH_KEY</code></div>}
-              {!campaignId && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_CAMPAIGN_ID</code></div>}
+            <div className="text-sm text-red-600 mb-4 bg-red-50 border border-red-200 rounded-lg px-4 py-3 flex flex-col gap-2">
+              <div>
+                <strong>Campaign Error:</strong> {campaignError}
+                {!hasKey && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_SEARCH_KEY</code></div>}
+                {!campaignId && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_CAMPAIGN_ID</code></div>}
+              </div>
+              {(hasKey && campaignId) ? (
+                <button
+                  type="button"
+                  onClick={retryCampaign}
+                  disabled={campaignLoading}
+                  className="self-start px-4 py-2 rounded-lg bg-[#1B5A8E] text-white text-sm font-medium hover:bg-[#1D4C73] disabled:opacity-50"
+                >
+                  {campaignLoading ? "Loading…" : "Retry campaign"}
+                </button>
+              ) : null}
             </div>
           ) : null}
           <div className="flex gap-4 overflow-x-auto pb-2">
@@ -583,15 +621,17 @@ export default function Body() {
       <div className="w-full bg-white py-10 border-t border-gray-200">
         <div className="max-w-[1080px] mx-auto px-20">
           <div className="mb-4">
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-3 mb-2 flex-wrap">
               <h2 className="text-2xl font-semibold text-[#0F3253]">Search Products</h2>
               {charCount >= 3 && (
-                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
-                  wordCount === 1 
-                    ? 'bg-blue-100 text-blue-800' 
-                    : 'bg-purple-100 text-purple-800'
-                }`}>
-                  {wordCount === 1 ? '🔍 Direct' : '🧠 Intent'}
+                <span
+                  className={`inline-flex flex-shrink-0 items-center px-3 py-1 rounded-full text-xs font-semibold ${
+                    wordCount === 1 ? "bg-blue-100 text-blue-800" : "bg-purple-100 text-purple-800"
+                  }`}
+                  role="status"
+                  aria-label={wordCount === 1 ? "Direct search" : "Intent-based search"}
+                >
+                  {wordCount === 1 ? "Direct" : "Intent"}
                 </span>
               )}
             </div>
@@ -615,13 +655,14 @@ export default function Body() {
                   placeholder="e.g. lon or kid longboard"
                   className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
                 />
-                {/* Collapsible Results Dropdown - matches search field width */}
-                {charCount >= 3 && (searchSummary || searchProducts.length > 0 || searchLoading) ? (
+                {/* Collapsible Results Dropdown - matches search field width; show as soon as 3+ chars (incl. debounce wait) */}
+                {charCount >= 3 ? (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
-                    {/* Products list - vertical, scrollable */}
                     <div className="overflow-auto divide-y max-h-72">
                       {searchLoading ? (
                         <div className="p-3 text-xs text-gray-500">Streaming results…</div>
+                      ) : searchError ? (
+                        <div className="p-3 text-sm text-red-600">{searchError}</div>
                       ) : searchProducts.length > 0 ? (
                         searchProducts.map((p, idx) => (
                           <button
@@ -630,12 +671,11 @@ export default function Body() {
                             className="w-full text-left p-3 hover:bg-gray-50 transition flex items-center gap-3"
                             onClick={() => openProduct(p)}
                           >
-                            {/* Image first */}
                             <div className="flex-shrink-0 w-12 h-12 rounded border bg-gray-50 overflow-hidden">
                               {img(p) ? (
-                                <img 
-                                  src={img(p)} 
-                                  alt={title(p)} 
+                                <img
+                                  src={img(p)}
+                                  alt={title(p)}
                                   className="w-full h-full object-cover"
                                   onError={(e) => {
                                     e.target.onerror = null;
@@ -646,23 +686,20 @@ export default function Body() {
                                 <div className="w-full h-full flex items-center justify-center text-xs text-gray-400">No img</div>
                               )}
                             </div>
-                            {/* Title and score */}
                             <div className="min-w-0 flex-1">
                               <div className="font-medium text-sm truncate">
                                 {title(p)}
-                                {score(p) ? (
-                                  <span className="text-gray-500 ml-1">({score(p)})</span>
-                                ) : null}
+                                {score(p) ? <span className="text-gray-500 ml-1">({score(p)})</span> : null}
                               </div>
-                              {reason(p) ? (
-                                <div className="text-xs text-gray-500 truncate">reason: {reason(p)}</div>
-                              ) : null}
+                              {reason(p) ? <div className="text-xs text-gray-500 truncate">reason: {reason(p)}</div> : null}
                             </div>
                           </button>
                         ))
-                      ) : !searchLoading ? (
+                      ) : searchCompleted ? (
                         <div className="p-3 text-sm text-gray-500 text-center">No results found.</div>
-                      ) : null}
+                      ) : (
+                        <div className="p-3 text-xs text-gray-500">Searching…</div>
+                      )}
                     </div>
                     
                     {/* Summary at the bottom */}
@@ -682,7 +719,7 @@ export default function Body() {
                 {searchLoading ? "Searching…" : "Search"}
               </button>
             </form>
-            {searchError ? <div className="mt-3 text-sm text-red-600">{searchError}</div> : null}
+            {searchError && charCount < 3 ? <div className="mt-3 text-sm text-red-600">{searchError}</div> : null}
             {!hasKey ? (
               <div className="mt-3 text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
                 Demo is not configured: missing <span className="font-mono">VITE_INOPS_SEARCH_KEY</span>
