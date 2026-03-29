@@ -86,11 +86,25 @@ export default function ProductModal({
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Selected product */}
           <div className="p-5 md:border-r border-gray-200">
-            <div className="aspect-[4/3] rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden flex items-center justify-center">
+            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 overflow-hidden flex items-center justify-center">
               {mainImg ? (
-                <img src={mainImg} alt="" className="w-full h-full object-cover" />
+                <img
+                  src={mainImg}
+                  alt={title(product)}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.style.display = "none";
+                    e.target.parentElement.innerHTML = `<div class="flex flex-col items-center gap-2 text-gray-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span class="text-sm text-gray-400">${title(product)}</span></div>`;
+                  }}
+                />
               ) : (
-                <div className="text-sm text-gray-400">No image</div>
+                <div className="flex flex-col items-center gap-2 text-gray-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-sm text-gray-400">{title(product)}</span>
+                </div>
               )}
             </div>
 
@@ -133,8 +147,23 @@ export default function ProductModal({
                   onClick={() => onSelectSimilar?.(p)}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="h-14 w-14 rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden flex items-center justify-center">
-                      {img(p) ? <img src={img(p)} alt="" className="w-full h-full object-cover" /> : null}
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 overflow-hidden flex items-center justify-center flex-shrink-0">
+                      {img(p) ? (
+                        <img
+                          src={img(p)}
+                          alt={title(p)}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`;
+                          }}
+                        />
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      )}
                     </div>
                     <div className="min-w-0">
                       <div className="font-semibold text-sm text-gray-900 truncate">
