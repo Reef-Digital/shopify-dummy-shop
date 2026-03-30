@@ -481,6 +481,11 @@ export default function Body() {
                                 {title(p)}
                                 {score(p) && <span className="text-gray-500 ml-1">({score(p)})</span>}
                               </div>
+                              <div className="flex items-center gap-2 mt-0.5">
+                                {price(p) && <span className="text-xs font-semibold text-[#0F3253]">{price(p)}</span>}
+                                {p?.color && <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-blue-50 text-blue-700">{p.color}</span>}
+                                {p?.gender && <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-purple-50 text-purple-700">{p.gender}</span>}
+                              </div>
                               {reason(p) && <div className="text-xs text-gray-500 truncate">{reason(p)}</div>}
                             </div>
                           </button>
@@ -531,6 +536,9 @@ export default function Body() {
                     <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Title</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Brand</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Category</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Price</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Color</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Gender</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Description</th>
                   </tr>
                 </thead>
@@ -540,6 +548,17 @@ export default function Body() {
                       <td className="px-4 py-3 text-sm font-medium text-[#0F3253]">{title(p)}</td>
                       <td className="px-4 py-3 text-sm text-gray-600">{brand(p) || <span className="text-gray-400">&mdash;</span>}</td>
                       <td className="px-4 py-3 text-sm text-gray-600">{category(p) || <span className="text-gray-400">&mdash;</span>}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600 font-medium">{price(p) || <span className="text-gray-400">&mdash;</span>}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">
+                        {p?.color ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{p.color}</span>
+                        ) : <span className="text-gray-400">&mdash;</span>}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-600">
+                        {p?.gender ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700">{p.gender}</span>
+                        ) : <span className="text-gray-400">&mdash;</span>}
+                      </td>
                       <td className="px-4 py-3 text-sm text-gray-600">{description(p) || <span className="text-gray-400">&mdash;</span>}</td>
                     </tr>
                   ))}

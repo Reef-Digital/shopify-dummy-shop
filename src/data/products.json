@@ -1,1202 +1,5002 @@
 [
   {
-    "id": "product_1",
-    "title": "Soft-Top Longboard 1",
-    "description": "Ideal for beginner surfers, this soft-top board provides superior stability and control.",
-    "category": "Surfboards",
-    "price": 228.19,
+    "productId": "product_1",
+    "title": "Classic Longboard Black",
+    "description": "Traditional 9'0 single-fin longboard for smooth, graceful rides. Perfect for small to medium waves.",
     "brand": "SurfX",
+    "category": "Surfboards",
+    "price": 607.62,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_1",
-      "imageUrl": "https://example.com/images/product_1.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_2",
-    "title": "Performance Shortboard 2",
-    "description": "A high-performance shortboard designed for fast, aggressive surfing.",
-    "category": "Surfboards",
-    "price": 350.54,
+    "productId": "product_2",
+    "title": "Performance Shortboard White",
+    "description": "High-performance shortboard with a narrow tail and aggressive rocker for advanced wave riding.",
     "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 718.89,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_2",
-      "imageUrl": "https://example.com/images/product_2.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_3",
-    "title": "Mini Malibu 3",
-    "description": "Combines the maneuverability of a shortboard with paddle power of a longboard.",
-    "category": "Surfboards",
-    "price": 128.59,
+    "productId": "product_3",
+    "title": "Mini Malibu Blue",
+    "description": "Versatile mid-length board combining longboard stability with shortboard maneuverability.",
     "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 352.7,
+    "compareAtPrice": 423.24,
+    "color": "Blue",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_3",
-      "imageUrl": "https://example.com/images/product_3.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_4",
-    "title": "Fish Surfboard 4",
-    "description": "Wide and flat, perfect for catching small to medium waves with speed.",
-    "category": "Surfboards",
-    "price": 125.69,
-    "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_4",
-      "imageUrl": "https://example.com/images/product_4.jpg"
-    }
-  },
-  {
-    "id": "product_5",
-    "title": "Single-Fin Classic 5",
-    "description": "Retro-style longboard for smooth noserides and stylish cutbacks.",
-    "category": "Surfboards",
-    "price": 186.35,
+    "productId": "product_4",
+    "title": "Fish Surfboard - Kids Red",
+    "description": "Wide, flat fish shape for maximum speed in small to medium waves. Great for fun sessions.",
     "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 465.13,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_5",
-      "imageUrl": "https://example.com/images/product_5.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_6",
-    "title": "3/2mm Full Wetsuit - Men's 6",
-    "description": "Flexible neoprene wetsuit offering warmth and mobility.",
-    "category": "Wetsuits",
-    "price": 310.96,
-    "brand": "WavePro",
+    "productId": "product_5",
+    "title": "Soft-Top Foamie Green",
+    "description": "Soft foam construction for safe learning. Ideal for beginners and surf schools.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 152.95,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_6",
-      "imageUrl": "https://example.com/images/product_6.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_7",
-    "title": "3/2mm Full Wetsuit - Women's 7",
-    "description": "Ergonomic fit and superior stretch for comfort in cool waters.",
-    "category": "Wetsuits",
-    "price": 46.86,
-    "brand": "WavePro",
+    "productId": "product_6",
+    "title": "Gun Surfboard Yellow",
+    "description": "Narrow, pointed board designed for big wave surfing. Built for speed and control in overhead conditions.",
+    "brand": "CoastalRide",
+    "category": "Surfboards",
+    "price": 866.2,
+    "compareAtPrice": 1039.44,
+    "color": "Yellow",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_7",
-      "imageUrl": "https://example.com/images/product_7.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_8",
-    "title": "2mm Shorty Wetsuit 8",
-    "description": "Lightweight wetsuit ideal for summer surfing.",
-    "category": "Wetsuits",
-    "price": 250.49,
+    "productId": "product_7",
+    "title": "Hybrid Surfboard Orange",
+    "description": "Blends shortboard and fish design for versatile performance across all conditions.",
+    "brand": "OceanPulse",
+    "category": "Surfboards",
+    "price": 534.26,
+    "compareAtPrice": 641.11,
+    "color": "Orange",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "Retro Twin Fin - Kids Teal",
+    "description": "Classic twin-fin design for loose, skatey surfing with modern construction.",
     "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_8",
-      "imageUrl": "https://example.com/images/product_8.jpg"
-    }
-  },
-  {
-    "id": "product_9",
-    "title": "Thermal Lined Wetsuit 9",
-    "description": "Extra insulation for colder sessions without sacrificing flexibility.",
-    "category": "Wetsuits",
-    "price": 141.49,
-    "brand": "ThermoGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_9",
-      "imageUrl": "https://example.com/images/product_9.jpg"
-    }
-  },
-  {
-    "id": "product_10",
-    "title": "Kids' Surf Wetsuit 10",
-    "description": "Durable and warm, designed specifically for young surfers.",
-    "category": "Wetsuits",
-    "price": 172.35,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_10",
-      "imageUrl": "https://example.com/images/product_10.jpg"
-    }
-  },
-  {
-    "id": "product_11",
-    "title": "Surfboard Wax - Tropical 11",
-    "description": "High-temp formula for warm climates, enhances grip.",
-    "category": "Accessories",
-    "price": 442.99,
-    "brand": "GripMaster",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_11",
-      "imageUrl": "https://example.com/images/product_11.jpg"
-    }
-  },
-  {
-    "id": "product_12",
-    "title": "Leash 6ft - Comp Series 12",
-    "description": "Tangle-free and durable leash ideal for everyday surf.",
-    "category": "Accessories",
-    "price": 288.68,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_12",
-      "imageUrl": "https://example.com/images/product_12.jpg"
-    }
-  },
-  {
-    "id": "product_13",
-    "title": "Day Use Board Bag 13",
-    "description": "Padded protection for your board, great for local transport.",
-    "category": "Accessories",
-    "price": 128.29,
-    "brand": "SurfSafe",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_13",
-      "imageUrl": "https://example.com/images/product_13.jpg"
-    }
-  },
-  {
-    "id": "product_14",
-    "title": "Surfboard Repair Kit 14",
-    "description": "Quick-fix solution for minor dings and cracks.",
-    "category": "Accessories",
-    "price": 231.84,
-    "brand": "FixIt",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_14",
-      "imageUrl": "https://example.com/images/product_14.jpg"
-    }
-  },
-  {
-    "id": "product_15",
-    "title": "Soft Roof Racks 15",
-    "description": "Universal surfboard transport solution, fits most vehicles.",
-    "category": "Accessories",
-    "price": 56.53,
-    "brand": "CarGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_15",
-      "imageUrl": "https://example.com/images/product_15.jpg"
-    }
-  },
-  {
-    "id": "product_16",
-    "title": "Surf Club Hoodie 16",
-    "description": "Cozy fleece hoodie with surf-inspired design.",
-    "category": "Lifestyle",
-    "price": 272.64,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_16",
-      "imageUrl": "https://example.com/images/product_16.jpg"
-    }
-  },
-  {
-    "id": "product_17",
-    "title": "Organic Cotton Tee 17",
-    "description": "Soft and breathable T-shirt featuring local surf prints.",
-    "category": "Lifestyle",
-    "price": 424.43,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_17",
-      "imageUrl": "https://example.com/images/product_17.jpg"
-    }
-  },
-  {
-    "id": "product_18",
-    "title": "Canvas Board Shorts 18",
-    "description": "Quick-drying and durable.",
-    "category": "Lifestyle",
-    "price": 257.41,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_18",
-      "imageUrl": "https://example.com/images/product_18.jpg"
-    }
-  },
-  {
-    "id": "product_19",
-    "title": "Beach Tote Bag 19",
-    "description": "Spacious and stylish bag for all your beach essentials.",
-    "category": "Lifestyle",
-    "price": 395.97,
-    "brand": "BeachBuddy",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_19",
-      "imageUrl": "https://example.com/images/product_19.jpg"
-    }
-  },
-  {
-    "id": "product_20",
-    "title": "Recycled Flip Flops 20",
-    "description": "Eco-friendly footwear made from upcycled materials.",
-    "category": "Lifestyle",
-    "price": 272.13,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_20",
-      "imageUrl": "https://example.com/images/product_20.jpg"
-    }
-  },
-  {
-    "id": "product_21",
-    "title": "Soft-Top Longboard 21",
-    "description": "Ideal for beginner surfers, soft-top board provides stability.",
     "category": "Surfboards",
-    "price": 403.91,
-    "brand": "SurfX",
+    "price": 420.02,
+    "compareAtPrice": 504.02,
+    "color": "Teal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "teal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_21",
-      "imageUrl": "https://example.com/images/product_21.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_22",
-    "title": "Performance Shortboard 22",
-    "description": "High-performance shortboard for aggressive surfing.",
-    "category": "Surfboards",
-    "price": 112.96,
+    "productId": "product_9",
+    "title": "Step-Up Board Navy",
+    "description": "Extra volume shortboard for bigger days when your regular board feels too small.",
     "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 663.18,
+    "compareAtPrice": 795.82,
+    "color": "Navy",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_22",
-      "imageUrl": "https://example.com/images/product_22.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_23",
-    "title": "Mini Malibu 23",
-    "description": "Shortboard maneuverability with longboard paddle power.",
-    "category": "Surfboards",
-    "price": 160.51,
+    "productId": "product_10",
+    "title": "Grom Board Charcoal",
+    "description": "Scaled-down performance board for young surfers aged 8-14. Lightweight and responsive.",
     "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 219.62,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_23",
-      "imageUrl": "https://example.com/images/product_23.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_24",
-    "title": "Fish Surfboard 24",
-    "description": "Wide and flat, perfect for small to medium waves.",
-    "category": "Surfboards",
-    "price": 235.09,
-    "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_24",
-      "imageUrl": "https://example.com/images/product_24.jpg"
-    }
-  },
-  {
-    "id": "product_25",
-    "title": "Single-Fin Classic 25",
-    "description": "Retro longboard for smooth noserides.",
-    "category": "Surfboards",
-    "price": 50.24,
+    "productId": "product_11",
+    "title": "Classic Longboard Coral",
+    "description": "Traditional 9'0 single-fin longboard for smooth, graceful rides. Perfect for small to medium waves.",
     "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 691.61,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_25",
-      "imageUrl": "https://example.com/images/product_25.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_26",
-    "title": "3/2mm Full Wetsuit - Men's 26",
-    "description": "Flexible neoprene wetsuit.",
-    "category": "Wetsuits",
-    "price": 210.58,
-    "brand": "WavePro",
+    "productId": "product_12",
+    "title": "Performance Shortboard - Kids Sunset",
+    "description": "High-performance shortboard with a narrow tail and aggressive rocker for advanced wave riding.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 718.33,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "sunset",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_26",
-      "imageUrl": "https://example.com/images/product_26.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_27",
-    "title": "3/2mm Full Wetsuit - Women's 27",
-    "description": "Superior stretch for comfort in cool waters.",
-    "category": "Wetsuits",
-    "price": 102.46,
-    "brand": "WavePro",
+    "productId": "product_13",
+    "title": "Mini Malibu Ice Blue",
+    "description": "Versatile mid-length board combining longboard stability with shortboard maneuverability.",
+    "brand": "CoastalRide",
+    "category": "Surfboards",
+    "price": 496.64,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_27",
-      "imageUrl": "https://example.com/images/product_27.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_28",
-    "title": "2mm Shorty Wetsuit 28",
-    "description": "Ideal for summer surfing.",
-    "category": "Wetsuits",
-    "price": 283.76,
+    "productId": "product_14",
+    "title": "Fish Surfboard Slate",
+    "description": "Wide, flat fish shape for maximum speed in small to medium waves. Great for fun sessions.",
+    "brand": "OceanPulse",
+    "category": "Surfboards",
+    "price": 468.04,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Soft-Top Foamie Forest Green",
+    "description": "Soft foam construction for safe learning. Ideal for beginners and surf schools.",
     "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_28",
-      "imageUrl": "https://example.com/images/product_28.jpg"
-    }
-  },
-  {
-    "id": "product_29",
-    "title": "Thermal Lined Wetsuit 29",
-    "description": "Extra insulation for cold sessions.",
-    "category": "Wetsuits",
-    "price": 206.35,
-    "brand": "ThermoGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_29",
-      "imageUrl": "https://example.com/images/product_29.jpg"
-    }
-  },
-  {
-    "id": "product_30",
-    "title": "Kids' Surf Wetsuit 30",
-    "description": "Designed specifically for young surfers.",
-    "category": "Wetsuits",
-    "price": 184.55,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_30",
-      "imageUrl": "https://example.com/images/product_30.jpg"
-    }
-  },
-  {
-    "id": "product_31",
-    "title": "Surfboard Wax - Tropical 31",
-    "description": "High-temp wax for tropical waters.",
-    "category": "Accessories",
-    "price": 128.48,
-    "brand": "GripMaster",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_31",
-      "imageUrl": "https://example.com/images/product_31.jpg"
-    }
-  },
-  {
-    "id": "product_32",
-    "title": "Leash 6ft - Comp Series 32",
-    "description": "Durable leash for everyday surf.",
-    "category": "Accessories",
-    "price": 117.68,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_32",
-      "imageUrl": "https://example.com/images/product_32.jpg"
-    }
-  },
-  {
-    "id": "product_33",
-    "title": "Day Use Board Bag 33",
-    "description": "Board protection for local trips.",
-    "category": "Accessories",
-    "price": 118.15,
-    "brand": "SurfSafe",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_33",
-      "imageUrl": "https://example.com/images/product_33.jpg"
-    }
-  },
-  {
-    "id": "product_34",
-    "title": "Surfboard Repair Kit 34",
-    "description": "Quick repairs for dings and cracks.",
-    "category": "Accessories",
-    "price": 221.67,
-    "brand": "FixIt",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_34",
-      "imageUrl": "https://example.com/images/product_34.jpg"
-    }
-  },
-  {
-    "id": "product_35",
-    "title": "Soft Roof Racks 35",
-    "description": "Universal soft roof racks.",
-    "category": "Accessories",
-    "price": 279.83,
-    "brand": "CarGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_35",
-      "imageUrl": "https://example.com/images/product_35.jpg"
-    }
-  },
-  {
-    "id": "product_36",
-    "title": "Surf Club Hoodie 36",
-    "description": "Warm fleece hoodie for surf lifestyle.",
-    "category": "Lifestyle",
-    "price": 279.32,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_36",
-      "imageUrl": "https://example.com/images/product_36.jpg"
-    }
-  },
-  {
-    "id": "product_37",
-    "title": "Organic Cotton Tee 37",
-    "description": "Breathable surf-themed T-shirt.",
-    "category": "Lifestyle",
-    "price": 153.87,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_37",
-      "imageUrl": "https://example.com/images/product_37.jpg"
-    }
-  },
-  {
-    "id": "product_38",
-    "title": "Canvas Board Shorts 38",
-    "description": "Durable shorts for water and beach.",
-    "category": "Lifestyle",
-    "price": 441.76,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_38",
-      "imageUrl": "https://example.com/images/product_38.jpg"
-    }
-  },
-  {
-    "id": "product_39",
-    "title": "Beach Tote Bag 39",
-    "description": "Stylish tote for the beach.",
-    "category": "Lifestyle",
-    "price": 137.31,
-    "brand": "BeachBuddy",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_39",
-      "imageUrl": "https://example.com/images/product_39.jpg"
-    }
-  },
-  {
-    "id": "product_40",
-    "title": "Recycled Flip Flops 40",
-    "description": "Eco-friendly flip flops.",
-    "category": "Lifestyle",
-    "price": 236.96,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_40",
-      "imageUrl": "https://example.com/images/product_40.jpg"
-    }
-  },
-  {
-    "id": "product_41",
-    "title": "Soft-Top Longboard 41",
-    "description": "Stable longboard for beginners.",
     "category": "Surfboards",
-    "price": 423.54,
-    "brand": "SurfX",
+    "price": 198.19,
+    "compareAtPrice": null,
+    "color": "Forest Green",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_41",
-      "imageUrl": "https://example.com/images/product_41.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_42",
-    "title": "Performance Shortboard 42",
-    "description": "Aggressive performance shortboard.",
-    "category": "Surfboards",
-    "price": 296.93,
+    "productId": "product_16",
+    "title": "Gun Surfboard - Kids Black",
+    "description": "Narrow, pointed board designed for big wave surfing. Built for speed and control in overhead conditions.",
     "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 709.65,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_42",
-      "imageUrl": "https://example.com/images/product_42.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_43",
-    "title": "Mini Malibu 43",
-    "description": "Versatile Malibu board.",
-    "category": "Surfboards",
-    "price": 75.23,
+    "productId": "product_17",
+    "title": "Hybrid Surfboard White",
+    "description": "Blends shortboard and fish design for versatile performance across all conditions.",
     "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 521.2,
+    "compareAtPrice": 625.44,
+    "color": "White",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_43",
-      "imageUrl": "https://example.com/images/product_43.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_44",
-    "title": "Fish Surfboard 44",
-    "description": "Flat and fast fish board.",
-    "category": "Surfboards",
-    "price": 322.9,
-    "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_44",
-      "imageUrl": "https://example.com/images/product_44.jpg"
-    }
-  },
-  {
-    "id": "product_45",
-    "title": "Single-Fin Classic 45",
-    "description": "Classic single-fin design.",
-    "category": "Surfboards",
-    "price": 175.78,
+    "productId": "product_18",
+    "title": "Retro Twin Fin Blue",
+    "description": "Classic twin-fin design for loose, skatey surfing with modern construction.",
     "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 412.81,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_45",
-      "imageUrl": "https://example.com/images/product_45.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_46",
-    "title": "3/2mm Full Wetsuit - Men's 46",
-    "description": "Warm wetsuit for men.",
-    "category": "Wetsuits",
-    "price": 112.71,
-    "brand": "WavePro",
+    "productId": "product_19",
+    "title": "Step-Up Board Red",
+    "description": "Extra volume shortboard for bigger days when your regular board feels too small.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 601.85,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_46",
-      "imageUrl": "https://example.com/images/product_46.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_47",
-    "title": "3/2mm Full Wetsuit - Women's 47",
-    "description": "Comfortable women's wetsuit.",
-    "category": "Wetsuits",
-    "price": 122.61,
-    "brand": "WavePro",
+    "productId": "product_20",
+    "title": "Grom Board - Kids Green",
+    "description": "Scaled-down performance board for young surfers aged 8-14. Lightweight and responsive.",
+    "brand": "CoastalRide",
+    "category": "Surfboards",
+    "price": 205.5,
+    "compareAtPrice": 246.6,
+    "color": "Green",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "green",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_47",
-      "imageUrl": "https://example.com/images/product_47.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_48",
-    "title": "2mm Shorty Wetsuit 48",
-    "description": "Summer wetsuit shorty.",
-    "category": "Wetsuits",
-    "price": 424.6,
+    "productId": "product_21",
+    "title": "Classic Longboard Yellow",
+    "description": "Traditional 9'0 single-fin longboard for smooth, graceful rides. Perfect for small to medium waves.",
+    "brand": "OceanPulse",
+    "category": "Surfboards",
+    "price": 519.35,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_22",
+    "title": "Performance Shortboard Orange",
+    "description": "High-performance shortboard with a narrow tail and aggressive rocker for advanced wave riding.",
     "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_48",
-      "imageUrl": "https://example.com/images/product_48.jpg"
-    }
-  },
-  {
-    "id": "product_49",
-    "title": "Thermal Lined Wetsuit 49",
-    "description": "Thermal protection wetsuit.",
-    "category": "Wetsuits",
-    "price": 422.28,
-    "brand": "ThermoGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_49",
-      "imageUrl": "https://example.com/images/product_49.jpg"
-    }
-  },
-  {
-    "id": "product_50",
-    "title": "Kids' Surf Wetsuit 50",
-    "description": "Warm kids' surf wetsuit.",
-    "category": "Wetsuits",
-    "price": 186.59,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_50",
-      "imageUrl": "https://example.com/images/product_50.jpg"
-    }
-  },
-  {
-    "id": "product_51",
-    "title": "Surfboard Wax - Tropical 51",
-    "description": "High-temp wax for tropical waters.",
-    "category": "Accessories",
-    "price": 339.1,
-    "brand": "GripMaster",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_51",
-      "imageUrl": "https://example.com/images/product_51.jpg"
-    }
-  },
-  {
-    "id": "product_52",
-    "title": "Leash 6ft - Comp Series 52",
-    "description": "Durable leash for everyday surf.",
-    "category": "Accessories",
-    "price": 287.04,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_52",
-      "imageUrl": "https://example.com/images/product_52.jpg"
-    }
-  },
-  {
-    "id": "product_53",
-    "title": "Day Use Board Bag 53",
-    "description": "Board protection for local trips.",
-    "category": "Accessories",
-    "price": 175.74,
-    "brand": "SurfSafe",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_53",
-      "imageUrl": "https://example.com/images/product_53.jpg"
-    }
-  },
-  {
-    "id": "product_54",
-    "title": "Surfboard Repair Kit 54",
-    "description": "Quick repairs for dings and cracks.",
-    "category": "Accessories",
-    "price": 30.24,
-    "brand": "FixIt",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_54",
-      "imageUrl": "https://example.com/images/product_54.jpg"
-    }
-  },
-  {
-    "id": "product_55",
-    "title": "Soft Roof Racks 55",
-    "description": "Universal soft roof racks.",
-    "category": "Accessories",
-    "price": 429.49,
-    "brand": "CarGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_55",
-      "imageUrl": "https://example.com/images/product_55.jpg"
-    }
-  },
-  {
-    "id": "product_56",
-    "title": "Surf Club Hoodie 56",
-    "description": "Warm fleece hoodie for surf lifestyle.",
-    "category": "Lifestyle",
-    "price": 335.54,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_56",
-      "imageUrl": "https://example.com/images/product_56.jpg"
-    }
-  },
-  {
-    "id": "product_57",
-    "title": "Organic Cotton Tee 57",
-    "description": "Breathable surf-themed T-shirt.",
-    "category": "Lifestyle",
-    "price": 403.55,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_57",
-      "imageUrl": "https://example.com/images/product_57.jpg"
-    }
-  },
-  {
-    "id": "product_58",
-    "title": "Canvas Board Shorts 58",
-    "description": "Durable shorts for water and beach.",
-    "category": "Lifestyle",
-    "price": 233.39,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_58",
-      "imageUrl": "https://example.com/images/product_58.jpg"
-    }
-  },
-  {
-    "id": "product_59",
-    "title": "Beach Tote Bag 59",
-    "description": "Stylish tote for the beach.",
-    "category": "Lifestyle",
-    "price": 36.67,
-    "brand": "BeachBuddy",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_59",
-      "imageUrl": "https://example.com/images/product_59.jpg"
-    }
-  },
-  {
-    "id": "product_60",
-    "title": "Recycled Flip Flops 60",
-    "description": "Eco-friendly flip flops.",
-    "category": "Lifestyle",
-    "price": 232.71,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_60",
-      "imageUrl": "https://example.com/images/product_60.jpg"
-    }
-  },
-  {
-    "id": "product_61",
-    "title": "Soft-Top Longboard 61",
-    "description": "Stable longboard for beginners.",
     "category": "Surfboards",
-    "price": 299.1,
-    "brand": "SurfX",
+    "price": 633.01,
+    "compareAtPrice": 759.61,
+    "color": "Orange",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_61",
-      "imageUrl": "https://example.com/images/product_61.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_62",
-    "title": "Performance Shortboard 62",
-    "description": "Aggressive performance shortboard.",
-    "category": "Surfboards",
-    "price": 117.35,
+    "productId": "product_23",
+    "title": "Mini Malibu Teal",
+    "description": "Versatile mid-length board combining longboard stability with shortboard maneuverability.",
     "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 531.87,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "teal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_62",
-      "imageUrl": "https://example.com/images/product_62.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_63",
-    "title": "Mini Malibu 63",
-    "description": "Versatile Malibu board.",
-    "category": "Surfboards",
-    "price": 203.12,
+    "productId": "product_24",
+    "title": "Fish Surfboard - Kids Navy",
+    "description": "Wide, flat fish shape for maximum speed in small to medium waves. Great for fun sessions.",
     "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 420.43,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "navy",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_63",
-      "imageUrl": "https://example.com/images/product_63.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_64",
-    "title": "Fish Surfboard 64",
-    "description": "Flat and fast fish board.",
-    "category": "Surfboards",
-    "price": 423.44,
-    "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_64",
-      "imageUrl": "https://example.com/images/product_64.jpg"
-    }
-  },
-  {
-    "id": "product_65",
-    "title": "Single-Fin Classic 65",
-    "description": "Classic single-fin design.",
-    "category": "Surfboards",
-    "price": 65.58,
+    "productId": "product_25",
+    "title": "Soft-Top Foamie Charcoal",
+    "description": "Soft foam construction for safe learning. Ideal for beginners and surf schools.",
     "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 157.89,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_65",
-      "imageUrl": "https://example.com/images/product_65.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_66",
-    "title": "3/2mm Full Wetsuit - Men's 66",
-    "description": "Warm wetsuit for men.",
-    "category": "Wetsuits",
-    "price": 437.16,
-    "brand": "WavePro",
+    "productId": "product_26",
+    "title": "Gun Surfboard Coral",
+    "description": "Narrow, pointed board designed for big wave surfing. Built for speed and control in overhead conditions.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 759.87,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_66",
-      "imageUrl": "https://example.com/images/product_66.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_67",
-    "title": "3/2mm Full Wetsuit - Women's 67",
-    "description": "Comfortable women's wetsuit.",
-    "category": "Wetsuits",
-    "price": 195.76,
-    "brand": "WavePro",
+    "productId": "product_27",
+    "title": "Hybrid Surfboard Sunset",
+    "description": "Blends shortboard and fish design for versatile performance across all conditions.",
+    "brand": "CoastalRide",
+    "category": "Surfboards",
+    "price": 526.06,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "sunset",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_67",
-      "imageUrl": "https://example.com/images/product_67.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_68",
-    "title": "2mm Shorty Wetsuit 68",
-    "description": "Summer wetsuit shorty.",
-    "category": "Wetsuits",
-    "price": 403.82,
+    "productId": "product_28",
+    "title": "Retro Twin Fin - Kids Ice Blue",
+    "description": "Classic twin-fin design for loose, skatey surfing with modern construction.",
+    "brand": "OceanPulse",
+    "category": "Surfboards",
+    "price": 381.63,
+    "compareAtPrice": 457.96,
+    "color": "Ice Blue",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "ice blue",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_29",
+    "title": "Step-Up Board Slate",
+    "description": "Extra volume shortboard for bigger days when your regular board feels too small.",
     "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_68",
-      "imageUrl": "https://example.com/images/product_68.jpg"
-    }
-  },
-  {
-    "id": "product_69",
-    "title": "Thermal Lined Wetsuit 69",
-    "description": "Thermal protection wetsuit.",
-    "category": "Wetsuits",
-    "price": 216.17,
-    "brand": "ThermoGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_69",
-      "imageUrl": "https://example.com/images/product_69.jpg"
-    }
-  },
-  {
-    "id": "product_70",
-    "title": "Kids' Surf Wetsuit 70",
-    "description": "Warm kids' surf wetsuit.",
-    "category": "Wetsuits",
-    "price": 202.07,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_70",
-      "imageUrl": "https://example.com/images/product_70.jpg"
-    }
-  },
-  {
-    "id": "product_71",
-    "title": "Surfboard Wax - Tropical 71",
-    "description": "High-temp wax for tropical waters.",
-    "category": "Accessories",
-    "price": 180.95,
-    "brand": "GripMaster",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_71",
-      "imageUrl": "https://example.com/images/product_71.jpg"
-    }
-  },
-  {
-    "id": "product_72",
-    "title": "Leash 6ft - Comp Series 72",
-    "description": "Durable leash for everyday surf.",
-    "category": "Accessories",
-    "price": 376.86,
-    "brand": "WavePro",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_72",
-      "imageUrl": "https://example.com/images/product_72.jpg"
-    }
-  },
-  {
-    "id": "product_73",
-    "title": "Day Use Board Bag 73",
-    "description": "Board protection for local trips.",
-    "category": "Accessories",
-    "price": 409.88,
-    "brand": "SurfSafe",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_73",
-      "imageUrl": "https://example.com/images/product_73.jpg"
-    }
-  },
-  {
-    "id": "product_74",
-    "title": "Surfboard Repair Kit 74",
-    "description": "Quick repairs for dings and cracks.",
-    "category": "Accessories",
-    "price": 168.72,
-    "brand": "FixIt",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_74",
-      "imageUrl": "https://example.com/images/product_74.jpg"
-    }
-  },
-  {
-    "id": "product_75",
-    "title": "Soft Roof Racks 75",
-    "description": "Universal soft roof racks.",
-    "category": "Accessories",
-    "price": 133.1,
-    "brand": "CarGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_75",
-      "imageUrl": "https://example.com/images/product_75.jpg"
-    }
-  },
-  {
-    "id": "product_76",
-    "title": "Surf Club Hoodie 76",
-    "description": "Warm fleece hoodie for surf lifestyle.",
-    "category": "Lifestyle",
-    "price": 260.4,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_76",
-      "imageUrl": "https://example.com/images/product_76.jpg"
-    }
-  },
-  {
-    "id": "product_77",
-    "title": "Organic Cotton Tee 77",
-    "description": "Breathable surf-themed T-shirt.",
-    "category": "Lifestyle",
-    "price": 218.95,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_77",
-      "imageUrl": "https://example.com/images/product_77.jpg"
-    }
-  },
-  {
-    "id": "product_78",
-    "title": "Canvas Board Shorts 78",
-    "description": "Durable shorts for water and beach.",
-    "category": "Lifestyle",
-    "price": 364.62,
-    "brand": "WaveWear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_78",
-      "imageUrl": "https://example.com/images/product_78.jpg"
-    }
-  },
-  {
-    "id": "product_79",
-    "title": "Beach Tote Bag 79",
-    "description": "Stylish tote for the beach.",
-    "category": "Lifestyle",
-    "price": 39.29,
-    "brand": "BeachBuddy",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_79",
-      "imageUrl": "https://example.com/images/product_79.jpg"
-    }
-  },
-  {
-    "id": "product_80",
-    "title": "Recycled Flip Flops 80",
-    "description": "Eco-friendly flip flops.",
-    "category": "Lifestyle",
-    "price": 120.22,
-    "brand": "EcoSurf",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_80",
-      "imageUrl": "https://example.com/images/product_80.jpg"
-    }
-  },
-  {
-    "id": "product_81",
-    "title": "Soft-Top Longboard 81",
-    "description": "Stable longboard for beginners.",
     "category": "Surfboards",
-    "price": 167.94,
-    "brand": "SurfX",
+    "price": 674.02,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_81",
-      "imageUrl": "https://example.com/images/product_81.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_82",
-    "title": "Performance Shortboard 82",
-    "description": "Aggressive performance shortboard.",
-    "category": "Surfboards",
-    "price": 181.11,
+    "productId": "product_30",
+    "title": "Grom Board Forest Green",
+    "description": "Scaled-down performance board for young surfers aged 8-14. Lightweight and responsive.",
     "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 203.46,
+    "compareAtPrice": 244.15,
+    "color": "Forest Green",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_82",
-      "imageUrl": "https://example.com/images/product_82.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_83",
-    "title": "Mini Malibu 83",
-    "description": "Versatile Malibu board.",
-    "category": "Surfboards",
-    "price": 371.9,
+    "productId": "product_31",
+    "title": "Classic Longboard Black",
+    "description": "Traditional 9'0 single-fin longboard for smooth, graceful rides. Perfect for small to medium waves.",
     "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 473.01,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_83",
-      "imageUrl": "https://example.com/images/product_83.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_84",
-    "title": "Fish Surfboard 84",
-    "description": "Flat and fast fish board.",
-    "category": "Surfboards",
-    "price": 296.1,
-    "brand": "SurfX",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_84",
-      "imageUrl": "https://example.com/images/product_84.jpg"
-    }
-  },
-  {
-    "id": "product_85",
-    "title": "Single-Fin Classic 85",
-    "description": "Classic single-fin design.",
-    "category": "Surfboards",
-    "price": 365.77,
+    "productId": "product_32",
+    "title": "Performance Shortboard - Kids White",
+    "description": "High-performance shortboard with a narrow tail and aggressive rocker for advanced wave riding.",
     "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 509.97,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "white",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_85",
-      "imageUrl": "https://example.com/images/product_85.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_86",
-    "title": "3/2mm Full Wetsuit - Men's 86",
-    "description": "Warm wetsuit for men.",
-    "category": "Wetsuits",
-    "price": 101.03,
-    "brand": "WavePro",
+    "productId": "product_33",
+    "title": "Mini Malibu Blue",
+    "description": "Versatile mid-length board combining longboard stability with shortboard maneuverability.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 485.33,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_86",
-      "imageUrl": "https://example.com/images/product_86.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_87",
-    "title": "3/2mm Full Wetsuit - Women's 87",
-    "description": "Comfortable women's wetsuit.",
-    "category": "Wetsuits",
-    "price": 143.8,
-    "brand": "WavePro",
+    "productId": "product_34",
+    "title": "Fish Surfboard Red",
+    "description": "Wide, flat fish shape for maximum speed in small to medium waves. Great for fun sessions.",
+    "brand": "CoastalRide",
+    "category": "Surfboards",
+    "price": 319.71,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_87",
-      "imageUrl": "https://example.com/images/product_87.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_88",
-    "title": "2mm Shorty Wetsuit 88",
-    "description": "Summer wetsuit shorty.",
-    "category": "Wetsuits",
-    "price": 241.52,
+    "productId": "product_35",
+    "title": "Soft-Top Foamie Green",
+    "description": "Soft foam construction for safe learning. Ideal for beginners and surf schools.",
+    "brand": "OceanPulse",
+    "category": "Surfboards",
+    "price": 239.59,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_36",
+    "title": "Gun Surfboard - Kids Yellow",
+    "description": "Narrow, pointed board designed for big wave surfing. Built for speed and control in overhead conditions.",
     "brand": "SurfX",
+    "category": "Surfboards",
+    "price": 790.53,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "yellow",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_88",
-      "imageUrl": "https://example.com/images/product_88.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_89",
-    "title": "Thermal Lined Wetsuit 89",
-    "description": "Thermal protection wetsuit.",
+    "productId": "product_37",
+    "title": "Hybrid Surfboard Orange",
+    "description": "Blends shortboard and fish design for versatile performance across all conditions.",
+    "brand": "WavePro",
+    "category": "Surfboards",
+    "price": 453.54,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_38",
+    "title": "Retro Twin Fin Teal",
+    "description": "Classic twin-fin design for loose, skatey surfing with modern construction.",
+    "brand": "BoardMaster",
+    "category": "Surfboards",
+    "price": 440.92,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "teal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_39",
+    "title": "Step-Up Board Navy",
+    "description": "Extra volume shortboard for bigger days when your regular board feels too small.",
+    "brand": "RetroWave",
+    "category": "Surfboards",
+    "price": 691.87,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_40",
+    "title": "Grom Board - Kids Charcoal",
+    "description": "Scaled-down performance board for young surfers aged 8-14. Lightweight and responsive.",
+    "brand": "AquaCraft",
+    "category": "Surfboards",
+    "price": 331.92,
+    "compareAtPrice": 398.3,
+    "color": "Charcoal",
+    "tags": [
+      "surfboards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "charcoal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Surfboards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "3/2mm Full Wetsuit Black",
+    "description": "Versatile full-body wetsuit for spring and autumn sessions. Flexible neoprene with sealed seams.",
+    "brand": "WavePro",
     "category": "Wetsuits",
-    "price": 216.61,
+    "price": 311,
+    "compareAtPrice": 373.2,
+    "color": "Black",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "4/3mm Winter Wetsuit - Men's White",
+    "description": "Heavyweight winter wetsuit with thermal lining for cold water surfing down to 8°C.",
     "brand": "ThermoGear",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_89",
-      "imageUrl": "https://example.com/images/product_89.jpg"
-    }
-  },
-  {
-    "id": "product_90",
-    "title": "Kids' Surf Wetsuit 90",
-    "description": "Warm kids' surf wetsuit.",
     "category": "Wetsuits",
-    "price": 391.03,
-    "brand": "WavePro",
+    "price": 446.45,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_90",
-      "imageUrl": "https://example.com/images/product_90.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_91",
-    "title": "Surfboard Wax - Tropical 91",
-    "description": "High-temp wax for tropical waters.",
-    "category": "Accessories",
-    "price": 347.0,
+    "productId": "product_3",
+    "title": "2mm Shorty Wetsuit - Women's Blue",
+    "description": "Short-sleeve, short-leg wetsuit for warm summer sessions. Maximum flexibility.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 124.4,
+    "compareAtPrice": 149.28,
+    "color": "Blue",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_4",
+    "title": "5/4mm Hooded Wetsuit - Kids Red",
+    "description": "Maximum warmth with integrated hood for extreme cold. Triple-glued blind-stitched seams.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 468.02,
+    "compareAtPrice": 561.62,
+    "color": "Red",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Kids Full Wetsuit - Men's Green",
+    "description": "Durable and easy-to-wear wetsuit designed specifically for young surfers. Back zip entry.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 142.49,
+    "compareAtPrice": 170.99,
+    "color": "Green",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "beginner",
+      "male",
+      "green",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Spring Suit - Women's Yellow",
+    "description": "Long-sleeve short-leg suit for transitional water temperatures. Great for 16-20°C.",
+    "brand": "NeptuneFit",
+    "category": "Wetsuits",
+    "price": 111.66,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "yellow",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "Wetsuit Vest Orange",
+    "description": "Neoprene vest for core warmth without restricting arm movement. Layer under or wear solo.",
+    "brand": "WavePro",
+    "category": "Wetsuits",
+    "price": 60.21,
+    "compareAtPrice": 72.25,
+    "color": "Orange",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "3/2mm Full Wetsuit - Men's Teal",
+    "description": "Versatile full-body wetsuit for spring and autumn sessions. Flexible neoprene with sealed seams.",
+    "brand": "ThermoGear",
+    "category": "Wetsuits",
+    "price": 264.34,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "teal",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "4/3mm Winter Wetsuit - Women's Navy",
+    "description": "Heavyweight winter wetsuit with thermal lining for cold water surfing down to 8°C.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 321.75,
+    "compareAtPrice": 386.1,
+    "color": "Navy",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "navy",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "2mm Shorty Wetsuit Charcoal",
+    "description": "Short-sleeve, short-leg wetsuit for warm summer sessions. Maximum flexibility.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 158.91,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "5/4mm Hooded Wetsuit - Men's Coral",
+    "description": "Maximum warmth with integrated hood for extreme cold. Triple-glued blind-stitched seams.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 362.68,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "coral",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Kids Full Wetsuit - Women's Sunset",
+    "description": "Durable and easy-to-wear wetsuit designed specifically for young surfers. Back zip entry.",
+    "brand": "NeptuneFit",
+    "category": "Wetsuits",
+    "price": 76.57,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "beginner",
+      "female",
+      "sunset",
+      "kids"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Spring Suit Ice Blue",
+    "description": "Long-sleeve short-leg suit for transitional water temperatures. Great for 16-20°C.",
+    "brand": "WavePro",
+    "category": "Wetsuits",
+    "price": 145.33,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Wetsuit Vest - Men's Slate",
+    "description": "Neoprene vest for core warmth without restricting arm movement. Layer under or wear solo.",
+    "brand": "ThermoGear",
+    "category": "Wetsuits",
+    "price": 81.56,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "slate",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "3/2mm Full Wetsuit - Women's Forest Green",
+    "description": "Versatile full-body wetsuit for spring and autumn sessions. Flexible neoprene with sealed seams.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 166.13,
+    "compareAtPrice": 199.36,
+    "color": "Forest Green",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "forest green",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_16",
+    "title": "4/3mm Winter Wetsuit - Kids Black",
+    "description": "Heavyweight winter wetsuit with thermal lining for cold water surfing down to 8°C.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 234.28,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_17",
+    "title": "2mm Shorty Wetsuit - Men's White",
+    "description": "Short-sleeve, short-leg wetsuit for warm summer sessions. Maximum flexibility.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 143.15,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_18",
+    "title": "5/4mm Hooded Wetsuit - Women's Blue",
+    "description": "Maximum warmth with integrated hood for extreme cold. Triple-glued blind-stitched seams.",
+    "brand": "NeptuneFit",
+    "category": "Wetsuits",
+    "price": 531.17,
+    "compareAtPrice": 637.4,
+    "color": "Blue",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_19",
+    "title": "Kids Full Wetsuit Red",
+    "description": "Durable and easy-to-wear wetsuit designed specifically for young surfers. Back zip entry.",
+    "brand": "WavePro",
+    "category": "Wetsuits",
+    "price": 95.42,
+    "compareAtPrice": 114.5,
+    "color": "Red",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_20",
+    "title": "Spring Suit - Men's Green",
+    "description": "Long-sleeve short-leg suit for transitional water temperatures. Great for 16-20°C.",
+    "brand": "ThermoGear",
+    "category": "Wetsuits",
+    "price": 165.75,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_21",
+    "title": "Wetsuit Vest - Women's Yellow",
+    "description": "Neoprene vest for core warmth without restricting arm movement. Layer under or wear solo.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 59.14,
+    "compareAtPrice": 70.97,
+    "color": "Yellow",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "yellow",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_22",
+    "title": "3/2mm Full Wetsuit Orange",
+    "description": "Versatile full-body wetsuit for spring and autumn sessions. Flexible neoprene with sealed seams.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 166.16,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_23",
+    "title": "4/3mm Winter Wetsuit - Men's Teal",
+    "description": "Heavyweight winter wetsuit with thermal lining for cold water surfing down to 8°C.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 248.34,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "teal",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_24",
+    "title": "2mm Shorty Wetsuit - Women's Navy",
+    "description": "Short-sleeve, short-leg wetsuit for warm summer sessions. Maximum flexibility.",
+    "brand": "NeptuneFit",
+    "category": "Wetsuits",
+    "price": 144.75,
+    "compareAtPrice": 173.7,
+    "color": "Navy",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "navy",
+      "kids"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_25",
+    "title": "5/4mm Hooded Wetsuit Charcoal",
+    "description": "Maximum warmth with integrated hood for extreme cold. Triple-glued blind-stitched seams.",
+    "brand": "WavePro",
+    "category": "Wetsuits",
+    "price": 401.44,
+    "compareAtPrice": 481.73,
+    "color": "Charcoal",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_26",
+    "title": "Kids Full Wetsuit - Men's Coral",
+    "description": "Durable and easy-to-wear wetsuit designed specifically for young surfers. Back zip entry.",
+    "brand": "ThermoGear",
+    "category": "Wetsuits",
+    "price": 132.88,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "beginner",
+      "male",
+      "coral",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_27",
+    "title": "Spring Suit - Women's Sunset",
+    "description": "Long-sleeve short-leg suit for transitional water temperatures. Great for 16-20°C.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 148.14,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "sunset",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_28",
+    "title": "Wetsuit Vest - Kids Ice Blue",
+    "description": "Neoprene vest for core warmth without restricting arm movement. Layer under or wear solo.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 82.77,
+    "compareAtPrice": 99.32,
+    "color": "Ice Blue",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_29",
+    "title": "3/2mm Full Wetsuit - Men's Slate",
+    "description": "Versatile full-body wetsuit for spring and autumn sessions. Flexible neoprene with sealed seams.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 261.12,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "slate",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_30",
+    "title": "4/3mm Winter Wetsuit - Women's Forest Green",
+    "description": "Heavyweight winter wetsuit with thermal lining for cold water surfing down to 8°C.",
+    "brand": "NeptuneFit",
+    "category": "Wetsuits",
+    "price": 367.69,
+    "compareAtPrice": null,
+    "color": "Forest Green",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "forest green",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_31",
+    "title": "2mm Shorty Wetsuit Black",
+    "description": "Short-sleeve, short-leg wetsuit for warm summer sessions. Maximum flexibility.",
+    "brand": "WavePro",
+    "category": "Wetsuits",
+    "price": 101.9,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_32",
+    "title": "5/4mm Hooded Wetsuit - Men's White",
+    "description": "Maximum warmth with integrated hood for extreme cold. Triple-glued blind-stitched seams.",
+    "brand": "ThermoGear",
+    "category": "Wetsuits",
+    "price": 466.53,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_33",
+    "title": "Kids Full Wetsuit - Women's Blue",
+    "description": "Durable and easy-to-wear wetsuit designed specifically for young surfers. Back zip entry.",
+    "brand": "DeepBlue",
+    "category": "Wetsuits",
+    "price": 103.52,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "beginner",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_34",
+    "title": "Spring Suit Red",
+    "description": "Long-sleeve short-leg suit for transitional water temperatures. Great for 16-20°C.",
+    "brand": "ArcticSurf",
+    "category": "Wetsuits",
+    "price": 144.33,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_35",
+    "title": "Wetsuit Vest - Men's Green",
+    "description": "Neoprene vest for core warmth without restricting arm movement. Layer under or wear solo.",
+    "brand": "FlexNeo",
+    "category": "Wetsuits",
+    "price": 76.82,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "wetsuits",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Wetsuits",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "Thruster Fin Set Black",
+    "description": "Three-fin setup for maximum control and drive. FCS II compatible. Medium flex.",
+    "brand": "FinCraft",
+    "category": "Fins",
+    "price": 115.17,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "Single Fin White",
+    "description": "Classic single fin for longboards. Provides smooth, flowing turns and noseride stability.",
+    "brand": "TrueWave",
+    "category": "Fins",
+    "price": 72.21,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_3",
+    "title": "Quad Fin Set Blue",
+    "description": "Four-fin setup for speed and hold in hollow waves. FCS or Futures compatible.",
+    "brand": "FlowFins",
+    "category": "Fins",
+    "price": 103.78,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_4",
+    "title": "Twin Fin Set - Kids Red",
+    "description": "Retro twin fins for a loose, skatey feel. Ideal for fish and retro boards.",
+    "brand": "AquaEdge",
+    "category": "Fins",
+    "price": 88.19,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Performance Fin Set Green",
+    "description": "Competition-grade carbon fiber fins for maximum responsiveness and speed.",
+    "brand": "FinCraft",
+    "category": "Fins",
+    "price": 120.29,
+    "compareAtPrice": 144.35,
+    "color": "Green",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Thruster Fin Set Yellow",
+    "description": "Three-fin setup for maximum control and drive. FCS II compatible. Medium flex.",
+    "brand": "TrueWave",
+    "category": "Fins",
+    "price": 89.85,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "Single Fin Orange",
+    "description": "Classic single fin for longboards. Provides smooth, flowing turns and noseride stability.",
+    "brand": "FlowFins",
+    "category": "Fins",
+    "price": 58.94,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "Quad Fin Set - Kids Teal",
+    "description": "Four-fin setup for speed and hold in hollow waves. FCS or Futures compatible.",
+    "brand": "AquaEdge",
+    "category": "Fins",
+    "price": 89.42,
+    "compareAtPrice": 107.3,
+    "color": "Teal",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "teal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "Twin Fin Set Navy",
+    "description": "Retro twin fins for a loose, skatey feel. Ideal for fish and retro boards.",
+    "brand": "FinCraft",
+    "category": "Fins",
+    "price": 71.86,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Performance Fin Set Charcoal",
+    "description": "Competition-grade carbon fiber fins for maximum responsiveness and speed.",
+    "brand": "TrueWave",
+    "category": "Fins",
+    "price": 181.76,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "Thruster Fin Set Coral",
+    "description": "Three-fin setup for maximum control and drive. FCS II compatible. Medium flex.",
+    "brand": "FlowFins",
+    "category": "Fins",
+    "price": 101.08,
+    "compareAtPrice": 121.3,
+    "color": "Coral",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Single Fin - Kids Sunset",
+    "description": "Classic single fin for longboards. Provides smooth, flowing turns and noseride stability.",
+    "brand": "AquaEdge",
+    "category": "Fins",
+    "price": 62.18,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "sunset",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Quad Fin Set Ice Blue",
+    "description": "Four-fin setup for speed and hold in hollow waves. FCS or Futures compatible.",
+    "brand": "FinCraft",
+    "category": "Fins",
+    "price": 93.55,
+    "compareAtPrice": 112.26,
+    "color": "Ice Blue",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Twin Fin Set Slate",
+    "description": "Retro twin fins for a loose, skatey feel. Ideal for fish and retro boards.",
+    "brand": "TrueWave",
+    "category": "Fins",
+    "price": 49.23,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Performance Fin Set Forest Green",
+    "description": "Competition-grade carbon fiber fins for maximum responsiveness and speed.",
+    "brand": "FlowFins",
+    "category": "Fins",
+    "price": 127.14,
+    "compareAtPrice": 152.57,
+    "color": "Forest Green",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_16",
+    "title": "Thruster Fin Set - Kids Black",
+    "description": "Three-fin setup for maximum control and drive. FCS II compatible. Medium flex.",
+    "brand": "AquaEdge",
+    "category": "Fins",
+    "price": 95.15,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_17",
+    "title": "Single Fin White",
+    "description": "Classic single fin for longboards. Provides smooth, flowing turns and noseride stability.",
+    "brand": "FinCraft",
+    "category": "Fins",
+    "price": 41.47,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_18",
+    "title": "Quad Fin Set Blue",
+    "description": "Four-fin setup for speed and hold in hollow waves. FCS or Futures compatible.",
+    "brand": "TrueWave",
+    "category": "Fins",
+    "price": 130.61,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_19",
+    "title": "Twin Fin Set Red",
+    "description": "Retro twin fins for a loose, skatey feel. Ideal for fish and retro boards.",
+    "brand": "FlowFins",
+    "category": "Fins",
+    "price": 98.23,
+    "compareAtPrice": 117.88,
+    "color": "Red",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "intermediate",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_20",
+    "title": "Performance Fin Set - Kids Green",
+    "description": "Competition-grade carbon fiber fins for maximum responsiveness and speed.",
+    "brand": "AquaEdge",
+    "category": "Fins",
+    "price": 118.82,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "fins",
+      "surfing",
+      "ocean",
+      "advanced",
+      "unisex",
+      "green",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Fins",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "6ft Comp Leash Black",
+    "description": "Lightweight competition leash for shortboards. Minimal drag, maximum strength.",
+    "brand": "WavePro",
+    "category": "Leashes",
+    "price": 28.19,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "8ft Regular Leash White",
+    "description": "Standard leash for funboards and mini malibus. Double swivel to prevent tangling.",
     "brand": "GripMaster",
+    "category": "Leashes",
+    "price": 31.75,
+    "compareAtPrice": 38.1,
+    "color": "White",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_91",
-      "imageUrl": "https://example.com/images/product_91.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_92",
-    "title": "Leash 6ft - Comp Series 92",
-    "description": "Durable leash for everyday surf.",
-    "category": "Accessories",
-    "price": 257.94,
-    "brand": "WavePro",
+    "productId": "product_3",
+    "title": "9ft Longboard Leash Blue",
+    "description": "Extra-long leash for longboards with calf attachment option. Heavy-duty urethane cord.",
+    "brand": "TidalLink",
+    "category": "Leashes",
+    "price": 39.27,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_92",
-      "imageUrl": "https://example.com/images/product_92.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_93",
-    "title": "Day Use Board Bag 93",
-    "description": "Board protection for local trips.",
-    "category": "Accessories",
-    "price": 112.26,
+    "productId": "product_4",
+    "title": "10ft Big Wave Leash - Kids Red",
+    "description": "Heavy-duty leash for big wave surfing. Extra thick cord rated to 250lbs.",
     "brand": "SurfSafe",
+    "category": "Leashes",
+    "price": 44.05,
+    "compareAtPrice": 52.86,
+    "color": "Red",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_93",
-      "imageUrl": "https://example.com/images/product_93.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_94",
-    "title": "Surfboard Repair Kit 94",
-    "description": "Quick repairs for dings and cracks.",
+    "productId": "product_5",
+    "title": "Coiled SUP Leash Green",
+    "description": "Coiled leash for stand-up paddleboards. Stays out of the water when paddling.",
+    "brand": "WavePro",
+    "category": "Leashes",
+    "price": 35.01,
+    "compareAtPrice": 42.01,
+    "color": "Green",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "6ft Comp Leash Yellow",
+    "description": "Lightweight competition leash for shortboards. Minimal drag, maximum strength.",
+    "brand": "GripMaster",
+    "category": "Leashes",
+    "price": 35.11,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "8ft Regular Leash Orange",
+    "description": "Standard leash for funboards and mini malibus. Double swivel to prevent tangling.",
+    "brand": "TidalLink",
+    "category": "Leashes",
+    "price": 29.79,
+    "compareAtPrice": 35.75,
+    "color": "Orange",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "9ft Longboard Leash - Kids Teal",
+    "description": "Extra-long leash for longboards with calf attachment option. Heavy-duty urethane cord.",
+    "brand": "SurfSafe",
+    "category": "Leashes",
+    "price": 35.63,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "teal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "10ft Big Wave Leash Navy",
+    "description": "Heavy-duty leash for big wave surfing. Extra thick cord rated to 250lbs.",
+    "brand": "WavePro",
+    "category": "Leashes",
+    "price": 64.08,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Coiled SUP Leash Charcoal",
+    "description": "Coiled leash for stand-up paddleboards. Stays out of the water when paddling.",
+    "brand": "GripMaster",
+    "category": "Leashes",
+    "price": 52.55,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "6ft Comp Leash Coral",
+    "description": "Lightweight competition leash for shortboards. Minimal drag, maximum strength.",
+    "brand": "TidalLink",
+    "category": "Leashes",
+    "price": 29.55,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "8ft Regular Leash - Kids Sunset",
+    "description": "Standard leash for funboards and mini malibus. Double swivel to prevent tangling.",
+    "brand": "SurfSafe",
+    "category": "Leashes",
+    "price": 22.06,
+    "compareAtPrice": 26.47,
+    "color": "Sunset",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "sunset",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "9ft Longboard Leash Ice Blue",
+    "description": "Extra-long leash for longboards with calf attachment option. Heavy-duty urethane cord.",
+    "brand": "WavePro",
+    "category": "Leashes",
+    "price": 28.52,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "10ft Big Wave Leash Slate",
+    "description": "Heavy-duty leash for big wave surfing. Extra thick cord rated to 250lbs.",
+    "brand": "GripMaster",
+    "category": "Leashes",
+    "price": 47.69,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "expert",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Coiled SUP Leash Forest Green",
+    "description": "Coiled leash for stand-up paddleboards. Stays out of the water when paddling.",
+    "brand": "TidalLink",
+    "category": "Leashes",
+    "price": 36.81,
+    "compareAtPrice": 44.17,
+    "color": "Forest Green",
+    "tags": [
+      "leashes",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Leashes",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "Day Use Board Bag Black",
+    "description": "Lightweight padded bag for daily transport. Protects against UV and minor impacts.",
+    "brand": "SurfSafe",
+    "category": "Board Bags",
+    "price": 46.26,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "Travel Board Bag White",
+    "description": "Heavy-duty padded bag for air travel. Fits 2-3 boards with internal dividers.",
+    "brand": "CoastalGear",
+    "category": "Board Bags",
+    "price": 220.21,
+    "compareAtPrice": 264.25,
+    "color": "White",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_3",
+    "title": "Longboard Sock Blue",
+    "description": "Stretchy knit cover for longboards. Basic protection against scratches and dust.",
+    "brand": "BoardShield",
+    "category": "Board Bags",
+    "price": 33.95,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_4",
+    "title": "Coffin Board Bag - Kids Red",
+    "description": "Multi-board travel bag fits up to 4 boards. Wheeled for easy airport transport.",
+    "brand": "TravelWave",
+    "category": "Board Bags",
+    "price": 337.31,
+    "compareAtPrice": 404.77,
+    "color": "Red",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Shortboard Day Bag Green",
+    "description": "Compact padded bag for shortboards with wax pocket and shoulder strap.",
+    "brand": "SurfSafe",
+    "category": "Board Bags",
+    "price": 66.01,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Day Use Board Bag Yellow",
+    "description": "Lightweight padded bag for daily transport. Protects against UV and minor impacts.",
+    "brand": "CoastalGear",
+    "category": "Board Bags",
+    "price": 56.4,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "Travel Board Bag Orange",
+    "description": "Heavy-duty padded bag for air travel. Fits 2-3 boards with internal dividers.",
+    "brand": "BoardShield",
+    "category": "Board Bags",
+    "price": 242,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "Longboard Sock - Kids Teal",
+    "description": "Stretchy knit cover for longboards. Basic protection against scratches and dust.",
+    "brand": "TravelWave",
+    "category": "Board Bags",
+    "price": 38.93,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "teal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "Coffin Board Bag Navy",
+    "description": "Multi-board travel bag fits up to 4 boards. Wheeled for easy airport transport.",
+    "brand": "SurfSafe",
+    "category": "Board Bags",
+    "price": 344.73,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Shortboard Day Bag Charcoal",
+    "description": "Compact padded bag for shortboards with wax pocket and shoulder strap.",
+    "brand": "CoastalGear",
+    "category": "Board Bags",
+    "price": 58,
+    "compareAtPrice": 69.6,
+    "color": "Charcoal",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "Day Use Board Bag Coral",
+    "description": "Lightweight padded bag for daily transport. Protects against UV and minor impacts.",
+    "brand": "BoardShield",
+    "category": "Board Bags",
+    "price": 59.24,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Travel Board Bag - Kids Sunset",
+    "description": "Heavy-duty padded bag for air travel. Fits 2-3 boards with internal dividers.",
+    "brand": "TravelWave",
+    "category": "Board Bags",
+    "price": 161.25,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "sunset",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Longboard Sock Ice Blue",
+    "description": "Stretchy knit cover for longboards. Basic protection against scratches and dust.",
+    "brand": "SurfSafe",
+    "category": "Board Bags",
+    "price": 39.01,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Coffin Board Bag Slate",
+    "description": "Multi-board travel bag fits up to 4 boards. Wheeled for easy airport transport.",
+    "brand": "CoastalGear",
+    "category": "Board Bags",
+    "price": 297.82,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Shortboard Day Bag Forest Green",
+    "description": "Compact padded bag for shortboards with wax pocket and shoulder strap.",
+    "brand": "BoardShield",
+    "category": "Board Bags",
+    "price": 34.64,
+    "compareAtPrice": null,
+    "color": "Forest Green",
+    "tags": [
+      "board-bags",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Board Bags",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "Short Sleeve Rash Guard Black",
+    "description": "UPF 50+ sun protection with quick-dry fabric. Flatlock seams prevent chafing.",
+    "brand": "WaveWear",
+    "category": "Rash Guards",
+    "price": 47.11,
+    "compareAtPrice": 56.53,
+    "color": "Black",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "Long Sleeve Rash Guard - Men's White",
+    "description": "Full arm coverage with UPF 50+ protection. Ideal for tropical surf and sun exposure.",
+    "brand": "SunBlock",
+    "category": "Rash Guards",
+    "price": 46.17,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_3",
+    "title": "Kids Rash Guard - Women's Blue",
+    "description": "Colorful sun protection for young surfers. Stretchy, comfortable fit for all-day wear.",
+    "brand": "ReefGuard",
+    "category": "Rash Guards",
+    "price": 25.01,
+    "compareAtPrice": 30.01,
+    "color": "Blue",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_4",
+    "title": "Hooded Rash Guard - Kids Red",
+    "description": "Rash guard with integrated hood for extra sun and wind protection.",
+    "brand": "CoastalFit",
+    "category": "Rash Guards",
+    "price": 66.13,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Short Sleeve Rash Guard - Men's Green",
+    "description": "UPF 50+ sun protection with quick-dry fabric. Flatlock seams prevent chafing.",
+    "brand": "WaveWear",
+    "category": "Rash Guards",
+    "price": 30.05,
+    "compareAtPrice": 36.06,
+    "color": "Green",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Long Sleeve Rash Guard - Women's Yellow",
+    "description": "Full arm coverage with UPF 50+ protection. Ideal for tropical surf and sun exposure.",
+    "brand": "SunBlock",
+    "category": "Rash Guards",
+    "price": 67.95,
+    "compareAtPrice": 81.54,
+    "color": "Yellow",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "yellow",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "Kids Rash Guard Orange",
+    "description": "Colorful sun protection for young surfers. Stretchy, comfortable fit for all-day wear.",
+    "brand": "ReefGuard",
+    "category": "Rash Guards",
+    "price": 25.12,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "Hooded Rash Guard - Men's Teal",
+    "description": "Rash guard with integrated hood for extra sun and wind protection.",
+    "brand": "CoastalFit",
+    "category": "Rash Guards",
+    "price": 59.27,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "teal",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "Short Sleeve Rash Guard - Women's Navy",
+    "description": "UPF 50+ sun protection with quick-dry fabric. Flatlock seams prevent chafing.",
+    "brand": "WaveWear",
+    "category": "Rash Guards",
+    "price": 29.29,
+    "compareAtPrice": 35.15,
+    "color": "Navy",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "navy",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Long Sleeve Rash Guard Charcoal",
+    "description": "Full arm coverage with UPF 50+ protection. Ideal for tropical surf and sun exposure.",
+    "brand": "SunBlock",
+    "category": "Rash Guards",
+    "price": 59.72,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "Kids Rash Guard - Men's Coral",
+    "description": "Colorful sun protection for young surfers. Stretchy, comfortable fit for all-day wear.",
+    "brand": "ReefGuard",
+    "category": "Rash Guards",
+    "price": 33.06,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "male",
+      "coral",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Hooded Rash Guard - Women's Sunset",
+    "description": "Rash guard with integrated hood for extra sun and wind protection.",
+    "brand": "CoastalFit",
+    "category": "Rash Guards",
+    "price": 68.48,
+    "compareAtPrice": 82.18,
+    "color": "Sunset",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "sunset",
+      "kids"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Short Sleeve Rash Guard Ice Blue",
+    "description": "UPF 50+ sun protection with quick-dry fabric. Flatlock seams prevent chafing.",
+    "brand": "WaveWear",
+    "category": "Rash Guards",
+    "price": 41.28,
+    "compareAtPrice": 49.54,
+    "color": "Ice Blue",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Long Sleeve Rash Guard - Men's Slate",
+    "description": "Full arm coverage with UPF 50+ protection. Ideal for tropical surf and sun exposure.",
+    "brand": "SunBlock",
+    "category": "Rash Guards",
+    "price": 65.82,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "slate",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Kids Rash Guard - Women's Forest Green",
+    "description": "Colorful sun protection for young surfers. Stretchy, comfortable fit for all-day wear.",
+    "brand": "ReefGuard",
+    "category": "Rash Guards",
+    "price": 31.92,
+    "compareAtPrice": 38.3,
+    "color": "Forest Green",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "female",
+      "forest green",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_16",
+    "title": "Hooded Rash Guard - Kids Black",
+    "description": "Rash guard with integrated hood for extra sun and wind protection.",
+    "brand": "CoastalFit",
+    "category": "Rash Guards",
+    "price": 70.72,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_17",
+    "title": "Short Sleeve Rash Guard - Men's White",
+    "description": "UPF 50+ sun protection with quick-dry fabric. Flatlock seams prevent chafing.",
+    "brand": "WaveWear",
+    "category": "Rash Guards",
+    "price": 52.37,
+    "compareAtPrice": 62.84,
+    "color": "White",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_18",
+    "title": "Long Sleeve Rash Guard - Women's Blue",
+    "description": "Full arm coverage with UPF 50+ protection. Ideal for tropical surf and sun exposure.",
+    "brand": "SunBlock",
+    "category": "Rash Guards",
+    "price": 68.22,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_19",
+    "title": "Kids Rash Guard Red",
+    "description": "Colorful sun protection for young surfers. Stretchy, comfortable fit for all-day wear.",
+    "brand": "ReefGuard",
+    "category": "Rash Guards",
+    "price": 31.76,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "beginner",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_20",
+    "title": "Hooded Rash Guard - Men's Green",
+    "description": "Rash guard with integrated hood for extra sun and wind protection.",
+    "brand": "CoastalFit",
+    "category": "Rash Guards",
+    "price": 66.45,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "rash-guards",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Rash Guards",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "Surfboard Wax Black",
+    "description": "Temperature-specific surf wax for optimal grip. Available in tropical, warm, cool, and cold formulas.",
+    "brand": "GripMaster",
     "category": "Accessories",
-    "price": 138.38,
+    "price": 7.58,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_2",
+    "title": "Wax Comb White",
+    "description": "Dual-sided wax comb for texturing and removing old wax. Built-in fin key.",
+    "brand": "SurfSafe",
+    "category": "Accessories",
+    "price": 5.45,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_3",
+    "title": "Surfboard Repair Kit Blue",
+    "description": "Complete ding repair kit with resin, hardener, cloth, and sandpaper. Fixes cracks and holes.",
     "brand": "FixIt",
-    "metadata": {
-      "productUrl": "https://example.com/products/product_94",
-      "imageUrl": "https://example.com/images/product_94.jpg"
-    }
-  },
-  {
-    "id": "product_95",
-    "title": "Soft Roof Racks 95",
-    "description": "Universal soft roof racks.",
     "category": "Accessories",
-    "price": 31.83,
-    "brand": "CarGear",
+    "price": 22.53,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_95",
-      "imageUrl": "https://example.com/images/product_95.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_96",
-    "title": "Surf Club Hoodie 96",
-    "description": "Warm fleece hoodie for surf lifestyle.",
-    "category": "Lifestyle",
-    "price": 445.76,
+    "productId": "product_4",
+    "title": "Roof Rack Pads - Kids Red",
+    "description": "Soft foam pads for transporting boards on your car roof. Universal fit with tie-down straps.",
+    "brand": "ReefTech",
+    "category": "Accessories",
+    "price": 38.68,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Changing Mat Green",
+    "description": "Waterproof mat for changing at the beach. Doubles as a wetsuit bag to keep your car dry.",
+    "brand": "WaxMaster",
+    "category": "Accessories",
+    "price": 27.27,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Surf Ear Plugs Yellow",
+    "description": "Medical-grade silicone ear plugs that block water but let sound through. Prevents surfer's ear.",
+    "brand": "GripMaster",
+    "category": "Accessories",
+    "price": 27.1,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_7",
+    "title": "Waterproof Phone Pouch Orange",
+    "description": "IPX8-rated waterproof case for phones. Clear touchscreen compatible. Lanyard included.",
+    "brand": "SurfSafe",
+    "category": "Accessories",
+    "price": 14.25,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_8",
+    "title": "Surf Watch - Kids Teal",
+    "description": "Tide and swell tracking watch with GPS. Water resistant to 100m. Sunrise/sunset alerts.",
+    "brand": "FixIt",
+    "category": "Accessories",
+    "price": 253.88,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "teal",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "Surfboard Wax Navy",
+    "description": "Temperature-specific surf wax for optimal grip. Available in tropical, warm, cool, and cold formulas.",
+    "brand": "ReefTech",
+    "category": "Accessories",
+    "price": 7.43,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "navy",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Wax Comb Charcoal",
+    "description": "Dual-sided wax comb for texturing and removing old wax. Built-in fin key.",
+    "brand": "WaxMaster",
+    "category": "Accessories",
+    "price": 6.76,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "Surfboard Repair Kit Coral",
+    "description": "Complete ding repair kit with resin, hardener, cloth, and sandpaper. Fixes cracks and holes.",
+    "brand": "GripMaster",
+    "category": "Accessories",
+    "price": 26.09,
+    "compareAtPrice": 31.31,
+    "color": "Coral",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "coral",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Roof Rack Pads - Kids Sunset",
+    "description": "Soft foam pads for transporting boards on your car roof. Universal fit with tie-down straps.",
+    "brand": "SurfSafe",
+    "category": "Accessories",
+    "price": 36.68,
+    "compareAtPrice": 44.02,
+    "color": "Sunset",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "sunset",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Changing Mat Ice Blue",
+    "description": "Waterproof mat for changing at the beach. Doubles as a wetsuit bag to keep your car dry.",
+    "brand": "FixIt",
+    "category": "Accessories",
+    "price": 21.12,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Surf Ear Plugs Slate",
+    "description": "Medical-grade silicone ear plugs that block water but let sound through. Prevents surfer's ear.",
+    "brand": "ReefTech",
+    "category": "Accessories",
+    "price": 43.89,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "slate",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Waterproof Phone Pouch Forest Green",
+    "description": "IPX8-rated waterproof case for phones. Clear touchscreen compatible. Lanyard included.",
+    "brand": "WaxMaster",
+    "category": "Accessories",
+    "price": 19.54,
+    "compareAtPrice": null,
+    "color": "Forest Green",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "forest green",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_16",
+    "title": "Surf Watch - Kids Black",
+    "description": "Tide and swell tracking watch with GPS. Water resistant to 100m. Sunrise/sunset alerts.",
+    "brand": "GripMaster",
+    "category": "Accessories",
+    "price": 260.65,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_17",
+    "title": "Surfboard Wax White",
+    "description": "Temperature-specific surf wax for optimal grip. Available in tropical, warm, cool, and cold formulas.",
+    "brand": "SurfSafe",
+    "category": "Accessories",
+    "price": 7.45,
+    "compareAtPrice": 8.94,
+    "color": "White",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "white",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_18",
+    "title": "Wax Comb Blue",
+    "description": "Dual-sided wax comb for texturing and removing old wax. Built-in fin key.",
+    "brand": "FixIt",
+    "category": "Accessories",
+    "price": 3.36,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_19",
+    "title": "Surfboard Repair Kit Red",
+    "description": "Complete ding repair kit with resin, hardener, cloth, and sandpaper. Fixes cracks and holes.",
+    "brand": "ReefTech",
+    "category": "Accessories",
+    "price": 18.73,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_20",
+    "title": "Roof Rack Pads - Kids Green",
+    "description": "Soft foam pads for transporting boards on your car roof. Universal fit with tie-down straps.",
+    "brand": "WaxMaster",
+    "category": "Accessories",
+    "price": 52.65,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "green",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_21",
+    "title": "Changing Mat Yellow",
+    "description": "Waterproof mat for changing at the beach. Doubles as a wetsuit bag to keep your car dry.",
+    "brand": "GripMaster",
+    "category": "Accessories",
+    "price": 36.75,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "yellow",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_22",
+    "title": "Surf Ear Plugs Orange",
+    "description": "Medical-grade silicone ear plugs that block water but let sound through. Prevents surfer's ear.",
+    "brand": "SurfSafe",
+    "category": "Accessories",
+    "price": 39.73,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_23",
+    "title": "Waterproof Phone Pouch Teal",
+    "description": "IPX8-rated waterproof case for phones. Clear touchscreen compatible. Lanyard included.",
+    "brand": "FixIt",
+    "category": "Accessories",
+    "price": 24.87,
+    "compareAtPrice": 29.84,
+    "color": "Teal",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "teal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_24",
+    "title": "Surf Watch - Kids Navy",
+    "description": "Tide and swell tracking watch with GPS. Water resistant to 100m. Sunrise/sunset alerts.",
+    "brand": "ReefTech",
+    "category": "Accessories",
+    "price": 150.47,
+    "compareAtPrice": 180.56,
+    "color": "Navy",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "navy",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_25",
+    "title": "Surfboard Wax Charcoal",
+    "description": "Temperature-specific surf wax for optimal grip. Available in tropical, warm, cool, and cold formulas.",
+    "brand": "WaxMaster",
+    "category": "Accessories",
+    "price": 4.67,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "accessories",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Accessories",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_1",
+    "title": "Board Shorts Black",
+    "description": "Quick-dry stretch board shorts with secure pocket. 4-way stretch for unrestricted movement.",
     "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 44.19,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_96",
-      "imageUrl": "https://example.com/images/product_96.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_97",
-    "title": "Organic Cotton Tee 97",
-    "description": "Breathable surf-themed T-shirt.",
-    "category": "Lifestyle",
-    "price": 59.19,
-    "brand": "EcoSurf",
+    "productId": "product_2",
+    "title": "Surf T-Shirt - Men's White",
+    "description": "Organic cotton tee with surf-inspired graphic print. Relaxed fit for casual comfort.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 31.78,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_97",
-      "imageUrl": "https://example.com/images/product_97.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_98",
-    "title": "Canvas Board Shorts 98",
-    "description": "Durable shorts for water and beach.",
-    "category": "Lifestyle",
-    "price": 154.75,
+    "productId": "product_3",
+    "title": "Beach Hoodie - Women's Blue",
+    "description": "Lightweight hoodie for post-surf warmth. Kangaroo pocket and drawstring hood.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 64.23,
+    "compareAtPrice": 77.08,
+    "color": "Blue",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_4",
+    "title": "Surf Cap - Kids Red",
+    "description": "Performance surf cap with chin strap. UPF 50+ protection and quick-dry fabric.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 22.8,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_5",
+    "title": "Bikini Top - Men's Green",
+    "description": "Sporty bikini top designed for active water sports. Secure fit with adjustable straps.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 36.93,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_6",
+    "title": "Surf Poncho - Women's Yellow",
+    "description": "Oversized towel poncho for easy beach changing. Terry cotton with hood.",
     "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 70.22,
+    "compareAtPrice": null,
+    "color": "Yellow",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "yellow",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_98",
-      "imageUrl": "https://example.com/images/product_98.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_99",
-    "title": "Beach Tote Bag 99",
-    "description": "Stylish tote for the beach.",
-    "category": "Lifestyle",
-    "price": 132.42,
-    "brand": "BeachBuddy",
+    "productId": "product_7",
+    "title": "Flip Flops Orange",
+    "description": "Comfortable reef-safe sandals with arch support. Non-slip sole for wet surfaces.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 28.6,
+    "compareAtPrice": null,
+    "color": "Orange",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_99",
-      "imageUrl": "https://example.com/images/product_99.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
     }
   },
   {
-    "id": "product_100",
-    "title": "Recycled Flip Flops 100",
-    "description": "Eco-friendly flip flops.",
-    "category": "Lifestyle",
-    "price": 132.01,
-    "brand": "EcoSurf",
+    "productId": "product_8",
+    "title": "Waterproof Jacket - Men's Teal",
+    "description": "Lightweight windbreaker for coastal conditions. Packable with waterproof zippers.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 138.65,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "teal",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
     "metadata": {
-      "productUrl": "https://example.com/products/product_100",
-      "imageUrl": "https://example.com/images/product_100.jpg"
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_9",
+    "title": "Surf Beanie - Women's Navy",
+    "description": "Warm merino wool beanie for cold morning sessions. Quick-dry and odor resistant.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 21.21,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "navy",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_10",
+    "title": "Reef Booties Charcoal",
+    "description": "Neoprene booties for reef protection and cold water. Split-toe design for board feel.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 58.47,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_11",
+    "title": "Board Shorts - Men's Coral",
+    "description": "Quick-dry stretch board shorts with secure pocket. 4-way stretch for unrestricted movement.",
+    "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 57.42,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "coral",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_12",
+    "title": "Surf T-Shirt - Women's Sunset",
+    "description": "Organic cotton tee with surf-inspired graphic print. Relaxed fit for casual comfort.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 25.62,
+    "compareAtPrice": 30.74,
+    "color": "Sunset",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "sunset",
+      "kids"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_13",
+    "title": "Beach Hoodie Ice Blue",
+    "description": "Lightweight hoodie for post-surf warmth. Kangaroo pocket and drawstring hood.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 62.28,
+    "compareAtPrice": 74.74,
+    "color": "Ice Blue",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_14",
+    "title": "Surf Cap - Men's Slate",
+    "description": "Performance surf cap with chin strap. UPF 50+ protection and quick-dry fabric.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 33.85,
+    "compareAtPrice": 40.62,
+    "color": "Slate",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "slate",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_15",
+    "title": "Bikini Top - Women's Forest Green",
+    "description": "Sporty bikini top designed for active water sports. Secure fit with adjustable straps.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 49.17,
+    "compareAtPrice": null,
+    "color": "Forest Green",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "forest green",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_16",
+    "title": "Surf Poncho - Kids Black",
+    "description": "Oversized towel poncho for easy beach changing. Terry cotton with hood.",
+    "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 76.38,
+    "compareAtPrice": null,
+    "color": "Black",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "black",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_17",
+    "title": "Flip Flops - Men's White",
+    "description": "Comfortable reef-safe sandals with arch support. Non-slip sole for wet surfaces.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 41.77,
+    "compareAtPrice": null,
+    "color": "White",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "white",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_18",
+    "title": "Waterproof Jacket - Women's Blue",
+    "description": "Lightweight windbreaker for coastal conditions. Packable with waterproof zippers.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 131.1,
+    "compareAtPrice": null,
+    "color": "Blue",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "blue",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_19",
+    "title": "Surf Beanie Red",
+    "description": "Warm merino wool beanie for cold morning sessions. Quick-dry and odor resistant.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 23.63,
+    "compareAtPrice": null,
+    "color": "Red",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "red",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_20",
+    "title": "Reef Booties - Men's Green",
+    "description": "Neoprene booties for reef protection and cold water. Split-toe design for board feel.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 31.2,
+    "compareAtPrice": null,
+    "color": "Green",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "green",
+      "kids"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_21",
+    "title": "Board Shorts - Women's Yellow",
+    "description": "Quick-dry stretch board shorts with secure pocket. 4-way stretch for unrestricted movement.",
+    "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 44.5,
+    "compareAtPrice": 53.4,
+    "color": "Yellow",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "yellow",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_22",
+    "title": "Surf T-Shirt Orange",
+    "description": "Organic cotton tee with surf-inspired graphic print. Relaxed fit for casual comfort.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 36.89,
+    "compareAtPrice": 44.27,
+    "color": "Orange",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "orange",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_23",
+    "title": "Beach Hoodie - Men's Teal",
+    "description": "Lightweight hoodie for post-surf warmth. Kangaroo pocket and drawstring hood.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 52.7,
+    "compareAtPrice": null,
+    "color": "Teal",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "teal",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_24",
+    "title": "Surf Cap - Women's Navy",
+    "description": "Performance surf cap with chin strap. UPF 50+ protection and quick-dry fabric.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 35.3,
+    "compareAtPrice": null,
+    "color": "Navy",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "navy",
+      "kids"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_25",
+    "title": "Bikini Top Charcoal",
+    "description": "Sporty bikini top designed for active water sports. Secure fit with adjustable straps.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 37.05,
+    "compareAtPrice": null,
+    "color": "Charcoal",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "charcoal",
+      "adult"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_26",
+    "title": "Surf Poncho - Men's Coral",
+    "description": "Oversized towel poncho for easy beach changing. Terry cotton with hood.",
+    "brand": "WaveWear",
+    "category": "Apparel",
+    "price": 45,
+    "compareAtPrice": null,
+    "color": "Coral",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "coral",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_27",
+    "title": "Flip Flops - Women's Sunset",
+    "description": "Comfortable reef-safe sandals with arch support. Non-slip sole for wet surfaces.",
+    "brand": "CoastalCo",
+    "category": "Apparel",
+    "price": 23.54,
+    "compareAtPrice": null,
+    "color": "Sunset",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "sunset",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_28",
+    "title": "Waterproof Jacket - Kids Ice Blue",
+    "description": "Lightweight windbreaker for coastal conditions. Packable with waterproof zippers.",
+    "brand": "BeachThreads",
+    "category": "Apparel",
+    "price": 105.9,
+    "compareAtPrice": null,
+    "color": "Ice Blue",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "unisex",
+      "ice blue",
+      "kids"
+    ],
+    "gender": "unisex",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_29",
+    "title": "Surf Beanie - Men's Slate",
+    "description": "Warm merino wool beanie for cold morning sessions. Quick-dry and odor resistant.",
+    "brand": "SaltLife",
+    "category": "Apparel",
+    "price": 32.44,
+    "compareAtPrice": null,
+    "color": "Slate",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "male",
+      "slate",
+      "adult"
+    ],
+    "gender": "male",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?w=600&h=600&fit=crop"
+    }
+  },
+  {
+    "productId": "product_30",
+    "title": "Reef Booties - Women's Forest Green",
+    "description": "Neoprene booties for reef protection and cold water. Split-toe design for board feel.",
+    "brand": "ReefStyle",
+    "category": "Apparel",
+    "price": 63.25,
+    "compareAtPrice": 75.9,
+    "color": "Forest Green",
+    "tags": [
+      "apparel",
+      "surfing",
+      "ocean",
+      "all-levels",
+      "female",
+      "forest green",
+      "adult"
+    ],
+    "gender": "female",
+    "productType": "Apparel",
+    "inStock": true,
+    "metadata": {
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
     }
   }
 ]
