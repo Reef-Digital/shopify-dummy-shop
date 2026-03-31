@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f0f0f0"/>
+  <!-- Ghost mannequin t-shirt + board shorts - wide body -->
+
+  <!-- === BOARD SHORTS === -->
+  <!-- Waistband -->
+  <path d="M175 340 L425 340 L425 365 C425 370 420 372 415 372 L185 372 C180 372 175 370 175 365 Z" fill="#1e3a5f"/>
+  <!-- Waistband stitch -->
+  <path d="M185 348 L415 348" stroke="#2a4a70" stroke-width="1"/>
+  <!-- Drawstring -->
+  <path d="M285 356 L272 382 M315 356 L328 382" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="275" cy="380" r="3.5" fill="#bbb"/>
+  <circle cx="326" cy="380" r="3.5" fill="#bbb"/>
+
+  <!-- Left leg -->
+  <path d="M178 372 L170 530 L298 530 L300 372 Z" fill="#2563eb"/>
+  <!-- Right leg -->
+  <path d="M300 372 L302 530 L430 530 L422 372 Z" fill="#2563eb"/>
+  <!-- Side stripes -->
+  <path d="M178 372 L170 530" stroke="#1e40af" stroke-width="10" opacity="0.25"/>
+  <path d="M422 372 L430 530" stroke="#1e40af" stroke-width="10" opacity="0.25"/>
+  <!-- Cargo pocket -->
+  <path d="M340 410 L400 410 L405 470 L335 470 Z" fill="#1e40af" opacity="0.2"/>
+  <path d="M338 408 L402 408" stroke="#1e40af" stroke-width="1.5"/>
+  <circle cx="370" cy="420" r="3.5" fill="#1e40af" opacity="0.4"/>
+
+  <!-- === T-SHIRT === -->
+  <!-- Main body - wide -->
+  <path d="M195 70 L195 315 C195 325 210 330 240 330 L360 330 C390 330 405 325 405 315 L405 70" fill="#f2f2f2"/>
+
+  <!-- Left short sleeve -->
+  <path d="M195 70 L140 92 L130 170 L148 174 L155 98 L195 82" fill="#e5e5e5"/>
+  <!-- Right short sleeve -->
+  <path d="M405 70 L460 92 L470 170 L452 174 L445 98 L405 82" fill="#e5e5e5"/>
+
+  <!-- Collar -->
+  <path d="M232 42 C232 26 262 16 300 16 C338 16 368 26 368 42 L370 70 L230 70 Z" fill="#ddd"/>
+  <!-- Neck opening -->
+  <ellipse cx="300" cy="40" rx="45" ry="16" fill="#f0f0f0"/>
+
+  <!-- Shoulder seams -->
+  <line x1="195" y1="70" x2="234" y2="44" stroke="#ccc" stroke-width="1.5"/>
+  <line x1="405" y1="70" x2="366" y2="44" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- Wave graphic on chest -->
+  <path d="M245 150 C265 125 290 135 300 150 C310 135 335 125 355 150" fill="none" stroke="#2BBCE0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M235 175 C260 158 285 165 300 175 C315 165 340 158 365 175" fill="none" stroke="#2BBCE0" stroke-width="3.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M248 196 C268 185 288 190 300 196 C312 190 332 185 352 196" fill="none" stroke="#2BBCE0" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Side seams -->
+  <line x1="197" y1="82" x2="197" y2="320" stroke="#ddd" stroke-width="1.2"/>
+  <line x1="403" y1="82" x2="403" y2="320" stroke="#ddd" stroke-width="1.2"/>
+
+  <!-- Bottom hem -->
+  <path d="M200 325 L400 325" stroke="#ddd" stroke-width="2"/>
+</svg>

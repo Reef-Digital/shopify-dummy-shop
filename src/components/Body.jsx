@@ -137,6 +137,7 @@ export default function Body() {
   const [query, setQuery] = useState("");
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState("");
+  const [bundleResults, setBundleResults] = useState([]);
   const [searchSummary, setSearchSummary] = useState("");
   const [searchProducts, setSearchProducts] = useState([]);
   const [searchCompleted, setSearchCompleted] = useState(false);
@@ -168,6 +169,7 @@ export default function Body() {
     setSearchSummary("");
     setSearchProducts([]);
     setSearchCompleted(false);
+    setBundleResults([]);
 
     try {
       const sessionId = await executeFlow({ language: "en", userInput: { type: "search", value: q } });
@@ -186,6 +188,13 @@ export default function Body() {
           setSearchLoading(false);
           setSearchCompleted(true);
           cleanupSearch();
+          return;
+        }
+
+        // Bundle result detection — collect all bundles, keep streaming
+        if (ev === "bundle-result") {
+          const response = evt?.response || evt?.data?.response || {};
+          setBundleResults((prev) => [...prev, response]);
           return;
         }
 
@@ -237,6 +246,12 @@ export default function Body() {
   }, [hasKey, inopsClient, query, cleanupSearch]);
 
   /* ── Similar Products ── */
+  const [cartToast, setCartToast] = useState("");
+  const showCartToast = useCallback((msg) => {
+    setCartToast(msg);
+    setTimeout(() => setCartToast(""), 2000);
+  }, []);
+
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [similarLoading, setSimilarLoading] = useState(false);
@@ -245,11 +260,10 @@ export default function Body() {
   const similarUnsubRef = useRef(null);
 
   const openProduct = useCallback(async (p) => {
-    const pid = String(p?.productId || p?.id || "").trim();
-    if (!pid) return;
     setSelectedProduct(p);
     setModalOpen(true);
-    if (!hasKey || !inopsClient) return;
+    const pid = String(p?.productId || p?.id || "").trim();
+    if (!pid || !hasKey || !inopsClient) return;
 
     if (similarUnsubRef.current) { similarUnsubRef.current(); similarUnsubRef.current = null; }
     setSimilarLoading(true);
@@ -377,9 +391,9 @@ export default function Body() {
             {campaignLoading ? (
               <div className="col-span-full text-sm text-gray-500 py-8 text-center">Loading featured products\u2026</div>
             ) : campaignProducts.length > 0 ? (
-              campaignProducts.map((p) => (
+              campaignProducts.map((p, idx) => (
                 <button
-                  key={String(p?.productId || p?.id || title(p))}
+                  key={`camp-${idx}`}
                   type="button"
                   className="group rounded-xl border border-gray-200 bg-white hover:border-[#6BD7FF] hover:shadow-lg transition-all text-left overflow-hidden"
                   onClick={() => openProduct(p)}
@@ -445,8 +459,16 @@ export default function Body() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="e.g. longboard for beginners"
-                  className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
+                  className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 pr-12 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
                 />
+                {searchLoading && (
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    <svg className="animate-spin h-5 w-5 text-[#6BD7FF]" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                  </div>
+                )}
 
                 {/* Results dropdown */}
                 {charCount >= 3 && (
@@ -456,10 +478,111 @@ export default function Body() {
                         <div className="p-3 text-xs text-gray-500">Streaming results\u2026</div>
                       ) : searchError ? (
                         <div className="p-3 text-sm text-red-600">{searchError}</div>
+                      ) : bundleResults.length > 0 ? (
+                        <div className="p-2">
+                          {bundleResults.map((bundle, bIdx) => {
+                            const total = bundle.groups?.reduce((sum, g) =>
+                              sum + (g.products || []).reduce((s, p) => s + (parseFloat(p?.price) || 0), 0), 0) || 0;
+                            const overBudget = bundle.budget && total > bundle.budget;
+                            return (
+                              <div key={bIdx} className="border border-gray-200 rounded-lg mb-2 overflow-hidden">
+                                {/* Header */}
+                                <div className="bg-gradient-to-r from-emerald-50 to-blue-50 px-3 py-2 border-b border-gray-200 flex items-center justify-between">
+                                  <div className="flex items-center gap-2">
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-600 text-white">
+                                      {bundleResults.length > 1 ? `Bundle #${bIdx + 1}` : "Bundle"}
+                                    </span>
+                                    <span className="text-xs font-medium text-gray-600">{bundle.intent}</span>
+                                  </div>
+                                  {bundle.budget && (
+                                    <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${overBudget ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-700"}`}>
+                                      Budget: ${bundle.budget}
+                                    </span>
+                                  )}
+                                </div>
+                                {/* Products — flat list, no category headers */}
+                                <div className="divide-y divide-gray-100">
+                                  {(bundle.groups || []).flatMap((group, gIdx) =>
+                                    (group.products || []).map((p, pIdx) => (
+                                      <button
+                                        key={`${gIdx}-${pIdx}`}
+                                        type="button"
+                                        className="w-full text-left px-3 py-2.5 hover:bg-gray-50 transition flex items-center gap-3"
+                                        onClick={() => openProduct(p)}
+                                      >
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
+                                          {img(p) ? (
+                                            <img src={img(p)} alt={title(p)} className="w-full h-full object-cover" onError={(e) => { e.target.onerror = null; e.target.src = placeholderImg(title(p), 48); }} />
+                                          ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-[10px] text-gray-400">No img</div>
+                                          )}
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                          <div className="font-semibold text-sm text-gray-900 truncate">{title(p)}</div>
+                                          <div className="flex items-center gap-2 mt-0.5">
+                                            {brand(p) && <span className="text-xs text-gray-400">{brand(p)}</span>}
+                                            {category(p) && <span className="text-xs text-gray-400">{category(p)}</span>}
+                                            {p?.color && <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 text-gray-600">{p.color}</span>}
+                                          </div>
+                                          {reason(p) && <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">{reason(p)}</div>}
+                                        </div>
+                                        <div className="flex items-center gap-2 flex-shrink-0">
+                                          {price(p) && <span className="text-sm font-bold text-gray-900">{price(p)}</span>}
+                                          <span
+                                            role="button"
+                                            className="p-1.5 rounded-lg hover:bg-emerald-100 transition text-gray-400 hover:text-emerald-600"
+                                            onClick={(e) => { e.stopPropagation(); showCartToast(`Added "${title(p)}" to cart`); }}
+                                            title="Add to cart"
+                                          >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+                                            </svg>
+                                          </span>
+                                        </div>
+                                      </button>
+                                    ))
+                                  )}
+                                </div>
+                                {/* Footer */}
+                                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200 flex items-center justify-end gap-3">
+                                  {bundle.budget && (
+                                    <span className={`text-[11px] ${overBudget ? "text-red-600" : "text-green-600"}`}>
+                                      {overBudget ? `$${(total - bundle.budget).toFixed(0)} over` : `$${(bundle.budget - total).toFixed(0)} under`}
+                                    </span>
+                                  )}
+                                  <span
+                                    role="button"
+                                    className="p-1.5 rounded-lg hover:bg-emerald-100 transition text-gray-400 hover:text-emerald-600"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      const count = (bundle.groups || []).reduce((n, g) => n + (g.products?.length || 0), 0);
+                                      showCartToast(`Added ${count} items to cart`);
+                                    }}
+                                    title="Add all to cart"
+                                  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+                                    </svg>
+                                  </span>
+                                  <span className="text-sm font-bold text-gray-900">Total: ${total.toFixed(2)}</span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                          {searchLoading && (
+                            <div className="flex items-center justify-center gap-2 py-2">
+                              <svg className="animate-spin h-4 w-4 text-emerald-600" viewBox="0 0 24 24" fill="none">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                              </svg>
+                              <span className="text-xs text-gray-400">Loading more bundles...</span>
+                            </div>
+                          )}
+                        </div>
                       ) : searchProducts.length > 0 ? (
                         searchProducts.map((p, idx) => (
                           <button
-                            key={String(p?.productId || p?.id || idx)}
+                            key={`search-${idx}`}
                             type="button"
                             className="w-full text-left p-3 hover:bg-gray-50 transition flex items-center gap-3"
                             onClick={() => openProduct(p)}
@@ -488,6 +611,16 @@ export default function Body() {
                               </div>
                               {reason(p) && <div className="text-xs text-gray-500 truncate">{reason(p)}</div>}
                             </div>
+                            <span
+                              role="button"
+                              className="flex-shrink-0 p-1.5 rounded-lg hover:bg-emerald-100 transition text-gray-400 hover:text-emerald-600"
+                              onClick={(e) => { e.stopPropagation(); showCartToast(`Added "${title(p)}" to cart`); }}
+                              title="Add to cart"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+                              </svg>
+                            </span>
                           </button>
                         ))
                       ) : searchCompleted ? (
@@ -508,7 +641,7 @@ export default function Body() {
               <button
                 type="submit"
                 className="h-14 px-8 rounded-lg bg-[#1B5A8E] text-white text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#1D4C73] transition shadow-lg"
-                disabled={!hasKey || searchLoading || charCount < 3}
+                disabled={!hasKey}
               >
                 {searchLoading ? "Searching\u2026" : "Search"}
               </button>
@@ -543,8 +676,8 @@ export default function Body() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {inventoryProducts.map((p) => (
-                    <tr key={String(p?.id || p?.productId || "")} className="hover:bg-gray-50 transition">
+                  {inventoryProducts.map((p, idx) => (
+                    <tr key={`inv-${idx}`} className="hover:bg-gray-50 transition">
                       <td className="px-4 py-3 text-sm font-medium text-[#0F3253]">{title(p)}</td>
                       <td className="px-4 py-3 text-sm text-gray-600">{brand(p) || <span className="text-gray-400">&mdash;</span>}</td>
                       <td className="px-4 py-3 text-sm text-gray-600">{category(p) || <span className="text-gray-400">&mdash;</span>}</td>
@@ -570,6 +703,16 @@ export default function Body() {
           )}
         </div>
       </div>
+
+      {/* Cart toast */}
+      {cartToast && (
+        <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-2 animate-fade-in">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span className="text-sm font-medium">{cartToast}</span>
+        </div>
+      )}
 
       <ProductModal
         open={modalOpen}

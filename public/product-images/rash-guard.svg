@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f0f0f0"/>
+  <!-- Ghost mannequin rash guard - wide body, tight fit -->
+
+  <!-- Main torso - wide -->
+  <path d="M215 120
+           L205 170 L198 230 L195 300 L198 370 L202 420 L208 460 L215 480
+           L385 480 L392 460 L398 420 L402 370 L405 300 L402 230 L395 170
+           L385 120 Z" fill="#3d6b8e"/>
+
+  <!-- Natural waist shaping -->
+  <path d="M200 290 C220 278 260 272 300 272 C340 272 380 278 400 290" fill="none" stroke="#345f7a" stroke-width="2" opacity="0.2"/>
+
+  <!-- Left arm -->
+  <path d="M215 120 L188 135 L165 160 L145 205 L132 260 L125 310 L122 345
+           L142 348 L146 315 L152 265 L162 215 L180 172 L198 148 L218 130 Z" fill="#3a6585"/>
+
+  <!-- Right arm -->
+  <path d="M385 120 L412 135 L435 160 L455 205 L468 260 L475 310 L478 345
+           L458 348 L454 315 L448 265 L438 215 L420 172 L402 148 L382 130 Z" fill="#3a6585"/>
+
+  <!-- Raglan seam - left -->
+  <path d="M215 120 L198 148 L180 180 L168 215 L158 260" stroke="#2d5570" stroke-width="1.5" fill="none"/>
+  <!-- Raglan seam - right -->
+  <path d="M385 120 L402 148 L420 180 L432 215 L442 260" stroke="#2d5570" stroke-width="1.5" fill="none"/>
+
+  <!-- Collar - crew neck -->
+  <path d="M240 102 C240 85 265 76 300 76 C335 76 360 85 360 102 L362 120 L238 120 Z" fill="#3a6585"/>
+  <path d="M245 96 C245 84 268 76 300 76 C332 76 355 84 355 96" fill="none" stroke="#2d5570" stroke-width="2.5"/>
+  <!-- Neck opening -->
+  <ellipse cx="300" cy="93" rx="30" ry="11" fill="#f0f0f0"/>
+
+  <!-- Chest logo - wave/mountain -->
+  <g transform="translate(262, 160)">
+    <path d="M12 55 L38 8 L70 32 L76 55 Z" fill="white" opacity="0.85"/>
+    <path d="M12 55 C25 42 45 46 58 36 C64 32 70 32 70 32" fill="none" stroke="white" stroke-width="3" opacity="0.85"/>
+  </g>
+
+  <!-- Sleeve text on left arm -->
+  <text x="130" y="320" transform="rotate(-82, 130, 320)" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="white" opacity="0.45">SURF CO</text>
+
+  <!-- Body shading -->
+  <path d="M225 180 C232 230 228 280 225 330 C224 360 222 400 220 440" stroke="#2d5570" stroke-width="14" fill="none" opacity="0.15"/>
+  <path d="M375 180 C368 230 372 280 375 330 C376 360 378 400 380 440" stroke="#2d5570" stroke-width="14" fill="none" opacity="0.15"/>
+  <!-- Center chest -->
+  <path d="M300 130 L300 380" stroke="#2d5570" stroke-width="5" fill="none" opacity="0.06"/>
+
+  <!-- Wrist cuffs -->
+  <path d="M122 342 L142 346" stroke="#2d5570" stroke-width="3.5"/>
+  <path d="M478 342 L458 346" stroke="#2d5570" stroke-width="3.5"/>
+
+  <!-- Bottom hem -->
+  <path d="M218 477 L382 477" stroke="#2d5570" stroke-width="2"/>
+
+  <!-- Elbow wrinkles -->
+  <path d="M148 275 C150 272 153 275 155 272" stroke="#4a7d9e" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <path d="M452 275 C450 272 447 275 445 272" stroke="#4a7d9e" stroke-width="0.8" fill="none" opacity="0.4"/>
+</svg>

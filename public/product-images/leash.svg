@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f8f9fa"/>
+  <!-- Coiled leash cord -->
+  <path d="M300 100 C380 100 420 140 420 180 C420 220 380 250 300 250 C220 250 180 290 180 330 C180 370 220 400 300 400 C380 400 420 440 420 480"
+        fill="none" stroke="#2BBCE0" stroke-width="8" stroke-linecap="round"/>
+  <!-- Rail saver (board end) -->
+  <rect x="280" y="70" width="40" height="35" rx="5" fill="#333"/>
+  <rect x="285" y="75" width="30" height="10" rx="3" fill="#555"/>
+  <!-- Velcro string -->
+  <line x1="300" y1="95" x2="300" y2="105" stroke="#555" stroke-width="3"/>
+  <!-- Ankle cuff -->
+  <path d="M380 470 C380 450 420 440 440 460 L450 500 C450 520 430 535 410 535 L370 535 C350 535 340 520 340 500 Z" fill="#333"/>
+  <!-- Cuff padding -->
+  <path d="M385 475 C385 460 415 452 430 468 L438 498 C438 514 422 525 406 525 L376 525 C360 525 352 514 352 498 Z" fill="#444"/>
+  <!-- Velcro strap -->
+  <rect x="360" y="488" width="70" height="16" rx="4" fill="#2BBCE0"/>
+  <rect x="360" y="488" width="40" height="16" rx="4" fill="#25a8c9"/>
+  <!-- Swivel -->
+  <circle cx="378" cy="472" r="8" fill="#888"/>
+  <circle cx="378" cy="472" r="4" fill="#aaa"/>
+  <!-- Cord highlight -->
+  <path d="M304 105 C380 105 416 142 416 180 C416 218 378 248 300 248"
+        fill="none" stroke="white" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+</svg>

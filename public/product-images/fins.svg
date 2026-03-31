@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f8f9fa"/>
+  <!-- Shadow -->
+  <ellipse cx="300" cy="520" rx="200" ry="12" fill="#e8e8e8"/>
+  <!-- Left fin -->
+  <g transform="translate(120, 0)">
+    <path d="M120 510 L100 300 C95 240 110 180 140 140 C155 120 165 130 160 160 L145 510 Z" fill="#2BBCE0"/>
+    <path d="M120 510 L105 320 C102 270 112 210 135 170" fill="none" stroke="#25a8c9" stroke-width="2" opacity="0.5"/>
+    <!-- Base tab -->
+    <rect x="115" y="505" width="35" height="12" rx="3" fill="#1a8fa8"/>
+  </g>
+  <!-- Center fin (taller) -->
+  <g transform="translate(240, 0)">
+    <path d="M120 510 L95 280 C88 200 110 120 150 80 C168 60 178 75 170 110 L145 510 Z" fill="#2BBCE0"/>
+    <path d="M120 510 L100 300 C95 230 112 150 145 100" fill="none" stroke="#25a8c9" stroke-width="2" opacity="0.5"/>
+    <!-- Highlight -->
+    <path d="M110 400 L100 310 C97 260 108 190 130 145" fill="none" stroke="white" stroke-width="3" opacity="0.25" stroke-linecap="round"/>
+    <!-- Base tab -->
+    <rect x="115" y="505" width="35" height="12" rx="3" fill="#1a8fa8"/>
+  </g>
+  <!-- Right fin -->
+  <g transform="translate(360, 0)">
+    <path d="M120 510 L100 300 C95 240 110 180 140 140 C155 120 165 130 160 160 L145 510 Z" fill="#2BBCE0"/>
+    <path d="M120 510 L105 320 C102 270 112 210 135 170" fill="none" stroke="#25a8c9" stroke-width="2" opacity="0.5"/>
+    <!-- Base tab -->
+    <rect x="115" y="505" width="35" height="12" rx="3" fill="#1a8fa8"/>
+  </g>
+</svg>

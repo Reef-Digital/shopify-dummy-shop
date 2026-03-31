@@ -139,9 +139,9 @@ export default function ProductModal({
             ) : null}
 
             <div className="space-y-2">
-              {(similar || []).slice(0, 10).map((p) => (
+              {(similar || []).slice(0, 10).map((p, idx) => (
                 <button
-                  key={String(p?.productId || p?.id || p?.title || "")}
+                  key={`sim-${idx}`}
                   type="button"
                   className="w-full text-left rounded-2xl border border-gray-200 bg-white hover:bg-gray-50 transition px-3 py-3"
                   onClick={() => onSelectSimilar?.(p)}

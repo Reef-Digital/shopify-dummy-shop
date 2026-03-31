@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f0f0f0"/>
+  <!-- Ghost mannequin wetsuit - wider body, realistic proportions -->
+
+  <!-- Shadow -->
+  <ellipse cx="300" cy="578" rx="80" ry="8" fill="#d5d5d5"/>
+
+  <!-- Left leg -->
+  <path d="M270 400 L258 440 L250 490 L248 535 L250 565 L272 567 L274 535 L276 490 L280 445 L288 405 Z" fill="#222"/>
+  <!-- Right leg -->
+  <path d="M330 400 L342 440 L350 490 L352 535 L350 565 L328 567 L326 535 L324 490 L320 445 L312 405 Z" fill="#2a2a2a"/>
+
+  <!-- Knee pads -->
+  <ellipse cx="260" cy="470" rx="16" ry="28" fill="#333" opacity="0.6"/>
+  <ellipse cx="340" cy="470" rx="16" ry="28" fill="#383838" opacity="0.6"/>
+
+  <!-- Crotch -->
+  <path d="M270 395 C285 415 315 415 330 395" fill="#252525"/>
+
+  <!-- Lower torso / hips - wide -->
+  <path d="M230 310 L225 350 L232 390 L270 405 L300 410 L330 405 L368 390 L375 350 L370 310 Z" fill="#252525"/>
+
+  <!-- Upper torso - wide chest -->
+  <path d="M225 140 L220 200 L218 260 L225 310 L375 310 L382 260 L380 200 L375 140 Z" fill="#1e1e1e"/>
+
+  <!-- Chest panel - lighter grey like O'Neill -->
+  <path d="M255 128 C270 115 290 110 300 110 C310 110 330 115 345 128
+           L358 190 L365 260 L360 310
+           L300 330
+           L240 310 L235 260 L242 190 Z" fill="#333"/>
+  <!-- Panel seam -->
+  <path d="M255 128 C270 115 290 110 300 110 C310 110 330 115 345 128
+           L358 190 L365 260 L360 310 L300 330 L240 310 L235 260 L242 190 Z"
+        fill="none" stroke="#444" stroke-width="1.5"/>
+
+  <!-- Left arm - thicker -->
+  <path d="M225 140 L200 152 L178 175 L158 225 L148 285 L142 345 L140 378
+           L158 381 L162 348 L168 290 L178 232 L195 185 L212 162 L228 148 Z" fill="#2a2a2a"/>
+
+  <!-- Right arm - thicker -->
+  <path d="M375 140 L400 152 L422 175 L442 225 L452 285 L458 345 L460 378
+           L442 381 L438 348 L432 290 L422 232 L405 185 L388 162 L372 148 Z" fill="#333"/>
+
+  <!-- Arm inner shading -->
+  <path d="M170 190 L158 250 L150 310" stroke="#1a1a1a" stroke-width="6" fill="none" opacity="0.2"/>
+  <path d="M430 190 L442 250 L450 310" stroke="#282828" stroke-width="6" fill="none" opacity="0.2"/>
+
+  <!-- Wrist cuffs -->
+  <path d="M140 374 L158 378" stroke="#444" stroke-width="3"/>
+  <path d="M460 374 L442 378" stroke="#444" stroke-width="3"/>
+
+  <!-- Collar -->
+  <path d="M262 110 C262 92 278 82 300 82 C322 82 338 92 338 110" fill="#333"/>
+  <path d="M266 102 C266 90 280 82 300 82 C320 82 334 90 334 102" fill="none" stroke="#444" stroke-width="2.5"/>
+  <!-- Neck opening -->
+  <ellipse cx="300" cy="98" rx="24" ry="10" fill="#f0f0f0"/>
+
+  <!-- Shoulder seams -->
+  <path d="M262 112 L235 140 L215 158" stroke="#444" stroke-width="1.2" fill="none"/>
+  <path d="M338 112 L365 140 L385 158" stroke="#444" stroke-width="1.2" fill="none"/>
+
+  <!-- Side panel teal accents -->
+  <path d="M228 170 L222 240 L220 300 L225 340" stroke="#2BBCE0" stroke-width="4" fill="none" opacity="0.35"/>
+  <path d="M372 170 L378 240 L380 300 L375 340" stroke="#2BBCE0" stroke-width="4" fill="none" opacity="0.35"/>
+
+  <!-- Front zipper -->
+  <line x1="300" y1="98" x2="300" y2="260" stroke="#555" stroke-width="1.5"/>
+  <rect x="297" y="250" width="6" height="10" rx="2" fill="#777"/>
+
+  <!-- Brand text -->
+  <text x="300" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#888" opacity="0.4">SURF CO</text>
+
+  <!-- Body contour shading -->
+  <path d="M260 190 C265 230 262 270 260 310" stroke="#1a1a1a" stroke-width="12" fill="none" opacity="0.1"/>
+  <path d="M340 190 C335 230 338 270 340 310" stroke="#1a1a1a" stroke-width="12" fill="none" opacity="0.1"/>
+</svg>

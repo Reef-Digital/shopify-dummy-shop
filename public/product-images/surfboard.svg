@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f8f9fa"/>
+  <!-- Shadow -->
+  <ellipse cx="300" cy="560" rx="60" ry="8" fill="#e0e0e0"/>
+  <!-- Surfboard body -->
+  <path d="M300 40 C340 40 370 80 375 160 L380 440 C380 500 350 560 300 560 C250 560 220 500 220 440 L225 160 C230 80 260 40 300 40Z" fill="#2BBCE0"/>
+  <!-- Stringer -->
+  <line x1="300" y1="60" x2="300" y2="545" stroke="#1a8fa8" stroke-width="2"/>
+  <!-- Nose detail -->
+  <ellipse cx="300" cy="100" rx="30" ry="15" fill="#25a8c9" opacity="0.6"/>
+  <!-- Fin -->
+  <path d="M300 480 L290 530 C290 545 300 550 310 530 Z" fill="#1a8fa8"/>
+  <!-- Side rails highlight -->
+  <path d="M235 200 C235 180 240 160 250 140" stroke="white" stroke-width="3" fill="none" opacity="0.3" stroke-linecap="round"/>
+  <!-- Brand circle -->
+  <circle cx="300" cy="250" r="20" fill="none" stroke="#1a8fa8" stroke-width="2"/>
+  <circle cx="300" cy="250" r="3" fill="#1a8fa8"/>
+</svg>
