@@ -135,6 +135,8 @@ export default function Body() {
 
   /* ── Search ── */
   const [query, setQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const searchAreaRef = useRef(null);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState("");
   const [bundleResults, setBundleResults] = useState([]);
@@ -160,6 +162,7 @@ export default function Body() {
     if (!hasKey || !inopsClient) { setSearchError("Search not ready (missing key or SDK)."); return; }
     if (q.length < 3) { setSearchError("Please enter at least 3 characters"); return; }
     if (isSearchingRef.current) return;
+    setShowDropdown(true);
 
     cleanupSearch();
     isSearchingRef.current = true;
@@ -297,6 +300,16 @@ export default function Body() {
   }, [hasKey, inopsClient]);
 
   /* ── Effects ── */
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (searchAreaRef.current && !searchAreaRef.current.contains(e.target)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     if (hasKey && sdkReady && inopsClient && campaignId && !campaignLoadedRef.current) {
       void loadCampaign();
@@ -448,9 +461,9 @@ export default function Body() {
             <p className="text-sm text-gray-600">Type 3+ characters to search automatically</p>
           </div>
 
-          <div className="relative">
+          <div className="relative" ref={searchAreaRef}>
             <form
-              onSubmit={(e) => { e.preventDefault(); if (charCount >= 3) void runSearchNow(query); }}
+              onSubmit={(e) => { e.preventDefault(); if (charCount >= 3) { setShowDropdown(true); void runSearchNow(query); } }}
               className="flex gap-3"
             >
               <div className="flex-1 relative">
@@ -458,6 +471,7 @@ export default function Body() {
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
+                  onFocus={() => { if (charCount >= 3) setShowDropdown(true); }}
                   placeholder="e.g. longboard for beginners"
                   className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 pr-12 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
                 />
@@ -471,7 +485,7 @@ export default function Body() {
                 )}
 
                 {/* Results dropdown */}
-                {charCount >= 3 && (
+                {showDropdown && charCount >= 3 && (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
                     <div className="overflow-auto divide-y max-h-72">
                       {searchLoading ? (
@@ -651,6 +665,72 @@ export default function Body() {
                 Demo is not configured: missing <span className="font-mono">VITE_INOPS_SEARCH_KEY</span>
               </div>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* How to search guide */}
+      <div className="w-full bg-gray-50 py-8 border-t border-gray-200">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-20">
+          <h3 className="text-lg font-semibold text-[#0F3253] mb-2">How to search</h3>
+          <p className="text-sm text-gray-600 mb-5 max-w-2xl">
+            This demo shop is powered by Inops AI search. It understands natural language shopping
+            intent — not just keywords. Try the examples below to see the difference between a
+            simple product lookup and AI-powered bundle discovery.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Single product column */}
+            <div>
+              <div className="mb-2">
+                <span className="text-sm font-semibold text-[#0F3253]">Single product</span>
+                <span className="text-xs text-gray-500 ml-2">Find one specific item</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "blue wetsuit for women",
+                  "kids surfboard under $300",
+                  "Rip Curl rash guard",
+                  "longboard for beginners",
+                  "4/3 wetsuit",
+                ].map((ex) => (
+                  <button
+                    key={ex}
+                    type="button"
+                    className="px-3 py-1.5 text-sm rounded-full border border-gray-300 bg-white text-gray-700 hover:border-[#6BD7FF] hover:text-[#1B5A8E] hover:shadow-sm transition"
+                    onClick={() => { setQuery(ex); void runSearchNow(ex); }}
+                  >
+                    {ex}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Bundle column */}
+            <div>
+              <div className="mb-2">
+                <span className="text-sm font-semibold text-[#0F3253]">Bundle (AI kit builder)</span>
+                <span className="text-xs text-gray-500 ml-2">Describe a need, get a full kit</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "my boy wants to start surfing",
+                  "complete surf kit budget $500",
+                  "gift for a surfer",
+                  "cold water surfing setup",
+                  "getting into surfing this summer",
+                ].map((ex) => (
+                  <button
+                    key={ex}
+                    type="button"
+                    className="px-3 py-1.5 text-sm rounded-full border border-gray-300 bg-white text-gray-700 hover:border-[#6BD7FF] hover:text-[#1B5A8E] hover:shadow-sm transition"
+                    onClick={() => { setQuery(ex); void runSearchNow(ex); }}
+                  >
+                    {ex}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
