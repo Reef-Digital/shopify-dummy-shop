@@ -304,6 +304,10 @@ export default function Body() {
     function handleClickOutside(e) {
       if (searchAreaRef.current && !searchAreaRef.current.contains(e.target)) {
         setShowDropdown(false);
+        // Cancel any in-flight search
+        cleanupSearch();
+        isSearchingRef.current = false;
+        setSearchLoading(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -339,129 +343,39 @@ export default function Body() {
   /* ── Render ── */
   return (
     <div className="flex-1 flex flex-col min-h-screen bg-white">
-      {/* SDK error banner */}
-      {sdkError && (
-        <div className="bg-red-50 border-b border-red-200 text-red-700 text-sm px-6 py-3 text-center">
-          {sdkError}
-        </div>
-      )}
+      {/* 1. Slim top banner */}
+      <div className="bg-[#0F3253] text-white text-sm px-6 py-2.5 text-center flex items-center justify-center gap-2">
+        <span>This is a demo shop showcasing AI-powered product search by</span>
+        <a href={homepageUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 hover:text-[#6BD7FF] transition">
+          Inops
+        </a>
+        <span className="mx-1">|</span>
+        <a href={homepageUrl} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-[#6BD7FF] transition">
+          Learn more &rarr;
+        </a>
+      </div>
 
-      {/* Hero */}
+      {/* 2. Hero with embedded search */}
       <div
-        className="h-[700px] bg-cover bg-center pt-24 relative"
-        style={{ backgroundImage: `url(${bgImage})` }}
+        className="relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${bgImage})`, minHeight: "450px" }}
       >
+        {/* Gradient overlay: darken top for text, fade to white at bottom */}
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(15,50,83,0.55) 0%, rgba(15,50,83,0.3) 50%, rgba(255,255,255,1) 100%)" }}
         />
-        <div className="relative px-6 md:px-20 z-10">
-          <div className="flex flex-col items-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#1D4C73] mt-12 text-center">
-              {shopName}
-            </h1>
-            <p className="text-lg md:text-xl font-normal my-6 text-[#1B5A8E] text-center max-w-2xl">
-              Try our AI powered search — faster, smarter, and spot-on every time!
-            </p>
-            <a
-              href={homepageUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 px-8 py-4 bg-[#1B5A8E] text-white text-lg font-semibold rounded-lg hover:bg-[#1D4C73] transition shadow-lg"
-            >
-              Powered by Inops
-            </a>
-          </div>
-        </div>
-      </div>
 
-      {/* Campaign Products */}
-      <div className="w-full bg-white py-8 -mt-[260px] relative z-20">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-20">
-          <h2 className="text-2xl font-semibold text-[#0F3253] mb-4">Featured Products</h2>
+        <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-20 pt-14 pb-20">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mt-6 text-center drop-shadow-lg">
+            {shopName}
+          </h1>
+          <p className="text-lg md:text-xl font-medium my-4 text-white/90 text-center max-w-2xl drop-shadow">
+            Experience AI-powered product discovery
+          </p>
 
-          {campaignError && (
-            <div className="text-sm text-red-600 mb-4 bg-red-50 border border-red-200 rounded-lg px-4 py-3 flex flex-col gap-2">
-              <div>
-                <strong>Campaign Error:</strong> {campaignError}
-                {!hasKey && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_SEARCH_KEY</code></div>}
-                {!campaignId && <div className="mt-1">Missing <code className="bg-red-100 px-1 rounded">VITE_INOPS_CAMPAIGN_ID</code></div>}
-              </div>
-              {hasKey && campaignId && (
-                <button
-                  type="button"
-                  onClick={retryCampaign}
-                  disabled={campaignLoading}
-                  className="self-start px-4 py-2 rounded-lg bg-[#1B5A8E] text-white text-sm font-medium hover:bg-[#1D4C73] disabled:opacity-50"
-                >
-                  {campaignLoading ? "Loading\u2026" : "Retry campaign"}
-                </button>
-              )}
-            </div>
-          )}
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-            {campaignLoading ? (
-              <div className="col-span-full text-sm text-gray-500 py-8 text-center">Loading featured products\u2026</div>
-            ) : campaignProducts.length > 0 ? (
-              campaignProducts.map((p, idx) => (
-                <button
-                  key={`camp-${idx}`}
-                  type="button"
-                  className="group rounded-xl border border-gray-200 bg-white hover:border-[#6BD7FF] hover:shadow-lg transition-all text-left overflow-hidden"
-                  onClick={() => openProduct(p)}
-                >
-                  <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                    {img(p) ? (
-                      <img
-                        src={img(p)}
-                        alt={title(p)}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => { e.target.onerror = null; e.target.src = placeholderImg(title(p), 200); }}
-                      />
-                    ) : (
-                      <div className="flex flex-col items-center gap-2 text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-xs">{title(p).substring(0, 20)}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="px-3 py-3">
-                    <div className="font-semibold text-sm text-[#0F3253] leading-tight line-clamp-2">
-                      {title(p)}
-                    </div>
-                  </div>
-                </button>
-              ))
-            ) : !campaignLoading && hasKey && campaignId ? (
-              <div className="text-sm text-gray-500 py-4">No campaign products found.</div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-
-      {/* Search */}
-      <div className="w-full bg-white py-10 border-t border-gray-200">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-20">
-          <div className="mb-4">
-            <div className="flex items-center gap-3 mb-2 flex-wrap">
-              <h2 className="text-2xl font-semibold text-[#0F3253]">Search Products</h2>
-              {charCount >= 3 && (
-                <span
-                  className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
-                    wordCount === 1 ? "bg-blue-100 text-blue-800" : "bg-purple-100 text-purple-800"
-                  }`}
-                >
-                  {wordCount === 1 ? "Direct" : "Intent"}
-                </span>
-              )}
-            </div>
-            <p className="text-sm text-gray-600">Type 3+ characters to search automatically</p>
-          </div>
-
-          <div className="relative" ref={searchAreaRef}>
+          {/* Search bar */}
+          <div className="w-full max-w-2xl mt-4" ref={searchAreaRef}>
             <form
               onSubmit={(e) => { e.preventDefault(); if (charCount >= 3) { setShowDropdown(true); void runSearchNow(query); } }}
               className="flex gap-3"
@@ -472,8 +386,8 @@ export default function Body() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onFocus={() => { if (charCount >= 3) setShowDropdown(true); }}
-                  placeholder="e.g. longboard for beginners"
-                  className="w-full h-14 rounded-lg border-2 border-[#6BD7FF] bg-white px-5 pr-12 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-lg"
+                  placeholder="e.g. longboard for beginners, gift for a surfer..."
+                  className="w-full h-14 rounded-xl border-2 border-white/60 bg-white px-5 pr-12 text-lg outline-none focus:ring-2 focus:ring-[#6BD7FF] shadow-2xl"
                 />
                 {searchLoading && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -484,12 +398,12 @@ export default function Body() {
                   </div>
                 )}
 
-                {/* Results dropdown */}
+                {/* Results dropdown — overlays the section below */}
                 {showDropdown && charCount >= 3 && (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
                     <div className="overflow-auto divide-y max-h-72">
                       {searchLoading ? (
-                        <div className="p-3 text-xs text-gray-500">Streaming results\u2026</div>
+                        <div className="p-3 text-xs text-gray-500">Streaming results&hellip;</div>
                       ) : searchError ? (
                         <div className="p-3 text-sm text-red-600">{searchError}</div>
                       ) : bundleResults.length > 0 ? (
@@ -500,7 +414,6 @@ export default function Body() {
                             const overBudget = bundle.budget && total > bundle.budget;
                             return (
                               <div key={bIdx} className="border border-gray-200 rounded-lg mb-2 overflow-hidden">
-                                {/* Header */}
                                 <div className="bg-gradient-to-r from-emerald-50 to-blue-50 px-3 py-2 border-b border-gray-200 flex items-center justify-between">
                                   <div className="flex items-center gap-2">
                                     <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-600 text-white">
@@ -514,7 +427,6 @@ export default function Body() {
                                     </span>
                                   )}
                                 </div>
-                                {/* Products — flat list, no category headers */}
                                 <div className="divide-y divide-gray-100">
                                   {(bundle.groups || []).flatMap((group, gIdx) =>
                                     (group.products || []).map((p, pIdx) => (
@@ -557,7 +469,6 @@ export default function Body() {
                                     ))
                                   )}
                                 </div>
-                                {/* Footer */}
                                 <div className="bg-gray-50 px-3 py-2 border-t border-gray-200 flex items-center justify-end gap-3">
                                   {bundle.budget && (
                                     <span className={`text-[11px] ${overBudget ? "text-red-600" : "text-green-600"}`}>
@@ -640,7 +551,7 @@ export default function Body() {
                       ) : searchCompleted ? (
                         <div className="p-3 text-sm text-gray-500 text-center">No results found.</div>
                       ) : (
-                        <div className="p-3 text-xs text-gray-500">Searching\u2026</div>
+                        <div className="p-3 text-xs text-gray-500">Searching&hellip;</div>
                       )}
                     </div>
 
@@ -654,133 +565,306 @@ export default function Body() {
               </div>
               <button
                 type="submit"
-                className="h-14 px-8 rounded-lg bg-[#1B5A8E] text-white text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#1D4C73] transition shadow-lg"
+                className="h-14 px-8 rounded-xl bg-[#1B5A8E] text-white text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#1D4C73] transition shadow-2xl"
                 disabled={!hasKey}
               >
                 {searchLoading ? "Searching\u2026" : "Search"}
               </button>
             </form>
-            {!hasKey && (
-              <div className="mt-3 text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
-                Demo is not configured: missing <span className="font-mono">VITE_INOPS_SEARCH_KEY</span>
+          </div>
+
+          {/* Example chips */}
+          <div className="mt-6 flex flex-col items-center gap-2">
+            <span className="text-sm font-medium text-white/80">Try:</span>
+            <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
+              {[
+                "blue wetsuit for women",
+                "kids surfboard under $300",
+                "longboard for beginners",
+                "Rip Curl rash guard",
+                "4/3 wetsuit",
+              ].map((ex) => (
+                <button
+                  key={ex}
+                  type="button"
+                  className="px-3.5 py-1.5 text-sm rounded-full bg-black/20 backdrop-blur-sm text-white border border-white/35 hover:bg-black/35 hover:border-white/55 transition"
+                  onClick={() => { setQuery(ex); void runSearchNow(ex); }}
+                >
+                  {ex}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
+              {[
+                "my boy wants to start surfing",
+                "complete surf kit budget $500",
+                "gift for a surfer",
+                "cold water surfing setup",
+                "getting into surfing this summer",
+              ].map((ex) => (
+                <button
+                  key={ex}
+                  type="button"
+                  className="px-3.5 py-1.5 text-sm rounded-full bg-black/20 backdrop-blur-sm text-white border border-white/35 hover:bg-black/35 hover:border-white/55 transition"
+                  onClick={() => { setQuery(ex); void runSearchNow(ex); }}
+                >
+                  {ex}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Results section — only visible when search has results */}
+      {(searchProducts.length > 0 || bundleResults.length > 0) && searchCompleted && !showDropdown && (
+        <div className="w-full bg-white py-10">
+          <div className="max-w-[1080px] mx-auto px-6 md:px-20">
+            <h2 className="text-xl font-semibold text-[#0F3253] mb-4">
+              {bundleResults.length > 0 ? "Bundle Results" : `${searchProducts.length} results found`}
+            </h2>
+            {searchSummary && (
+              <p className="text-sm text-gray-600 mb-6 bg-blue-50 rounded-lg px-4 py-3">{searchSummary}</p>
+            )}
+
+            {bundleResults.length > 0 ? (
+              <div className="space-y-4">
+                {bundleResults.map((bundle, bIdx) => {
+                  const total = bundle.groups?.reduce((sum, g) =>
+                    sum + (g.products || []).reduce((s, p) => s + (parseFloat(p?.price) || 0), 0), 0) || 0;
+                  const overBudget = bundle.budget && total > bundle.budget;
+                  return (
+                    <div key={bIdx} className="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                      <div className="bg-gradient-to-r from-emerald-50 to-blue-50 px-5 py-3 border-b border-gray-200 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-600 text-white">
+                            {bundleResults.length > 1 ? `Bundle #${bIdx + 1}` : "Bundle"}
+                          </span>
+                          <span className="text-sm font-medium text-gray-700">{bundle.intent}</span>
+                        </div>
+                        {bundle.budget && (
+                          <span className={`text-xs font-semibold px-3 py-1 rounded-full ${overBudget ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-700"}`}>
+                            Budget: ${bundle.budget}
+                          </span>
+                        )}
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+                        {(bundle.groups || []).flatMap((group, gIdx) =>
+                          (group.products || []).map((p, pIdx) => (
+                            <button
+                              key={`${gIdx}-${pIdx}`}
+                              type="button"
+                              className="group rounded-xl border border-gray-200 bg-white hover:border-[#6BD7FF] hover:shadow-lg transition-all text-left overflow-hidden"
+                              onClick={() => openProduct(p)}
+                            >
+                              <div className="aspect-[4/3] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                                {img(p) ? (
+                                  <img src={img(p)} alt={title(p)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onError={(e) => { e.target.onerror = null; e.target.src = placeholderImg(title(p), 200); }} />
+                                ) : (
+                                  <div className="flex flex-col items-center gap-2 text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                  </div>
+                                )}
+                              </div>
+                              <div className="px-3 py-3">
+                                <div className="font-semibold text-sm text-[#0F3253] leading-tight line-clamp-2">{title(p)}</div>
+                                <div className="flex items-center gap-2 mt-1">
+                                  {price(p) && <span className="text-sm font-bold text-gray-900">{price(p)}</span>}
+                                  {brand(p) && <span className="text-xs text-gray-400">{brand(p)}</span>}
+                                </div>
+                                {reason(p) && <div className="text-xs text-gray-500 mt-1 line-clamp-1">{reason(p)}</div>}
+                              </div>
+                            </button>
+                          ))
+                        )}
+                      </div>
+                      <div className="bg-gray-50 px-5 py-3 border-t border-gray-200 flex items-center justify-end gap-4">
+                        {bundle.budget && (
+                          <span className={`text-xs ${overBudget ? "text-red-600" : "text-green-600"}`}>
+                            {overBudget ? `$${(total - bundle.budget).toFixed(0)} over budget` : `$${(bundle.budget - total).toFixed(0)} under budget`}
+                          </span>
+                        )}
+                        <span className="text-sm font-bold text-gray-900">Total: ${total.toFixed(2)}</span>
+                        <button
+                          type="button"
+                          className="ml-2 px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition"
+                          onClick={() => {
+                            const count = (bundle.groups || []).reduce((n, g) => n + (g.products?.length || 0), 0);
+                            showCartToast(`Added ${count} items to cart`);
+                          }}
+                        >
+                          Add bundle to cart
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+                {searchProducts.map((p, idx) => (
+                  <button
+                    key={`result-${idx}`}
+                    type="button"
+                    className="group rounded-xl border border-gray-200 bg-white hover:border-[#6BD7FF] hover:shadow-lg transition-all text-left overflow-hidden"
+                    onClick={() => openProduct(p)}
+                  >
+                    <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                      {img(p) ? (
+                        <img src={img(p)} alt={title(p)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onError={(e) => { e.target.onerror = null; e.target.src = placeholderImg(title(p), 200); }} />
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-gray-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                      )}
+                    </div>
+                    <div className="px-3 py-3">
+                      <div className="font-semibold text-sm text-[#0F3253] leading-tight line-clamp-2">{title(p)}</div>
+                      <div className="flex items-center gap-2 mt-1">
+                        {price(p) && <span className="text-sm font-bold text-gray-900">{price(p)}</span>}
+                        {score(p) && <span className="text-xs text-gray-400">{score(p)} match</span>}
+                      </div>
+                      {reason(p) && <div className="text-xs text-gray-500 mt-1 line-clamp-1">{reason(p)}</div>}
+                    </div>
+                  </button>
+                ))}
               </div>
             )}
           </div>
         </div>
-      </div>
+      )}
 
-      {/* How to search guide */}
-      <div className="w-full bg-gray-50 py-8 border-t border-gray-200">
+      {/* 4. How it works */}
+      <div className="w-full bg-gray-50 py-16 border-t border-gray-200">
         <div className="max-w-[1080px] mx-auto px-6 md:px-20">
-          <h3 className="text-lg font-semibold text-[#0F3253] mb-2">How to search</h3>
-          <p className="text-sm text-gray-600 mb-5 max-w-2xl">
-            This demo shop is powered by Inops AI search. It understands natural language shopping
-            intent — not just keywords. Try the examples below to see the difference between a
-            simple product lookup and AI-powered bundle discovery.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Single product column */}
-            <div>
-              <div className="mb-2">
-                <span className="text-sm font-semibold text-[#0F3253]">Single product</span>
-                <span className="text-xs text-gray-500 ml-2">Find one specific item</span>
+          <h2 className="text-2xl font-bold text-[#0F3253] text-center mb-10">How it works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Natural Language */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#1B5A8E] flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "blue wetsuit for women",
-                  "kids surfboard under $300",
-                  "Rip Curl rash guard",
-                  "longboard for beginners",
-                  "4/3 wetsuit",
-                ].map((ex) => (
-                  <button
-                    key={ex}
-                    type="button"
-                    className="px-3 py-1.5 text-sm rounded-full border border-gray-300 bg-white text-gray-700 hover:border-[#6BD7FF] hover:text-[#1B5A8E] hover:shadow-sm transition"
-                    onClick={() => { setQuery(ex); void runSearchNow(ex); }}
-                  >
-                    {ex}
-                  </button>
-                ))}
-              </div>
+              <h3 className="text-lg font-semibold text-[#0F3253] mb-2">Natural Language</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Search like you talk. "longboard for beginners" or "gift for a surfer" — our AI understands intent.
+              </p>
             </div>
-
-            {/* Bundle column */}
-            <div>
-              <div className="mb-2">
-                <span className="text-sm font-semibold text-[#0F3253]">Bundle (AI kit builder)</span>
-                <span className="text-xs text-gray-500 ml-2">Describe a need, get a full kit</span>
+            {/* Smart Bundles */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-600 flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "my boy wants to start surfing",
-                  "complete surf kit budget $500",
-                  "gift for a surfer",
-                  "cold water surfing setup",
-                  "getting into surfing this summer",
-                ].map((ex) => (
-                  <button
-                    key={ex}
-                    type="button"
-                    className="px-3 py-1.5 text-sm rounded-full border border-gray-300 bg-white text-gray-700 hover:border-[#6BD7FF] hover:text-[#1B5A8E] hover:shadow-sm transition"
-                    onClick={() => { setQuery(ex); void runSearchNow(ex); }}
-                  >
-                    {ex}
-                  </button>
-                ))}
+              <h3 className="text-lg font-semibold text-[#0F3253] mb-2">Smart Bundles</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Need a full kit? Describe your mission and AI assembles a curated bundle across categories.
+              </p>
+            </div>
+            {/* Similar Products */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#6BD7FF] flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#0F3253]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
               </div>
+              <h3 className="text-lg font-semibold text-[#0F3253] mb-2">Similar Products</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Click any product to discover alternatives matched by AI, not just keywords.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Inventory */}
-      <div className="w-full bg-gray-50 py-12 border-t-2 border-gray-300">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-20">
-          <h2 className="text-2xl font-semibold text-[#0F3253] mb-2">Shop Inventory</h2>
-          <p className="text-sm text-gray-600 mb-6">Browse all available products in our catalog</p>
-
-          {Array.isArray(inventoryProducts) && inventoryProducts.length > 0 ? (
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <table className="w-full">
-                <thead className="bg-gray-100 border-b border-gray-200">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Title</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Brand</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Category</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Price</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Color</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Gender</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-[#0F3253]">Description</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {inventoryProducts.map((p, idx) => (
-                    <tr key={`inv-${idx}`} className="hover:bg-gray-50 transition">
-                      <td className="px-4 py-3 text-sm font-medium text-[#0F3253]">{title(p)}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{brand(p) || <span className="text-gray-400">&mdash;</span>}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{category(p) || <span className="text-gray-400">&mdash;</span>}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600 font-medium">{price(p) || <span className="text-gray-400">&mdash;</span>}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">
-                        {p?.color ? (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{p.color}</span>
-                        ) : <span className="text-gray-400">&mdash;</span>}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-600">
-                        {p?.gender ? (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700">{p.gender}</span>
-                        ) : <span className="text-gray-400">&mdash;</span>}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{description(p) || <span className="text-gray-400">&mdash;</span>}</td>
+      {/* 5. Product catalog (collapsible) */}
+      {Array.isArray(inventoryProducts) && inventoryProducts.length > 0 && (
+        <div className="w-full bg-white py-10 border-t border-gray-200">
+          <div className="max-w-[1080px] mx-auto px-6 md:px-20">
+            <button
+              type="button"
+              className="w-full flex items-center justify-between group"
+              onClick={(e) => {
+                const panel = e.currentTarget.nextElementSibling;
+                const arrow = e.currentTarget.querySelector('[data-arrow]');
+                if (panel.classList.contains('hidden')) {
+                  panel.classList.remove('hidden');
+                  arrow.classList.add('rotate-180');
+                } else {
+                  panel.classList.add('hidden');
+                  arrow.classList.remove('rotate-180');
+                }
+              }}
+            >
+              <div>
+                <h2 className="text-xl font-bold text-[#0F3253] text-left">Browse the catalog</h2>
+                <p className="text-sm text-gray-500 text-left mt-1">
+                  {inventoryProducts.length} products — inspect the catalog to craft your own test queries
+                </p>
+              </div>
+              <svg data-arrow="" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="hidden mt-6">
+              <div className="bg-white rounded-lg border border-gray-200 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253] w-10"></th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Title</th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Brand</th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Category</th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Price</th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Color</th>
+                      <th className="px-4 py-3 text-left font-semibold text-[#0F3253]">Gender</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {inventoryProducts.map((p, idx) => (
+                      <tr key={`inv-${idx}`} className="hover:bg-gray-50 transition">
+                        <td className="px-4 py-2.5">
+                          <div className="w-8 h-8 rounded border border-gray-200 bg-gray-50 overflow-hidden flex-shrink-0">
+                            {img(p) ? (
+                              <img src={img(p)} alt={title(p)} className="w-full h-full object-cover" onError={(e) => { e.target.onerror = null; e.target.src = placeholderImg(title(p), 32); }} />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-[8px] text-gray-300">img</div>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-4 py-2.5 font-medium text-[#0F3253]">{title(p)}</td>
+                        <td className="px-4 py-2.5 text-gray-600">{brand(p) || "\u2014"}</td>
+                        <td className="px-4 py-2.5 text-gray-600">{category(p) || "\u2014"}</td>
+                        <td className="px-4 py-2.5 text-gray-600 font-medium">{price(p) || "\u2014"}</td>
+                        <td className="px-4 py-2.5">{p?.color ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{p.color}</span> : "\u2014"}</td>
+                        <td className="px-4 py-2.5">{p?.gender ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700">{p.gender}</span> : "\u2014"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          ) : (
-            <div className="text-center py-8 text-gray-500 text-sm">No products found in inventory.</div>
-          )}
+          </div>
+        </div>
+      )}
+
+      {/* 6. Bottom CTA */}
+      <div className="w-full bg-[#0F3253] py-16">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-20 flex flex-col items-center text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            Ready to add AI-powered search to your Shopify store?
+          </h2>
+          <a
+            href={homepageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 rounded-xl bg-[#6BD7FF] text-[#0F3253] text-lg font-bold hover:bg-[#5bc4eb] transition shadow-lg"
+          >
+            Install Inops — Free
+          </a>
+          <p className="text-sm text-white/60 mt-4">No credit card required. Works with any Shopify store.</p>
         </div>
       </div>
 
