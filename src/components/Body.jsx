@@ -384,6 +384,7 @@ export default function Body() {
                 <input
                   type="text"
                   value={query}
+                  maxLength={100}
                   onChange={(e) => setQuery(e.target.value)}
                   onFocus={() => { if (charCount >= 3) setShowDropdown(true); }}
                   placeholder="e.g. longboard for beginners, gift for a surfer..."
