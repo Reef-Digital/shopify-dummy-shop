@@ -162,6 +162,7 @@ export default function Body() {
     if (!hasKey || !inopsClient) { setSearchError("Search not ready (missing key or SDK)."); return; }
     if (q.length < 3) { setSearchError("Please enter at least 3 characters"); return; }
     if (isSearchingRef.current) return;
+    if (typeof window.gtag === 'function') window.gtag('event', 'search', { search_term: q });
     setShowDropdown(true);
 
     cleanupSearch();
@@ -198,6 +199,7 @@ export default function Body() {
         if (ev === "bundle-result") {
           const response = evt?.response || evt?.data?.response || {};
           setBundleResults((prev) => [...prev, response]);
+          if (typeof window.gtag === 'function') window.gtag('event', 'bundle_result', { search_term: query });
           return;
         }
 
@@ -265,6 +267,7 @@ export default function Body() {
   const openProduct = useCallback(async (p) => {
     setSelectedProduct(p);
     setModalOpen(true);
+    if (typeof window.gtag === 'function') window.gtag('event', 'select_item', { item_name: title(p), item_brand: brand(p), item_category: category(p) });
     const pid = String(p?.productId || p?.id || "").trim();
     if (!pid || !hasKey || !inopsClient) return;
 
@@ -275,6 +278,7 @@ export default function Body() {
 
     try {
       const sessionId = await executeFlow({ language: "en", userInput: { type: "similar_products", productId: pid } });
+      if (typeof window.gtag === 'function') window.gtag('event', 'view_similar', { item_name: title(p) });
 
       similarUnsubRef.current = inopsClient.subscribeToSessionSse(sessionId, (evt) => {
         const widgets = evt?.response?.widgets || evt?.data?.response?.widgets || [];
@@ -456,7 +460,7 @@ export default function Body() {
                                           <span
                                             role="button"
                                             className="p-1.5 rounded-lg hover:bg-emerald-100 transition text-gray-400 hover:text-emerald-600"
-                                            onClick={(e) => { e.stopPropagation(); showCartToast(`Added "${title(p)}" to cart`); }}
+                                            onClick={(e) => { e.stopPropagation(); if (typeof window.gtag === 'function') window.gtag('event', 'add_to_cart', { item_name: title(p) }); showCartToast(`Added "${title(p)}" to cart`); }}
                                             title="Add to cart"
                                           >
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -538,7 +542,7 @@ export default function Body() {
                             <span
                               role="button"
                               className="flex-shrink-0 p-1.5 rounded-lg hover:bg-emerald-100 transition text-gray-400 hover:text-emerald-600"
-                              onClick={(e) => { e.stopPropagation(); showCartToast(`Added "${title(p)}" to cart`); }}
+                              onClick={(e) => { e.stopPropagation(); if (typeof window.gtag === 'function') window.gtag('event', 'add_to_cart', { item_name: title(p) }); showCartToast(`Added "${title(p)}" to cart`); }}
                               title="Add to cart"
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
