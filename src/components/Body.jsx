@@ -402,9 +402,7 @@ export default function Body() {
                 {showDropdown && charCount >= 3 && (
                   <div className="absolute top-full left-0 right-0 mt-1 border rounded-lg bg-white shadow-xl z-50 max-h-96 overflow-hidden flex flex-col">
                     <div className="overflow-auto divide-y max-h-72">
-                      {searchLoading ? (
-                        <div className="p-3 text-xs text-gray-500">Streaming results&hellip;</div>
-                      ) : searchError ? (
+                      {searchError ? (
                         <div className="p-3 text-sm text-red-600">{searchError}</div>
                       ) : bundleResults.length > 0 ? (
                         <div className="p-2">
@@ -617,7 +615,7 @@ export default function Body() {
       </div>
 
       {/* 3. Results section — only visible when search has results */}
-      {(searchProducts.length > 0 || bundleResults.length > 0) && searchCompleted && !showDropdown && (
+      {(searchProducts.length > 0 || bundleResults.length > 0) && !showDropdown && (
         <div className="w-full bg-white py-10">
           <div className="max-w-[1080px] mx-auto px-6 md:px-20">
             <h2 className="text-xl font-semibold text-[#0F3253] mb-4">
