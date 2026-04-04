@@ -868,6 +868,7 @@ export default function Body() {
             Install Inops — Free
           </a>
           <p className="text-sm text-white/60 mt-4">No credit card required. Works with any Shopify store.</p>
+          <a href="https://dev.to/reef_digital_-1" className="text-sm text-white/40 hover:text-white/60 mt-6" target="_blank" rel="noopener noreferrer">Blog</a>
         </div>
       </div>
 
