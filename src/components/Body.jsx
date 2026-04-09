@@ -853,7 +853,46 @@ export default function Body() {
         </div>
       )}
 
-      {/* 6. Bottom CTA */}
+      {/* 6. Latest from our blog */}
+      <div id="blog" className="w-full bg-slate-50 py-16">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0F3253] mb-8 text-center">Latest from our blog</h2>
+          <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+            <a
+              href="https://dev.to/reef_digital_-1/inops-v16-ai-search-that-actually-handles-real-merchant-catalogs-2o0d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-400 hover:shadow-md transition group"
+            >
+              <span className="text-sm text-slate-400">April 9, 2026</span>
+              <h3 className="text-lg font-semibold text-slate-800 mt-1 group-hover:text-[#0F3253] transition leading-snug">
+                Inops v1.6 — AI Search That Actually Handles Real Merchant Catalogs
+              </h3>
+              <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                How we built search that works with messy real-world product data — handling duplicates, variants, multilingual catalogs, and thousands of SKUs.
+              </p>
+              <span className="inline-block mt-3 text-sm font-medium text-blue-600 group-hover:underline">Read on Dev.to &rarr;</span>
+            </a>
+            <a
+              href="https://dev.to/reef_digital_-1/how-we-built-ai-powered-bundle-discovery-for-shopify-d6l"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-400 hover:shadow-md transition group"
+            >
+              <span className="text-sm text-slate-400">April 4, 2026</span>
+              <h3 className="text-lg font-semibold text-slate-800 mt-1 group-hover:text-[#0F3253] transition leading-snug">
+                How We Built AI-Powered Bundle Discovery for Shopify
+              </h3>
+              <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                A deep dive into building intelligent product bundle recommendations — combining semantic search, category-aware scoring, and real-time reranking.
+              </p>
+              <span className="inline-block mt-3 text-sm font-medium text-blue-600 group-hover:underline">Read on Dev.to &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 7. Bottom CTA */}
       <div className="w-full bg-[#0F3253] py-16">
         <div className="max-w-[1080px] mx-auto px-6 md:px-20 flex flex-col items-center text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
@@ -868,7 +907,7 @@ export default function Body() {
             Install Inops — Free
           </a>
           <p className="text-sm text-white/60 mt-4">No credit card required. Works with any Shopify store.</p>
-          <a href="https://dev.to/reef_digital_-1" className="text-sm text-white/40 hover:text-white/60 mt-6" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="#blog" className="text-sm text-white/40 hover:text-white/60 mt-6">Blog</a>
         </div>
       </div>
 
